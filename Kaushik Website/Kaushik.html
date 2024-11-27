@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Kaushik Chintalapudi's comprehensive portfolio showcasing achievements, projects, learnings, and expertise in AI and Cloud.">
+   <meta name="keywords" content="Kaushik Chintalapudi, AI Portfolio, Cloud Developer, AI Enthusiast, Microsoft Azure">
+   <meta name="author" content="Kaushik Chintalapudi">
+   <meta name="robots" content="index, follow">
+   <meta property="og:title" content="Kaushik Chintalapudi - AI and Cloud Portfolio">
+   <meta property="og:description" content="Explore projects and learnings in AI and Cloud technologies.">
+   <meta property="og:url" content="https://Kaushik_Chintalapudi.com">
+   <meta property="og:type" content="website">
+   <title>Kaushik Chintalapudi - Comprehensive Portfolio</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <style>
+      :root {
+         --bg-color: #1e1e2f;
+         --text-color: #fff;
+         --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         --button-bg: #0078d7;
+         --button-hover: #005bb5;
+         --progress-bg: #1e1e2f;
+         --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         --footer-bg-dark: #262e47; 
+         --footer-bg-light: #eaf4fc; 
+         --footer-text-dark: #ffffff;
+         --footer-text-light: #000000;
+         --header-bg: rgba(30, 30, 47, 0.9);
+         --header-scrolled-bg: rgba(30, 30, 47, 0.95);
+      }
+
+      [data-theme="light"] {
+         --bg-color: #ffffff;
+         --text-color: #000000;
+         --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
+         --button-bg: #4ac1ff;
+         --button-hover: #6b47dc;
+         --progress-bg: #f0f0f0;
+         --progress-fill: linear-gradient(135deg, #0078d7, #4ac1ff);
+         --header-bg: #ffffff;
+         --header-scrolled-bg: #ffffff;
+         --footer-bg-dark: #eaf4fc; 
+         --footer-text-light: #000000;
+         --footer-bg-light: #eaf4fc;
+         --footer-text-dark: #262e47;
+      }
+      
+      html, body {
+         font-family: 'Poppins', sans-serif;
+         margin: 0;
+         padding: 0;
+         background: var(--bg-color);
+         color: var(--text-color);
+         overflow-x: hidden;
+         transition: background-color 0.5s ease, color 0.5s ease;
+         cursor: url('custom-cursor.png'), auto;
+      }
+
+      @keyframes spin {
+         from {
+            transform: rotate(0deg);
+         }
+         to {
+            transform: rotate(360deg);
+         }
+      }
+
+      #experience {
+         padding: 4rem 2rem; 
+         position: relative;
+         text-align: center;
+      }
+
+      #experience h2 {
+         font-size: 2rem;
+         font-weight: bold;
+         margin-bottom: 2rem;
+         color: #fff;
+         position: relative;
+      }
+
+      .timeline {
+         position: relative;
+         margin: 2rem auto;
+         padding: 2rem 0;
+         max-width: 800px;
+      }
+
+      .timeline-item {
+         display: flex;
+         align-items: flex-start;
+         position: relative;
+         margin-bottom: 3rem;
+         padding-left: 2rem; 
+      }
+
+      .timeline-dot {
+         width: 20px;
+         height: 20px;
+         background: #4ac1ff;
+         border-radius: 50%;
+         position: absolute;
+         left: -12px; 
+         top: 10px; 
+         border: 4px solid #fff; 
+         z-index: 1;
+      }
+
+      .timeline-content {
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         padding: 1.5rem;
+         border-radius: 8px;
+         color: #fff;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         flex: 1; 
+         margin-left: 3rem;
+         position: relative; 
+      }
+
+      .timeline h3 {
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+         color: #fff;
+      }
+
+      .timeline ul {
+         list-style-type: disc;
+         margin-left: 1rem;
+         line-height: 1.8;
+         font-size: 1rem;
+      }
+
+      .timeline::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 8px; 
+         bottom: 0;
+         width: 4px;
+         background: #4ac1ff;
+         z-index: -1; 
+      }
+
+      .section.achievements {
+         text-align: center;
+         padding: 3rem 2rem;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 10px;
+         margin: 2rem auto;
+         max-width: 1200px;
+      }
+
+      .achievements h2 {
+         font-size: 2rem;
+         color: var(--text-color);
+         margin-bottom: 1.5rem;
+      }
+
+      .achievements .section-subtitle {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+         color: #ddd;
+      }
+
+      .achievement-grid {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 1.5rem;
+         justify-content: center;
+      }
+
+      .achievement-card {
+         background: #ffffff;
+         color: #1e1e2f;
+         padding: 1.5rem;
+         border-radius: 10px;
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+         max-width: 300px;
+         text-align: center;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .achievement-card:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .achievement-card h3 {
+         font-size: 1.5rem;
+         margin: 1rem 0;
+         color: #1e1e2f;
+      }
+
+      .achievement-card p {
+         font-size: 1rem;
+         line-height: 1.5;
+         color: #333;
+      }
+
+      .achievement-card img.badge-image {
+         width: 100%;
+         height: auto;
+         border-radius: 10px;
+         margin-bottom: 1rem;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease;
+      }
+
+      .achievement-card img.badge-image:hover {
+         transform: scale(1.1);
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+
+      @media (max-width: 768px) {
+         .achievement-grid {
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .achievement-card {
+            width: 100%;
+         }
+      }
+
+      .core-values {
+         text-align: center;
+         padding: 3rem 2rem;
+         background: rgba(255, 255, 255, 0.1); 
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+         border-radius: 10px;
+         max-width: 90%;
+         margin: 2rem auto;
+      }
+
+      .core-values h2 {
+         font-size: 2rem;
+         color: var(--text-color);
+         margin-bottom: 1.5rem;
+      }
+
+      .values-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 2rem;
+      }
+
+      .value-item {
+         background: var(--card-bg);
+         color: var(--text-color);
+         padding: 1.5rem;
+         border-radius: 8px;
+         max-width: 300px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .value-item:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .value-item h3 {
+         font-size: 1.5rem;
+         margin-bottom: 0.8rem;
+         color: #fff; 
+      }
+
+      .value-item p {
+         font-size: 1rem;
+         line-height: 1.5;
+      }
+
+      header {
+         position: fixed;
+         top: 0;
+         width: 100%;
+         background: var(--header-bg);
+         padding: 1rem 2rem;
+         z-index: 1000;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      header.scrolled {
+         background: var(--header-scrolled-bg);
+         color: var(--button-bg);
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      header .logo {
+         font-size: 1.5rem;
+         font-weight: bold;
+         color: var(--button-bg);
+         justify-content: flex-start;
+      }
+
+      header .scrolled .logo {
+         color: #1e1e2f;
+      }
+
+      header .nav-links {
+         display: flex;
+         justify-content: center;
+         gap: 20px;
+         align-items: center;
+         flex: 1;
+      }
+
+      header .nav-links a {
+         color: var(--text-color);
+         text-decoration: none;
+         font-size: 1.2rem;
+         padding: 0.5rem 1rem;
+         transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header .scrolled .nav-links a {
+         color: #1e1e2f;
+      }
+
+      header .nav-links a:hover, header .nav-links a.active {
+         background-color: var(--button-bg);
+         color: var(--bg-color);
+         border-radius: 5px;
+      }
+
+      .dark-mode-btn {
+         background: var(--button-bg);
+         color: var(--text-color);
+         border: none;
+         border-radius: 5px;
+         padding: 0.5rem 1rem;
+         font-size: 1rem;
+         cursor: pointer;
+         transition: background 0.3s ease, color 0.3s ease;
+         margin-left: auto; 
+         margin-right: 2rem;
+         z-index: 1001;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark-mode-btn:hover {
+         background: var(--button-hover-bg);
+      }
+
+      .dark-mode-btn:hover::after {
+         content: "Switch theme";
+         font-size: 0.8rem;
+         color: var(--text-color);
+         position: absolute;
+         top: -25px;
+         right: 10px;
+         left: 50%;
+         transform: translateX(-50%);
+         background: var(--button-bg);
+         padding: 0.3rem 0.5rem;
+         border-radius: 3px;
+         opacity: 0.8;
+         white-space: nowrap;
+      }
+
+      @media (max-width: 768px) {
+         .dark-mode-btn {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+         }
+      }
+
+      #hero {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background: var(--card-bg);
+         text-align: center;
+         color: var(--text-color);
+         padding: 2rem;
+      }
+
+      #hero h1 {
+         font-size: 2.5rem;
+         font-weight: 600;
+         margin-bottom: 1rem;
+         color: #ffffff;
+         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+         animation: typing 3s steps(30, end), blink 0.6s step-end infinite;
+         overflow: hidden;
+         white-space: nowrap;
+         border-right: 3px solid white;
+         display: inline-block;
+         line-height: 1.2;
+      }
+
+      @keyframes typing {
+         from {
+            width: 0;
+         }
+
+         to {
+            width: 100%;
+         }
+      }
+
+      @keyframes blink {
+         from,
+         to {
+            border-color: transparent;
+         }
+
+         50% {
+            border-color: white;
+         }
+      }
+
+      #hero p {
+         font-size: 1.2rem;
+         font-weight: 300;
+         margin: 1rem 0;
+         margin-bottom: 2rem;
+         color: #eaeaea;
+         animation: fadeIn 2s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+
+      .cta-btn {
+         font-size: 1.2rem;
+         font-weight: bold;
+         padding: 0.8rem 2rem;
+         background: var(--button-bg);
+         color: var(--text-color);
+         border: none;
+         border-radius: 8px;
+         text-decoration: none;
+         cursor: pointer;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease, transform 0.2s ease;
+         animation: fadeIn 3s ease-in-out;
+      }
+
+      .cta-btn:hover {
+         background: var(--button-hover-bg);
+         transform: scale(1.05);
+      }
+
+      .cta-btn.resume-btn {
+         background: #6b47dc;
+         color: #fff;
+         padding: 0.8rem 1.5rem;
+         border-radius: 8px;
+         font-weight: bold;
+         text-transform: uppercase;
+         transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .cta-btn.resume-btn:hover {
+         background: #4ac1ff;
+         transform: scale(1.05);
+      }
+
+      .scroll-indicator {
+         margin-top: 2rem;
+         color: #ffffff;
+         font-size: 2rem;
+         cursor: pointer;
+         animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+         0%, 100% {
+            transform: translateY(0);
+         }
+         50% {
+            transform: translateY(-10px);
+         }
+      }
+
+      .section {
+         padding: 3rem 2rem;
+         margin-bottom: 2rem;
+         animation: fadeIn 1s ease-in-out;
+      }
+
+      .skills,
+      .projects {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         text-align: center;
+         padding: 2rem 0;
+         align-items: center;
+         gap: 3rem;
+         flex-direction: column;
+      }
+
+      .learnings {
+         background: rgba(255, 255, 255, 0.1); 
+         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
+         border-radius: 15px; 
+         backdrop-filter: blur(10px); 
+         -webkit-backdrop-filter: blur(10px); 
+         padding: 2rem; 
+         margin: 2rem auto; 
+         max-width: 80%; 
+         color: var(--text-color); 
+         text-align: left; 
+      }
+
+      .learnings h2 {
+         font-size: 1.8rem;
+         color: var(--footer-text); 
+         margin-bottom: 1rem;
+         margin-top: 0;
+         text-align: center;
+      }
+
+      .learnings ul {
+         list-style-type: disc;
+         margin-left: 1.5rem;
+         line-height: 1.8;
+         font-size: 1rem;
+      }
+
+      .learnings h3 {
+         color: #4ac1ff; 
+         margin-top: 2rem;
+         margin-bottom: 1rem;
+         font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+         font-size: 1.2rem;
+         font-weight: 300;
+         margin-bottom: 2rem;
+         color: #ddd; 
+         text-align: center; 
+      }
+
+      .skills .skill-list,
+      .projects .project-grid {
+         display: flex;
+         justify-content: center;
+         gap: 1rem;
+         flex-wrap: wrap;
+         padding: 1rem;
+      }
+
+      .skill-item,
+      .project-card {
+         background: var(--card-bg);
+         color: var(--text-color);
+         padding: 1rem;
+         border-radius: 5px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+         cursor: pointer;
+         position: relative;
+         width: 150px;
+         text-align: center;
+         font-weight: bold;
+         font-size: 1rem;
+         opacity: 0;
+         animation: fadeInUp 0.8s ease-in-out forwards;
+         animation-delay: var(--delay, 0s);
+      }
+
+      .skill-item:nth-child(1),
+      .project-card:nth-child(1) {
+         --delay: 0.2s;
+      }
+
+      .skill-item:nth-child(2),
+      .project-card:nth-child(2) {
+         --delay: 0.4s;
+      }
+
+      .skill-item:nth-child(3),
+      .project-card:nth-child(3) {
+         --delay: 0.6s;
+      }
+
+      .skill-item:nth-child(4),
+      .project-card:nth-child(4) {
+         --delay: 0.8s;
+      }
+
+      .skill-item:hover,
+      .project-card:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+         background: linear-gradient(135deg, #6b47dc, #4ac1ff);
+         color: #fff;
+      }
+
+      .skill-item::after {
+         content: attr(data-skill-level);
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         background: #1e1e2f;
+         color: #fff;
+         font-size: 0.9rem;
+         padding: 0.2rem 0.5rem;
+         border-radius: 3px;
+         opacity: 0;
+         transition: opacity 0.3s ease;
+      }
+
+      .skill-item:hover::after {
+         opacity: 1;
+      }
+
+      .progress-bar {
+         position: relative;
+         background: var(--progress-bg);
+         border-radius: 4px;
+         overflow: hidden;
+         height: 8px;
+         margin-top: 0.5rem;
+      }
+
+      .progress-fill {
+         height: 100%;
+         width: 0;
+         background: var(--progress-fill);
+         border-radius: 4px;
+         animation: fillProgress 2s ease-in-out forwards;
+      }
+
+      @keyframes fillProgress {
+         from {
+            width: 0;
+         }
+         to {
+            width: var(--progress-level, 80%);
+         }
+      }
+
+      @keyframes fadeInUp {
+         from {
+            opacity: 0;
+            transform: translateY(30px);
+         }
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      footer {
+         background-color: var(--footer-bg);
+         color: var(--footer-text);
+         padding: 2rem;
+         transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .footer-container {
+         max-width: 1200px;
+         margin: 0 auto;
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column; 
+         align-items: flex-start;
+      }
+
+      .contact-section {
+         text-align: left;
+         width: 100%;
+         margin-bottom: 2rem;
+      }
+
+      .contact-section h2 {
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+         color: var(--footer-text);
+      }
+
+      .contact-items {
+         display: flex;
+         flex-direction: column;
+         gap: 0.8rem;
+      }
+
+      .contact-item {
+         display: flex;
+         align-items: center;
+         gap: 0.8rem;
+      }
+
+      .contact-item img {
+         width: 24px;
+         height: 24px;
+         transition: transform 0.3s ease;
+      }
+
+      .contact-item img:hover {
+         transform: scale(1.1);
+      }
+
+      .contact-item a {
+         text-decoration: none;
+         color: var(--footer-text);
+         font-size: 1rem;
+      }
+
+      .contact-item a:hover {
+         color: #4ac1ff;
+      }
+
+      .footer-copyright {
+         text-align: center;
+         margin-top: 1.5rem;
+         font-size: 0.9rem;
+         color: var(--footer-text);
+      }
+
+      .footer-copyright p {
+         margin: 0;
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(20px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .section {
+         animation: fadeIn 1s ease-in-out;
+         padding-top: 5rem;
+         padding: 3rem 2rem;
+         margin-bottom: 2rem;
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <div class="logo">Kaushik Chintalapudi</div>
+      <nav class="nav-links">
+         <a href="#about">About</a>
+         <a href="#core-values">Core Values</a>
+         <a href="#skills">Skills</a>
+         <a href="#experience">Experience</a>
+         <a href="#projects">Projects</a>
+         <a href="#learnings">Learnings</a>
+         <a href="#achievements">Achievements</a>
+      </nav>
+      <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle theme">Toggle Theme</button>
+   </header>
+   <main>
+      <section id="hero">
+         <div>
+            <h1>Driving Innovation with AI, Cloud, and Scalable Solutions.</h1>
+            <p>crafting data-driven solutions and optimizing cloud resources for a smarter future.</p>
+            <div style="margin: 2rem auto;">
+               <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US"
+                  data-type="horizontal" data-theme="dark" data-vanity="kaushik-chintalapudi-6b737a1a8">
+                  <a class="LI-simple-link" href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8">Kaushik
+                     Chintalapudi</a>
+               </div>
+               <div style="width: 80%; height: 1px; background-color: #4ac1ff; margin: 1.5rem auto;">
+               </div>
+            </div>
+            <a href="#footer-contact" class="cta-btn" aria-label="Contact Kaushik" style="margin-top: 2rem; display: inline-block;">Let's Talk</a>
+            <a href="d:\\Users\\kaushikc\\Downloads\\Kaushik Chintalapudi Resume.pdf" download class="cta-btn" style="margin-top: 1.5rem; display: inline-block;" aria-label="Download Resume">
+               <i class="fas fa-download"></i> Download Resume
+            </a>
+         </div>
+      </section>
+      <section id="about" class="section">
+         <h2>About Me</h2>
+         <p>
+            I am <strong>Kaushik Chintalapudi</strong>, a passionate Cloud and AI enthusiast, driven by the ambition to
+            innovate and solve real-world challenges through technology. My expertise lies in designing scalable cloud-native
+            solutions, utilizing low-code/no-code platforms like <strong>Microsoft Power Platform</strong>, and automating
+            complex workflows to enhance efficiency and productivity.
+         </p>
+         <p>
+            With hands-on experience in <strong>Azure Cloud</strong>, I have extensively worked on optimizing cloud resources,
+            implementing governance strategies, and deploying budget alerts to ensure cost-effective operations. My journey
+            includes impactful contributions such as automating license chargeback processes with the <strong>Chargeback
+               Automator</strong> and researching decentralized identity management using <strong>blockchain and Hashgraph
+               technologies</strong>.
+         </p>
+         <p>
+            I bring a diverse skill set, encompassing <strong>Python, Generative AI, and Microsoft Power Apps</strong>, while
+            exploring advanced concepts like <strong>containerization</strong> and <strong>microservices
+               architecture</strong>. My commitment to continuous learning and innovation is reflected in projects that
+            deliver transformative business outcomes.
+         </p>
+         <p>
+            Beyond technology, I thrive in collaborative environments where ideas flourish, and solutions make a tangible
+            impact. Whether contributing to <strong>Al-Futtaim Group’s cloud governance initiatives</strong>, developing
+            <strong>IoT-based healthcare monitoring systems</strong>, or researching <strong>AI optimization
+               algorithms</strong>, I strive to drive value and excellence with every endeavor.
+         </p>
+         <p>
+            When I am not immersed in technology, you can find me exploring the world of <strong>music</strong>, perfecting my
+            <strong>guitar skills</strong>, or enjoying <strong>cricket</strong>. I also take pride in my time with the
+            <strong>National Cadet Corps (NCC)</strong> during college, where I developed leadership, discipline, and teamwork
+            skills that complement my professional expertise.
+         </p>
+         <p>
+            I believe in blending technology, creativity, and collaboration to build a smarter, more sustainable future.
+         </p>
+      </section>
+      <section id="core-values" class="section core-values">
+         <h2>Core Values</h2>
+         <div class="values-container">
+            <div class="value-item">
+               <h3>Innovation</h3>
+               <p>Leveraging emerging technologies to drive transformative business solutions.</p>
+            </div>
+            <div class="value-item">
+               <h3>Collaboration</h3>
+               <p>Building synergies across teams to achieve common goals.</p>
+            </div>
+            <div class="value-item">
+               <h3>Growth</h3>
+               <p>Continually upgrading my skills in AI, cloud, and automation.</p>
+            </div>
+         </div>
+      </section>
+      <section id="skills" class="skills">
+         <h2>Skills</h2>
+         <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #ddd;">
+            A collection of tools and skills I've mastered to drive AI Innovation and Cloud Optimization.
+         </p>
+         <div class="skill-list">
+            <div class="skill-item" data-skill-level="Expert">
+               Microsoft Azure
+               <div class="progress-bar">
+                  <div class="progress-fill" style="--progress-level: 90%;"></div>
+               </div>
+            </div>
+            <div class="skill-item" data-skill-level="Intermediate">
+               Python
+               <div class="progress-bar">
+                  <div class="progress-fill" style="--progress-level: 75%;"></div>
+               </div>
+            </div>
+            <div class="skill-item" data-skill-level="Beginner">
+               Generative AI
+               <div class="progress-bar">
+                  <div class="progress-fill" style="--progress-level: 60%;"></div>
+               </div>
+            </div>
+            <div class="skill-item" data-skill-level="Beginner">
+               Microsoft Power Platform
+               <div class="progress-bar">
+                  <div class="progress-fill" style="--progress-level: 85%;"></div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="experience">
+         <h2>Experience</h2>
+         <p class="section-subtitle">A showcase of my professional journey and impactful contributions.</p>
+         <div class="timeline">
+            <div class="timeline-item">
+               <div class="timeline-dot"></div>
+               <div class="timeline-content">
+                  <h3>Cloud Intern, PCS Gulf</h3>
+                  <ul>
+                     <li>Managed Change, Service, and Incident Requests in Symphony AI ITSM Portal.</li>
+                     <li>Automated Chargeback processes by creating a Chargeback Automator application, reducing manual
+                        efforts by 40%.</li>
+                     <li>Conducted research on decentralized identity management using Hashgraph technology.</li>
+                     <li>Explored Scheduled Scan Reports in Lansweeper, automating network audits and generating vulnerability
+                        reports.</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="timeline-item">
+               <div class="timeline-dot"></div>
+               <div class="timeline-content">
+                  <h3>Research Intern, MIT-WPU Institute of AI</h3>
+                  <ul>
+                     <li>Conducted theoretical research on optimization algorithms (steepest descent, mine blast).</li>
+                     <li>Explored Python-based algorithm design for improving resource allocation.</li>
+                     <li>Advanced AI optimization techniques for real-world applications.</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="timeline-item">
+               <div class="timeline-dot"></div>
+               <div class="timeline-content">
+                  <h3>Campus Ambassador, Internshala</h3>
+                  <ul>
+                     <li>Promoted online internships and courses to students during the COVID-19 pandemic.</li>
+                     <li>Organized virtual events connecting students with career opportunities.</li>
+                     <li>Executed successful digital marketing campaigns on social platforms.</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="projects" class="section projects">
+         <h2 style="margin-bottom: 2rem;">Projects</h2>
+         <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #ddd;">
+            I am passionate about leveraging AI and other technologies to solve real-world problems. Below are some of
+            the
+            projects that highlight my ambition to create scalable, innovative solutions.
+         </p>
+         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+            <div class="project-card"
+               style="background: #4ac1ff; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+               <h3 style="margin-bottom: 1rem; color: #1e1e2f;">Chargeback Automator</h3>
+               <p style="color: #1e1e2f;">
+                  Automated the license chargeback process by building the Chargeback Automator application, reducing
+                  manual effort by 40%
+               </p>
+               <a href="#" style="color: #0078d7; text-decoration: none; font-weight: bold;">View Details</a>
+            </div>
+            <div class="project-card"
+               style="background: #4ac1ff; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+               <h3 style="margin-bottom: 1rem; color: #1e1e2f;">Smart Health Monitoring System</h3>
+               <p style="color: #1e1e2f;">
+                  IoT-based wearable device for tracking health metrics like heartbeat and pulse, enabling chronic
+                  disease management and real-time emergency alerts with location coordinates.
+               </p>
+               <a href="#" style="color: #0078d7; text-decoration: none; font-weight: bold;">View Details</a>
+            </div>
+            <div class="project-card"
+               style="background: #4ac1ff; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+               <h3 style="margin-bottom: 1rem; color: #1e1e2f;">Hate Speech Detection</h3>
+               <p style="color: #1e1e2f;">
+                  Simulated a model to detect hate speech using NLP, contributing to safer digital platforms and
+                  communities.
+               </p>
+               <a href="#" style="color: #0078d7; text-decoration: none; font-weight: bold;">View Details</a>
+            </div>
+            <div class="project-card"
+               style="background: #4ac1ff; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+               <h3 style="margin-bottom: 1rem; color: #1e1e2f;">Optimization Research</h3>
+               <p style="color: #1e1e2f;">Conducted research on AI optimization algorithms, focusing on nature-inspired
+                  solutions like steepest descent and mine blast.</p>
+               <a href="#" style="color: #0078d7; text-decoration: none; font-weight: bold;">View Details</a>
+            </div>
+         </div>
+      </section>
+      <section id="learnings" class="section learnings">
+         <h2>Learnings</h2>
+         <p class="section-subtitle">Key knowledge areas I've acquired through projects and research.</p>
+         <h3>Cloud Technologies</h3>
+         <ul>
+            <li>Comprehensive understanding of cloud-native development (microservices, containerization).</li>
+            <li>Practical expertise in Azure cloud, DNS management, and setting budget alerts in Azure.</li>
+            <li>Mastered low-code app development using Microsoft Power Platform.</li>
+         </ul>
+         <h3>IAM Technologies</h3>
+         <ul>
+            <li>In-depth knowledge of PKI and certificate lifecycle management.</li>
+            <li>Explored blockchain concepts like Hashgraph and Byzantine Fault Tolerance for IAM.</li>
+         </ul>
+         <h3>Vulnerability Scanning</h3>
+         <ul>
+            <li>Learned about Scheduled Scan Reports as a use case of the Lansweeper tool, understanding its role in
+               automating network audits, generating vulnerability reports, and enhancing IT asset management.</li>
+         </ul>
+      </section>
+      <section id="achievements" class="section achievements">
+         <h2>Achievements</h2>
+         <p class="section-subtitle">Recognitions, milestones, and certifications I have earned in my journey so far.</p>
+         <div class="achievement-grid">
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1719989365846.jpg" alt="Microsoft Cloud Skills Badge" class="badge-image">
+               <h3>Microsoft Cloud Skills Challenge</h3>
+               <p>Completed Cloud Skills Challenge provided by Microsoft Ignite.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 152810.png" alt="Microsoft AI Skills Badge" class="badge-image">
+               <h3>Microsoft AI Skills Challenge</h3>
+               <p>Completed AI Skills Challenge provided by Microsoft Ignite.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 145019.png" alt="Google Cloud Skills Boost Badge" class="badge-image">
+               <h3>Google Cloud Skills Boost</h3>
+               <p>Achieved second position in the Diamond League of Google Cloud Skills Boost.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 152402.png" alt="Google Developer Badge" class="badge-image">
+               <h3>Google Developer Program</h3>
+               <p>Participated in the AI Skills Quest of Google Developer Program.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 150155.png" alt="HP Life Ambassador Badge" class="badge-image">
+               <h3>HP Life Ambassador</h3>
+               <p>Became the HP Life Ambassador after completing a course in HP Life.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1727687763696.jpg" alt="Devtoberfest Badge" class="badge-image">
+               <h3>Devtoberfest: Full-Stack Application</h3>
+               <p>Completed the tutorial for creating a Full-Stack Application with SAP Fiori UI in SAP Build Code.</p>
+            </div>
+            <div class="achievement-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1727687633378.jpg" alt="Devtoberfest Badge" class="badge-image">
+               <h3>Devtoberfest: SAP Build Code Setup</h3>
+               <p>Completed the tutorial for setting up SAP Build Code in SAP BTP.</p>
+            </div>
+         </div>
+      </section>
+   </main>
+   <footer id="footer-contact">
+      <div class="footer-container">
+         <div class="contact-section">
+            <h2>Contact</h2>
+            <div class="contact-items">
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+                  <span><a href="mailto:kaushik20feb@gmail.com" target="_blank">kaushik20feb@gmail.com</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+                  <span><a href="https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8"
+                        target="_blank">kaushik-chintalapudi</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                  <span><a href="https://github.com/kaushik20" target="_blank">kaushik20</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width: 24px; height: 24px;">
+                  <span><a href="https://wa.me/918459102979" target="_blank">Kaushik India</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                  <span><a href="https://instagram.com/kaushik20jackiedarkie" target="_blank">kaushik20jackiedarkie</a></span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer-copyright">
+         <p>&copy; 2024 Kaushik Chintalapudi. Inspired by AI-powered interfaces.</p>
+      </div>
+   </footer>
+   <script>
+      document.addEventListener("scroll", () => {
+         const header = document.querySelector("header");
+         if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+         } else {
+            header.classList.remove("scrolled");
+         }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+         anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+               behavior: "smooth",
+               block: "start"
+            });
+         });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+         const animatedItems = document.querySelectorAll(".skill-item, .project-card");
+         const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+               if (entry.isIntersecting) {
+                  entry.style.opacity = "1";
+                  entry.style.transform = "translateY(0)";
+                  entry.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+               }
+            });
+         }, { threshold: 0.5 });
+         animatedItems.forEach((item) => {
+            observer.observe(item);
+         });
+
+         const darkModeToggle = document.getElementById("darkModeToggle");
+         const savedTheme = localStorage.getItem("theme");
+
+         if (savedTheme) {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+         } else {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+         }
+
+         darkModeToggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme); 
+
+            const footer = document.querySelector("footer");
+            if (newTheme === "dark") {
+               footer.style.backgroundColor = "var(--footer-bg-dark)";
+               footer.style.color = "var(--footer-text-dark)";
+            } else {
+               footer.style.backgroundColor = "var(--footer-bg-light)";
+               footer.style.color = "var(--footer-text-light)";
+            }
+         });
+
+         const footer = document.querySelector("footer");
+         if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+            footer.style.backgroundColor = "var(--footer-bg-dark)";
+            footer.style.color = "var(--footer-text-dark)";
+         } else {
+            footer.style.backgroundColor = "var(--footer-bg-light)";
+            footer.style.color = "var(--footer-text-light)";
+         }
+      });
+
+      document.addEventListener("scroll", () => {
+         const sections = document.querySelectorAll("section");
+         const navLinks = document.querySelectorAll(".nav-links a");
+
+         sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 70; // Adjust for header height
+            const sectionHeight = section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+               const id = section.getAttribute("id");
+               navLinks.forEach((link) => {
+                  link.classList.remove("active");
+                  if (link.getAttribute("href") === `#${id}`) {
+                     link.classList.add("active");
+                  }
+               });
+            }
+         });
+      });
+   </script>
+</body>
+
+</html>
