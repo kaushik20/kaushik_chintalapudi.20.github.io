@@ -3,40 +3,48 @@
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description"
-      content="Kaushik Chintalapudi's comprehensive portfolio showcasing achievements, projects, learnings, and expertise in AI and Cloud.">
-   <meta name="keywords" content="Kaushik Chintalapudi, AI Portfolio, Cloud Developer, AI Enthusiast, Microsoft Azure">
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   <meta name="description" content="Explore Kaushik Chintalapudi's portfolio with expertise in AI, Cloud Computing, Microsoft Azure, AI Optimization, Low-Code App Development, and Blockchain Technology.">
+   <meta name="keywords" content="Kaushik Chintalapudi, AI Portfolio, Cloud Computing, Microsoft Azure, Low-Code Development, Power Apps, Blockchain, AI Optimization, Cloud Intern, AI Enthusiast, Generative AI, PKI, Certificate Lifecycle Management">
    <meta name="author" content="Kaushik Chintalapudi">
    <meta name="robots" content="index, follow">
-   <meta property="og:title" content="Kaushik Chintalapudi - AI and Cloud Portfolio">
-   <meta property="og:description" content="Explore projects and learnings in AI and Cloud technologies.">
-   <meta property="og:url" content="https://Kaushik_Chintalapudi.com">
-   <meta property="og:type" content="website">
+   <meta property="og:title" content="Kaushik Chintalapudi - AI and Cloud Portfolio" />
+   <meta property="og:description" content="Discover innovative projects and expertise in AI, Cloud Computing, and Blockchain by Kaushik Chintalapudi." />
+   <meta property="og:url" content="https://kaushikchintalapudi.com" />
+   <meta property="og:type" content="website" />
+   <meta property="og:image" content="https://kaushikchintalapudi.com/assets/images/og-image.jpg" />
    <title>Kaushik Chintalapudi - Comprehensive Portfolio</title>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link rel="canonical" href="https://kaushikchintalapudi.com" />
+   <link rel="icon" href="https://kaushikchintalapudi.com/favicon.ico" type="image/x-icon">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+   <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
+
    <style>
+      /* Root Variables */
       :root {
          --bg-color: #1e1e2f;
          --text-color: #fff;
+         --hero-bg-light: #cce7ff; 
+         --hero-bg-dark: linear-gradient(135deg, #2b1f42, #1e1e2f);
          --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
          --button-bg: #0078d7;
          --button-hover: #005bb5;
          --progress-bg: #1e1e2f;
          --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
          --footer-bg-dark: #262e47;
-         --footer-bg-light: #eaf4fc;
          --footer-text-dark: #ffffff;
          --footer-text-light: #000000;
          --header-bg: rgba(30, 30, 47, 0.9);
          --header-scrolled-bg: rgba(30, 30, 47, 0.95);
+         --animation-duration: 0.3s;
+         --animation-delay: 0.1s;
       }
 
       [data-theme="light"] {
          --bg-color: #ffffff;
          --text-color: #000000;
+         --hero-bg-light: linear-gradient(135deg, #6b47dc, #4ac1ff);
          --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
          --button-bg: #4ac1ff;
          --button-hover: #6b47dc;
@@ -45,253 +53,316 @@
          --header-bg: #ffffff;
          --header-scrolled-bg: #ffffff;
          --footer-bg-dark: #eaf4fc;
-         --footer-text-light: #000000;
-         --footer-bg-light: #eaf4fc;
          --footer-text-dark: #262e47;
       }
 
-      .hidden {
-         display: none;
+      [data-theme="high-contrast"] {
+         --bg-color: #000;
+         --text-color: #ffeb3b;
+         --button-bg: #ffeb3b;
+         --button-hover: #ffc107;
       }
 
-      html,
-      body {
+      /* Global Styles */
+      html, body {
          font-family: 'Poppins', sans-serif;
-         margin: 0;
-         padding: 0;
          background: var(--bg-color);
          color: var(--text-color);
+         margin: 0;
+         padding: 0;
          overflow-x: hidden;
-         transition: background-color 0.5s ease, color 0.5s ease;
-         cursor: url('custom-cursor.png'), auto;
+         scroll-behavior: smooth;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
       }
 
-      @keyframes fadeInScale {
-         from {
-            opacity: 0;
-            transform: scale(0.8);
-         }
-         to {
-            opacity: 1;
-            transform: scale(1);
-         }
+      a:focus, button:focus {
+         outline: 2px solid var(--button-bg);
+         box-shadow: 0 0 5px var(--button-hover);
       }
 
-      #experience {
-         padding: 4rem 2rem;
-         position: relative;
-         text-align: center;
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
       }
 
-      #experience h2 {
-         font-size: 2rem;
-         font-weight: bold;
-         margin-bottom: 2rem;
-         color: #fff;
-         position: relative;
-      }
-
-      .timeline {
-         position: relative;
-         margin: 2rem auto;
-         padding: 2rem 0;
-         max-width: 800px;
-      }
-
-      .timeline-item {
+      /* Header Section */
+      header {
+         position: sticky;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 80px;
+         background-color: var(--header-bg);
          display: flex;
-         align-items: flex-start;
-         position: relative;
-         margin-bottom: 3rem;
-         padding-left: 2rem;
+         padding: 0 2rem;
+         justify-content: space-between;
+         align-items: center;
+         z-index: 1000;
+         overflow: hidden;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         transition: background-color var(--animation-duration) ease, height var(--animation-duration) ease;
       }
 
-      .timeline-dot {
-         width: 20px;
-         height: 20px;
-         background: #4ac1ff;
-         border-radius: 50%;
-         position: absolute;
-         left: -12px;
-         top: 10px;
-         border: 4px solid #fff;
-         z-index: 1;
+      header.scrolled {
+         background: var(--header-scrolled-bg);
+         height: 60px;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       }
 
-      .timeline-content {
-         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
-         padding: 1.5rem;
-         border-radius: 8px;
-         color: #fff;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         flex: 1;
-         margin-left: 3rem;
-         position: relative;
+      header .logo {
+         margin-left: 0;
+         display: flex;
+         align-items: center;
+         height: 100%;
+         justify-content: flex-start;
       }
 
-      .timeline h3 {
-         font-size: 1.5rem;
-         margin-bottom: 1rem;
-         color: #fff;
+      header .logo img {
+         width: 80px; 
+         height: auto;
+         object-fit: contain;
+         transition: transform var(--animation-duration) ease;;
+         margin: 0;
       }
 
-      .timeline ul {
-         list-style-type: disc;
-         margin-left: 1rem;
-         line-height: 1.8;
+      header .logo img:hover {
+         transform: scale(1.05);
+      }
+
+      header .nav-links {
+         display: flex;
+         gap: 1.5rem;
+         align-items: center;
+      }
+
+      header .nav-links a {
+         color: var(--text-color);
+         text-decoration: none;
          font-size: 1rem;
+         font-weight: 500;
+         padding: 0.5rem 1rem;
+         border-radius: 5px;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
       }
 
-      .timeline::before {
+      header .nav-links a:hover {
+         background-color: var(--button-bg);
+         color: var(--bg-color);
+         outline: none;
+      }
+
+      header .nav-links a.active {
+         background-color: var(--button-bg);
+         color: var(--bg-color);
+      }
+
+      header .theme-toggle {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 0.5rem;
+         background-color: var(--button-bg);
+         color: var(--text-color);
+         border: none;
+         padding: 0.5rem 1rem;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 0.9rem;
+         font-weight: 500;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
+         min-width: 180px;
+         margin-left: 1rem;
+      }
+
+      header .theme-toggle i {
+         font-size: 1.2rem;
+         transition: transform var(--animation-duration) ease;
+      }
+
+      header .theme-toggle:hover {
+         background-color: var(--button-hover);
+         color: var(--bg-color);
+      }
+
+      header .theme-toggle:hover i {
+         transform: scale(1.1);
+      }
+
+      /* Hero Section */
+      #hero {
+         text-align: center;
+         padding: 2rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         background-size: 400% 400%;
+         animation: gradientAnimation 10s ease infinite;
+      } 
+
+      .hero::before {
          content: '';
          position: absolute;
          top: 0;
-         left: 8px;
-         bottom: 0;
-         width: 4px;
-         background: #4ac1ff;
-         z-index: -1;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-image: url('https://www.transparenttextures.com/patterns/circles.png');
+         opacity: 0.2;
+         z-index: 0;
       }
 
-      .section.achievements {
-         text-align: center;
-         padding: 3rem 2rem;
+      .hero::after {
+         content: '';
+         position: absolute;
+         width: 500px;
+         height: 500px;
+         border-radius: 50%;
          background: rgba(255, 255, 255, 0.1);
-         border-radius: 10px;
-         margin: 2rem auto;
-         max-width: 1200px;
+         filter: blur(100px);
+         z-index: 0;
+         bottom: 10%;
+         left: 50%;
+         transform: translateX(-50%);
       }
-
-      .ai-visual-container {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         padding: 1rem;
-         border-radius: 10px;
-         background: radial-gradient(circle, #2c2c54, #1e1e2f);
-         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-         margin-top: 1.5rem;
-      }
-
-      .ai-visual-image {
-         max-width: 100%;
-         height: auto;
-         border-radius: 10px;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .ai-visual-container:hover .ai-visual-image {
-         transform: scale(1.05);
-         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-      }
-
-      .achievements h2 {
-         font-size: 2rem;
+      
+      #hero h1 {
+         font-size: 2.5rem;
          color: var(--text-color);
+         margin-bottom: 1.5rem;
+         font-weight: bold;
+      }
+
+      #hero p {
+         font-size: 1.2rem;
+         line-height: 1.5;
+         color: #fff;
          margin-bottom: 1.5rem;
       }
 
-      .achievements .section-subtitle {
-         font-size: 1.2rem;
-         margin-bottom: 2rem;
-         color: #ddd;
-      }
-
-      .achievement-grid {
+      .cta-buttons {
          display: flex;
-         flex-wrap: wrap;
-         gap: 1.5rem;
-         justify-content: center;
+         gap: 1rem;
+         margin-top: 2rem;
       }
 
-      .achievement-card {
-         background: #ffffff;
-         color: #1e1e2f;
-         padding: 1.5rem;
-         border-radius: 10px;
-         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-         max-width: 300px;
-         text-align: center;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      .cta-btn {
+         padding: 0.8rem 2rem;
+         background: #4ac1ff;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 8px;
+         font-size: 1.2rem;
+         transition: background-color 0.3s ease, transform 0.2s ease;
       }
 
-      .achievement-card:hover {
+      .cta-btn:hover {
          transform: scale(1.05);
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       }
 
-      .achievement-card h3 {
-         font-size: 1.5rem;
-         margin: 1rem 0;
-         color: #1e1e2f;
-      }
-
-      .achievement-card p {
-         font-size: 1rem;
-         line-height: 1.5;
-         color: #333;
-      }
-
-      .achievement-card img.badge-image {
-         width: 100%;
-         height: auto;
-         border-radius: 10px;
-         margin-bottom: 1rem;
-         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      .animated-avatar {
+         animation: avatarBounce 2s infinite ease-in-out;
          transition: transform 0.3s ease;
       }
 
-      .achievement-card img.badge-image:hover {
-         transform: scale(1.1);
-         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      .animated-avatar:hover {
+         transform: scale(1.1) rotate(10deg);
+         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
       }
 
-
-      @media (max-width: 768px) {
-         .achievement-grid {
-            flex-direction: column;
-            align-items: center;
-         }
-
-         .achievement-card {
-            width: 100%;
-         }
-      }
-
-      .hobbies {
+      /* About Section */
+      #about {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
          text-align: center;
+         padding: 2rem 1rem;
+         background-color: var(--progress-bg);
+         color: var(--text-color);
+         margin-top: 50px;
+         animation: fadeIn 1.5s ease-in-out;
+      }
+
+      #about h2 {
+         font-size: 2rem;
+         font-weight: bold;
+         margin-bottom: 1rem;
+         color: var(--text-color);
+         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+         animation: slideInDown 1s ease;
+      }
+
+      #about p {
+         font-size: 1.1rem;
+         max-width: 800px;
+         margin: 0 auto 2rem;
+         line-height: 1.6;
+         color: var(--text-color);
+         animation: fadeInUp 1.2s ease;
+      }
+
+      #about a {
+         color: #4ac1ff;
+         text-decoration: none;
+         font-weight: 600;
+         transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      #about a:hover {
+         color: #6b47dc;
+         text-shadow: 0 0 10px #6b47dc;
+      }
+
+      #about p a {
+         text-decoration: underline;
+         color: var(--button-bg);
+      }
+
+      /* Hobbies Section */
+      .hobbies {
+         background: linear-gradient(135deg, #1f1f47, #3b82f6);
+         color: #ffffff;
          padding: 3rem 2rem;
-         background: rgba(255, 255, 255, 0.1);
-         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-         border-radius: 10px;
-         max-width: 90%;
+         border-radius: 12px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+         text-align: center;
+         max-width: 1100px;
          margin: 2rem auto;
       }
 
       .hobbies h2 {
-         font-size: 2rem;
-         color: var(--text-color);
-         margin-bottom: 1.5rem;
+         font-size: 2.5rem;
+         margin-bottom: 0.5rem;
+         color: #ffffff;
       }
 
+      .section-subtitle {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+         color: #d1d9f9;
+      }
+      
       .hobbies-container {
          display: flex;
-         flex-wrap: wrap;
+         gap: 1.5rem;
          justify-content: center;
-         gap: 2rem;
+         flex-wrap: wrap;
       }
 
       .hobby-item {
          background: var(--card-bg);
-         color: var(--text-color);
+         border: 2px solid rgba(255, 255, 255, 0.2);
          padding: 1.5rem;
-         border-radius: 8px;
-         max-width: 300px;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         text-align: center;
+         width: 250px;
          cursor: pointer;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
          position: relative;
+         border-radius: 8px;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .hobby-item:hover {
@@ -299,715 +370,1296 @@
          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       }
 
-      .hobby-item .hidden-message {
-         display: none;
-         margin-top: 1rem;
-         font-size: 1.2rem;
-         color: #ffeb3b;
-         animation: fadeIn 0.5s ease-in-out;
+      .hobby-icon {
+         font-size: 3rem;
+         margin-bottom: 1rem;
+         color: #f5f7ff;
       }
 
-      .hobby-item.touched .hidden-message {
-         display: block;
-      }
-
-      #badge-container {
-         text-align: center;
-         margin: 2rem auto;
-         background: #4ac1ff;
-         padding: 1.5rem;
-         border-radius: 10px;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-         display: none; /* Hidden by default */
-         opacity: 0; /* Invisible initially */
-         transform: scale(0.8); /* Scale-down animation */
-         animation: fadeInScale 0.5s ease-in-out forwards;
-      }
-
-      .badge-container {
-         background: linear-gradient(135deg, #4ac1ff, #6b47dc); /* Gradient background */
-         padding: 20px; /* Padding around content */
-         border-radius: 10px; /* Rounded corners */
-         color: white; /* Text color */
-         text-align: center; /* Center-align text */
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-         margin: 20px auto; /* Center horizontally */
-         max-width: 300px; /* Limit width */
-         opacity: 0; /* Initially hidden */
-         transform: scale(0.8); /* For entry animation */
-         transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and scale */
-         display: none; /* Hidden by default */
-      }
-
-      .badge-container h3 {
-         margin-bottom: 10px;
+      .hobby-item h3 {
          font-size: 1.5rem;
-         font-weight: bold;
+         margin-bottom: 0.5rem;
+         color: #ffffff;
       }
 
-      .badge-container p {
-         margin: 0;
+      .hobby-item p {
          font-size: 1rem;
-         font-weight: normal;
+         color: #d1d9f9;
       }
 
-      .badge-container .emoji {
-         font-size: 40px;
-         margin-top: 10px;
+      .hidden-message {
+         display: none;
+         position: absolute;
+         bottom: 10px;
+         left: 50%;
+         transform: translateX(-50%);
+         background-color: rgba(0, 0, 0, 0.7);
+         color: #ffffff;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
+         font-size: 0.9rem;
+         opacity: 0;
+         transition: opacity 0.3s ease, transform 0.3s ease;
       }
 
-      .badge-container.visible {
+      .hobby-item:hover .hidden-message {
          display: block;
          opacity: 1;
-         transform: scale(1);
-         animation: fadeInScale 0.5s ease-in-out;
+         transform: translate(-50%, -5px);
       }
 
-      .badge-message {
-         font-size: 1.5rem;
-         font-weight: bold;
-         color: white;
-         margin-bottom: 1rem;
-         opacity: 0; /* Invisible initially */
-         animation: fadeInScale 0.5s ease-in-out forwards;
+      /* Skills Section */
+      .skills {
+         padding: 3rem 2rem;
          text-align: center;
-      }
-
-      #badge-container img {
-         max-width: 100px;
-         margin: 1rem auto;
-         display: block;
-      }
-
-      header {
-         position: fixed;
-         top: 0;
-         width: 100%;
-         background: var(--header-bg);
-         padding: 1rem 2rem;
-         z-index: 1000;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         transition: background 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      header.scrolled {
-         background: var(--header-scrolled-bg);
-         color: var(--button-bg);
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-
-      header .logo {
-         font-size: 1.5rem;
-         font-weight: bold;
-         color: var(--button-bg);
-         justify-content: flex-start;
-      }
-
-      header .scrolled .logo {
-         color: #1e1e2f;
-      }
-
-      header .nav-links {
-         display: flex;
-         justify-content: center;
-         gap: 20px;
-         align-items: center;
-         flex: 1;
-      }
-
-      header .nav-links a {
+         background: var(--bg-color);
          color: var(--text-color);
-         text-decoration: none;
-         font-size: 1.2rem;
-         padding: 0.5rem 1rem;
+         border-radius: 12px;
+         margin: 2rem auto;
+         max-width: 1200px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
          transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header .scrolled .nav-links a {
-         color: #1e1e2f;
-      }
-
-      header .nav-links a:hover,
-      header .nav-links a.active {
-         background-color: var(--button-bg);
-         color: var(--bg-color);
-         border-radius: 5px;
-      }
-
-      .dark-mode-btn {
-         background: var(--button-bg);
-         color: var(--text-color);
-         border: none;
-         border-radius: 5px;
-         padding: 0.5rem 1rem;
-         font-size: 1rem;
-         cursor: pointer;
-         transition: background 0.3s ease, color 0.3s ease;
-         margin-left: auto;
-         margin-right: 2rem;
-         z-index: 1001;
-         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      }
-
-      .dark-mode-btn:hover {
-         background: var(--button-hover-bg);
-      }
-
-      .dark-mode-btn:hover::after {
-         content: "Switch theme";
-         font-size: 0.8rem;
-         color: var(--text-color);
-         position: absolute;
-         top: -25px;
-         right: 10px;
-         left: 50%;
-         transform: translateX(-50%);
-         background: var(--button-bg);
-         padding: 0.3rem 0.5rem;
-         border-radius: 3px;
-         opacity: 0.8;
-         white-space: nowrap;
-      }
-
-      @media (max-width: 768px) {
-         .dark-mode-btn {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.9rem;
-            margin-right: 1rem;
-         }
-      }
-
-      #hero {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         background: var(--card-bg);
-         text-align: center;
-         color: var(--text-color);
-         padding: 2rem;
-      }
-
-      #hero h1 {
+      .skills h2 {
          font-size: 2.5rem;
-         font-weight: 600;
+         margin-bottom: 1rem;
+         color: var(--text-color);
+         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .section-subtitle {
+         font-size: 1.2rem;
+         color: var(--text-color);
+         margin-bottom: 2rem;
+         opacity: 0.8;
+      }
+
+      .skill-list {
+         display: flex; 
+         justify-content: center; 
+         align-items: stretch; 
+         gap: 1.5rem; 
+         flex-wrap: wrap; 
+         margin-top: 1rem;
+      }
+
+      .skills .progress-counter {
+         font-size: 1rem;
+         font-weight: bold;
+         color: #ffffff;
+         background: #0078ff;
+         display: inline-block;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
+         margin-bottom: 2rem;
+      }
+
+      .skill-item {
+         background: linear-gradient(135deg, #3b82f6, #9333ea);
+         color: #ffffff;
+         border-radius: 12px;
+         padding: 1.5rem;
+         min-width: 180px; 
+         max-width: 220px; 
+         flex: 1 1 calc(25% - 1.5rem);
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+         position: relative;
+         transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      }
+
+      .skill-item:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+         background: linear-gradient(135deg, #4f46e5, #a855f7);
+      }
+
+      .skill-item h3 {
+         font-size: 1.2rem;
          margin-bottom: 1rem;
          color: #ffffff;
-         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-         animation: typing 3s steps(30, end), blink 0.6s step-end infinite;
+         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .skill-item .progress-bar {
+         width: 100%;
+         height: 10px;
+         background: var(--progress-bg);
+         border-radius: 5px;
          overflow: hidden;
-         white-space: nowrap;
-         border-right: 3px solid white;
-         display: inline-block;
-         line-height: 1.2;
+         position: relative;
       }
 
-      @keyframes typing {
-         from {
-            width: 0;
-         }
-
-         to {
-            width: 100%;
-         }
+      .skill-item .progress-fill {
+         height: 100%;
+         background: var(--progress-fill);
+         transition: width 0.5s ease-in-out;
       }
 
-      @keyframes blink {
-
-         from,
-         to {
-            border-color: transparent;
-         }
-
-         50% {
-            border-color: white;
-         }
+      .skill-item:hover .progress-fill {
+         animation: fillProgress 2s forwards;
       }
 
-      #hero p {
-         font-size: 1.2rem;
-         font-weight: 300;
-         margin: 1rem 0;
-         margin-bottom: 2rem;
-         color: #eaeaea;
-         animation: fadeIn 2s ease-in-out;
+      /* Experience Section */
+      #experience {
+         padding: 3rem 1rem;
+         text-align: center;
+         background-color: var(--bg-color);
       }
 
-      @keyframes fadeIn {
-         from {
-            opacity: 0;
-         }
-
-         to {
-            opacity: 1;
-         }
-      }
-
-      .cta-btn {
-         font-size: 1.2rem;
+      #experience h2 {
+         font-size: 2.5rem;
          font-weight: bold;
-         padding: 0.8rem 2rem;
-         background: var(--button-bg);
          color: var(--text-color);
-         border: none;
-         border-radius: 8px;
-         text-decoration: none;
-         cursor: pointer;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-         transition: background-color 0.3s ease, transform 0.2s ease;
-         animation: fadeIn 3s ease-in-out;
+         margin-bottom: 1rem;
       }
 
-      .cta-btn:hover {
-         background: var(--button-hover-bg);
-         transform: scale(1.05);
+      #experience .section-subtitle {
+         font-size: 1.2rem;
+         color: #666;
+         margin-bottom: 2rem;
       }
 
-      .cta-btn.resume-btn {
-         background: #6b47dc;
-         color: #fff;
-         padding: 0.8rem 1.5rem;
-         border-radius: 8px;
-         font-weight: bold;
-         text-transform: uppercase;
-         transition: background-color 0.3s ease, transform 0.2s ease;
+      .timeline-container {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         position: relative;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 2rem 0;
+         overflow-x: auto;
+         white-space: nowrap;
       }
 
-      .cta-btn.resume-btn:hover {
-         background: #4ac1ff;
-         transform: scale(1.05);
+      .timeline-container::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 0;
+         width: 100%;
+         height: 4px;
+         background-color: var(--button-bg);
+         z-index: 0;
+         transform: translateY(-50%);
       }
 
-      .scroll-indicator {
-         margin-top: 2rem;
-         color: #ffffff;
-         font-size: 2rem;
-         cursor: pointer;
-         animation: bounce 2s infinite;
-      }
-
-      @keyframes bounce {
-
-         0%,
-         100% {
-            transform: translateY(0);
-         }
-
-         50% {
-            transform: translateY(-10px);
-         }
-      }
-
-      #projects {
-         background: url("d:\\Users\\kaushikc\\Downloads\\DALL·E AI Visual.webp") no-repeat center center/cover; /* Add your image path here */
-         padding: 4rem 2rem;
-         color: white;
+      .timeline-item {
+         display: inline-block;
          position: relative;
          text-align: center;
+         margin: 0 2rem;
+         z-index: 1;
       }
 
-      #projects::before {
-         content: "";
+      .timeline-point {
+         background-color: var(--button-bg);
+         color:  var(--text-color);
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1rem;
+         font-weight: bold;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         margin: 0 auto 1rem;
+      }
+
+      .timeline-content {
+         background: var(--bg-color);
+         padding: 1rem 1.5rem;
+         border-radius: 8px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         max-width: 300px;
+         text-align: center;
+         white-space: normal;
+         transition: transform var(--animation-duration), box-shadow var(--animation-duration)
+      }
+
+      .timeline-content:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .timeline-content h3 {
+         font-size: 1.2rem;
+         color: var(--button-bg);
+         margin-bottom: 0.5rem;
+      }
+
+      .timeline-content ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+         font-size: 0.9rem;
+         text-align: left;
+      }
+
+      .timeline-content ul li {
+         margin-bottom: 0.5rem;
+         line-height: 1.4;
+      }
+
+      .timeline-content ul li::before {
+         content: "•";
+         color: var(--button-bg);
+         margin-right: 0.5rem;
+      }
+
+      /* Projects Section */
+      .projects {
+         text-align: center;
+         padding: 3rem 1rem;
+         color: var(--text-color);
+         position: relative;
+         background: url('d:\\Users\\kaushikc\\Downloads\\DALL·E AI Visual.webp') center/cover no-repeat; 
+         background-attachment: fixed; 
+         z-index: 1;
+      }
+
+      .projects::before {
+         content: '';
          position: absolute;
          top: 0;
          left: 0;
          width: 100%;
          height: 100%;
          background: rgba(0, 0, 0, 0.6); 
-         z-index: 1;
+         z-index: -1;
       }
 
-      #projects h2,
-      #projects p,
-      .project-grid {
-         position: relative;
-         z-index: 2; 
+      .projects h2 {
+         font-size: 2.5rem;
+         margin-bottom: 1rem;
+         color: #fff;
       }
 
+      .section-subtitle {
+         font-size: 1.2rem;
+         color: #f3f3f3;
+         margin-bottom: 2rem;
+      }
+      
       .project-grid {
          display: grid;
-         grid-template-columns: 1fr; /* Keep one column for responsiveness */
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
          gap: 1.5rem;
-         max-width: 800px;
-         margin: 0 auto;
       }
 
       .project-card {
-         background: rgba(255, 255, 255, 0.1);
-         backdrop-filter: blur(10px); 
-         padding: 1rem;
-         border-radius: 10px;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+         background: var(--card-bg);
+         padding: 1.5rem;
+         border-radius: 8px;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
          transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .project-card:hover {
          transform: scale(1.05);
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       }
 
-      .section {
-         padding: 3rem 2rem;
-         margin-bottom: 2rem;
-         animation: fadeIn 1s ease-in-out;
-      }
-
-      .skills {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         text-align: center;
-         padding: 2rem 0;
-         align-items: center;
-         gap: 3rem;
-         flex-direction: column;
-      }
-
-      .learnings {
-         background: rgba(255, 255, 255, 0.1);
-         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-         border-radius: 15px;
-         backdrop-filter: blur(10px);
-         -webkit-backdrop-filter: blur(10px);
-         padding: 2rem;
-         margin: 2rem auto;
-         max-width: 80%;
-         color: var(--text-color);
-         text-align: left;
-      }
-
-      .learnings h2 {
-         font-size: 1.8rem;
-         color: var(--footer-text);
+      .project-card h3 {
+         font-size: 1.5rem;
          margin-bottom: 1rem;
-         margin-top: 0;
-         text-align: center;
+         font-weight: 600;
       }
 
-      .learnings ul {
+      .project-card p {
+         font-size: 1rem;
+         line-height: 1.5;
+         color: #e6e6e6;
+      }
+
+      .project-card img {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         margin-bottom: 16px;
+      }
+
+      .project-link {
+         text-decoration: none;
+         margin-right: 10px;
+      }
+
+      .download-button, .colab-button {
+         display: inline-block;
+         background-color: #4CAF50; 
+         color: white;
+         padding: 10px 15px;
+         border: none;
+         border-radius: 5px;
+         font-size: 14px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+
+      .download-button:hover {
+         background-color: #45a049;
+      }
+
+      .colab-button {
+         background-color: #FF7043; 
+      }
+
+      .colab-button:hover {
+         background-color: #E64A19;
+      }
+
+      /* Learnings Section */
+      .learning-canvas {
+         padding: 3rem 1.5rem;
+         background-color: rgba(0, 0, 0, 0.6); 
+         color: #ffffff;
+         text-align: center;
+         border-radius: 16px; 
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+         max-width: 1200px; 
+         margin: 2rem auto;
+      }
+
+      .learning-canvas h2 {
+         font-size: 2.5rem;
+         margin-bottom: 1rem;
+         color: #00bfff; 
+      }
+
+      .learning-canvas .section-subtitle {
+         font-size: 1.1rem;
+         margin-bottom: 2rem;
+         color: #d1d1d1;
+      }
+
+      .learning-section {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+         gap: 2rem;
+         max-width: 1200px;
+         margin: 0 auto;
+      }
+
+      .block {
+         background: linear-gradient(135deg, #007fff, #00aaff); 
+         color: #000000;
+         padding: 1.5rem;
+         border-radius: 12px;
+         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .block:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .block h3 {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         font-size: 1.5rem;
+         color: #001f3f;
+         margin-bottom: 1rem;
+         font-weight: bold;
+      }
+
+      .block h3 img {
+         width: 40px; 
+         height: 40px;
+         border-radius: 50%;
+         background-color: #fff; 
+         padding: 5px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .block ul {
          list-style-type: disc;
          margin-left: 1.5rem;
-         line-height: 1.8;
+         padding: 0;
+      }
+
+      .block ul li {
+         margin: 0.5rem 0;
+         color: #e6e6e6; 
          font-size: 1rem;
       }
 
-      .learnings h3 {
-         color: #4ac1ff;
-         margin-top: 2rem;
+      /* Achievements Section */
+      .section {
+         padding: 3rem 1.5rem;
+         background-color: --var(--bg-color); 
+         text-align: center;
+         color: #ffffff;
+      }
+
+      .section h2 {
+         font-size: 2.5rem;
+         color: #00bfff;
          margin-bottom: 1rem;
-         font-size: 1.5rem;
       }
 
       .section-subtitle {
          font-size: 1.2rem;
-         font-weight: 300;
          margin-bottom: 2rem;
-         color: #ddd;
+         color: #d1d1d1;
+      }
+
+      .achievements-leaderboard-container {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+         gap: 1.5rem;
+         margin: 0 auto;
+         max-width: 1200px;
+      }
+
+      .achievements-leaderboard-item {
+         background: linear-gradient(135deg, #00bfff, #007fff); 
+         border-radius: 12px;
+         padding: 1.5rem;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .achievements-leaderboard-item:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .leaderboard-image {
+         width: 80px;
+         height: 80px;
+         object-fit: cover;
+         border-radius: 50%;
+         margin-bottom: 1rem;
+         background-color: #fff;
+         padding: 0.5rem;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .achievements-leaderboard-item span {
+         font-size: 1.1rem;
+         color: #001f3f;
+         font-weight: 600;
+         margin: 0.3rem 0;
          text-align: center;
       }
 
-      .skills .skill-list{
+      .achievements-leaderboard-item span:last-child {
+         font-size: 0.9rem;
+         color: #f0f0f0;
+         font-weight: 400;
+      }
+
+      /* Certification Section */
+      .roadmap-section {
+         padding: 3rem 1.5rem;
+         background: #0f172a; 
+         color: #ffffff;
+         text-align: center;
+      }
+
+      .roadmap-title {
+         font-size: 2.5rem;
+         color: #4ac1ff;
+         margin-bottom: 1rem;
+      }
+
+      .roadmap-container {
          display: flex;
          justify-content: center;
-         gap: 1rem;
-         flex-wrap: wrap;
-         padding: 1rem;
-      }
-
-      .skill-item {
-         background: var(--card-bg);
-         color: var(--text-color);
-         padding: 1rem;
-         border-radius: 5px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-         cursor: pointer;
          position: relative;
-         width: 150px;
+         margin-top: 2rem;
+      }
+
+      .roadmap {
+         width: 80%;
+         position: relative;
+         padding: 2rem 0;
+      }
+
+      .roadmap::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 50%;
+         width: 4px;
+         height: 100%;
+         background: linear-gradient(180deg, #4ac1ff, #6b47dc);
+         transform: translateX(-50%);
+         z-index: 1;
+      }
+
+      .milestone {
+         position: relative;
+         margin: 2rem 0;
+         padding: 1.5rem;
+         background: rgba(255, 255, 255, 0.1); 
+         border-radius: 8px;
          text-align: center;
-         font-weight: bold;
-         font-size: 1rem;
-         opacity: 0;
-         animation: fadeInUp 0.8s ease-in-out forwards;
-         animation-delay: var(--delay, 0s);
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         z-index: 2;
+         width: 70%;
+         margin-left: auto;
+         margin-right: auto;
       }
 
-      .skill-item:nth-child(1),
-      .project-card:nth-child(1) {
-         --delay: 0.2s;
+      .milestone:nth-child(odd) {
+         transform: translateX(-20%);
       }
 
-      .skill-item:nth-child(2),
-      .project-card:nth-child(2) {
-         --delay: 0.4s;
+      .milestone:nth-child(even) {
+         transform: translateX(20%);
       }
 
-      .skill-item:nth-child(3),
-      .project-card:nth-child(3) {
-         --delay: 0.6s;
-      }
-
-      .skill-item:nth-child(4),
-      .project-card:nth-child(4) {
-         --delay: 0.8s;
-      }
-
-      .skill-item:hover{
+      .milestone:hover {
          transform: scale(1.05);
-         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .milestone-circle {
+         width: 60px;
+         height: 60px;
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         color: #ffffff;
+         font-size: 1.2rem;
+         font-weight: bold;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0 auto 1rem auto;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         z-index: 3;
+         overflow: hidden;
+      }
+
+      .milestone-circle img {
+         width: 100%; 
+         height: 100%;
+         border-radius: 50%;
+         object-fit: cover; 
+         padding: 5px; 
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .milestone-date {
+         font-size: 1rem;
+         color: #e6e6e6;
+         margin-bottom: 0.5rem;
+      }
+
+      .milestone-title {
+         font-size: 1.3rem;
+         font-weight: bold;
+         color: #ffffff;
+         margin-bottom: 0.5rem;
+      }
+
+      .milestone-description {
+         font-size: 1rem;
+         color: #cfcfcf;
+         margin-bottom: 1rem;
+      }
+
+      .milestone a {
+         text-decoration: none;
+         background-color: #4ac1ff;
+         color: #ffffff;
+         padding: 0.8rem 1.2rem;
+         border-radius: 8px;
+         font-size: 0.9rem;
+         transition: background-color 0.3s ease, transform 0.2s ease;
+         display: inline-block;
+      }
+
+      .milestone a:hover {
+         background-color: #6b47dc;
+         transform: scale(1.05);
+      }
+
+      #Certifications-badge {
+         display: block;
+         opacity: 0;
+         transform: scale(0.9);
+         transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .badge-content:hover #Certifications-badge {
+         opacity: 1;
+         transform: scale(1);
+      }
+
+      .logo {
+         width: 100%; 
+         height: 100%;
+         object-fit: cover;
+      }
+
+      /* Footer Section */
+      footer {
+         background-color: var(--footer-bg-dark);
+         color: var(--footer-text-dark);
+         text-align: center;
+         padding: 1.5rem 1rem;
+      }
+
+      #footer-contact {
+         background: rgba(0, 0, 0, 0.8);
+         color: #ffffff;
+         padding: 2rem 1rem;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         align-items: flex-start;
+         gap: 2rem;
+         border-top: 2px solid #4dabf7;
+      }
+
+      .footer-container {
+         width: 100%;
+         display: flex;
+         justify-content: space-evenly;
+         gap: 2rem;
+         flex-wrap: wrap;
+         align-items: center;
+      }
+
+      .contact-section h2 {
+         font-size: 1.8rem;
+         margin-bottom: 1rem;
+         color: #4dabf7;
+      }
+
+      .contact-items {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+         border-top: 1px solid rgba(255, 255, 255, 0.1);
+         padding-top: 1rem;
+      }
+
+      .contact-item {
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+
+      .contact-item img {
+         width: 30px;
+         height: 30px;
+         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+         transition: transform 0.3s ease, filter 0.3s ease;
+         margin-right: 8px;
+         vertical-align: middle;
+      }
+
+      .contact-item img:hover {
+         transform: scale(1.2);
+         filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
+         opacity: 0.9;
+      }
+
+      .contact-item a {
+         color: #ffffff;
+         text-decoration: none;
+         font-size: 1.1rem;
+         transition: color 0.3s ease;
+      }
+
+      .contact-item a:hover {
+         color: #4dabf7;
+         text-decoration: underline;
+      }
+
+      .qr-code-section {
+         flex: 1 1 300px;
+         max-width: 300px;
+         background: linear-gradient(135deg, #007fff, #00aaff);
+         border-radius: 12px;
+         padding: 1.5rem;
+         text-align: center;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease;
+      }
+
+      .qr-code-section img {
+         width: 120px;
+         height: 120px;
+         border-radius: 10px;
+         border: 2px solid #4dabf7;
+         transition: border-color 0.3s ease;
+      }
+
+      .qr-code-section:hover {
+         transform: scale(1.02); 
+      }
+
+      .qr-code-section img:hover {
+         border-color: #1e88e5;
+         transform: scale(1.05);
+      }
+
+      .qr-code-section h3 {
+         margin: 0.5rem 0;
+         color: #4dabf7;
+      }
+
+      .qr-code-section p {
+         font-size: 0.9rem;
+         color: #ffffff;
+      }
+
+      .footer-bar {
+         background-color: #121212; 
+         color: #ffffff; 
+         width: 100%; 
+         display: flex; 
+         justify-content: center; 
+         align-items: center; 
+         padding: 1rem 0; 
+         font-size: 0.9rem; 
+         border-top: 2px solid #4dabf7; 
+         text-align: center;
+      }
+
+      .footer-bar p {
+         margin: 0; 
+      }
+
+      .footer-bar button {
+         background: none; 
+         color: inherit; 
+         border: none; 
+         font-size: inherit; 
+         cursor: pointer; 
+         transition: color 0.3s ease, transform 0.3s ease; 
+      }
+
+      .footer-bar button:hover {
+         color: #4dabf7; 
+         transform: scale(1.05); 
+      }
+
+      /* Badge section */
+      .badge-container {
+         display: none;
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
          background: linear-gradient(135deg, #6b47dc, #4ac1ff);
          color: #fff;
+         border-radius: 12px;
+         padding: 1.5rem;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+         animation: badgeAppear 1s ease-out forwards;
+         z-index: 1000;
       }
 
-      .skill-item::after {
-         content: attr(data-skill-level);
-         position: absolute;
-         top: 10px;
-         right: 10px;
-         background: #1e1e2f;
+      .badge-content {
+         text-align: center;
+         font-family: 'Poppins', sans-serif;
+      }
+
+      .badge-title {
+         font-size: 1.5rem;
+         margin-bottom: 0.5rem;
+         font-weight: bold;
+         animation: bounce 1.2s infinite ease-in-out;
+      }
+
+      .badge-message {
+         font-size: 1rem;
+         margin-bottom: 1rem;
+      }
+
+      .badge-action {
+         background-color: #0078d7;
          color: #fff;
-         font-size: 0.9rem;
-         padding: 0.2rem 0.5rem;
-         border-radius: 3px;
-         opacity: 0;
-         transition: opacity 0.3s ease;
+         border: none;
+         border-radius: 8px;
+         padding: 0.5rem 1rem;
+         cursor: pointer;
+         font-size: 1rem;
+         transition: background-color 0.3s ease;
       }
 
-      .skill-item:hover::after {
-         opacity: 1;
+      .badge-action:hover {
+         background-color: #005bb5;
       }
 
-      .progress-bar {
+      .emoji {
+         animation: badgeUnlock 1.2s ease-out infinite alternate; 
+      }
+
+      /* Progress bar */
+      .progress-bar-container {
+         display: inline-block;
          position: relative;
-         background: var(--progress-bg);
-         border-radius: 4px;
+         width: 200px; 
+         height: 20px;
          overflow: hidden;
-         height: 8px;
-         margin-top: 0.5rem;
+         padding: 0.5rem 1rem;
+         background-color: #007bff; 
+         color: #ffffff; 
+         font-size: 1rem;
+         font-weight: bold;
+         text-align: center;
+         border-radius: 12px; 
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+         transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .progress-bar-container:hover {
+         background-color: #0056b3; 
+         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       }
 
-      .progress-fill {
-         height: 100%;
-         width: 0;
-         background: var(--progress-fill);
-         border-radius: 4px;
-         animation: fillProgress 2s ease-in-out forwards;
+      .progress-bar-text {
+         color: #ffffff;
+         font-size: 1rem;
+         font-weight: bold;
+      }
+
+      .progress-bar-fill {
+         width: 0%; 
+         height: 100%; 
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc); 
+         transition: width 0.5s ease; 
+      }
+
+      .progress-bar-container.animated .progress-bar-fill {
+         animation: fillProgress 2s ease-out forwards; 
+      }
+
+      .progress-bar-label {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         font-size: 0.85rem;
+         font-weight: bold;
+         color: #ffffff; 
+         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+      }
+
+      [data-progress] .progress-bar-fill {
+         width: attr(data-progress "%"); 
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeInScale {
+         from { opacity: 0; transform: scale(0.8); }
+         to { opacity: 1; transform: scale(1); }
+      }
+
+      @keyframes fadeInUp {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes slideInDown {
+         from { opacity: 0; transform: translateY(-50px); }
+         to { opacity: 1; transform: translateY(0); }
       }
 
       @keyframes fillProgress {
          from {
             width: 0;
          }
-
          to {
-            width: var(--progress-level, 80%);
+            width: var(--progress-level);
          }
       }
 
-      @keyframes fadeInUp {
+      @keyframes badgeUnlock {
          from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: scale(0.5);
          }
-
          to {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
          }
       }
 
-      footer {
-         background-color: var(--footer-bg);
-         color: var(--footer-text);
-         padding: 2rem;
-         transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      .contact-section {
-         text-align: left;
-         width: 100%;
-         margin-bottom: 2rem;
-      }
-
-      .contact-section h2 {
-         font-size: 1.5rem;
-         margin-bottom: 1rem;
-         color: var(--footer-text);
-      }
-
-      .contact-items {
-         display: flex;
-         flex-direction: column;
-         gap: 0.8rem;
-      }
-
-      .contact-item {
-         display: flex;
-         align-items: center;
-         gap: 0.8rem;
-      }
-
-      .contact-item img {
-         width: 24px;
-         height: 24px;
-         transition: transform 0.3s ease;
-      }
-
-      .contact-item img:hover {
-         transform: scale(1.1);
-      }
-
-      .contact-item a {
-         text-decoration: none;
-         color: var(--footer-text);
-         font-size: 1rem;
-      }
-
-      .contact-item a:hover {
-         color: #4ac1ff;
-      }
-
-      .footer-copyright {
-         text-align: center;
-         margin-top: 1.5rem;
-         font-size: 0.9rem;
-         color: var(--footer-text);
-      }
-
-      .footer-copyright p {
-         margin: 0;
-      }
-
-      @keyframes fadeIn {
+      @keyframes badgeAppear {
          from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: scale(0.5);
          }
-
          to {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
          }
       }
 
-      .section {
-         animation: fadeIn 1s ease-in-out;
-         padding-top: 5rem;
-         padding: 3rem 2rem;
-         margin-bottom: 2rem;
+      @keyframes bounce {
+         0%, 100% {
+            transform: translateY(0);
+         }
+         50% {
+            transform: translateY(-10px);
+         }
       }
 
-      .footer-container {
-         display: flex;
-         justify-content: space-between;
-         align-items: flex-start;
+      @keyframes gradientAnimation {
+         0% {
+            background-position: 0% 50%;
+         }
+         50% {
+            background-position: 100% 50%;
+         }
+         100% {
+            background-position: 0% 50%;
+         }
       }
 
-      .footer-badges {
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center;
-         gap: 20px;
-         margin-top: 20px;
-         flex-wrap: wrap;
+      /* Responsive Design */
+      @media (max-width: 768px) {
+         header .nav-links {
+            flex-direction: column;
+            gap: 10px;
+         }
+         
+         .project-grid, .skill-list {
+            grid-template-columns: 1fr;
+         }
       }
 
-      .badge-container {
-         display: none;
-         text-align: center;
-         margin: 1rem auto;
-         opacity: 0;
-         transform: scale(0.8);
-         transition: opacity 0.5s ease, transform 0.5s ease;
+      @media (max-width: 768px) {
+         .hobbies-container {
+            flex-direction: column;
+            align-items: center;
+         }
+         
+         .hobby-item {
+            width: 80%;
+         }
+      }
+
+      @media (max-width: 1024px) {
+         .skill-item {
+            flex: 1 1 calc(33.3% - 1.5rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .skill-item {
+            flex: 1 1 calc(50% - 1.5rem); 
+         }
+      }
+
+      @media (max-width: 480px) {
+         .skill-item {
+            flex: 1 1 100%; 
+         }
+      }
+
+      @media (max-width: 1024px) {
+         .project-card {
+            flex: 1 1 calc(50% - 2rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .project-card {
+            flex: 1 1 calc(100% - 2rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .block h3 {
+            font-size: 1.2rem;
+         }
+
+         .block h3 img {
+            width: 30px;
+            height: 30px;
+         }
+
+         .block ul li {
+            font-size: 0.9rem;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .section h2 {
+            font-size: 2rem;
+         }
+
+         .achievements-leaderboard-item {
+            padding: 1rem;
+         }
+
+         .leaderboard-image {
+            width: 60px;
+            height: 60px;
+         }
+
+         .achievements-leaderboard-item span {
+            font-size: 1rem;
+         }
+      }
+
+      @keyframes fillProgress {
+         from {
+            width: 0%;
+         }
+         to {
+            width: var(--progress-width, 0%);
+         }
+      }
+
+      @media (max-width: 768px) {
+         .progress-bar-container {
+            height: 12px; 
+         }
+
+         .progress-bar-label {
+            font-size: 0.75rem; 
+         }
+      }
+
+      @keyframes fillProgress {
+         0% {
+            width: 0%;
+         }
+         100% {
+            width: 100%;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .timeline-container {
+            flex-direction: column;
+         }
+
+         .timeline-container::before {
+            height: 0;
+         }
+
+         .timeline-item {
+            align-items: flex-start;
+            max-width: none;
+            margin-bottom: 2rem;
+         }
+
+         .timeline-content {
+            text-align: left;
+         }
+      }
+
+      @media (max-width: 768px) {
+         #hero {
+            flex-direction: column;
+            text-align: center;
+         }
+
+         .hero-avatar {
+            margin: 0 auto 1.5rem;
+         }
+
+         .hero-content {
+            max-width: 100%;
+            text-align: center;
+         }
+
+         .cta-buttons {
+            justify-content: center;
+         }
+      }
+
+      @keyframes avatarBounce {
+         0%, 100% {
+            transform: translateY(0);
+         }
+         50% {
+            transform: translateY(-10px);
+         }
+      }
+
+      @media (max-width: 768px) {
+         .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+         }
+
+         .contact-section,
+         .qr-code-section {
+            width: 100%;
+            margin-bottom: 1rem;
+         }
+
+         .qr-code-section img {
+            width: 100px;
+            height: 100px;
+         }
+
+         #backToTop {
+            bottom: 70px; 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .milestone {
+            transform: translateX(0);
+            width: 90%;
+         }
+
+         .roadmap::before {
+            left: 20px;
+         }
+      }
+
+      @media (max-width: 768px) {
+         header .nav-links {
+            flex-direction: column;
+            gap: 10px;
+         }
+
+         .timeline-container {
+            flex-direction: column;
+         }
+
+         .timeline-container::before {
+            height: 0;
+         }
+
+         .timeline-item {
+            align-items: flex-start;
+            max-width: none;
+            margin-bottom: 2rem;
+         }
+
+         .timeline-content {
+            text-align: left;
+         }
       }
    </style>
 </head>
 
 <body>
    <header>
-      <div class="logo">Kaushik Chintalapudi</div>
+      <div class="logo">
+         <a href="#hero" aria-label="Navigate to hero section for the introduction">
+            <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Favicon Logo.webp" alt="Kaushik Chintalapudi Logo" class="header logo">
+         </a>
+      </div>
+      
       <nav class="nav-links">
-         <a href="#about">About</a>
-         <a href="#hobbies">Hobbies</a>
-         <a href="#skills">Skills</a>
-         <a href="#experience">Experience</a>
-         <a href="#projects">Projects</a>
-         <a href="#learnings">Learnings</a>
-         <a href="#achievements">Achievements</a>
+         <a href="#about" class="nav-item" aria-label="Navigate to About section">About</a>
+         <a href="#hobbies" class="nav-item" aria-label="Navigate to Hobbies section">Hobbies</a>
+         <a href="#skills" class="nav-item" aria-label="Navigate to Skills section">Skills</a>
+         <a href="#experience" class="nav-item" aria-label="Navigate to Experience section">Experience</a>
+         <a href="#projects" class="nav-item" aria-label="Navigate to Projects section">Projects</a>
+         <a href="#learnings" class="nav-item" aria-label="Navigate to Learnings section">Learnings</a>
+         <a href="#achievements-leaderboard" class="nav-item" aria-label="Navigate to Achievements section">Achievements</a>
+         <a href="#certifications" class="nav-item" aria-label="Navigate to Certifications section">Certifications</a>
       </nav>
-      <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle theme">Toggle Theme</button>
+      
+      <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle between light and dark theme">
+         <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
+         <span id="themeText" class="visually-hidden">Toggle Theme</span>
+      </button>
    </header>
    <main>
       <section id="hero">
-         <div>
-            <h1>Optimizing Cloud Operations with Curiosity and Dedication</h1>
-            <p>
-               Building today's skills for tomorrow's innovations, dedicated to transforming the world through technology by optimizing cloud operations and creating scalable, efficient solutions.
-            </p>
-            <div style="margin: 2rem auto;">
-               <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal"
-                  data-theme="dark" data-vanity="kaushik-chintalapudi-6b737a1a8">
-                  <a class="LI-simple-link" href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8">Kaushik
-                     Chintalapudi</a>
-               </div>
-               <div style="width: 80%; height: 1px; background-color: #4ac1ff; margin: 1.5rem auto;">
+         <div style="display: flex; align-items: center; justify-content: center; padding: 2rem; height: 100vh;">
+            <div style="flex-shrink: 0; text-align: center;">
+               <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E My Avatar.webp" alt="Kaushik Chintalapudi Avatar" class="animated-avatar" style="width: 200px; height: 200px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); margin-right: 2rem;">
+            </div>
+            
+            <div style="max-width: 600px; text-align: left;">
+               <h1 style="font-size: 2.5rem; font-weight: bold; color: #fff; margin-bottom: 1.5rem;">
+                  Curious About Cloud, Inspired by AI, and Driven to Innovate
+               </h1>
+               
+               <p style="font-size: 1.2rem; line-height: 1.5; color: #fff; margin-bottom: 1.5rem;">
+                  Gaining a strong foundation in cloud technologies while embracing continuous learning and growth, with a focus on
+                  creating scalable and efficient solutions for the evolving tech industry.
+               </p>
+               
+               <a href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8" style="color: #6b47dc; text-decoration: underline; font-size: 1.2rem;">Kaushik Chintalapudi</a>
+               
+               <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                  <a href="#footer-contact" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Navigate to the contact section">Let's Connect</a>
+                  <a href="d:\\Users\\kaushikc\\Downloads\\Kaushik Chintalapudi Resume.pdf" target="_blank" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Download Kaushik Chintalapudi's Resume">Download Resume</a>
                </div>
             </div>
-            <a href="#footer-contact" class="cta-btn" aria-label="Contact Kaushik"
-               style="margin-top: 2rem; display: inline-block;">Let's Connect</a>
-            <a href="d:\\Users\\kaushikc\\Downloads\\Kaushik Chintalapudi Resume.pdf" download class="cta-btn"
-               style="margin-top: 1.5rem; display: inline-block;" aria-label="Download Resume">
-               <i class="fas fa-download"></i> Download Resume
-            </a>
          </div>
       </section>
-      
-      <section id="about" class="section">
-         <h2>About Me</h2>
+
+      <section id="about" class="section" aria-labelledby="about-heading">
+         <h2 id="about-heading">About Me</h2>
          <p>
-            I am <strong>Kaushik Chintalapudi</strong>, a Cloud Intern with a year of professional experience in managing
-            cloud infrastructure and enhancing operational efficiency. A recent college graduate, I am driven by the
-            opportunity to learn, grow, and apply my knowledge to solve complex challenges in cloud technologies.
+            I am <a href="#kaushik" class="keyword" data-tooltip="Your host! Kaushik Chintalapudi" data-action="open-modal">Kaushik Chintalapudi</a>, an entry-level
+            <a href="#cloud-analyst" class="keyword" data-tooltip="A professional managing and optimizing cloud infrastructure" data-action="highlight">Cloud Analyst</a> with 14 months of experience in managing
+            <a href="#cloud-infrastructure" class="keyword" data-tooltip="The backbone of digital services" data-action="show-alert">cloud infrastructure</a> and exploring
+            <a href="#emerging-technologies" class="keyword" data-tooltip="Innovations like AI, blockchain, and IoT" data-action="scroll-to">emerging technologies</a>. A Computer Science Engineering graduate
+            who graduated in <a href="#graduation-date" class="keyword" data-tooltip="The milestone in July 2023" data-action="open-modal">July 2023</a>, I am passionate about learning and applying my knowledge to solve
+            challenges in the dynamic field of cloud computing and AI.
          </p>
          <p>
-            My expertise lies in leveraging platforms like <strong>Microsoft Azure</strong> and
-            <strong>Microsoft Power Platform</strong> to optimize cloud resources, automate workflows, and support
-            governance strategies. Through projects like the <strong>Chargeback Automator</strong> and research into
-            <strong>blockchain-driven identity management</strong>, I’ve gained a solid foundation in building impactful
-            solutions.
+            My experience includes working with platforms like
+            <a href="#microsoft-azure" class="keyword" data-tooltip="Microsoft’s cloud computing platform" data-action="highlight">Microsoft Azure</a> and
+            <a href="#power-platform" class="keyword" data-tooltip="Tools for low-code app development" data-action="show-alert">Microsoft Power Platform</a> and support governance initiatives. Through projects like the
+            <a href="#chargeback-automator" class="keyword" data-tooltip="A tool to simplify license chargebacks" data-action="scroll-to">Chargeback Automator</a> and research into
+            <a href="#blockchain-identity-management" class="keyword" data-tooltip="Blockchain for secure identity management" data-action="open-modal">blockchain-driven identity management</a>, I’ve developed a strong foundation in cloud technologies.
          </p>
          <p>
-            I bring a diverse skill set, ranging from <strong>Python programming</strong> to
-            <strong>low-code app development</strong>, and I am constantly exploring advanced concepts like containerization
-            and microservices architecture. My work reflects a deep commitment to driving value through technology while
-            staying adaptable to emerging trends.
+            I possess a diverse skill set, from <a href="#python" class="keyword" data-tooltip="A powerful programming language" data-action="highlight">Python programming</a> to
+            <a href="#low-code" class="keyword" data-tooltip="Build apps with minimal coding" data-action="show-alert">low-code app development</a>, and I’m eager to deepen my understanding of concepts like <a href="#containerization" class="keyword" data-tooltip="Efficient app deployment with containers" data-action="scroll-to">containerization</a> and
+            <a href="#microservices" class="keyword" data-tooltip="Breaking down apps into small, independent services" data-action="open-modal">microservices architecture</a>. My journey reflects a commitment to staying adaptable while embracing emerging trends in technology.
          </p>
          <p>
-            While I focus on growing as a professional, I aim to work on innovative projects that align with my long-term
-            goal: to contribute to shaping the future of technology and cloud ecosystems. I believe in creating solutions
-            that are not only scalable but also transformative.
+            While I’m focused on professional growth, I aspire to work on impactful projects that contribute to the
+            <a href="#future-of-technology" class="keyword" data-tooltip="Driving innovation in tech" data-action="highlight">future of technology</a> and cloud ecosystems. I aim to build scalable solutions that drive value while evolving with the tech landscape.
          </p>
          <p>
-            Outside of work, I enjoy <strong>strumming my guitar</strong>, playing <strong>cricket</strong>, and exploring
-            the endless possibilities of <strong>music</strong>. My journey with the <strong>National Cadet Corps
-               (NCC)</strong>
-            during college helped me develop leadership, discipline, and teamwork skills that now complement my technical
-            expertise.
+            Beyond work, I enjoy playing the <a href="#guitar" class="keyword" data-tooltip="Music is life!" data-action="show-alert">guitar</a>, cricket, and exploring the
+            creative world of music.
          </p>
          <p>
-            I look forward to collaborating with like-minded professionals to bring innovative ideas to life.
+            My time with the <a href="#mit-ncc" class="keyword" data-tooltip="MIT National Cadet Corps" data-action="scroll-to">MIT NCC Troop (MNT)</a> in college honed my leadership, discipline, and teamwork skills, which complement my technical expertise.
          </p>
+         <p>
+            I’m excited to connect with like-minded professionals and collaborate on innovative ideas that
+            <a href="#shape-the-future" class="keyword" data-tooltip="Create a better tomorrow" data-action="open-modal">shape the future</a>.
+         </p>
+         
+         <div id="badge-container-about" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>About Me Badge</strong>!</p>
+               <img id="about-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E About Me Badge.webp" alt="About Me Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+            </div>
+         </div>
       </section>
-      
+
       <section id="hobbies" class="section hobbies">
          <h2>Hobbies</h2>
          <p class="section-subtitle">Discover hidden surprises as you explore my favorite hobbies!</p>
+         
          <div class="hobbies-container">
-            <div class="hobby-item" data-hobby="guitar">
+            <div class="hobby-item" data-hobby="guitar" aria-label="Explore Guitar Hobby">
                <div class="hobby-icon">
                   <i class="fas fa-guitar"></i>
                </div>
@@ -1015,7 +1667,8 @@
                <p>Strumming chords and composing tunes.</p>
                <div class="hidden-message">🎸 Rock on!</div>
             </div>
-            <div class="hobby-item" data-hobby="cricket">
+            
+            <div class="hobby-item" data-hobby="cricket" aria-label="Explore Cricket Hobby">
                <div class="hobby-icon">
                   <i class="fas fa-cricket"></i>
                </div>
@@ -1023,7 +1676,8 @@
                <p>Passionate about the game, both playing and spectating.</p>
                <div class="hidden-message">🏏 Hit a six!</div>
             </div>
-            <div class="hobby-item" data-hobby="music">
+            
+            <div class="hobby-item" data-hobby="music" aria-label="Explore Music Hobby">
                <div class="hobby-icon">
                   <i class="fas fa-headphones"></i>
                </div>
@@ -1031,69 +1685,99 @@
                <p>Exploring various genres and creating playlists.</p>
                <div class="hidden-message">🎧 Tune in!</div>
             </div>
-         </div>
-         <div id="badge-container-hobbies" class="hidden">
-            <h3>Congratulations!</h3>
-            <p>You’ve explored all hobbies! Here’s your badge:</p>
-            <img src="badge.png" alt="Hobbies Badge" class="badge-image">
+            
+            <div id="badge-container-hobbies" class="badge-container">
+               <div class="badge-content">
+                  <h3 class="badge-title">🎉 Congratulations!</h3>
+                  <p class="badge-message">You've unlocked the <strong>Hobbies Badge</strong>!</p>
+                  <img id="hobbies-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Hobbies Badge.webp" alt="Hobbies Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+               </div>
+            </div>
          </div>
       </section>
-      
+
       <section id="skills" class="skills">
          <h2>Skills</h2>
-         <p class="section-subtitle">A collection of tools and skills I've mastered to drive AI innovation and cloud
-            optimization.</p>
+         <p class="section-subtitle">
+            A showcase of tools and technologies I am proficient in, building a strong foundation for AI innovation and cloud
+            solutions.
+         </p>
+         
          <div class="skill-list">
-            <div class="skill-item" data-skill-level="Expert">
-               Microsoft Azure
+            <div class="skill-item" data-skill-level="Beginner" aria-label="Skill: Microsoft Azure, Level: Beginner">
+               <h3>Microsoft Azure</h3>
                <div class="progress-bar">
-                  <div class="progress-fill" style="--progress-level: 90%;"></div>
+                  <div class="progress-fill" style="width: 90%;"></div>
                </div>
             </div>
-            <div class="skill-item" data-skill-level="Intermediate">
-               Python
+            
+            <div class="skill-item" data-skill-level="Intermediate" aria-label="Skill: Python, Level: Intermediate">
+               <h3>Python</h3>
                <div class="progress-bar">
-                  <div class="progress-fill" style="--progress-level: 75%;"></div>
+                  <div class="progress-fill" style="width: 75%;"></div>
                </div>
             </div>
-            <div class="skill-item" data-skill-level="Beginner">
-               Generative AI
+            
+            <div class="skill-item" data-skill-level="Beginner" aria-label="Skill: Microsoft Power Apps, Level: Beginner">
+               <h3>Microsoft Power Apps</h3>
                <div class="progress-bar">
-                  <div class="progress-fill" style="--progress-level: 60%;"></div>
+                  <div class="progress-fill" style="width: 85%;"></div>
                </div>
             </div>
-            <div class="skill-item" data-skill-level="Beginner">
-               Microsoft Power Platform
+            
+            <div class="skill-item" data-skill-level="Beginner" aria-label="Skill: Microsoft Power Automate, Level: Beginner">
+               <h3>Microsoft Power Automate</h3>
                <div class="progress-bar">
-                  <div class="progress-fill" style="--progress-level: 85%;"></div>
+                  <div class="progress-fill" style="width: 85%;"></div>
+               </div>
+            </div>
+
+            <div class="skill-item" data-skill-level="Beginner" aria-label="Skill: Microsoft Power Automate, Level: Beginner">
+               <h3>Microsoft Excel</h3>
+               <div class="progress-bar">
+                  <div class="progress-fill" style="width: 60%;"></div>
                </div>
             </div>
          </div>
-         <div id="badge-container-skills" class="hidden">
-            <h3>Congratulations!</h3>
-            <p>You’ve unlocked the Skills Badge!</p>
+         
+         <div id="badge-container-Skills" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Skills Badge</strong>!</p>
+               <img id="Skills-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Skills Badge.webp" alt="Skills Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+            </div>
          </div>
       </section>
-      
+
       <section id="experience">
          <h2>Experience</h2>
          <p class="section-subtitle">A showcase of my professional journey and impactful contributions.</p>
-         <div class="timeline">
-            <div class="timeline-item" data-experience="cloud-intern">
-               <div class="timeline-dot"></div>
+         <div class="timeline-container">
+            <div class="timeline-item">
+               <div class="timeline-point">
+                  <span class="timeline-date">2023</span>
+               </div>
+               
                <div class="timeline-content">
                   <h3>Cloud Intern, PCS Gulf</h3>
                   <ul>
                      <li>Managed Change, Service, and Incident Requests in Symphony AI ITSM Portal.</li>
-                     <li>Automated Chargeback processes by creating a Chargeback Automator application.</li>
+                     <li>Automated Microsoft licenses Chargeback processes by creating a Chargeback Automator application.
+                     </li>
                      <li>Conducted research on decentralized identity management using Hashgraph technology.</li>
                      <li>Explored Scheduled Scan Reports in Lansweeper, automating network audits and generating vulnerability
                         reports.</li>
+                     <li>Helped in creating documents on cloud cost optimization, Demand management, and RFP's on Enterprise
+                        Cloud Observability and Certificate Lifecycle Management.</li>
                   </ul>
                </div>
             </div>
-            <div class="timeline-item" data-experience="research-intern">
-               <div class="timeline-dot"></div>
+      
+            <div class="timeline-item">
+               <div class="timeline-point">
+                  <span class="timeline-date">2022</span>
+               </div>
+               
                <div class="timeline-content">
                   <h3>Research Intern, MIT-WPU Institute of AI</h3>
                   <ul>
@@ -1103,8 +1787,12 @@
                   </ul>
                </div>
             </div>
-            <div class="timeline-item" data-experience="campus-ambassador">
-               <div class="timeline-dot"></div>
+      
+            <div class="timeline-item">
+               <div class="timeline-point">
+                  <span class="timeline-date">2021</span>
+               </div>
+               
                <div class="timeline-content">
                   <h3>Campus Ambassador, Internshala</h3>
                   <ul>
@@ -1114,315 +1802,863 @@
                   </ul>
                </div>
             </div>
-         </div>
-         <div id="badge-container-experience" class="hidden">
-            <h3>Congratulations!</h3>
-            <p>You’ve unlocked the Experience Badge!</p>
+            
+            <div id="badge-container-experience" class="badge-container">
+               <div class="badge-content">
+                  <h3 class="badge-title">🎉 Congratulations!</h3>
+                  <p class="badge-message">You've unlocked the <strong>Experience Badge</strong>!</p>
+                  <img id="experience-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Experience Badge.webp" alt="Experience Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+               </div>
+            </div>
          </div>
       </section>
-      
+
       <section id="projects" class="section projects">
          <h2>Projects</h2>
          <p class="section-subtitle">Discover the innovative solutions I’ve built to solve real-world problems.</p>
          <div class="project-grid">
             <div class="project-card">
+               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-12-25 122509.png" alt="Chargeback Automator Screenshot">
                <h3>Chargeback Automator</h3>
                <p>Automated the license chargeback process by building the Chargeback Automator application.</p>
+               <a href="https://github.com/kaushik20/Chargeback_Automator" target="_blank" class="project-link">
+                  <button class="github-button">View on GitHub</button>
+               </a>
             </div>
             <div class="project-card">
-               <h3>Smart Health Monitoring System</h3>
+               <h3>Cloud-based Smart Health Monitoring and Tracking System using Wearable Devices</h3>
                <p>IoT-based wearable device for tracking health metrics like heartbeat and pulse.</p>
+               <a href="https://docs.google.com/document/d/15l0tuXrIx2lRRimk-Wra5ix8sHu04dyWAS4bxXZduJk/edit?tab=t.0" download class="project-link">
+                  <button class="download-button">Download Research Paper</button>
+               </a>
             </div>
             <div class="project-card">
                <h3>Hate Speech Detection</h3>
                <p>Simulated a model to detect hate speech using NLP, contributing to safer digital platforms.</p>
+               <a href="https://drive.google.com/drive/folders/1p7LcJEAiNN-UBBoD2AOzfj-52c_CFpwr" download class="project-link">
+                  <button class="download-button">Download Research Paper</button>
+               </a>
+               <a href="https://colab.research.google.com/drive/1X3WIDkEPd5bUH49VVZg1aWs1mxN2svEw" target="_blank" class="project-link">
+                  <button class="colab-button">Open in Google Colab</button>
+               </a>
             </div>
-            <div class="project-card">
-               <h3>Optimization Research</h3>
-               <p>Conducted research on AI optimization algorithms, focusing on nature-inspired solutions.</p>
+         </div>
+         <div id="badge-container-projects" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Projects Badge</strong>!</p>
+               <img id="projects-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Projects Badge.webp" alt="Projects Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
             </div>
          </div>
       </section>
-      
-      <section id="learnings" class="section learnings">
+
+      <div class="learning-canvas" id="learnings">
          <h2>Learnings</h2>
-         <p class="section-subtitle">Key knowledge areas I've acquired through projects and research.</p>
-         <h3>Cloud Technologies</h3>
-         <ul>
-            <li>Comprehensive understanding of cloud-native development (microservices, containerization).</li>
-            <li>Practical expertise in Azure cloud, DNS management, and setting budget alerts in Azure.</li>
-            <li>Mastered low-code app development using Microsoft Power Platform.</li>
-         </ul>
-         <h3>IAM Technologies</h3>
-         <ul>
-            <li>In-depth knowledge of PKI and certificate lifecycle management.</li>
-            <li>Explored blockchain concepts like Hashgraph and Byzantine Fault Tolerance for IAM.</li>
-         </ul>
-         <h3>Vulnerability Scanning</h3>
-         <ul>
-            <li>Learned about Scheduled Scan Reports as a use case of the Lansweeper tool, understanding its role in automating network audits, generating vulnerability reports, and enhancing IT asset management.</li>
-         </ul>
-      </section>
-      
-      <section id="achievements" class="section achievements">
+         <p class="section-subtitle">Showcasing my foundational knowledge and ongoing journey in mastering cloud technologies.</p>
+         
+         <div class="learning-section">
+            <div class="block" data-gamify="cloud-technologies">
+               <h3>
+                  <picture>
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-large.webp" media="(min-width: 1024px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-medium.webp" media="(min-width: 768px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-small.webp" media="(max-width: 767px)">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Cloud Icon.webp" alt="Cloud Icon">
+                  </picture> Cloud Technologies
+               </h3>
+               <ul>
+                  <li>Comprehensive understanding of cloud-native development (microservices, containerization).</li>
+                  <li>Practical expertise in Azure cloud, DNS management, and setting budget alerts in Azure.</li>
+                  <li>Mastered low-code app development using Microsoft Power Platform.</li>
+               </ul>
+            </div>
+
+            <div class="block" data-gamify="iam-technologies">
+               <h3>
+                  <picture>
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E IAM Icon-large.webp" media="(min-width: 1024px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E IAM Icon-medium.webp" media="(min-width: 768px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E IAM Icon-small.webp" media="(max-width: 767px)">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E IAM Icon.webp" alt="Cloud Icon">
+                  </picture> IAM Technologies
+               </h3>
+               <ul>
+                  <li>In-depth knowledge of PKI and certificate lifecycle management.</li>
+                  <li>Explored blockchain concepts like Hashgraph and Byzantine Fault Tolerance for IAM.</li>
+               </ul>
+            </div>
+
+            <div class="block" data-gamify="vulnerability-scanning">
+               <h3>
+                  <picture>
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Vulnerability Scanning-large.webp" media="(min-width: 1024px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Vulnerability Scanning-medium.webp" media="(min-width: 768px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Vulnerability Scanning-small.webp" media="(max-width: 767px)">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Vulnerability Scanning.webp" alt="Cloud Icon">
+                  </picture>Vulnerability Scanning
+               </h3>
+               <ul>
+                  <li>Learned about Scheduled Scan Reports as a use case of the Lansweeper tool.</li>
+                  <li>Understood its role in automating network audits, generating vulnerability reports, and enhancing IT asset management.</li>
+               </ul>
+            </div>
+
+            <div class="block" data-gamify="deep-tech">
+               <h3>
+                  <picture>
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-large.webp" media="(min-width: 1024px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-medium.webp" media="(min-width: 768px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech-small.webp" media="(max-width: 767px)">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Deep Tech.webp" alt="Cloud Icon">
+                  </picture> Deep Tech Exploration
+               </h3>
+               <ul>
+                  <li>Created a comprehensive presentation on deep tech, focusing on cutting-edge technologies and their
+                     applications.</li>
+                  <li>Explored advancements in AI, blockchain, and IoT as part of the deep tech initiative.</li>
+                  <li>Discussed the impact of emerging technologies on various industries.</li>
+               </ul>
+            </div>
+            
+            <div class="block" data-gamify="nft-technologies">
+               <h3>
+                  <picture>
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E NFT Icon-large.webp" media="(min-width: 1024px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E NFT Icon-medium.webp" media="(min-width: 768px)">
+                     <source srcset="d:\\Users\\kaushikc\\Downloads\\DALL·E NFT Icon-small.webp" media="(max-width: 767px)">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E NFT Icon.webp" alt="NFT Icon">
+                  </picture> NFT Technologies
+               </h3>
+               <ul>
+                  <li>Studied the fundamentals of NFTs and their applications in digital ownership and assets.</li>
+                  <li>Explored blockchain frameworks for creating, minting, and trading NFTs.</li>
+                  <li>Analyzed NFT use cases in gaming, art, and decentralized finance (DeFi).</li>
+               </ul>
+            </div>
+         </div>
+         
+         <div id="badge-container-learnings" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Learnings Badge</strong>!</p>
+               <img id="Learnings-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Learnings Badge.webp" alt="Learnings Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+            </div>
+         </div>
+      </div>
+
+      <section id="achievements-leaderboard" class="section">
          <h2>Achievements</h2>
-         <p class="section-subtitle">Recognitions, milestones, and certifications I have earned in my journey so far.</p>
-         <div class="achievement-grid">
-            <div class="achievement-card" data-achievement="cloud-skills-challenge">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1719989365846.jpg" alt="Microsoft Cloud Skills Challenge Badge" class="badge-image">
-               <h3>Microsoft Cloud Skills Challenge</h3>
-               <p>Completed Cloud Skills Challenge provided by Microsoft Ignite.</p>
+         <p class="section-subtitle">Showcasing my accomplishments and certifications.</p>
+         
+         <div class="achievements-leaderboard-container">
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Cloud_Skills_Challenge_Microsoft.webp" alt="Cloud Skills Challenge" class="leaderboard-image">
+               <span>Microsoft Ignite Cloud Skills Challenge</span>
+               <span>November 2023</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="ai-skills-challenge">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\Screenshot 2024-11-27 152810.png" alt="Microsoft AI Skills Challenge Badge" class="badge-image">
-               <h3>Microsoft AI Skills Challenge</h3>
-               <p>Completed AI Skills Challenge provided by Microsoft Ignite.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Devtoberfest_#DC879B.webp" alt="Devtoberfest Badge" class="leaderboard-image">
+               <span>Devtoberfest Challenge- #DC879B</span>
+               <span>July 2024</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="google-cloud-boost">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 145019.png" alt="Google Cloud Skills Boost Badge" class="badge-image">
-               <h3>Google Cloud Skills Boost</h3>
-               <p>Achieved second position in the Diamond League of Google Cloud Skills Boost.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Devtoberfest_#212327.webp" alt="Devtoberfest Badge 2" class="leaderboard-image">
+               <span>Devtoberfest Challenge- #212327</span>
+               <span>June 2024</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="google-developer">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 152402.png" alt="Google Developer Program Badge" class="badge-image">
-               <h3>Google Developer Program</h3>
-               <p>Participated in the AI Skills Quest of Google Developer Program.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Microsoft_AI_Skills_Challenge.webp" alt="AI Skills Challenge" class="leaderboard-image">
+               <span>Microsoft AI Skills Challenge</span>
+               <span>April 2024</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="hp-life-ambassador">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Pictures\\Screenshots\\Screenshot 2024-11-27 150155.png" alt="HP Life Ambassador Badge" class="badge-image">
-               <h3>HP Life Ambassador</h3>
-               <p>Became the HP Life Ambassador after completing a course in HP Life.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Innovators Intermediate AI Skills Quest.webp" alt="Progression Badge" class="leaderboard-image">
+               <span>Innovators Intermediate AI Skills Quest</span>
+               <span>August 2024</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="devtoberfest-fullstack">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1727687763696.jpg" alt="Devtoberfest Full-Stack Application Badge" class="badge-image">
-               <h3>Devtoberfest: Full-Stack Application</h3>
-               <p>Completed the tutorial for creating a Full-Stack Application with SAP Fiori UI in SAP Build Code.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\HP Life Ambassador.webp" alt="HP Life Ambassador" class="leaderboard-image">
+               <span>HP LIFE Ambassador</span>
+               <span>July 2024</span>
             </div>
-      
-            <div class="achievement-card" data-achievement="devtoberfest-setup">
-               <img src="d:\\Users\\kaushikc\\OneDrive - Al-Futtaim Group\\Documents\\Kaushik Office\\Certifications\\Pictures\\1727687633378.jpg" alt="Devtoberfest SAP Build Code Badge" class="badge-image">
-               <h3>Devtoberfest: SAP Build Code Setup</h3>
-               <p>Completed the tutorial for setting up SAP Build Code in SAP BTP.</p>
+            
+            <div class="achievements-leaderboard-item">
+               <img src="d:\\Users\\kaushikc\\Downloads\\Google Cloud Skills Boost.webp" alt="Diamond League" class="leaderboard-image">
+               <span>Google Cloud Skills Boost- Diamond League</span>
+               <span>October 2024</span>
             </div>
          </div>
-         <div id="badge-container-achievements" class="hidden">
-            <h3>Congratulations!</h3>
-            <p>You’ve unlocked the Achievements Badge!</p>
+         
+         <div id="badge-container-achievements" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Achievements Badge</strong>!</p>
+               <img id="Achievements-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Achievements Badge.webp" alt="Achievements Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+            </div>
          </div>
+      </section>
+
+      <section id="certifications" class="roadmap-section">
+         <h2 class="roadmap-title">Certifications Roadmap</h2>
+         <p>Showcasing my completed certifications and ongoing learning journey in an AI-themed roadmap.</p>
+         
+         <div class="roadmap-container">
+            <div class="roadmap">
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Microsoft.webp" alt="Microsoft Logo" class="milestone-logo">
+                  </div>
+                  <p class="milestone-date">December 2024</p>
+                  <p class="milestone-title">Microsoft Certified: Azure Fundamentals</p>
+                  <p class="milestone-description">Building a foundation for scalable cloud infrastructure.</p>
+                  <a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Google.webp" alt="Google Logo" class="milestone-logo">
+                  </div>
+                  <p class="milestone-date">December 2024</p>
+                  <p class="milestone-title">Google Digital Garage: Advanced Digital Marketing</p>
+                  <p class="milestone-description">Empowering my skills in digital marketing strategies.</p>
+                  <a href="https://skillshop.exceedlms.com/student/award/4E2h1kEFMoKPUrT7GfGF9kFY" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Linkedin Learning.webp" alt="LinkedIn Logo" class="milestone-logo">
+                  </div>
+                  <p class="milestone-date">October 2024</p>
+                  <p class="milestone-title">Developing Your Emotional Intelligence</p>
+                  <p class="milestone-description">Enhancing soft skills critical for leadership in AI.</p>
+                  <a href="https://www.linkedin.com/learning/certificates/ac324e121d91d4242f3adcddd16e35c17f8cc89a3d5f5c57a53cdf62f8c543b9" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E DeepLearning AI.webp" alt="DeepLearning.AI Logo" class="milestone-logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">AI Python for Beginners</p>
+                  <p class="milestone-description">Understanding AI basics to develop intelligent solutions.</p>
+                  <a href="https://learn.deeplearning.ai/accomplishments/0e5dbf6a-f3a3-442c-8286-695f221a5682" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E DeepLearning AI.webp" alt="DeepLearning.AI Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">ChatGPT Prompt Engineering</p>
+                  <p class="milestone-description">Mastering prompt engineering for generative AI models.</p>
+                  <a href="https://learn.deeplearning.ai/accomplishments/01b60ef0-b5fb-42db-a92d-04b99131d07d" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Linkedin Learning.webp" alt="LinkedIn Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">Build Your Generative AI Productivity Skills</p>
+                  <p class="milestone-description">Harnessing the power of AI for productivity and innovation.</p>
+                  <a href="https://www.linkedin.com/learning/certificates/e02b46c46a631cf39632875eb35ea1821463f7f1f9761a1b215959b622b14bbb" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E Linkedin Learning.webp" alt="LinkedIn Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">Ethics in the Age of Generative AI</p>
+                  <p class="milestone-description">Understanding ethical considerations in AI development.</p>
+                  <a href="https://www.linkedin.com/learning/certificates/a9154403532669cdbea8a55fdbc0d9d41066d8b0a1d944f75ebb81fd9830e259?trk=share_certificate" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E HP life.webp" alt="HP LIFE Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">Starting a Small Business</p>
+                  <p class="milestone-description">how to use entrepreneurial thinking to start a business</p>
+                  <a href="https://www.life-global.org/certificate/5e41f56b-40a5-4559-8343-ae150a2cc222" target="_blank">View Certificate</a>
+               </div>
+               
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="d:\\Users\\kaushikc\\Downloads\\DALL·E HP life.webp" alt="HP LIFE Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">August 2024</p>
+                  <p class="milestone-title">Circular Economy</p>
+                  <p class="milestone-description">basic principles of circular economy, why a circular economy is important in today’s world</p>
+                  <a href="https://www.life-global.org/certificate/890f17ac-14ee-4062-b45b-31712030137f" target="_blank">View Certificate</a>
+               </div>
+            </div>
+         </div>
+
+         <div id="badge-container-certifications" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Certifications Badge</strong>!</p>
+               <img id="Certifications-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Certifications Badge.webp" alt="Certifications Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
+            </div>
+         </div>
+
+         <script>
+            function badgeUnlock() {
+               const badge = document.getElementById('Certifications-badge');
+               badge.style.display = 'block';
+            }
+         </script>
       </section>
    </main>
+
    <footer id="footer-contact">
       <div class="footer-container">
          <div class="contact-section">
             <h2>Contact</h2>
             <div class="contact-items">
                <div class="contact-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Icon">
                   <span><a href="mailto:kaushik20feb@gmail.com" target="_blank">kaushik20feb@gmail.com</a></span>
                </div>
                <div class="contact-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
-                  <span><a href="https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8"
-                        target="_blank">kaushik-chintalapudi</a></span>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Icon">
+                  <span><a href="https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8" target="_blank">kaushik-chintalapudi</a></span>
                </div>
                <div class="contact-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Icon">
                   <span><a href="https://github.com/kaushik20" target="_blank">kaushik20</a></span>
                </div>
                <div class="contact-item">
-                  <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"
-                     style="width: 24px; height: 24px;">
+                  <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp Icon" style="width: 24px; height: 24px;">
                   <span><a href="https://wa.me/918459102979" target="_blank">Kaushik India</a></span>
                </div>
                <div class="contact-item">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                  <span><a href="https://instagram.com/kaushik20jackiedarkie"
-                        target="_blank">kaushik20jackiedarkie</a></span>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon">
+                  <span><a href="https://instagram.com/kaushik20jackiedarkie" target="_blank">kaushik20jackiedarkie</a></span>
                </div>
             </div>
          </div>
-         <div class="footer-badges">
-            <div id="badge-container-contact"></div>
-            <div id="badge-container-lets-connect"></div>
+   
+         <div class="qr-code-section">
+            <img src="d:\\Users\\kaushikc\\Downloads\\Kaushik_Portfolio_QR.png" alt="QR Code">
+            <h3>Scan to Connect</h3>
+            <p>Scan to visit my portfolio or connect with me.</p>
          </div>
       </div>
-      <div class="footer-copyright">
-         <p>&copy; 2024 Kaushik Chintalapudi. Inspired by AI-powered interfaces.</p>
+   
+      <div class="footer-bar">
+         <p>
+            <button id="backToTop">© <span id="current-year"></span> Kaushik Chintalapudi. Inspired by AI-powered interfaces.</button>
+         </p>
       </div>
+   
+      <script>
+         // Set the current year dynamically
+         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+         // Add smooth scroll to the Back-to-Top button
+         document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+               top: 0,
+               behavior: 'smooth'
+            });
+         });
+      </script>
    </footer>
    
    <script>
       document.addEventListener("DOMContentLoaded", () => {
-         const DEBUG = true;
-         const debugLog = (...args) => DEBUG && console.log(...args);
+         try {
+            // Utility Functions
+            const unlockBadge = (badgeContainer) => {
+               if (!badgeContainer.classList.contains("unlocked")) {
+                  badgeContainer.classList.add("unlocked");
+                  badgeContainer.style.display = "block";
 
-         // Function to debounce events like scrolling
-         function debounce(func, delay = 100) {
-            let timeout;
-            return (...args) => {
-               clearTimeout(timeout);
-               timeout = setTimeout(() => func(...args), delay);
-            };
-         }
+                  // Store the badge state in localStorage
+                  localStorage.setItem(badgeContainer.id, "unlocked");
 
-         // Handle header style change on scroll
-         const handleScroll = () => {
-            const header = document.querySelector("header");
-            if (window.scrollY > 50) {
-               header.classList.add("scrolled");
-            } else {
-               header.classList.remove("scrolled");
-            }
-         };
-         document.addEventListener("scroll", debounce(handleScroll));
-
-         // Create the badge container dynamically
-         const createBadgeContainer = (id, parent) => {
-            let badgeContainer = document.getElementById(id);
-            if (!badgeContainer) {
-               badgeContainer = document.createElement("div");
-               badgeContainer.id = id;
-               badgeContainer.classList.add("badge-container");
-               parent.appendChild(badgeContainer);
-            }
-            return badgeContainer;
-         };
-
-         // Show badge with fade-in and scale-up effect
-         const showBadge = (container, message, emoji) => {
-            container.style.display = "block"; // Make the badge container visible
-            container.style.opacity = 0; // Start with full transparency
-            container.style.transform = "scale(0.8)"; // Initial scale down
-
-            // Create the badge message and visual
-            const badgeContent = `
-               <div style="
-                  background: linear-gradient(135deg, #4ac1ff, #6b47dc);
-                  color: white; 
-                  padding: 20px; 
-                  border-radius: 10px; 
-                  text-align: center; 
-                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-                  max-width: 300px;
-                  margin: auto;">
-                  <h3 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: bold;">Congratulations!</h3>
-                  <p style="margin: 0; font-size: 1rem;">${message}</p>
-                  <p style="font-size: 40px; margin: 1rem 0;">${emoji}</p>
-               </div>
-            `;
-            container.innerHTML = badgeContent;
-
-            // Animate fade-in and scale-up
-            setTimeout(() => {
-               container.style.opacity = 1;
-               container.style.transform = "scale(1)";
-            }, 100);
-         };
-
-         // Gamify sections with badge unlocks
-         const sectionsToGamify = [
-            { id: "hobbies", itemsClass: ".hobby-item", badgeId: "badge-container-hobbies" },
-            { id: "skills", itemsClass: ".skill-item", badgeId: "badge-container-skills" },
-            { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
-            { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
-            { id: "achievements", itemsClass: ".achievement-card", badgeId: "badge-container-achievements" },
-         ];
-
-         sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
-            const items = document.querySelectorAll(itemsClass);
-            const badgeContainer = createBadgeContainer(badgeId, document.querySelector(`#${id}`));
-            const exploredItems = new Set();
-
-            debugLog(`Setting up gamification for section: ${id}`);
-
-            // Track interactions with items in the section
-            items.forEach((item) => {
-               item.addEventListener("click", () => {
-                  if (!exploredItems.has(item)) {
-                     exploredItems.add(item);
-                     item.classList.add("touched");
-                     debugLog(`Explored items in ${id}: ${[...exploredItems]}`);
-
-                     // Check if all items have been clicked
-                     if (exploredItems.size === items.length) {
-                        // Show the badge and message together
-                        showBadge(badgeContainer, `You’ve unlocked the ${id.charAt(0).toUpperCase() + id.slice(1)} Badge!`, "🏆");
+                  // Animation for unlocking badges
+                  badgeContainer.animate(
+                     [
+                        { transform: "scale(0.5)", opacity: 0 },
+                        { transform: "scale(1.2)", opacity: 1 },
+                        { transform: "scale(1)", opacity: 1 }
+                     ],
+                     {
+                        duration: 1000,
+                        easing: "ease-out",
                      }
+                  );
+
+                  // Toast Notification for Badge Unlock
+                  showToast(`${badgeContainer.dataset.badgeName || "Badge"} Unlocked!`);
+
+                  // Optional: Play a sound effect on badge unlock
+                  const audio = new Audio('/assets/sounds/success-sound.mp3');
+                  audio.play();
+               }
+            };
+
+            const updateProgress = (counterElem, exploredCount, totalItems) => {
+               counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
+
+               // Update progress bar dynamically
+               const progressBar = counterElem.nextElementSibling.querySelector(".progress-bar-fill");
+               if (progressBar) {
+                  const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                  progressBar.style.width = `${percentage}%`;
+                  progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
+               }
+            };
+
+            const resetProgress = (sectionId, itemsClass, badgeId) => {
+               const section = document.getElementById(sectionId);
+               if (!section) return;
+
+               const items = section.querySelectorAll(itemsClass);
+               items.forEach(item => item.classList.remove("explored"));
+
+               // Reset progress counters and localStorage
+               localStorage.setItem(`${sectionId}-exploredCount`, 0);
+               const progressCounter = section.querySelector(".progress-counter");
+               updateProgress(progressCounter, 0, items.length);
+
+               // Reset badges
+               const badgeContainer = document.getElementById(badgeId);
+               if (badgeContainer) {
+                  badgeContainer.classList.remove("unlocked");
+                  badgeContainer.style.display = "none";
+                  localStorage.removeItem(badgeId);
+               }
+            };
+
+            const showToast = (message) => {
+               const toast = document.createElement("div");
+               toast.className = "toast";
+               toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+         `;
+               toast.textContent = message;
+               document.body.appendChild(toast);
+
+               // Animate toast
+               toast.animate(
+                  [
+                     { opacity: 0, transform: "translateY(20px)" },
+                     { opacity: 1, transform: "translateY(0)" },
+                     { opacity: 1, transform: "translateY(0)" },
+                     { opacity: 0, transform: "translateY(20px)" }
+                  ],
+                  {
+                     duration: 4000,
+                     easing: "ease",
                   }
+               );
+
+               // Remove toast after animation
+               setTimeout(() => {
+                  toast.remove();
+               }, 4000);
+            };
+
+            const initializeGamifiedSections = () => {
+               const sectionsToGamify = [
+                  { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
+                  { id: "hobbies", itemsClass: ".hobby-item", badgeId: "badge-container-hobbies" },
+                  { id: "skills", itemsClass: ".skill-item", badgeId: "badge-container-skills" },
+                  { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
+                  { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
+                  { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
+                  { id: "learnings", itemsClass: ".block", badgeId: "badge-container-learnings" },
+                  { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
+               ];
+
+               sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
+                  const section = document.getElementById(id);
+                  if (!section) return;
+
+                  const items = section.querySelectorAll(itemsClass);
+                  const totalItems = items.length;
+                  let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+
+                  // Create or select progress counter
+                  let progressCounter = section.querySelector(".progress-counter");
+                  if (!progressCounter) {
+                     progressCounter = document.createElement("div");
+                     progressCounter.className = "progress-counter";
+                     progressCounter.style.cssText = `
+                        text-align: center;
+                        font-size: 1rem;
+                        color: #007bff;
+                        font-weight: bold;
+                        margin-bottom: 1rem;
+                     `;
+
+                     // Progress bar container
+                     const progressBarContainer = document.createElement("div");
+                     progressBarContainer.className = "progress-bar-container";
+                     progressBarContainer.style.cssText = `
+                        margin: 0 auto;
+                        width: 80%;
+                        height: 15px;
+                        background-color: #e0e0e0;
+                        border-radius: 10px;
+                        position: relative;
+                        overflow: hidden;
+                     `;
+
+                     const progressBarFill = document.createElement("div");
+                     progressBarFill.className = "progress-bar-fill";
+                     progressBarFill.style.cssText = `
+                        width: 0%;
+                        height: 100%;
+                        background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+                        transition: width 0.5s ease;
+                     `;
+
+                     progressBarContainer.appendChild(progressBarFill);
+                     section.prepend(progressBarContainer);
+                     section.prepend(progressCounter);
+
+                     // Add reset button
+                     const resetButton = document.createElement("button");
+                     resetButton.textContent = "Reset Progress";
+                     resetButton.className = "reset-button";
+                     resetButton.style.cssText = `
+                        display: block;
+                        margin: 10px auto;
+                        padding: 5px 10px;
+                        font-size: 0.9rem;
+                        background: #dc3545;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                     `;
+                     resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                     section.appendChild(resetButton);
+                  }
+
+
+                  // Load unlocked badges from localStorage
+                  const badgeContainer = document.getElementById(badgeId);
+                  if (localStorage.getItem(badgeId) === "unlocked") {
+                     unlockBadge(badgeContainer);
+                  }
+
+                  // Delegate click event to section
+                  section.addEventListener("click", (event) => {
+                     const target = event.target.closest(itemsClass);
+                     if (target && !target.classList.contains("explored")) {
+                        target.classList.add("explored");
+                        exploredCount++;
+                        localStorage.setItem(`${id}-exploredCount`, exploredCount);
+                        updateProgress(progressCounter, exploredCount, totalItems);
+
+                        if (exploredCount === totalItems) {
+                           unlockBadge(badgeContainer);
+                        }
+                     }
+                  });
+
+                  // Initial progress display
+                  updateProgress(progressCounter, exploredCount, totalItems);
+               });
+            };
+
+            // Smooth Scroll
+            document.querySelectorAll("header .nav-links a").forEach((link) => {
+               link.addEventListener("click", (event) => {
+                  event.preventDefault();
+                  const target = document.getElementById(link.getAttribute("href").substring(1));
+                  target?.scrollIntoView({ behavior: "smooth" });
                });
             });
-         });
 
-         // Contact and "Let's Connect" sections
-         const contactItems = document.querySelectorAll(".contact-item");
-         const contactBadgeContainer = createBadgeContainer("badge-container-contact", document.querySelector(".footer-badges"));
-         const letsConnectBadgeContainer = createBadgeContainer("badge-container-lets-connect", document.querySelector(".footer-badges"));
+            // Tooltip Setup
+            const setupTooltips = () => {
+               const keywords = document.querySelectorAll(".keyword");
+               const popover = document.createElement("div");
+               popover.className = "popover";
+               popover.style.cssText = `
+                  position: absolute;
+                  background: #333;
+                  color: #fff;
+                  padding: 10px;
+                  border-radius: 5px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  display: none;
+               `;
+               document.body.appendChild(popover);
 
-         let letsConnectClicked = false;
-         const exploredContactItems = new Set();
+               keywords.forEach((keyword) => {
+                  keyword.addEventListener("mouseenter", (e) => {
+                     popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                     popover.style.display = "block";
+                     popover.style.top = `${e.pageY + 10}px`;
+                     popover.style.left = `${e.pageX + 10}px`;
+                  });
+                  keyword.addEventListener("mouseleave", () => (popover.style.display = "none"));
+               });
+            };
 
-         // Handle "Let's Connect" button click
-         const letsConnectButton = document.querySelector('.cta-btn[aria-label="Contact Kaushik"]');
-         if (letsConnectButton) {
-            letsConnectButton.addEventListener("click", () => {
-               debugLog('"Let\'s Connect" button clicked');
-               if (!letsConnectClicked) {
-                  letsConnectClicked = true;
-                  showBadge(letsConnectBadgeContainer, "You’ve unlocked the Let's Connect Badge!", "🌟");
-               }
-            });
-         }
+            // Dark Mode Toggle
+            const toggleDarkMode = () => {
+               const toggleButton = document.getElementById("darkModeToggle");
+               const currentTheme = localStorage.getItem("theme") || "light";
 
-         // Handle contact item clicks
-         contactItems.forEach((item) => {
-            item.addEventListener("click", () => {
-               if (!exploredContactItems.has(item)) {
-                  exploredContactItems.add(item);
+               document.documentElement.setAttribute("data-theme", currentTheme);
+               toggleButton.addEventListener("click", () => {
+                  const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+                  document.documentElement.setAttribute("data-theme", newTheme);
+                  localStorage.setItem("theme", newTheme);
+               });
+            };
 
-                  if (exploredContactItems.size === contactItems.length) {
-                     showBadge(contactBadgeContainer, "You’ve unlocked the Contact Badge!", "📬");
+            // Back-to-Top Button
+            const setupBackToTop = () => {
+               const button = document.getElementById("backToTop");
+               const debounce = (func, delay) => {
+                  let timeout;
+                  return (...args) => {
+                     clearTimeout(timeout);
+                     timeout = setTimeout(() => func(...args), delay);
+                  };
+               };
+
+               window.addEventListener("scroll", debounce(() => {
+                  if (window.scrollY > 200) {
+                     button.classList.add("show");
+                  } else {
+                     button.classList.remove("show");
                   }
-               }
-            });
-         });
+               }, 100));
 
-         // Dark mode toggle functionality
-         const darkModeToggle = document.getElementById("darkModeToggle");
-         const savedTheme = localStorage.getItem("theme");
-         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+               button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+            };
 
-         const setTheme = (theme) => {
-            document.documentElement.setAttribute("data-theme", theme);
-            localStorage.setItem("theme", theme);
-            updateFooterColors(theme);
-         };
+            // Highlight Active Section in Navigation
+            const highlightActiveSection = () => {
+               const sections = document.querySelectorAll("section");
+               const navLinks = document.querySelectorAll(".nav-links a");
 
-         const updateFooterColors = (theme) => {
-            const footer = document.querySelector("footer");
-            if (theme === "dark") {
-               footer.style.backgroundColor = "var(--footer-bg-dark)";
-               footer.style.color = "var(--footer-text-dark)";
-            } else {
-               footer.style.backgroundColor = "var(--footer-bg-light)";
-               footer.style.color = "var(--footer-text-light)";
-            }
-         };
+               const setActiveLink = () => {
+                  let activeSection = null;
 
-         // Set theme based on saved preferences
-         setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+                  sections.forEach((section) => {
+                     const rect = section.getBoundingClientRect();
+                     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        activeSection = section.id;
+                     }
+                  });
 
-         // Toggle theme on button click
-         darkModeToggle.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            setTheme(currentTheme === "light" ? "dark" : "light");
-         });
+                  navLinks.forEach((link) => {
+                     link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection);
+                  });
+               };
+
+               window.addEventListener("scroll", setActiveLink);
+               setActiveLink(); // Initialize on page load
+            };
+
+            // Initialize All Features
+            initializeGamifiedSections();
+            setupTooltips();
+            toggleDarkMode();
+            setupBackToTop();
+            highlightActiveSection();
+         } catch (error) {
+            console.error("Initialization Error:", error);
+         }
       });
    </script>
+
+   <script type="application/ld+json">
+      {
+         "@context": "https://schema.org",
+         "@graph": [
+            {
+               "@type": "Person",
+               "name": "Kaushik Chintalapudi",
+               "url": "https://Kaushik_Chintalapudi.com",
+               "image": "https://Kaushik_Chintalapudi.com/path-to-profile-image.jpg",
+               "jobTitle": "Cloud Intern and AI Enthusiast",
+               "worksFor": {
+                  "@type": "Organization",
+                  "name": "PCS Gulf"
+               },
+               "sameAs": [
+                  "https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8",
+                  "https://github.com/kaushik20",
+                  "https://instagram.com/kaushik20jackiedarkie"
+               ]
+            },
+            {
+               "@type": "BreadcrumbList",
+               "itemListElement": [
+                  {
+                     "@type": "ListItem",
+                     "position": 1,
+                     "name": "Home",
+                     "item": "https://Kaushik_Chintalapudi.com"
+                  },
+                  {
+                     "@type": "ListItem",
+                     "position": 2,
+                     "name": "Projects",
+                     "item": "https://Kaushik_Chintalapudi.com/projects"
+                  }
+               ]
+            },
+            {
+               "@type": "ItemList",
+               "name": "Projects by Kaushik Chintalapudi",
+               "description": "A collection of innovative projects by Kaushik Chintalapudi in AI, Cloud, and IoT.",
+               "itemListElement": [
+                  {
+                     "@type": "CreativeWork",
+                     "position": 1,
+                     "name": "Chargeback Automator",
+                     "description": "Automated the license chargeback process by building the Chargeback Automator application.",
+                     "url": "https://Kaushik_Chintalapudi.com/projects#chargeback-automator"
+                  },
+                  {
+                     "@type": "CreativeWork",
+                     "position": 2,
+                     "name": "Smart Health Monitoring System",
+                     "description": "IoT-based wearable device for tracking health metrics like heartbeat and pulse.",
+                     "url": "https://Kaushik_Chintalapudi.com/projects#smart-health-monitoring"
+                  },
+                  {
+                     "@type": "CreativeWork",
+                     "position": 3,
+                     "name": "Hate Speech Detection",
+                     "description": "Simulated a model to detect hate speech using NLP, contributing to safer digital platforms.",
+                     "url": "https://Kaushik_Chintalapudi.com/projects#hate-speech-detection"
+                  },
+                  {
+                     "@type": "CreativeWork",
+                     "position": 4,
+                     "name": "Optimization Research",
+                     "description": "Conducted research on AI optimization algorithms, focusing on nature-inspired solutions.",
+                     "url": "https://Kaushik_Chintalapudi.com/projects#optimization-research"
+                  }
+               ]
+            },
+            {
+               "@type": "DefinedTermSet",
+               "name": "Kaushik Chintalapudi's Skills",
+               "description": "A showcase of technical skills mastered by Kaushik Chintalapudi.",
+               "hasDefinedTerm": [
+                  {
+                     "@type": "DefinedTerm",
+                     "name": "Microsoft Azure",
+                     "description": "Expertise in Microsoft Azure for cloud management and optimization.",
+                     "url": "https://Kaushik_Chintalapudi.com/skills#microsoft-azure"
+                  },
+                  {
+                     "@type": "DefinedTerm",
+                     "name": "Python",
+                     "description": "Proficient in Python programming for data analysis and automation.",
+                     "url": "https://Kaushik_Chintalapudi.com/skills#python"
+                  },
+                  {
+                     "@type": "DefinedTerm",
+                     "name": "Generative AI",
+                     "description": "Knowledge of Generative AI for NLP and advanced model creation.",
+                     "url": "https://Kaushik_Chintalapudi.com/skills#generative-ai"
+                  },
+                  {
+                     "@type": "DefinedTerm",
+                     "name": "Microsoft Power Platform",
+                     "description": "Skilled in building low-code apps with Microsoft Power Platform.",
+                     "url": "https://Kaushik_Chintalapudi.com/skills#microsoft-power-platform"
+                  }
+               ]
+            },
+            {
+               "@type": "ItemList",
+               "name": "Kaushik Chintalapudi's Achievements",
+               "description": "Certifications and recognitions earned by Kaushik Chintalapudi.",
+               "itemListElement": [
+                  {
+                     "@type": "Achievement",
+                     "position": 1,
+                     "name": "Microsoft Cloud Skills Challenge 2023",
+                     "description": "Earned during the Microsoft Ignite event in 2023.",
+                     "url": "https://Kaushik_Chintalapudi.com/achievements#cloud-skills-challenge"
+                  },
+                  {
+                     "@type": "Achievement",
+                     "position": 2,
+                     "name": "Devtoberfest Challenge",
+                     "description": "Recognized for outstanding participation in the Devtoberfest Challenge.",
+                     "url": "https://Kaushik_Chintalapudi.com/achievements#devtoberfest-challenge"
+                  },
+                  {
+                     "@type": "Achievement",
+                     "position": 3,
+                     "name": "Google Cloud Skills Boost - Diamond League",
+                     "description": "Achieved Diamond League status in Google Cloud Skills Boost.",
+                     "url": "https://Kaushik_Chintalapudi.com/achievements#diamond-league"
+                  },
+                  {
+                     "@type": "Achievement",
+                     "position": 4,
+                     "name": "Advanced Digital Marketing Certification",
+                     "description": "Completed the Advanced Digital Marketing certification from Google Digital Garage.",
+                     "url": "https://Kaushik_Chintalapudi.com/achievements#advanced-digital-marketing"
+                  }
+               ]
+            },
+            {
+               "@type": "ContactPoint",
+               "contactType": "Customer Support",
+               "email": "kaushik20feb@gmail.com",
+               "telephone": "+918459102979",
+               "url": "https://Kaushik_Chintalapudi.com/contact",
+               "areaServed": "IN",
+               "availableLanguage": ["English"]
+            }
+         ]
+      }
+   </script>
+
+   <script>
+      const path = require('path');
+         const express = require('express');
+         const app = express();
+
+         app.use(express.static('public'));
+
+         app.use((req, res) => {
+            res.status(404).sendFile(path.join(__dirname, '404.html'));
+         });
+
+         const PORT = process.env.PORT || 3000;
+         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+   </script>
+
+   <a href="/">Return to Homepage</a>
+
 </body>
 
 </html>
