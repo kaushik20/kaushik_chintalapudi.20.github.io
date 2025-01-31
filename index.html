@@ -2324,8 +2324,6 @@
             </div>
          </div>
       </section>
-
-      <iframe src="https://copilotstudio.microsoft.com/environments/a7269d80-d586-e7bc-84b2-a15ad8bb4e4e/bots/crbf4_kaushiksAgent/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
    </main>
 
    <footer id="footer-contact">
@@ -2382,6 +2380,8 @@
             <button id="backToTop">© <span id="current-year"></span> Kaushik Chintalapudi. Inspired by AI-powered interfaces.</button>
          </p>
       </div>
+
+      <iframe src="https://copilotstudio.microsoft.com/environments/a7269d80-d586-e7bc-84b2-a15ad8bb4e4e/bots/crbf4_kaushiksAgent/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
    
       <script>
          // Set the current year dynamically
@@ -2906,31 +2906,6 @@
      ]
    }
    </script>
-
-   <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    var botContainer = document.createElement("div");
-    botContainer.id = "copilot-chat-container";
-    botContainer.style.position = "fixed";
-    botContainer.style.bottom = "20px";
-    botContainer.style.right = "20px";
-    botContainer.style.width = "350px";
-    botContainer.style.height = "500px";
-    botContainer.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.3)";
-    botContainer.style.borderRadius = "10px";
-    botContainer.style.overflow = "hidden";
-    botContainer.style.zIndex = "9999";
-
-    var iframe = document.createElement("iframe");
-    iframe.src = "https://webchat.botframework.com/embed/YOUR_BOT_ID?s=YOUR_SECRET_HERE";
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.style.border = "none";
-
-    botContainer.appendChild(iframe);
-    document.body.appendChild(botContainer);
-  });
-</script>
 
    <script type="application/ld+json">
    {
