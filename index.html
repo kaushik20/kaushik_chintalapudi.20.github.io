@@ -699,86 +699,7 @@
       .colab-button:hover {
          background-color: #E64A19;
       }
-
-      /* Learnings Section */
-      .learning-canvas {
-         padding: 3rem 1.5rem;
-         background-color: rgba(0, 0, 0, 0.6); 
-         color: #ffffff;
-         text-align: center;
-         border-radius: 16px; 
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
-         max-width: 1200px; 
-         margin: 2rem auto;
-      }
-
-      .learning-canvas h2 {
-         font-size: 2.5rem;
-         margin-bottom: 1rem;
-         color: #00bfff; 
-      }
-
-      .learning-canvas .section-subtitle {
-         font-size: 1.1rem;
-         margin-bottom: 2rem;
-         color: #d1d1d1;
-      }
-
-      .learning-section {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-         gap: 2rem;
-         max-width: 1200px;
-         margin: 0 auto;
-      }
-
-      .block {
-         background: linear-gradient(135deg, #007fff, #00aaff); 
-         color: #000000;
-         padding: 1.5rem;
-         border-radius: 12px;
-         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-         position: relative;
-         overflow: hidden;
-      }
-
-      .block:hover {
-         transform: translateY(-5px);
-         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
-      }
-
-      .block h3 {
-         display: flex;
-         align-items: center;
-         gap: 1rem;
-         font-size: 1.5rem;
-         color: #001f3f;
-         margin-bottom: 1rem;
-         font-weight: bold;
-      }
-
-      .block h3 img {
-         width: 40px; 
-         height: 40px;
-         border-radius: 50%;
-         background-color: #fff; 
-         padding: 5px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      }
-
-      .block ul {
-         list-style-type: disc;
-         margin-left: 1.5rem;
-         padding: 0;
-      }
-
-      .block ul li {
-         margin: 0.5rem 0;
-         color: #e6e6e6; 
-         font-size: 1rem;
-      }
-
+      
       /* Achievements Section */
       .section {
          padding: 3rem 1.5rem;
@@ -1659,7 +1580,6 @@
          <a href="#skills" class="nav-item" aria-label="Navigate to Skills section">Skills</a>
          <a href="#experience" class="nav-item" aria-label="Navigate to Experience section">Experience</a>
          <a href="#projects" class="nav-item" aria-label="Navigate to Projects section">Projects</a>
-         <a href="#learnings" class="nav-item" aria-label="Navigate to Learnings section">Learnings</a>
          <a href="#achievements-leaderboard" class="nav-item" aria-label="Navigate to Achievements section">Achievements</a>
          <a href="#certifications" class="nav-item" aria-label="Navigate to Certifications section">Certifications</a>
       </nav>
@@ -1925,88 +1845,6 @@
             </div>
          </div>
       </section>
-
-      <div class="learning-canvas" id="learnings">
-         <h2>Learnings</h2>
-         
-         <p class="section-subtitle">Showcasing my foundational knowledge and ongoing journey in mastering cloud technologies.</p>
-         
-         <div class="learning-section">
-            <div class="block" data-gamify="cloud-technologies">
-               <h3>
-                  <picture>
-                     <img src="Images/DALL·E Cloud Icon.webp" alt="Cloud Icon">
-                  </picture> Cloud Technologies
-               </h3>
-               <ul>
-                  <li>Comprehensive understanding of cloud-native development (microservices, containerization).</li>
-                  <li>Practical expertise in Azure cloud, DNS management, and setting budget alerts in Azure.</li>
-                  <li>Mastered low-code app development using Microsoft Power Platform.</li>
-               </ul>
-            </div>
-
-            <div class="block" data-gamify="iam-technologies">
-               <h3>
-                  <picture>
-                     <img src="Images/DALL·E IAM Icon.webp" alt="Cloud Icon">
-                  </picture> IAM Technologies
-               </h3>
-               <ul>
-                  <li>In-depth knowledge of PKI and certificate lifecycle management.</li>
-                  <li>Explored blockchain concepts like Hashgraph and Byzantine Fault Tolerance for IAM.</li>
-               </ul>
-            </div>
-
-            <div class="block" data-gamify="vulnerability-scanning">
-               <h3>
-                  <picture>
-                     <img src="Images/DALL·E Vulnerability Scanning.webp" alt="Cloud Icon">
-                  </picture>Vulnerability Scanning
-               </h3>
-               <ul>
-                  <li>Learned about Scheduled Scan Reports as a use case of the Lansweeper tool.</li>
-                  <li>Understood its role in automating network audits, generating vulnerability reports, and enhancing IT asset management.</li>
-                  <li>Learned about Advanced Hunting for Microsoft Defender with focus on Threat Detection</li>
-                  <li>Learned about OS Golden Image Deployment for standardized system provisioning</li>
-               </ul>
-            </div>
-
-            <div class="block" data-gamify="deep-tech">
-               <h3>
-                  <picture>
-                     <img src="Images/DALL·E Deep Tech.webp" alt="Cloud Icon">
-                  </picture> Deep Tech Exploration
-               </h3>
-               <ul>
-                  <li>Created a comprehensive presentation on deep tech, focusing on cutting-edge technologies and their
-                     applications.</li>
-                  <li>Explored advancements in AI, blockchain, and IoT as part of the deep tech initiative.</li>
-                  <li>Discussed the impact of emerging technologies on various industries.</li>
-               </ul>
-            </div>
-            
-            <div class="block" data-gamify="nft-technologies">
-               <h3>
-                  <picture>
-                     <img src="Images/DALL·E NFT Icon.webp" alt="NFT Icon">
-                  </picture> NFT Technologies
-               </h3>
-               <ul>
-                  <li>Studied the fundamentals of NFTs and their applications in digital ownership and assets.</li>
-                  <li>Explored blockchain frameworks for creating, minting, and trading NFTs.</li>
-                  <li>Analyzed NFT use cases in gaming, art, and decentralized finance (DeFi).</li>
-               </ul>
-            </div>
-         </div>
-         
-         <div id="badge-container-learnings" class="badge-container">
-            <div class="badge-content">
-               <h3 class="badge-title">🎉 Congratulations!</h3>
-               <p class="badge-message">You've unlocked the <strong>Learnings Badge</strong>!</p>
-               <img id="Learnings-badge" src="d:\\Users\\kaushikc\\Downloads\\DALL·E Learnings Badge.webp" alt="Learnings Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
-            </div>
-         </div>
-      </div>
 
       <section id="achievements-leaderboard" class="section">
          <h2>Achievements</h2>
@@ -2355,7 +2193,6 @@
                   { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
                   { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
                   { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
-                  { id: "learnings", itemsClass: ".block", badgeId: "badge-container-learnings" },
                   { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
                   { id: "conclusion", itemsClass: ".conclusion-item", badgeId: "badge-container-conclusion" }
                ];
