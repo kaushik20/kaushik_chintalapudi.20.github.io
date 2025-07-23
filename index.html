@@ -2154,19 +2154,20 @@
          });
       </script>
    </footer>
-   
    <script>
       document.addEventListener("DOMContentLoaded", () => {
          try {
-            // Utility Functions
+            // Utility Functions (Existing)
             const unlockBadge = (badgeContainer) => {
                if (!badgeContainer.classList.contains("unlocked")) {
                   badgeContainer.classList.add("unlocked");
                   badgeContainer.style.display = "block";
-
+                  const badgeImage = badgeContainer.querySelector("img");
+                  if (badgeImage) badgeImage.style.display = "block";
+                  
                   // Store the badge state in localStorage
                   localStorage.setItem(badgeContainer.id, "unlocked");
-
+                  
                   // Animation for unlocking badges
                   badgeContainer.animate(
                      [
@@ -2179,49 +2180,47 @@
                         easing: "ease-out",
                      }
                   );
-
+                  
                   // Toast Notification for Badge Unlock
                   showToast(`${badgeContainer.dataset.badgeName || "Badge"} Unlocked!`);
-               }
-            };
-
-            const updateProgress = (counterElem, exploredCount, totalItems) => {
-               counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
-
-               // Update progress bar dynamically
-               const progressBar = counterElem.nextElementSibling.querySelector(".progress-bar-fill");
-               if (progressBar) {
-                  const percentage = Math.min((exploredCount / totalItems) * 100, 100);
-                  progressBar.style.width = `${percentage}%`;
-                  progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
-               }
-            };
-
-            const resetProgress = (sectionId, itemsClass, badgeId) => {
-               const section = document.getElementById(sectionId);
-               if (!section) return;
-
-               const items = section.querySelectorAll(itemsClass);
-               items.forEach(item => item.classList.remove("explored"));
-
-               // Reset progress counters and localStorage
-               localStorage.setItem(`${sectionId}-exploredCount`, 0);
-               const progressCounter = section.querySelector(".progress-counter");
-               updateProgress(progressCounter, 0, items.length);
-
-               // Reset badges
-               const badgeContainer = document.getElementById(badgeId);
-               if (badgeContainer) {
-                  badgeContainer.classList.remove("unlocked");
-                  badgeContainer.style.display = "none";
-                  localStorage.removeItem(badgeId);
-               }
-            };
-
-            const showToast = (message) => {
-               const toast = document.createElement("div");
-               toast.className = "toast";
-               toast.style.cssText = `
+                  )
+               };
+               
+               const updateProgress = (counterElem, exploredCount, totalItems) => {
+                  counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
+                  const progressBar = counterElem.nextElementSibling.querySelector(".progress-bar-fill");
+                  if (progressBar) {
+                     const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                     progressBar.style.width = `${percentage}%`;
+                     progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
+                  }
+               };
+               
+               const resetProgress = (sectionId, itemsClass, badgeId) => {
+                  const section = document.getElementById(sectionId);
+                  if (!section) return;
+                  
+                  const items = section.querySelectorAll(itemsClass);
+                  items.forEach(item => item.classList.remove("explored"));
+                  
+                  // Reset progress counters and localStorage
+                  localStorage.setItem(`${sectionId}-exploredCount`, 0);
+                  const progressCounter = section.querySelector(".progress-counter");
+                  updateProgress(progressCounter, 0, items.length);
+                  
+                  // Reset badges
+                  const badgeContainer = document.getElementById(badgeId);
+                  if (badgeContainer) {
+                     badgeContainer.classList.remove("unlocked");
+                     badgeContainer.style.display = "none";
+                     localStorage.removeItem(badgeId);
+                  }
+               };
+               
+               const showToast = (message) => {
+                  const toast = document.createElement("div");
+                  toast.className = "toast";
+                  toast.style.cssText = `
                   position: fixed;
                   bottom: 20px;
                   right: 20px;
@@ -2233,67 +2232,67 @@
                   z-index: 1000;
                   opacity: 0;
                   transform: translateY(20px);
-               `;
-               toast.textContent = message;
-               document.body.appendChild(toast);
-
-               // Animate toast
-               toast.animate(
-                  [
-                     { opacity: 0, transform: "translateY(20px)" },
-                     { opacity: 1, transform: "translateY(0)" },
-                     { opacity: 1, transform: "translateY(0)" },
-                     { opacity: 0, transform: "translateY(20px)" }
-                  ],
-                  {
-                     duration: 4000,
-                     easing: "ease",
-                  }
-               );
-
-               // Remove toast after animation
-               setTimeout(() => {
-                  toast.remove();
-               }, 4000);
-            };
-
-            const initializeGamifiedSections = () => {
-               const sectionsToGamify = [
-                  { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
-                  { id: "hobbies", itemsClass: ".hobby-item", badgeId: "badge-container-hobbies" },
-                  { id: "skills", itemsClass: ".skill-item", badgeId: "badge-container-Skills" },
-                  { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
-                  { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
-                  { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
-                  { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
-                  { id: "conclusion", itemsClass: ".conclusion-item", badgeId: "badge-container-conclusion" }
-               ];
-
-               const initializeSection = ({ id, itemsClass, badgeId }) => {
-                  const section = document.getElementById(id);
-                  if (!section) return;
-
-                  const items = section.querySelectorAll(itemsClass);
-                  const totalItems = items.length;
-                  let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
-
-                  // Create or select progress counter
-                  let progressCounter = section.querySelector(".progress-counter");
-                  if (!progressCounter) {
-                     progressCounter = document.createElement("div");
-                     progressCounter.className = "progress-counter";
-                     progressCounter.style.cssText = `
+                  `;
+                  toast.textContent = message;
+                  document.body.appendChild(toast);
+                  
+                  // Animate toast
+                  toast.animate(
+                     [
+                        { opacity: 0, transform: "translateY(20px)" },
+                        { opacity: 1, transform: "translateY(0)" },
+                        { opacity: 1, transform: "translateY(0)" },
+                        { opacity: 0, transform: "translateY(20px)" }
+                     ],
+                     {
+                        duration: 4000,
+                        easing: "ease",
+                     }
+                  );
+                  
+                  // Remove toast after animation
+                  setTimeout(() => {
+                     toast.remove();
+                  }, 4000);
+               };
+               
+               // Existing Gamified Sections Logic
+               const initializeGamifiedSections = () => {
+                  const sectionsToGamify = [
+                     { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
+                     { id: "hobbies", itemsClass: ".hobby-item", badgeId: "badge-container-hobbies" },
+                     { id: "skills", itemsClass: ".skill-item", badgeId: "badge-container-Skills" },
+                     { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
+                     { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
+                     { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
+                     { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
+                     { id: "conclusion", itemsClass: ".conclusion-item", badgeId: "badge-container-conclusion" }
+                  ];
+                  
+                  const initializeSection = ({ id, itemsClass, badgeId }) => {
+                     const section = document.getElementById(id);
+                     if (!section) return;
+                     
+                     const items = section.querySelectorAll(itemsClass);
+                     const totalItems = items.length;
+                     let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                     
+                     // Create or select progress counter
+                     let progressCounter = section.querySelector(".progress-counter");
+                     if (!progressCounter) {
+                        progressCounter = document.createElement("div");
+                        progressCounter.className = "progress-counter";
+                        progressCounter.style.cssText = `
                         text-align: center;
                         font-size: 1rem;
                         color: #007bff;
                         font-weight: bold;
                         margin-bottom: 1rem;
-                     `;
-
-                     // Progress bar container
-                     const progressBarContainer = document.createElement("div");
-                     progressBarContainer.className = "progress-bar-container";
-                     progressBarContainer.style.cssText = `
+                        `;
+                        
+                        const progressBarContainer = document.createElement("div");
+                        progressBarContainer.className = "progress-bar-container";
+                        progressBarContainer.style.cssText = `
                         margin: 0 auto;
                         width: 80%;
                         height: 15px;
@@ -2301,26 +2300,25 @@
                         border-radius: 10px;
                         position: relative;
                         overflow: hidden;
-                     `;
-
-                     const progressBarFill = document.createElement("div");
-                     progressBarFill.className = "progress-bar-fill";
-                     progressBarFill.style.cssText = `
+                        `;
+                        
+                        const progressBarFill = document.createElement("div");
+                        progressBarFill.className = "progress-bar-fill";
+                        progressBarFill.style.cssText = `
                         width: 0%;
                         height: 100%;
                         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
                         transition: width 0.5s ease;
-                     `;
-
-                     progressBarContainer.appendChild(progressBarFill);
-                     section.prepend(progressBarContainer);
-                     section.prepend(progressCounter);
-
-                     // Add reset button
-                     const resetButton = document.createElement("button");
-                     resetButton.textContent = "Reset Progress";
-                     resetButton.className = "reset-button";
-                     resetButton.style.cssText = `
+                        `;
+                        
+                        progressBarContainer.appendChild(progressBarFill);
+                        section.prepend(progressBarContainer);
+                        section.prepend(progressCounter);
+                        
+                        const resetButton = document.createElement("button");
+                        resetButton.textContent = "Reset Progress";
+                        resetButton.className = "reset-button";
+                        resetButton.style.cssText = `
                         display: block;
                         margin: 10px auto;
                         padding: 5px 10px;
@@ -2330,71 +2328,214 @@
                         border: none;
                         border-radius: 5px;
                         cursor: pointer;
-                     `;
-                     resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                     section.appendChild(resetButton);
-                  }
-
-                  // Load unlocked badges from localStorage
-                  const badgeContainer = document.getElementById(badgeId);
-                  if (localStorage.getItem(badgeId) === "unlocked") {
-                     unlockBadge(badgeContainer);
-                  }
-
-                  // Delegate click event to section
-                  section.addEventListener("click", (event) => {
-                     const target = event.target.closest(itemsClass);
-                     if (target && !target.classList.contains("explored")) {
-                        target.classList.add("explored");
-                        exploredCount++;
-                        localStorage.setItem(`${id}-exploredCount`, exploredCount);
-                        updateProgress(progressCounter, exploredCount, totalItems);
-
-                        if (exploredCount === totalItems) {
-                           unlockBadge(badgeContainer);
-                        }
+                        `;
+                        resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                        section.appendChild(resetButton);
                      }
-                  });
-
-                  // Initial progress display
-                  updateProgress(progressCounter, exploredCount, totalItems);
-               };
-
-               // Initialize all predefined sections
-               sectionsToGamify.forEach(initializeSection);
-
-               // Observe dynamically added sections or items
-               const observer = new MutationObserver((mutations) => {
-                  mutations.forEach((mutation) => {
-                     if (mutation.type === "childList") {
-                        sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
-                           const section = document.getElementById(id);
-                           if (section && mutation.target.contains(section)) {
-                              initializeSection({ id, itemsClass, badgeId });
+                     
+                     // Load unlocked badges from localStorage
+                     const badgeContainer = document.getElementById(badgeId);
+                     if (localStorage.getItem(badgeId) === "unlocked") {
+                        unlockBadge(badgeContainer);
+                     }
+                     
+                     // Delegate click event to section
+                     section.addEventListener("click", (event) => {
+                        const target = event.target.closest(itemsClass);
+                        if (target && !target.classList.contains("explored")) {
+                           target.classList.add("explored");
+                           exploredCount++;
+                           localStorage.setItem(`${id}-exploredCount`, exploredCount);
+                           updateProgress(progressCounter, exploredCount, totalItems);
+                           
+                           if (exploredCount === totalItems) {
+                              unlockBadge(badgeContainer);
                            }
-                        });
-                     }
+                        }
+                     });
+                     
+                     // Initial progress display
+                     updateProgress(progressCounter, exploredCount, totalItems);
+                  };
+                  
+                  sectionsToGamify.forEach(initializeSection);
+                  
+                  // Observe dynamically added sections or items
+                  const observer = new MutationObserver((mutations) => {
+                     mutations.forEach((mutation) => {
+                        if (mutation.type === "childList") {
+                           sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
+                              const section = document.getElementById(id);
+                              if (section && mutation.target.contains(section)) {
+                                 initializeSection({ id, itemsClass, badgeId });
+                              }
+                           });
+                        }
+                     });
+                  });
+                  
+                  observer.observe(document.body, { childList: true, subtree: true });
+               };
+               
+               // New Dashboard Functionality
+               const initializeDashboard = () => {
+                  // Badge Chart (Bar Chart)
+                  const badgeChartCtx = document.getElementById("badge-chart")?.getContext("2d");
+                  if (badgeChartCtx) {
+                     const badgeData = {
+                        labels: ["About", "Hobbies", "Skills", "Experience", "Projects", "Achievements", "Certifications", "Conclusion"],
+                        datasets: [{
+                           label: "Badges Unlocked",
+                           data: [
+                              localStorage.getItem("badge-container-about") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-hobbies") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-Skills") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-experience") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-projects") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-achievements") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-certifications") === "unlocked" ? 1 : 0,
+                              localStorage.getItem("badge-container-conclusion") === "unlocked" ? 1 : 0
+                           ],
+                           backgroundColor: "rgba(74, 193, 255, 0.6)",
+                           borderColor: "rgba(74, 193, 255, 1)",
+                           borderWidth: 1
+                        }]
+                     };
+                     
+                     new Chart(badgeChartCtx, {
+                        type: "bar",
+                        data: badgeData,
+                        options: {
+                           responsive: true,
+                           maintainAspectRatio: false,
+                           scales: {
+                              y: {
+                                 beginAtZero: true,
+                                 max: 1,
+                                 ticks: {
+                                    stepSize: 1,
+                                    callback: (value) => value === 1 ? "Unlocked" : "Locked",
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 },
+                                 grid: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--progress-bg").trim()
+                                 }
+                              },
+                              x: {
+                                 ticks: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 },
+                                 grid: {
+                                    display: false
+                                 }
+                              }
+                           },
+                           plugins: {
+                              legend: {
+                                 labels: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 }
+                              },
+                              title: {
+                                 display: true,
+                                 text: "Badge Unlock Progress",
+                                 color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim(),
+                                 font: { size: 16 }
+                              }
+                           }
+                        }
+                     });
+                  }
+                  
+                  // Visitor Trend Chart (Line Chart)
+                  const visitorTrendCtx = document.getElementById("visitor-trend-chart")?.getContext("2d");
+                  if (visitorTrendCtx) {
+                     const visitorData = {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+                        datasets: [{
+                           label: "Portfolio Visitors",
+                           data: [50, 70, 90, 120, 100, 130, 150], // Mock data
+                           fill: false,
+                           borderColor: "rgba(107, 71, 220, 1)",
+                           tension: 0.4,
+                           pointBackgroundColor: "rgba(107, 71, 220, 1)",
+                           pointBorderColor: "#fff",
+                           pointHoverBackgroundColor: "#fff",
+                           pointHoverBorderColor: "rgba(107, 71, 220, 1)"
+                        }]
+                     };
+                     
+                     new Chart(visitorTrendCtx, {
+                        type: "line",
+                        data: visitorData,
+                        options: {
+                           responsive: true,
+                           maintainAspectRatio: false,
+                           scales: {
+                              y: {
+                                 beginAtZero: true,
+                                 ticks: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 },
+                                 grid: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--progress-bg").trim()
+                                 }
+                              },
+                              x: {
+                                 ticks: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 },
+                                 grid: {
+                                    display: false
+                                 }
+                              }
+                           },
+                           plugins: {
+                              legend: {
+                                 labels: {
+                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
+                                 }
+                              },
+                              title: {
+                                 display: true,
+                                 text: "Visitor Trends (2025)",
+                                 color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim(),
+                                 font: { size: 16 }
+                              }
+                           }
+                        }
+                     });
+                  }
+                  
+                  // Unlock Dashboard Badge when section is viewed
+                  const dashboardSection = document.getElementById("dashboard");
+                  const badgeContainer = document.getElementById("badge-container-dashboard");
+                  if (dashboardSection && badgeContainer) {
+                     const observer = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                           unlockBadge(badgeContainer);
+                           observer.disconnect();
+                        }
+                     }, { threshold: 0.5 });
+                     observer.observe(dashboardSection);
+                  }
+               };
+               
+               // Existing Smooth Scroll
+               document.querySelectorAll("header .nav-links a").forEach((link) => {
+                  link.addEventListener("click", (event) => {
+                     event.preventDefault();
+                     const target = document.getElementById(link.getAttribute("href").substring(1));
+                     target?.scrollIntoView({ behavior: "smooth" });
                   });
                });
-
-               observer.observe(document.body, { childList: true, subtree: true });
-            };
-
-            // Smooth Scroll
-            document.querySelectorAll("header .nav-links a").forEach((link) => {
-               link.addEventListener("click", (event) => {
-                  event.preventDefault();
-                  const target = document.getElementById(link.getAttribute("href").substring(1));
-                  target?.scrollIntoView({ behavior: "smooth" });
-               });
-            });
-
-            // Tooltip Setup
-            const setupTooltips = () => {
-               const keywords = document.querySelectorAll(".keyword");
-               const popover = document.createElement("div");
-               popover.className = "popover";
-               popover.style.cssText = `
+               
+               // Existing Tooltip Setup
+               const setupTooltips = () => {
+                  const keywords = document.querySelectorAll(".keyword");
+                  const popover = document.createElement("div");
+                  popover.className = "popover";
+                  popover.style.cssText = `
                   position: absolute;
                   background: #333;
                   color: #fff;
@@ -2402,89 +2543,93 @@
                   border-radius: 5px;
                   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                   display: none;
-               `;
-               document.body.appendChild(popover);
-
-               keywords.forEach((keyword) => {
-                  keyword.addEventListener("mouseenter", (e) => {
-                     popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
-                     popover.style.display = "block";
-                     popover.style.top = `${e.pageY + 10}px`;
-                     popover.style.left = `${e.pageX + 10}px`;
+                  `;
+                  document.body.appendChild(popover);
+                  
+                  keywords.forEach((keyword) => {
+                     keyword.addEventListener("mouseenter", (e) => {
+                        popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                        popover.style.display = "block";
+                        popover.style.top = `${e.pageY + 10}px`;
+                        popover.style.left = `${e.pageX + 10}px`;
+                     });
+                     keyword.addEventListener("mouseleave", () => (popover.style.display = "none"));
                   });
-                  keyword.addEventListener("mouseleave", () => (popover.style.display = "none"));
-               });
-            };
-
-            // Dark Mode Toggle
-            const toggleDarkMode = () => {
-               const toggleButton = document.getElementById("darkModeToggle");
-               const currentTheme = localStorage.getItem("theme") || "light";
-
-               document.documentElement.setAttribute("data-theme", currentTheme);
-               toggleButton.addEventListener("click", () => {
-                  const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-                  document.documentElement.setAttribute("data-theme", newTheme);
-                  localStorage.setItem("theme", newTheme);
-               });
-            };
-
-            // Back-to-Top Button
-            const setupBackToTop = () => {
-               const button = document.getElementById("backToTop");
-               const debounce = (func, delay) => {
-                  let timeout;
-                  return (...args) => {
-                     clearTimeout(timeout);
-                     timeout = setTimeout(() => func(...args), delay);
+               };
+               
+               // Existing Dark Mode Toggle
+               const toggleDarkMode = () => {
+                  const toggleButton = document.getElementById("darkModeToggle");
+                  const currentTheme = localStorage.getItem("theme") || "light";
+                  
+                  document.documentElement.setAttribute("data-theme", currentTheme);
+                  toggleButton.addEventListener("click", () => {
+                     const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+                     document.documentElement.setAttribute("data-theme", newTheme);
+                     localStorage.setItem("theme", newTheme);
+                  });
+               };
+               
+               // Existing Back-to-Top Button
+               const setupBackToTop = () => {
+                  const button = document.getElementById("backToTop");
+                  const debounce = (func, delay) => {
+                     let timeout;
+                     return (...args) => {
+                        clearTimeout(timeout);
+                        timeout = setTimeout(() => func(...args), delay);
+                     };
                   };
-               };
-
-               window.addEventListener("scroll", debounce(() => {
-                  if (window.scrollY > 200) {
-                     button.classList.add("show");
-                  } else {
-                     button.classList.remove("show");
-                  }
-               }, 100));
-
-               button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-            };
-
-            // Highlight Active Section in Navigation
-            const highlightActiveSection = () => {
-               const sections = document.querySelectorAll("section");
-               const navLinks = document.querySelectorAll(".nav-links a");
-
-               const setActiveLink = () => {
-                  let activeSection = null;
-
-                  sections.forEach((section) => {
-                     const rect = section.getBoundingClientRect();
-                     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                        activeSection = section.id;
+                  
+                  window.addEventListener("scroll", debounce(() => {
+                     if (window.scrollY > 200) {
+                        button.classList.add("show");
+                     } else {
+                        button.classList.remove("show");
                      }
-                  });
-
-                  navLinks.forEach((link) => {
-                     link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection);
-                  });
+                  }, 100));
+                  
+                  button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
                };
-
-               window.addEventListener("scroll", setActiveLink);
-               setActiveLink();
-            };
-
-            // Initialize All Features
-            initializeGamifiedSections();
-            setupTooltips();
-            toggleDarkMode();
-            setupBackToTop();
-            highlightActiveSection();
-         } catch (error) {
-            console.error("Initialization Error:", error);
-         }
-      });
+               
+               // Existing Highlight Active Section
+               const highlightActiveSection = () => {
+                  const sections = document.querySelectorAll("section");
+                  const navLinks = document.querySelectorAll(".nav-links a");
+                  
+                  const setActiveLink = () => {
+                     let activeSection = null;
+                     
+                     sections.forEach((section) => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                           activeSection = section.id;
+                        }
+                     });
+                     
+                     navLinks.forEach((link) => {
+                        link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection);
+                     });
+                  };
+                  
+                  window.addEventListener("scroll", setActiveLink);
+                  setActiveLink();
+               };
+               
+               // Initialize All Features
+               initializeGamifiedSections();
+               setupTooltips();
+               toggleDarkMode();
+               setupBackToTop();
+               highlightActiveSection();
+               initializeDashboard();
+               
+               // Set the current year dynamically
+               document.getElementById('current-year').textContent = new Date().getFullYear();
+            } catch (error) {
+               console.error("Initialization Error:", error);
+            }
+         });
    </script>
 </body>
 
