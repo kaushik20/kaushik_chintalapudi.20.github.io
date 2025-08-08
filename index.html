@@ -944,123 +944,145 @@
          opacity: 0.8;
       }
 
-      .chart-container {
-         display: flex;
-         flex-wrap: wrap;
-         gap: 2rem;
-         justify-content: center;
-         align-items: stretch;
+      .badge-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         gap: 1.5rem;
+         justify-items: center;
+         padding: 1rem;
       }
 
-      .chart-wrapper {
-         flex: 1 1 300px;
-         max-width: 500px;
+      .badge-card {
          background: var(--card-bg);
-         padding: 1.5rem;
          border-radius: 12px;
+         padding: 1rem;
+         text-align: center;
          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+         position: relative;
+         cursor: pointer;
+         width: 100%;
+         max-width: 200px;
+         overflow: hidden;
       }
 
-      .chart-wrapper:hover {
+      .badge-card.locked {
+         filter: grayscale(80%) opacity(0.6);
+      }
+
+      .badge-card:hover {
          transform: translateY(-5px);
          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       }
 
-      .chart-wrapper canvas {
-         width: 100% !important;
-         height: 300px !important;
+      .badge-card img {
+         width: 100%;
+         height: 150px;
+         object-fit: cover;
+         border-radius: 8px;
+         margin-bottom: 0.5rem;
+         transition: transform 0.3s ease;
       }
 
+      .badge-card:hover img {
+         transform: scale(1.05);
+      }
 
-      /* Conclusion section */
-      .conclusion {
-         background: linear-gradient(135deg, #1f1f47, #3b82f6);
+      .badge-card h3 {
+         font-size: 1.2rem;
          color: #ffffff;
-         padding: 40px 20px;
-         text-align: center;
-         border-radius: 10px;
-         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-         max-width: 900px;
-         margin: 20px auto;
+         margin-bottom: 0.5rem;
+         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       }
 
-      #conclusion-heading {
-         font-size: 28px;
-         font-weight: bold;
-         margin-bottom: 10px;
-         color: #00aaff;
+      .badge-card p {
+         font-size: 0.9rem;
+         color: #d1d9f9;
       }
 
-      blockquote.quote {
-         font-style: italic;
-         font-size: 18px;
-         color: #9a9abc;
-         margin-bottom: 30px;
-      }
-
-      .conclusion-container {
-         display: flex;
-         justify-content: center;
-         gap: 30px;
-         margin-top: 30px;
-      }
-
-      .conclusion-item {
-         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
-         color: #ffffff;
-         padding: 20px;
-         border-radius: 10px;
-         width: 250px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         position: relative;
-         transition: transform 0.3s, box-shadow 0.3s;
-         text-align: center;
-      }
-
-      .conclusion-item:hover {
-         transform: translateY(-5px);
-         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .conclusion-icon {
-         font-size: 50px;
-         margin-bottom: 10px;
-         color: #ffd700;
-      }
-
-      .hidden-message {
+      .badge-modal {
          display: none;
-         font-size: 14px;
-         margin-top: 10px;
-         color: #ffd700;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background: var(--bg-color);
+         padding: 2rem;
+         border-radius: 12px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+         z-index: 2000;
+         max-width: 400px;
+         width: 90%;
+         text-align: center;
+         animation: fadeInScale 0.3s ease-out;
       }
 
-      .conclusion-item:hover .hidden-message {
+      .badge-modal.show {
          display: block;
       }
 
-      .cta-container {
-         margin-top: 30px;
+      .badge-modal img {
+         width: 100%;
+         max-width: 200px;
+         border-radius: 8px;
+         margin-bottom: 1rem;
       }
 
-      .cta-btn {
-         background-color: #3498db;
-         color: #ffffff;
-         padding: 10px 20px;
+      .badge-modal h3 {
+         font-size: 1.5rem;
+         color: var(--text-color);
+         margin-bottom: 0.5rem;
+      }
+
+      .badge-modal p {
+         font-size: 1rem;
+         color: var(--text-color);
+         margin-bottom: 1rem;
+      }
+
+      .badge-modal button {
+         background: var(--button-bg);
+         color: #fff;
          border: none;
-         border-radius: 5px;
-         font-size: 16px;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
          cursor: pointer;
-         transition: background-color 0.3s;
+         transition: background-color 0.3s ease;
       }
 
-      .cta-btn:hover {
-         background-color: #2ecc71;
+      .badge-modal button:hover {
+         background: var(--button-hover);
       }
 
+      .badge-progress-container {
+         margin: 2rem auto;
+         width: 80%;
+         max-width: 600px;
+         text-align: center;
+      }
 
+      .badge-progress-container .progress-bar {
+         width: 100%;
+         height: 15px;
+         background: var(--progress-bg);
+         border-radius: 10px;
+         overflow: hidden;
+         position: relative;
+      }
 
+      .badge-progress-container .progress-fill {
+         height: 100%;
+         background: var(--progress-fill);
+         transition: width 0.5s ease;
+      }
+
+      .badge-progress-container p {
+         font-size: 1rem;
+         color: var(--text-color);
+         margin-bottom: 0.5rem;
+         font-weight: bold;
+      }
+      
       /* Footer Section */
       footer {
          background-color: var(--footer-bg-dark);
@@ -1205,114 +1227,9 @@
          color: #4dabf7; 
          transform: scale(1.05); 
       }
+
       
-      /* Badge section */
-      .badge-container {
-         display: none;
-         position: fixed;
-         bottom: 20px;
-         right: 20px;
-         background: linear-gradient(135deg, #6b47dc, #4ac1ff);
-         color: #fff;
-         border-radius: 12px;
-         padding: 1.5rem;
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-         animation: badgeAppear 1s ease-out forwards;
-         z-index: 1000;
-      }
-
-      .badge-content {
-         text-align: center;
-         font-family: 'Poppins', sans-serif;
-      }
-
-      .badge-title {
-         font-size: 1.5rem;
-         margin-bottom: 0.5rem;
-         font-weight: bold;
-         animation: bounce 1.2s infinite ease-in-out;
-      }
-
-      .badge-message {
-         font-size: 1rem;
-         margin-bottom: 1rem;
-      }
-
-      .badge-action {
-         background-color: #0078d7;
-         color: #fff;
-         border: none;
-         border-radius: 8px;
-         padding: 0.5rem 1rem;
-         cursor: pointer;
-         font-size: 1rem;
-         transition: background-color 0.3s ease;
-      }
-
-      .badge-action:hover {
-         background-color: #005bb5;
-      }
-
-      .emoji {
-         animation: badgeUnlock 1.2s ease-out infinite alternate; 
-      }
-
-      /* Progress bar */
-      .progress-bar-container {
-         display: inline-block;
-         position: relative;
-         width: 200px; 
-         height: 20px;
-         overflow: hidden;
-         padding: 0.5rem 1rem;
-         background-color: #007bff; 
-         color: #ffffff; 
-         font-size: 1rem;
-         font-weight: bold;
-         text-align: center;
-         border-radius: 12px; 
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-         transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .progress-bar-container:hover {
-         background-color: #0056b3; 
-         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      .progress-bar-text {
-         color: #ffffff;
-         font-size: 1rem;
-         font-weight: bold;
-      }
-
-      .progress-bar-fill {
-         width: 0%; 
-         height: 100%; 
-         background: linear-gradient(135deg, #4ac1ff, #6b47dc); 
-         transition: width 0.5s ease; 
-      }
-
-      .progress-bar-container.animated .progress-bar-fill {
-         animation: fillProgress 2s ease-out forwards; 
-      }
-
-      .progress-bar-label {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         font-size: 0.85rem;
-         font-weight: bold;
-         color: #ffffff; 
-         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
-      }
-
-      [data-progress] .progress-bar-fill {
-         width: attr(data-progress "%"); 
-      }
-
-      /* Animations */
+           /* Animations */
       @keyframes fadeIn {
          from { opacity: 0; transform: translateY(20px); }
          to { opacity: 1; transform: translateY(0); }
@@ -1618,17 +1535,18 @@
             flex: 1 1 100%;
             max-width: 100%;
          }
-
-         @media (max-width: 768px) {
-         .chart-container {
-            flex-direction: column;
-            align-items: center;
-         }
-
-         .chart-wrapper {
-            max-width: 100%;
-         }
       }
+
+      @media (max-width: 768px) {
+         .badge-gallery {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+         }
+         .badge-card {
+            max-width: 150px;
+         }
+         .badge-card img {
+            height: 120px;
+         }
       }
    </style>
 </head>
@@ -1956,22 +1874,68 @@
             }
          </script>
       </section>
-
-       <section id="dashboard" class="section">
-         <h2>Portfolio Metrics</h2>
-         <p class="section-subtitle">Real-time insights into my portfolio's engagement and achievements</p>
-         <div class="chart-container">
-            <div class="chart-wrapper">
-               <canvas id="badge-chart"></canvas>
+      
+      <section id="dashboard" class="section">
+         <h2>Badge Gallery</h2>
+         <p class="section-subtitle">Explore the badges you've unlocked by interacting with my portfolio!</p>
+         <div class="badge-progress-container">
+            <p id="badge-progress-text">Badges Unlocked: 0/8</p>
+            <div class="progress-bar">
+               <div class="progress-fill" id="badge-progress-fill"></div>
             </div>
-            <div class="chart-wrapper">
-               <canvas id="visitor-trend-chart"></canvas>
+         </div>
+         <div class="badge-gallery">
+            <div class="badge-card" data-badge-id="badge-container-about" aria-label="About Me Badge">
+               <img src="Images/DALL·E About Me Badge.webp" alt="About Me Badge" loading="lazy">
+               <h3>About Me</h3>
+               <p>Unlocked by exploring my story.</p>
             </div>
+            <div class="badge-card" data-badge-id="badge-container-hobbies" aria-label="Hobbies Badge">
+               <img src="Images/DALL·E Hobbies Badge.webp" alt="Hobbies Badge" loading="lazy">
+               <h3>Hobbies</h3>
+               <p>Unlocked by discovering my passions.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-Skills" aria-label="Skills Badge">
+               <img src="Images/DALL·E Skills Badge.webp" alt="Skills Badge" loading="lazy">
+               <h3>Skills</h3>
+               <p>Unlocked by viewing my expertise.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-experience" aria-label="Experience Badge">
+               <img src="Images/DALL·E Experience Badge.webp" alt="Experience Badge" loading="lazy">
+               <h3>Experience</h3>
+               <p>Unlocked by exploring my journey.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-projects" aria-label="Projects Badge">
+               <img src="Images/DALL·E Projects Badge.webp" alt="Projects Badge" loading="lazy">
+               <h3>Projects</h3>
+               <p>Unlocked by checking my work.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-achievements" aria-label="Achievements Badge">
+               <img src="Images/DALL·E Achievements Badge.webp" alt="Achievements Badge" loading="lazy">
+               <h3>Achievements</h3>
+               <p>Unlocked by viewing my accolades.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-certifications" aria-label="Certifications Badge">
+               <img src="Images/DALL·E Certifications Badge.webp" alt="Certifications Badge" loading="lazy">
+               <h3>Certifications</h3>
+               <p>Unlocked by exploring my credentials.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-conclusion" aria-label="Conclusion Badge">
+               <img src="Images/DALL·E Conclusion Badge.webp" alt="Conclusion Badge" loading="lazy">
+               <h3>Conclusion</h3>
+               <p>Unlocked by reflecting on my vision.</p>
+            </div>
+         </div>
+         <div class="badge-modal" id="badge-modal">
+            <img id="modal-badge-image" src="" alt="Badge Image">
+            <h3 id="modal-badge-title"></h3>
+            <p id="modal-badge-message"></p>
+            <button id="modal-close-button" aria-label="Close badge modal">Close</button>
          </div>
          <div id="badge-container-dashboard" class="badge-container">
             <div class="badge-content">
                <h3 class="badge-title">🎉 Data Explorer Badge</h3>
-               <p class="badge-message">Unlocked by viewing metrics!</p>
+               <p class="badge-message">Unlocked by viewing the badge gallery!</p>
                <img id="dashboard-badge" src="Images/DALL·E Dashboard Badge.webp" alt="Dashboard Badge" style="display: none; max-width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-top: 20px;">
             </div>
          </div>
@@ -2512,6 +2476,7 @@
 </body>
 
 </html>
+
 
 
 
