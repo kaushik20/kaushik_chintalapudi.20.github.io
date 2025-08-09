@@ -1977,32 +1977,19 @@
             <button id="backToTop">© <span id="current-year"></span> Kaushik Chintalapudi. Inspired by AI-powered interfaces.</button>
          </p>
       </div>
-   
       <script>
-         // Set the current year dynamically
-         document.getElementById('current-year').textContent = new Date().getFullYear();
-
-         // Add smooth scroll to the Back-to-Top button
-         document.getElementById('backToTop').addEventListener('click', function () {
-            window.scrollTo({
-               top: 0,
-               behavior: 'smooth'
-            });
-         });
-      </script>
-   </footer>
-   <script>
-      document.addEventListener("DOMContentLoaded", () => {
-         try {
-            // Utility Functions (Existing)
-            const unlockBadge = (badgeContainer) => {
-               if (!badgeContainer.classList.contains("unlocked")) {
+         // Portfolio JavaScript - Consolidated and Optimized
+         document.addEventListener("DOMContentLoaded", () => {
+            try {
+               // Utility Functions
+               const unlockBadge = (badgeContainer) => {
+                  if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
                   badgeContainer.classList.add("unlocked");
                   badgeContainer.style.display = "block";
                   const badgeImage = badgeContainer.querySelector("img");
                   if (badgeImage) badgeImage.style.display = "block";
                   
-                  // Store the badge state in localStorage
+                  // Store badge state in localStorage
                   localStorage.setItem(badgeContainer.id, "unlocked");
                   
                   // Animation for unlocking badges
@@ -2014,44 +2001,12 @@
                      ],
                      {
                         duration: 1000,
-                        easing: "ease-out",
+                        easing: "ease-out"
                      }
                   );
                   
-                  // Toast Notification for Badge Unlock
-                  showToast(`${badgeContainer.dataset.badgeName || "Badge"} Unlocked!`);
-                  )
-               };
-               
-               const updateProgress = (counterElem, exploredCount, totalItems) => {
-                  counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
-                  const progressBar = counterElem.nextElementSibling.querySelector(".progress-bar-fill");
-                  if (progressBar) {
-                     const percentage = Math.min((exploredCount / totalItems) * 100, 100);
-                     progressBar.style.width = `${percentage}%`;
-                     progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
-                  }
-               };
-               
-               const resetProgress = (sectionId, itemsClass, badgeId) => {
-                  const section = document.getElementById(sectionId);
-                  if (!section) return;
-                  
-                  const items = section.querySelectorAll(itemsClass);
-                  items.forEach(item => item.classList.remove("explored"));
-                  
-                  // Reset progress counters and localStorage
-                  localStorage.setItem(`${sectionId}-exploredCount`, 0);
-                  const progressCounter = section.querySelector(".progress-counter");
-                  updateProgress(progressCounter, 0, items.length);
-                  
-                  // Reset badges
-                  const badgeContainer = document.getElementById(badgeId);
-                  if (badgeContainer) {
-                     badgeContainer.classList.remove("unlocked");
-                     badgeContainer.style.display = "none";
-                     localStorage.removeItem(badgeId);
-                  }
+                  // Show toast notification
+                  showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
                };
                
                const showToast = (message) => {
@@ -2061,8 +2016,8 @@
                   position: fixed;
                   bottom: 20px;
                   right: 20px;
-                  background: #007bff;
-                  color: white;
+                  background: var(--button-bg);
+                  color: var(--text-color);
                   padding: 10px 20px;
                   border-radius: 5px;
                   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -2083,17 +2038,46 @@
                      ],
                      {
                         duration: 4000,
-                        easing: "ease",
+                        easing: "ease"
                      }
                   );
                   
                   // Remove toast after animation
-                  setTimeout(() => {
-                     toast.remove();
-                  }, 4000);
+                  setTimeout(() => toast.remove(), 4000);
                };
                
-               // Existing Gamified Sections Logic
+               const updateProgress = (counterElem, exploredCount, totalItems) => {
+                  if (!counterElem) return;
+                  counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
+                  const progressBar = counterElem.nextElementSibling?.querySelector(".progress-fill");
+                  if (progressBar) {
+                     const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                     progressBar.style.width = `${percentage}%`;
+                     progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
+                  }
+               };
+               
+               const resetProgress = (sectionId, itemsClass, badgeId) => {
+                  const section = document.getElementById(sectionId);
+                  if (!section) return;
+                  const items = section.querySelectorAll(itemsClass);
+                  items.forEach(item => item.classList.remove("explored"));
+                  
+                  // Reset progress counters and localStorage
+                  localStorage.setItem(`${sectionId}-exploredCount`, 0);
+                  const progressCounter = section.querySelector(".progress-counter");
+                  updateProgress(progressCounter, 0, items.length);
+                  
+                  // Reset badges
+                  const badgeContainer = document.getElementById(badgeId);
+                  if (badgeContainer) {
+                     badgeContainer.classList.remove("unlocked");
+                     badgeContainer.style.display = "none";
+                     localStorage.removeItem(badgeId);
+                  }
+               };
+               
+               // Initialize Gamified Sections
                const initializeGamifiedSections = () => {
                   const sectionsToGamify = [
                      { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
@@ -2103,7 +2087,7 @@
                      { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
                      { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
                      { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
-                     { id: "conclusion", itemsClass: ".conclusion-item", badgeId: "badge-container-conclusion" }
+                     { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard" }
                   ];
                   
                   const initializeSection = ({ id, itemsClass, badgeId }) => {
@@ -2122,7 +2106,7 @@
                         progressCounter.style.cssText = `
                         text-align: center;
                         font-size: 1rem;
-                        color: #007bff;
+                        color: var(--button-bg);
                         font-weight: bold;
                         margin-bottom: 1rem;
                         `;
@@ -2133,18 +2117,18 @@
                         margin: 0 auto;
                         width: 80%;
                         height: 15px;
-                        background-color: #e0e0e0;
+                        background: var(--progress-bg);
                         border-radius: 10px;
                         position: relative;
                         overflow: hidden;
                         `;
                         
                         const progressBarFill = document.createElement("div");
-                        progressBarFill.className = "progress-bar-fill";
+                        progressBarFill.className = "progress-fill";
                         progressBarFill.style.cssText = `
                         width: 0%;
                         height: 100%;
-                        background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+                        background: var(--progress-fill);
                         transition: width 0.5s ease;
                         `;
                         
@@ -2166,6 +2150,7 @@
                         border-radius: 5px;
                         cursor: pointer;
                         `;
+                        
                         resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
                         section.appendChild(resetButton);
                      }
@@ -2214,173 +2199,96 @@
                   observer.observe(document.body, { childList: true, subtree: true });
                };
                
-               // New Dashboard Functionality
-               const initializeDashboard = () => {
-                  // Badge Chart (Bar Chart)
-                  const badgeChartCtx = document.getElementById("badge-chart")?.getContext("2d");
-                  if (badgeChartCtx) {
-                     const badgeData = {
-                        labels: ["About", "Hobbies", "Skills", "Experience", "Projects", "Achievements", "Certifications", "Conclusion"],
-                        datasets: [{
-                           label: "Badges Unlocked",
-                           data: [
-                              localStorage.getItem("badge-container-about") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-hobbies") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-Skills") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-experience") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-projects") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-achievements") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-certifications") === "unlocked" ? 1 : 0,
-                              localStorage.getItem("badge-container-conclusion") === "unlocked" ? 1 : 0
-                           ],
-                           backgroundColor: "rgba(74, 193, 255, 0.6)",
-                           borderColor: "rgba(74, 193, 255, 1)",
-                           borderWidth: 1
-                        }]
-                     };
-                     
-                     new Chart(badgeChartCtx, {
-                        type: "bar",
-                        data: badgeData,
-                        options: {
-                           responsive: true,
-                           maintainAspectRatio: false,
-                           scales: {
-                              y: {
-                                 beginAtZero: true,
-                                 max: 1,
-                                 ticks: {
-                                    stepSize: 1,
-                                    callback: (value) => value === 1 ? "Unlocked" : "Locked",
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 },
-                                 grid: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--progress-bg").trim()
-                                 }
-                              },
-                              x: {
-                                 ticks: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 },
-                                 grid: {
-                                    display: false
-                                 }
-                              }
-                           },
-                           plugins: {
-                              legend: {
-                                 labels: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 }
-                              },
-                              title: {
-                                 display: true,
-                                 text: "Badge Unlock Progress",
-                                 color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim(),
-                                 font: { size: 16 }
-                              }
-                           }
+               // Badge Modal Handling
+               const setupBadgeModal = () => {
+                  const badgeCards = document.querySelectorAll(".badge-card");
+                  const modal = document.getElementById("badge-modal");
+                  const modalImage = document.getElementById("modal-badge-image");
+                  const modalTitle = document.getElementById("modal-badge-title");
+                  const modalMessage = document.getElementById("modal-badge-message");
+                  const closeButton = document.getElementById("modal-close-button");
+                  
+                  badgeCards.forEach(card => {
+                     card.addEventListener("click", () => {
+                        const badgeId = card.dataset.badgeId;
+                        const badgeContainer = document.getElementById(badgeId);
+                        if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
+                           modalImage.src = card.querySelector("img").src;
+                           modalTitle.textContent = card.querySelector("h3").textContent;
+                           modalMessage.textContent = card.querySelector("p").textContent;
+                           modal.classList.add("show");
+                        } else {
+                           showToast("Unlock this badge by exploring the section!");
                         }
                      });
-                  }
+                  });
                   
-                  // Visitor Trend Chart (Line Chart)
-                  const visitorTrendCtx = document.getElementById("visitor-trend-chart")?.getContext("2d");
-                  if (visitorTrendCtx) {
-                     const visitorData = {
-                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-                        datasets: [{
-                           label: "Portfolio Visitors",
-                           data: [50, 70, 90, 120, 100, 130, 150], // Mock data
-                           fill: false,
-                           borderColor: "rgba(107, 71, 220, 1)",
-                           tension: 0.4,
-                           pointBackgroundColor: "rgba(107, 71, 220, 1)",
-                           pointBorderColor: "#fff",
-                           pointHoverBackgroundColor: "#fff",
-                           pointHoverBorderColor: "rgba(107, 71, 220, 1)"
-                        }]
-                     };
-                     
-                     new Chart(visitorTrendCtx, {
-                        type: "line",
-                        data: visitorData,
-                        options: {
-                           responsive: true,
-                           maintainAspectRatio: false,
-                           scales: {
-                              y: {
-                                 beginAtZero: true,
-                                 ticks: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 },
-                                 grid: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--progress-bg").trim()
-                                 }
-                              },
-                              x: {
-                                 ticks: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 },
-                                 grid: {
-                                    display: false
-                                 }
-                              }
-                           },
-                           plugins: {
-                              legend: {
-                                 labels: {
-                                    color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim()
-                                 }
-                              },
-                              title: {
-                                 display: true,
-                                 text: "Visitor Trends (2025)",
-                                 color: getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim(),
-                                 font: { size: 16 }
-                              }
-                           }
-                        }
-                     });
-                  }
+                  closeButton.addEventListener("click", () => {
+                     modal.classList.remove("show");
+                  });
                   
-                  // Unlock Dashboard Badge when section is viewed
-                  const dashboardSection = document.getElementById("dashboard");
-                  const badgeContainer = document.getElementById("badge-container-dashboard");
-                  if (dashboardSection && badgeContainer) {
-                     const observer = new IntersectionObserver((entries) => {
-                        if (entries[0].isIntersecting) {
-                           unlockBadge(badgeContainer);
-                           observer.disconnect();
-                        }
-                     }, { threshold: 0.5 });
-                     observer.observe(dashboardSection);
-                  }
+                  // Close modal on outside click
+                  window.addEventListener("click", (event) => {
+                     if (event.target === modal) {
+                        modal.classList.remove("show");
+                     }
+                  });
                };
                
-               // Existing Smooth Scroll
-               document.querySelectorAll("header .nav-links a").forEach((link) => {
-                  link.addEventListener("click", (event) => {
-                     event.preventDefault();
-                     const target = document.getElementById(link.getAttribute("href").substring(1));
-                     target?.scrollIntoView({ behavior: "smooth" });
-                  });
-               });
+               // Update Badge Progress in Dashboard
+               const updateBadgeProgress = () => {
+                  const badgeProgressText = document.getElementById("badge-progress-text");
+                  const badgeProgressFill = document.getElementById("badge-progress-fill");
+                  const badgeSections = [
+                     "badge-container-about",
+                     "badge-container-hobbies",
+                     "badge-container-Skills",
+                     "badge-container-experience",
+                     "badge-container-projects",
+                     "badge-container-achievements",
+                     "badge-container-certifications",
+                     "badge-container-dashboard"
+                  ];
+                  
+                  const unlockedCount = badgeSections.reduce((count, id) => {
+                     return count + (localStorage.getItem(id) === "unlocked" ? 1 : 0);
+                  }, 0);
+                  
+                  badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
+                  const percentage = (unlockedCount / badgeSections.length) * 100;
+                  badgeProgressFill.style.width = `${percentage}%`;
+               };
                
-               // Existing Tooltip Setup
+               // Smooth Scroll for Navigation
+               const setupSmoothScroll = () => {
+                  document.querySelectorAll("header .nav-links a").forEach((link) => {
+                     link.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const targetId = link.getAttribute("href").substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                           target.scrollIntoView({ behavior: "smooth" });
+                        }
+                     });
+                  });
+               };
+               
+               // Tooltip Setup
                const setupTooltips = () => {
                   const keywords = document.querySelectorAll(".keyword");
                   const popover = document.createElement("div");
                   popover.className = "popover";
                   popover.style.cssText = `
                   position: absolute;
-                  background: #333;
-                  color: #fff;
+                  background: var(--bg-color);
+                  color: var(--text-color);
                   padding: 10px;
                   border-radius: 5px;
                   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                   display: none;
+                  z-index: 1000;
                   `;
+                  
                   document.body.appendChild(popover);
                   
                   keywords.forEach((keyword) => {
@@ -2390,24 +2298,52 @@
                         popover.style.top = `${e.pageY + 10}px`;
                         popover.style.left = `${e.pageX + 10}px`;
                      });
-                     keyword.addEventListener("mouseleave", () => (popover.style.display = "none"));
+                     keyword.addEventListener("mouseleave", () => {
+                        popover.style.display = "none";
+                     });
+                     
+                     // Handle data-action attributes
+                     keyword.addEventListener("click", () => {
+                        const action = keyword.dataset.action;
+                        if (action === "highlight") {
+                           keyword.style.backgroundColor = "var(--button-bg)";
+                           keyword.style.color = "var(--bg-color)";
+                           setTimeout(() => {
+                              keyword.style.backgroundColor = "";
+                              keyword.style.color = "";
+                           }, 1000);
+                        } else if (action === "show-alert") {
+                           alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);
+                        } else if (action === "open-modal") {
+                           showToast(`Modal for ${keyword.textContent} would open here!`);
+                        } else if (action === "scroll-to") {
+                           const targetId = keyword.getAttribute("href").substring(1);
+                           const target = document.getElementById(targetId);
+                           if (target) {
+                              target.scrollIntoView({ behavior: "smooth" });
+                           }
+                        }
+                     });
                   });
                };
                
-               // Existing Dark Mode Toggle
+               // Dark Mode Toggle
                const toggleDarkMode = () => {
                   const toggleButton = document.getElementById("darkModeToggle");
+                  const themeIcon = document.getElementById("themeIcon");
                   const currentTheme = localStorage.getItem("theme") || "light";
-                  
                   document.documentElement.setAttribute("data-theme", currentTheme);
+                  themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                  
                   toggleButton.addEventListener("click", () => {
                      const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
                      document.documentElement.setAttribute("data-theme", newTheme);
                      localStorage.setItem("theme", newTheme);
+                     themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                   });
                };
                
-               // Existing Back-to-Top Button
+               // Back-to-Top Button
                const setupBackToTop = () => {
                   const button = document.getElementById("backToTop");
                   const debounce = (func, delay) => {
@@ -2429,7 +2365,7 @@
                   button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
                };
                
-               // Existing Highlight Active Section
+               // Highlight Active Section
                const highlightActiveSection = () => {
                   const sections = document.querySelectorAll("section");
                   const navLinks = document.querySelectorAll(".nav-links a");
@@ -2453,29 +2389,28 @@
                   setActiveLink();
                };
                
+               // Set Current Year in Footer
+               const setCurrentYear = () => {
+                  document.getElementById("current-year").textContent = new Date().getFullYear();
+               };
+               
                // Initialize All Features
                initializeGamifiedSections();
+               setupBadgeModal();
+               updateBadgeProgress();
+               setupSmoothScroll();
                setupTooltips();
                toggleDarkMode();
                setupBackToTop();
                highlightActiveSection();
-               initializeDashboard();
-               
-               // Set the current year dynamically
-               document.getElementById('current-year').textContent = new Date().getFullYear();
+               setCurrentYear();
+            
             } catch (error) {
                console.error("Initialization Error:", error);
             }
          });
-   </script>
-</body>
+      </script>
+   </footer>
+   </body>
 
 </html>
-
-
-
-
-
-
-
-
