@@ -598,6 +598,27 @@
          margin-right: 0.5rem;
       }
 
+      /* Resume Viewer Section */
+      .resume-viewer {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 1.5rem;
+         background: var(--card-bg);
+         border-radius: 12px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      
+      .resume-viewer iframe {
+         width: 100%;
+         aspect-ratio: 4/3;
+         max-height: 600px;
+      }
+      
+      .resume-fallback a:hover {
+         background: var(--button-hover);
+         transform: scale(1.05);
+      }
+
       /* Projects Section */
       .projects {
          text-align: center;
@@ -1541,11 +1562,34 @@
          .badge-gallery {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
          }
+         
          .badge-card {
             max-width: 150px;
          }
+         
          .badge-card img {
             height: 120px;
+         }
+      }
+      
+      @media (max-width: 768px) {
+         .resume-viewer {
+            padding: 1rem;
+         }
+         
+         .resume-viewer iframe {
+            max-height: 400px;
+         }
+         
+         .resume-fallback a {
+            font-size: 1rem;
+            padding: 0.6rem 1.5rem;
+         }
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+         .resume-fallback a {
+            transition: none;
          }
       }
    </style>
@@ -1773,16 +1817,21 @@
          </div>
       </section>
       
-      <section id="Resume">
-         <div id="resume-viewer">
-            <iframe src="Kaushik-Chintalapudi-Resume.pdf" width="100%" height="600px"></iframe>
+      <section id="Resume" class="section" aria-labelledby="resume-heading">
+         <h2 id="resume-heading">Resume</h2>
+         <p class="section-subtitle">View or download my professional resume below.</p>
+         <div class="resume-viewer" role="region" aria-label="Resume PDF viewer">
+            <iframe src="https://github.com/kaushik20/kaushik_chintalapudi.github.io/raw/main/Kaushik-Chintalapudi-Resume.pdf" width="100%" style="height: 600px; max-width: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); "title="Kaushik Chintalapudi's Resume" loading="lazy"></iframe>
+            <p class="resume-fallback" style="text-align: center; margin-top: 1rem;">
+               <a href="https://github.com/kaushik20/kaushik_chintalapudi.github.io/raw/main/Kaushik-Chintalapudi-Resume.pdf" download="Kaushik-Chintalapudi-Resume" class="cta-btn" style="background: var(--button-bg); padding: 0.8rem 2rem; border-radius: 8px; color: #fff; text-decoration: none; font-size: 1.2rem; transition: background-color 0.3s ease, transform 0.2s ease;" aria-label="Download Kaushik Chintalapudi's Resume">Download Resume</a>
+            </p>
          </div>
-         <div id="badge-container-Resume" class="badge-container">
-               <div class="badge-content">
-                  <h3 class="badge-title">🎉 Congratulations!</h3>
-                  <p class="badge-message">You've unlocked the <strong>Resume Badge</strong>!</p>
-               </div>
+         <div id="badge-container-Resume" class="badge-container" style="display: none;">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Resume Badge</h3>
+               <p class="badge-message">Unlocked by exploring my professional profile!</p>
             </div>
+         </div>
       </section>
 
       <section id="projects" class="section projects" style="background: url('Images/DALL·E AI Visual.webp') no-repeat center center fixed; background-size: cover; position: relative; color: #ffffff; padding: 4rem 1rem;">
@@ -2443,6 +2492,7 @@
    </body>
 
 </html>
+
 
 
 
