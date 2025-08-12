@@ -2029,21 +2029,18 @@
                </div>
             </div>
          </div>
-   
          <div class="qr-code-section">
             <img src="Images/Kaushik_Personal_Website_QR.webp" alt="QR Code">
             <h3>Scan to Connect</h3>
             <p>Scan to visit my portfolio or connect with me.</p>
          </div>
       </div>
-   
       <div class="footer-bar">
          <p>
             <button id="backToTop">© <span id="current-year"></span> Kaushik Chintalapudi. Inspired by AI-powered interfaces.</button>
          </p>
       </div>
       <script>
-         // Portfolio JavaScript - Consolidated and Optimized
          document.addEventListener("DOMContentLoaded", () => {
             try {
                // Utility Functions
@@ -2149,11 +2146,12 @@
                      { id: "hobbies", itemsClass: ".hobby-item", badgeId: "badge-container-hobbies" },
                      { id: "skills", itemsClass: ".skill-item", badgeId: "badge-container-Skills" },
                      { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
+                     { id: "Resume", itemsclass: ".resume-item", badgeId: "badge-container-resume"},
                      { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
                      { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
                      { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
                      { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard" }
-                  ];
+                  ]; 
                   
                   const initializeSection = ({ id, itemsClass, badgeId }) => {
                      const section = document.getElementById(id);
@@ -2309,6 +2307,7 @@
                      "badge-container-hobbies",
                      "badge-container-Skills",
                      "badge-container-experience",
+                     "badge-container-resume",
                      "badge-container-projects",
                      "badge-container-achievements",
                      "badge-container-certifications",
@@ -2459,6 +2458,36 @@
                   document.getElementById("current-year").textContent = new Date().getFullYear();
                };
                
+               // Initialize Resume Section
+               const initializeResumeSection = () => {
+                  const section = document.getElementById("Resume");
+                  if (!section) return;
+                  
+                  const viewer = section.querySelector(".resume-viewer");
+                  const badgeContainer = document.getElementById("badge-container-resume");
+                  
+                  // Load unlocked badge state
+                  if (localStorage.getItem("badge-container-Resume") === "unlocked") {
+                     badgeContainer.classList.add("unlocked");
+                     badgeContainer.style.display = "block";
+                  }
+                  
+                  // Unlock badge on interaction
+                  viewer.addEventListener("click", () => {
+                     if (!badgeContainer.classList.contains("unlocked")) {
+                        unlockBadge(badgeContainer);
+                     }
+                  });
+                  
+                  // Keyboard support
+                  viewer.addEventListener("keydown", (e) => {
+                     if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        viewer.click();
+                     }
+                  });
+               };
+               
                // Initialize All Features
                initializeGamifiedSections();
                setupBadgeModal();
@@ -2469,6 +2498,7 @@
                setupBackToTop();
                highlightActiveSection();
                setCurrentYear();
+               initializeResumeSection();
             
             } catch (error) {
                console.error("Initialization Error:", error);
@@ -2479,18 +2509,3 @@
    </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
