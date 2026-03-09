@@ -2154,7 +2154,7 @@
                      { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
                      { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
                      { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard" }, 
-                     { id: "conclusion" itemsClass: ".badge-card" badgeId: "badge-container-conclusion"}
+                     { id: "conclusion", itemsClass: ".badge-card", badgeId: "badge-container-conclusion"}
                   ]; 
                   
                   const initializeSection = ({ id, itemsClass, badgeId }) => {
@@ -2465,7 +2465,7 @@
                
                // Initialize Resume Section
                const initializeResumeSection = () => {
-                  const section = document.getElementById("Resume");
+                  const section = document.getElementById("resume");
                   if (!section) return;
                   
                   const viewer = section.querySelector(".resume-viewer");
@@ -2514,6 +2514,7 @@
    </body>
 
 </html>
+
 
 
 
