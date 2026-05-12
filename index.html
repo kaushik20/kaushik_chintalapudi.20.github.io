@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   <meta name="description" content="Explore Kaushik Chintalapudi's portfolio, showcasing skills in AI, blockchain, Microsoft Azure, and low-code app development. Innovative projects include Chargeback Automator, Hate Speech Detection, and Smart Health Monitoring.">
+   <meta name="keywords" content="Cloud Analyst, AI Portfolio, Microsoft Azure, Low-Code Development, Generative AI, Emerging Technologies, Chargeback Automator, Hate Speech Detection, Smart Health Monitoring, IoT, AI Projects, Blockchain Solutions">
+   <meta name="author" content="Kaushik Chintalapudi">
+   <meta name="robots" content="index, follow">
+   <meta property="og:title" content="Kaushik Chintalapudi - AI and Cloud Portfolio" />
+   <meta property="og:description" content="Discover innovative projects and expertise in AI and Cloud Computing by Kaushik Chintalapudi." />
+   <meta property="og:url" content="https://kaushik20.github.io/kaushik_chintalapudi.github.io/" />
+   <meta property="og:type" content="website" />
+   <meta property="og:image" content="https://kaushikchintalapudi.com/assets/images/og-image.jpg" />
+   <title>Kaushik Chintalapudi - Comprehensive Portfolio</title>
+   <link rel="canonical" href="https://kaushikchintalapudi.com" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+   <style>
+      /* Root Variables */
+      :root {
+         --bg-color: #1e1e2f;
+         --text-color: #fff;
+         --hero-bg-light: #cce7ff; 
+         --hero-bg-dark: linear-gradient(135deg, #2b1f42, #1e1e2f);
+         --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         --button-bg: #0078d7;
+         --button-hover: #005bb5;
+         --progress-bg: #1e1e2f;
+         --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         --footer-bg-dark: #262e47;
+         --footer-text-dark: #ffffff;
+         --footer-text-light: #000000;
+         --header-bg: rgba(30, 30, 47, 0.9);
+         --header-scrolled-bg: rgba(30, 30, 47, 0.95);
+         --animation-duration: 0.3s;
+         --animation-delay: 0.1s;
+      }
+
+      [data-theme="light"] {
+         --bg-color: #ffffff;
+         --text-color: #000000;
+         --hero-bg-light: linear-gradient(135deg, #6b47dc, #4ac1ff);
+         --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
+         --button-bg: #4ac1ff;
+         --button-hover: #6b47dc;
+         --progress-bg: #f0f0f0;
+         --progress-fill: linear-gradient(135deg, #0078d7, #4ac1ff);
+         --header-bg: #ffffff;
+         --header-scrolled-bg: #ffffff;
+         --footer-bg-dark: #eaf4fc;
+         --footer-text-dark: #262e47;
+      }
+
+      [data-theme="high-contrast"] {
+         --bg-color: #000;
+         --text-color: #ffeb3b;
+         --button-bg: #ffeb3b;
+         --button-hover: #ffc107;
+      }
+
+      /* Global Styles */
+      html, body {
+         font-family: 'Poppins', sans-serif;
+         background: var(--bg-color);
+         color: var(--text-color);
+         margin: 0;
+         padding: 0;
+         overflow-x: hidden;
+         scroll-behavior: smooth;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
+      }
+
+      a:focus, button:focus {
+         outline: 2px solid var(--button-bg);
+         box-shadow: 0 0 5px var(--button-hover);
+      }
+
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      /* Header Section */
+      header {
+         position: sticky;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 70px;
+         background-color: var(--header-bg);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         z-index: 1000;
+         padding: 0 2rem;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         transition: background-color var(--animation-duration) ease, height var(--animation-duration) ease;
+      }
+
+      header.scrolled {
+         background-color: var(--header-scrolled-bg);
+         height: 60px;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      header .logo {
+         display: flex;
+         align-items: start;
+         height: 100%;
+         margin-left: -10px;
+      }
+
+      header .logo a {
+         display: block;
+         height: 100%;
+      }
+
+      header .logo img {
+         height: 100%;
+         width: auto;
+         object-fit: contain;
+         border-radius: 0;
+         transition: transform var(--animation-duration) ease;
+      }
+
+      header .logo img:hover {
+         transform: scale(1.05);
+      }
+
+      header .nav-links {
+         display: flex;
+         gap: 20px;
+         align-items: center;
+         justify-content: center;
+         flex: 1;
+      }
+
+      header .nav-links .nav-item {
+         color: var(--text-color);
+         text-decoration: none;
+         font-size: 1rem;
+         font-weight: 500;
+         padding: 0.5rem 0.5rem;
+         border-radius: 5px;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
+      }
+
+      header .nav-links .nav-item:hover {
+         background-color: var(--button-bg);
+         color: var(--bg-color);
+      }
+
+      header .nav-links .nav-item.active {
+         background-color: var(--button-bg);
+         color: var(--bg-color);
+      }
+
+      header .dark-mode-btn {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 0.5rem;
+         background-color: var(--button-bg);
+         color: var(--text-color);
+         border: 1px solid #000;
+         padding: 5px 10px;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 0.9rem;
+         font-weight: 500;
+         transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
+         margin-left: 1rem;
+      }
+
+      header .dark-mode-btn i {
+         font-size: 1.2rem;
+         transition: transform var(--animation-duration) ease;
+      }
+
+      header .dark-mode-btn:hover {
+         background-color: var(--button-hover);
+         color: var(--bg-color);
+      }
+
+      header .dark-mode-btn:hover i {
+         transform: scale(1.1);
+      }
+
+      /* Hero Section */
+      #hero {
+         text-align: center;
+         padding: 2rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         background-size: 400% 400%;
+         animation: gradientAnimation 10s ease infinite;
+      } 
+
+      .hero::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-image: url('https://www.transparenttextures.com/patterns/circles.png');
+         opacity: 0.2;
+         z-index: 0;
+      }
+
+      .hero::after {
+         content: '';
+         position: absolute;
+         width: 500px;
+         height: 500px;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.1);
+         filter: blur(100px);
+         z-index: 0;
+         bottom: 10%;
+         left: 50%;
+         transform: translateX(-50%);
+      }
+      
+      #hero h1 {
+         font-size: 2.5rem;
+         color: var(--text-color);
+         margin-bottom: 1.5rem;
+         font-weight: bold;
+      }
+
+      #hero p {
+         font-size: 1.2rem;
+         line-height: 1.5;
+         color: #fff;
+         margin-bottom: 1.5rem;
+      }
+
+      .cta-buttons {
+         display: flex;
+         gap: 1rem;
+         margin-top: 2rem;
+      }
+
+      .cta-btn {
+         padding: 0.8rem 2rem;
+         background: #4ac1ff;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 8px;
+         font-size: 1.2rem;
+         transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .cta-btn:hover {
+         transform: scale(1.05);
+      }
+
+      .animated-avatar {
+         animation: avatarBounce 2s infinite ease-in-out;
+         transition: transform 0.3s ease;
+      }
+
+      .animated-avatar:hover {
+         transform: scale(1.1) rotate(10deg);
+         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      /* About Section */
+      #about {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         padding: 2rem 1rem;
+         background-color: var(--progress-bg);
+         color: var(--text-color);
+         margin-top: 50px;
+         animation: fadeIn 1.5s ease-in-out;
+      }
+
+      #about h2 {
+         font-size: 2rem;
+         font-weight: bold;
+         margin-bottom: 1rem;
+         color: var(--text-color);
+         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+         animation: slideInDown 1s ease;
+      }
+
+      #about p {
+         font-size: 1.1rem;
+         max-width: 800px;
+         margin: 0 auto 2rem;
+         line-height: 1.6;
+         color: var(--text-color);
+         animation: fadeInUp 1.2s ease;
+      }
+
+      #about a {
+         color: #4ac1ff;
+         text-decoration: none;
+         font-weight: 600;
+         transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+
+      #about a:hover {
+         color: #6b47dc;
+         text-shadow: 0 0 10px #6b47dc;
+      }
+
+      #about p a {
+         text-decoration: underline;
+         color: var(--button-bg);
+      }
+
+      /* Hobbies & Skills Section */
+      .hobbies_skills {
+         background: linear-gradient(135deg, #1f1f47, #3b82f6);
+         color: #ffffff;
+         padding: 3rem 2rem;
+         border-radius: 12px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+         text-align: center;
+         max-width: 1100px;
+         margin: 2rem auto;
+      }
+
+      .hobbies_skills h2 {
+         font-size: 2.5rem;
+         margin-bottom: 0.5rem;
+         color: #ffffff;
+      }
+
+      .section-subtitle {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+         color: #d1d9f9;
+      }
+      
+      .hobbies_skills-container {
+         display: flex;
+         gap: 1.5rem;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+
+      .hobbies_skills-item {
+         background: var(--card-bg);
+         border: 2px solid rgba(255, 255, 255, 0.2);
+         padding: 1.5rem;
+         width: 250px;
+         cursor: pointer;
+         position: relative;
+         border-radius: 8px;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hobbies_skills-item:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .hobbies_skills-item h3 {
+         font-size: 1.5rem;
+         margin-bottom: 0.5rem;
+         color: #ffffff;
+      }
+
+      .hobbies_skills-item p {
+         font-size: 1rem;
+         color: #d1d9f9;
+      }
+
+      .hobbies_skills-item:hover .progress-fill {
+         animation: fillProgress 2s forwards;
+      }
+
+      /* Experience Section */
+      #experience {
+         padding: 3rem 1rem;
+         text-align: center;
+         background-color: var(--bg-color);
+      }
+
+      #experience h2 {
+         font-size: 2.5rem;
+         font-weight: bold;
+         color: var(--text-color);
+         margin-bottom: 1rem;
+      }
+
+      #experience .section-subtitle {
+         font-size: 1.2rem;
+         color: #666;
+         margin-bottom: 2rem;
+      }
+
+      .timeline-container {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         position: relative;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 2rem 0;
+         overflow-x: auto;
+         white-space: nowrap;
+      }
+
+      .timeline-container::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 0;
+         width: 100%;
+         height: 4px;
+         background-color: var(--button-bg);
+         z-index: 0;
+         transform: translateY(-50%);
+      }
+
+      .timeline-item {
+         display: inline-block;
+         position: relative;
+         text-align: center;
+         margin: 0 2rem;
+         z-index: 1;
+      }
+
+      .timeline-point {
+         background-color: var(--button-bg);
+         color:  var(--text-color);
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1rem;
+         font-weight: bold;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         margin: 0 auto 1rem;
+      }
+
+      .timeline-content {
+         background: var(--bg-color);
+         padding: 1rem 1.5rem;
+         border-radius: 8px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         max-width: 300px;
+         text-align: center;
+         white-space: normal;
+         transition: transform var(--animation-duration), box-shadow var(--animation-duration)
+      }
+
+      .timeline-content:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .timeline-content h3 {
+         font-size: 1.2rem;
+         color: var(--button-bg);
+         margin-bottom: 0.5rem;
+      }
+
+      .timeline-content ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+         font-size: 0.9rem;
+         text-align: left;
+      }
+
+      .timeline-content ul li {
+         margin-bottom: 0.5rem;
+         line-height: 1.4;
+      }
+
+      .timeline-content ul li::before {
+         content: "•";
+         color: var(--button-bg);
+         margin-right: 0.5rem;
+      }
+
+      /* Resume Viewer Section */
+      .resume-viewer iframe {
+         width: 100%;
+         aspect-ratio: 4/3;
+         max-height: 600px;
+      }
+
+      /* Projects Section */
+      .projects {
+         text-align: center;
+         padding: 3rem 1rem;
+         color: var(--text-color);
+         position: relative;
+         background: url('d:\\Users\\kaushikc\\Downloads\\DALL·E AI Visual.webp') center/cover no-repeat; 
+         background-attachment: fixed; 
+         z-index: 1;
+      }
+
+      .projects::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.6); 
+         z-index: -1;
+      }
+
+      .projects h2 {
+         font-size: 2.5rem;
+         margin-bottom: 1rem;
+         color: #fff;
+      }
+
+      .section-subtitle {
+         font-size: 1.2rem;
+         color: #f3f3f3;
+         margin-bottom: 2rem;
+      }
+      
+      .project-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 1.5rem;
+      }
+
+      .project-card {
+         background: var(--card-bg);
+         padding: 1.5rem;
+         border-radius: 8px;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card h3 {
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+         font-weight: 600;
+      }
+
+      .project-card p {
+         font-size: 1rem;
+         line-height: 1.5;
+         color: #e6e6e6;
+      }
+
+      .project-card img {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         margin-bottom: 16px;
+      }
+
+      .project-link {
+         text-decoration: none;
+         margin-right: 10px;
+      }
+
+      .download-button, .colab-button {
+         display: inline-block;
+         background-color: #4CAF50; 
+         color: white;
+         padding: 10px 15px;
+         border: none;
+         border-radius: 5px;
+         font-size: 14px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+
+      .download-button:hover {
+         background-color: #45a049;
+      }
+
+      .colab-button {
+         background-color: #FF7043; 
+      }
+
+      .colab-button:hover {
+         background-color: #E64A19;
+      }
+      
+      /* Achievements Section */
+      .section {
+         padding: 3rem 1.5rem;
+         background-color: --var(--bg-color); 
+         text-align: center;
+         color: #ffffff;
+      }
+
+      .section h2 {
+         font-size: 2.5rem;
+         color: #00bfff;
+         margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+         color: #d1d1d1;
+      }
+
+      .achievements-leaderboard-container {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+         gap: 1.5rem;
+         margin: 0 auto;
+         max-width: 1200px;
+      }
+
+      .achievements-leaderboard-item {
+         background: linear-gradient(135deg, #00bfff, #007fff); 
+         border-radius: 12px;
+         padding: 1.5rem;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .achievements-leaderboard-item:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .leaderboard-image {
+         width: 80px;
+         height: 80px;
+         object-fit: cover;
+         border-radius: 50%;
+         margin-bottom: 1rem;
+         background-color: #fff;
+         padding: 0.5rem;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .achievements-leaderboard-item span {
+         font-size: 1.1rem;
+         color: #001f3f;
+         font-weight: 600;
+         margin: 0.3rem 0;
+         text-align: center;
+      }
+
+      .achievements-leaderboard-item span:last-child {
+         font-size: 0.9rem;
+         color: #f0f0f0;
+         font-weight: 400;
+      }
+
+      /* Certification Section */
+      .roadmap-section {
+         padding: 3rem 1.5rem;
+         background: #0f172a; 
+         color: #ffffff;
+         text-align: center;
+      }
+
+      .roadmap-title {
+         font-size: 2.5rem;
+         color: #4ac1ff;
+         margin-bottom: 1rem;
+      }
+
+      .roadmap-container {
+         display: flex;
+         justify-content: center;
+         position: relative;
+         margin-top: 2rem;
+      }
+
+      .roadmap {
+         width: 80%;
+         position: relative;
+         padding: 2rem 0;
+      }
+
+      .roadmap::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 50%;
+         width: 4px;
+         height: 100%;
+         background: linear-gradient(180deg, #4ac1ff, #6b47dc);
+         transform: translateX(-50%);
+         z-index: 1;
+      }
+
+      .milestone {
+         position: relative;
+         margin: 2rem 0;
+         padding: 1.5rem;
+         background: rgba(255, 255, 255, 0.1); 
+         border-radius: 8px;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         z-index: 2;
+         width: 70%;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      .milestone:nth-child(odd) {
+         transform: translateX(-20%);
+      }
+
+      .milestone:nth-child(even) {
+         transform: translateX(20%);
+      }
+
+      .milestone:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .milestone-circle {
+         width: 60px;
+         height: 60px;
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         color: #ffffff;
+         font-size: 1.2rem;
+         font-weight: bold;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0 auto 1rem auto;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         z-index: 3;
+         overflow: hidden;
+      }
+
+      .milestone-circle img {
+         width: 100%; 
+         height: 100%;
+         border-radius: 50%;
+         object-fit: cover; 
+         padding: 5px; 
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .milestone-date {
+         font-size: 1rem;
+         color: #e6e6e6;
+         margin-bottom: 0.5rem;
+      }
+
+      .milestone-title {
+         font-size: 1.3rem;
+         font-weight: bold;
+         color: #ffffff;
+         margin-bottom: 0.5rem;
+      }
+
+      .milestone-description {
+         font-size: 1rem;
+         color: #cfcfcf;
+         margin-bottom: 1rem;
+      }
+
+      .milestone a {
+         text-decoration: none;
+         background-color: #4ac1ff;
+         color: #ffffff;
+         padding: 0.8rem 1.2rem;
+         border-radius: 8px;
+         font-size: 0.9rem;
+         transition: background-color 0.3s ease, transform 0.2s ease;
+         display: inline-block;
+      }
+
+      .milestone a:hover {
+         background-color: #6b47dc;
+         transform: scale(1.05);
+      }
+
+      #Certifications-badge {
+         display: block;
+         opacity: 0;
+         transform: scale(0.9);
+         transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .badge-content:hover #Certifications-badge {
+         opacity: 1;
+         transform: scale(1);
+      }
+
+      .logo {
+         width: 100%; 
+         height: 100%;
+         object-fit: cover;
+      }
+
+      /* Dashboard Section */
+      #dashboard {
+         padding: 3rem 1.5rem;
+         background: var(--bg-color);
+         color: var(--text-color);
+         text-align: center;
+         max-width: 1200px;
+         margin: 2rem auto;
+         border-radius: 12px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      #dashboard h2 {
+         font-size: 2.5rem;
+         margin-bottom: 1rem;
+         color: var(--text-color);
+         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      #dashboard .section-subtitle {
+         font-size: 1.2rem;
+         margin-bottom: 2rem;
+         color: var(--text-color);
+         opacity: 0.8;
+      }
+
+      .badge-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         gap: 1.5rem;
+         justify-items: center;
+         padding: 1rem;
+      }
+
+      .badge-card {
+         background: var(--card-bg);
+         border-radius: 12px;
+         padding: 1rem;
+         text-align: center;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+         position: relative;
+         cursor: pointer;
+         width: 100%;
+         max-width: 200px;
+         overflow: hidden;
+      }
+
+      .badge-card.locked {
+         filter: grayscale(80%) opacity(0.6);
+      }
+
+      .badge-card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .badge-card img {
+         width: 100%;
+         height: 150px;
+         object-fit: cover;
+         border-radius: 8px;
+         margin-bottom: 0.5rem;
+         transition: transform 0.3s ease;
+      }
+
+      .badge-card:hover img {
+         transform: scale(1.05);
+      }
+
+      .badge-card h3 {
+         font-size: 1.2rem;
+         color: #ffffff;
+         margin-bottom: 0.5rem;
+         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .badge-card p {
+         font-size: 0.9rem;
+         color: #d1d9f9;
+      }
+
+      .badge-modal {
+         display: none;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background: var(--bg-color);
+         padding: 2rem;
+         border-radius: 12px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+         z-index: 2000;
+         max-width: 400px;
+         width: 90%;
+         text-align: center;
+         animation: fadeInScale 0.3s ease-out;
+      }
+
+      .badge-modal.show {
+         display: block;
+      }
+
+      .badge-modal img {
+         width: 100%;
+         max-width: 200px;
+         border-radius: 8px;
+         margin-bottom: 1rem;
+      }
+
+      .badge-modal h3 {
+         font-size: 1.5rem;
+         color: var(--text-color);
+         margin-bottom: 0.5rem;
+      }
+
+      .badge-modal p {
+         font-size: 1rem;
+         color: var(--text-color);
+         margin-bottom: 1rem;
+      }
+
+      .badge-modal button {
+         background: var(--button-bg);
+         color: #fff;
+         border: none;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+
+      .badge-modal button:hover {
+         background: var(--button-hover);
+      }
+
+      .badge-progress-container {
+         margin: 2rem auto;
+         width: 80%;
+         max-width: 600px;
+         text-align: center;
+      }
+
+      .badge-progress-container .progress-bar {
+         width: 100%;
+         height: 15px;
+         background: var(--progress-bg);
+         border-radius: 10px;
+         overflow: hidden;
+         position: relative;
+      }
+
+      .badge-progress-container .progress-fill {
+         height: 100%;
+         background: var(--progress-fill);
+         transition: width 0.5s ease;
+      }
+
+      .badge-progress-container p {
+         font-size: 1rem;
+         color: var(--text-color);
+         margin-bottom: 0.5rem;
+         font-weight: bold;
+      }
+
+      /* Conclusion Section */
+      #conclusion {
+         background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+         padding: 3rem 1rem;
+         border-radius: 12px;
+         margin: 2rem auto;
+         max-width: 1200px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         animation: fadeIn 1.5s ease-in-out;
+      }
+      
+      .conclusion-content {
+         animation: fadeInUp 1.2s ease;
+      }
+      
+      /* Footer Section */
+      footer {
+         background-color: var(--footer-bg-dark);
+         color: var(--footer-text-dark);
+         text-align: center;
+         padding: 1.5rem 1rem;
+      }
+
+      #footer-contact {
+         background: rgba(0, 0, 0, 0.8);
+         color: #ffffff;
+         padding: 2rem 1rem;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         align-items: flex-start;
+         gap: 2rem;
+         border-top: 2px solid #4dabf7;
+      }
+
+      .footer-container {
+         width: 100%;
+         display: flex;
+         justify-content: space-evenly;
+         gap: 2rem;
+         flex-wrap: wrap;
+         align-items: center;
+      }
+
+      .contact-section h2 {
+         font-size: 1.8rem;
+         margin-bottom: 1rem;
+         color: #4dabf7;
+      }
+
+      .contact-items {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+         border-top: 1px solid rgba(255, 255, 255, 0.1);
+         padding-top: 1rem;
+      }
+
+      .contact-item {
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+
+      .contact-item img {
+         width: 30px;
+         height: 30px;
+         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+         transition: transform 0.3s ease, filter 0.3s ease;
+         margin-right: 8px;
+         vertical-align: middle;
+      }
+
+      .contact-item img:hover {
+         transform: scale(1.2);
+         filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
+         opacity: 0.9;
+      }
+
+      .contact-item a {
+         color: #ffffff;
+         text-decoration: none;
+         font-size: 1.1rem;
+         transition: color 0.3s ease;
+      }
+
+      .contact-item a:hover {
+         color: #4dabf7;
+         text-decoration: underline;
+      }
+
+      .qr-code-section {
+         flex: 1 1 300px;
+         max-width: 300px;
+         background: linear-gradient(135deg, #007fff, #00aaff);
+         border-radius: 12px;
+         padding: 1.5rem;
+         text-align: center;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: transform 0.3s ease;
+      }
+
+      .qr-code-section img {
+         width: 120px;
+         height: 120px;
+         border-radius: 10px;
+         border: 2px solid #4dabf7;
+         transition: border-color 0.3s ease;
+      }
+
+      .qr-code-section:hover {
+         transform: scale(1.02); 
+      }
+
+      .qr-code-section img:hover {
+         border-color: #1e88e5;
+         transform: scale(1.05);
+      }
+
+      .qr-code-section h3 {
+         margin: 0.5rem 0;
+         color: #4dabf7;
+      }
+
+      .qr-code-section p {
+         font-size: 0.9rem;
+         color: #ffffff;
+      }
+
+      .footer-bar {
+         background-color: #121212; 
+         color: #ffffff; 
+         width: 100%; 
+         display: flex; 
+         justify-content: center; 
+         align-items: center; 
+         padding: 1rem 0; 
+         font-size: 0.9rem; 
+         border-top: 2px solid #4dabf7; 
+         text-align: center;
+      }
+
+      .footer-bar p {
+         margin: 0; 
+      }
+
+      .footer-bar button {
+         background: none; 
+         color: inherit; 
+         border: none; 
+         font-size: inherit; 
+         cursor: pointer; 
+         transition: color 0.3s ease, transform 0.3s ease; 
+      }
+
+      .footer-bar button:hover {
+         color: #4dabf7; 
+         transform: scale(1.05); 
+      }
+
+      
+           /* Animations */
+      @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeInScale {
+         from { opacity: 0; transform: scale(0.8); }
+         to { opacity: 1; transform: scale(1); }
+      }
+
+      @keyframes fadeInUp {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes slideInDown {
+         from { opacity: 0; transform: translateY(-50px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fillProgress {
+         from {
+            width: 0;
+         }
+         to {
+            width: var(--progress-level);
+         }
+      }
+
+      @keyframes badgeUnlock {
+         from {
+            opacity: 0;
+            transform: scale(0.5);
+         }
+         to {
+            opacity: 1;
+            transform: scale(1);
+         }
+      }
+
+      @keyframes badgeAppear {
+         from {
+            opacity: 0;
+            transform: scale(0.5);
+         }
+         to {
+            opacity: 1;
+            transform: scale(1);
+         }
+      }
+
+      @keyframes bounce {
+         0%, 100% {
+            transform: translateY(0);
+         }
+         50% {
+            transform: translateY(-10px);
+         }
+      }
+
+      @keyframes gradientAnimation {
+         0% {
+            background-position: 0% 50%;
+         }
+         50% {
+            background-position: 100% 50%;
+         }
+         100% {
+            background-position: 0% 50%;
+         }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+         header .nav-links {
+            flex-direction: column;
+            gap: 10px;
+         }
+         
+         .project-grid, .skill-list {
+            grid-template-columns: 1fr;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .hobbies-container {
+            flex-direction: column;
+            align-items: center;
+         }
+         
+         .hobby-item {
+            width: 80%;
+         }
+      }
+
+      @media (max-width: 1024px) {
+         .skill-item {
+            flex: 1 1 calc(33.3% - 1.5rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .skill-item {
+            flex: 1 1 calc(50% - 1.5rem); 
+         }
+      }
+
+      @media (max-width: 480px) {
+         .skill-item {
+            flex: 1 1 100%; 
+         }
+      }
+
+      @media (max-width: 1024px) {
+         .project-card {
+            flex: 1 1 calc(50% - 2rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .project-card {
+            flex: 1 1 calc(100% - 2rem); 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .block h3 {
+            font-size: 1.2rem;
+         }
+
+         .block h3 img {
+            width: 30px;
+            height: 30px;
+         }
+
+         .block ul li {
+            font-size: 0.9rem;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .section h2 {
+            font-size: 2rem;
+         }
+
+         .achievements-leaderboard-item {
+            padding: 1rem;
+         }
+
+         .leaderboard-image {
+            width: 60px;
+            height: 60px;
+         }
+
+         .achievements-leaderboard-item span {
+            font-size: 1rem;
+         }
+      }
+
+      @keyframes fillProgress {
+         from {
+            width: 0%;
+         }
+         to {
+            width: var(--progress-width, 0%);
+         }
+      }
+
+      @media (max-width: 768px) {
+         .progress-bar-container {
+            height: 12px; 
+         }
+
+         .progress-bar-label {
+            font-size: 0.75rem; 
+         }
+      }
+
+      @keyframes fillProgress {
+         0% {
+            width: 0%;
+         }
+         100% {
+            width: 100%;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .timeline-container {
+            flex-direction: column;
+         }
+
+         .timeline-container::before {
+            height: 0;
+         }
+
+         .timeline-item {
+            align-items: flex-start;
+            max-width: none;
+            margin-bottom: 2rem;
+         }
+
+         .timeline-content {
+            text-align: left;
+         }
+      }
+
+      @media (max-width: 768px) {
+         #hero {
+            flex-direction: column;
+            text-align: center;
+         }
+
+         .hero-avatar {
+            margin: 0 auto 1.5rem;
+         }
+
+         .hero-content {
+            max-width: 100%;
+            text-align: center;
+         }
+
+         .cta-buttons {
+            justify-content: center;
+         }
+      }
+
+      @keyframes avatarBounce {
+         0%, 100% {
+            transform: translateY(0);
+         }
+         50% {
+            transform: translateY(-10px);
+         }
+      }
+
+      @media (max-width: 768px) {
+         .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+         }
+
+         .contact-section,
+         .qr-code-section {
+            width: 100%;
+            margin-bottom: 1rem;
+         }
+
+         .qr-code-section img {
+            width: 100px;
+            height: 100px;
+         }
+
+         #backToTop {
+            bottom: 70px; 
+         }
+      }
+
+      @media (max-width: 768px) {
+         .milestone {
+            transform: translateX(0);
+            width: 90%;
+         }
+
+         .roadmap::before {
+            left: 20px;
+         }
+      }
+
+      @media (max-width: 768px) {
+         header .nav-links {
+            flex-direction: column;
+            gap: 10px;
+         }
+
+         .timeline-container {
+            flex-direction: column;
+         }
+
+         .timeline-container::before {
+            height: 0;
+         }
+
+         .timeline-item {
+            align-items: flex-start;
+            max-width: none;
+            margin-bottom: 2rem;
+         }
+
+         .timeline-content {
+            text-align: left;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .conclusion-cards {
+            flex-direction: column;
+            gap: 15px;
+         }
+
+         .card {
+            flex: 1 1 100%;
+            max-width: 100%;
+         }
+      }
+
+      @media (max-width: 768px) {
+         .badge-gallery {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+         }
+         
+         .badge-card {
+            max-width: 150px;
+         }
+         
+         .badge-card img {
+            height: 120px;
+         }
+      }
+      
+      @media (max-width: 768px) {
+         .resume-viewer {
+            padding: 1rem;
+         }
+         
+         .resume-viewer iframe {
+            max-height: 400px;
+         }
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+         .resume-viewer {
+            transition: none;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <div class="logo">
+         <a href="#hero" aria-label="Navigate to hero section for the introduction">
+            <img src="Images/DALL·E Favicon Logo.webp" alt="Kaushik Chintalapudi Logo with gradient colors" class="header logo">
+         </a>
+      </div>
+      <nav class="nav-links">
+         <a href="#about" class="nav-item" aria-label="Navigate to About section">About</a>
+         <a href="#hobbies_skills" class="nav-item" aria-label="Navigate to Hobbies & Skills section">Hobbies & Skills </a>
+         <a href="#experience" class="nav-item" aria-label="Navigate to Experience section">Experience</a>
+         <a href="#resume" class="nav-item" aria-label="Navigate to Resume Viewer section">Resume</a>
+         <a href="#projects" class="nav-item" aria-label="Navigate to Projects section">Projects</a>
+         <a href="#achievements-leaderboard" class="nav-item" aria-label="Navigate to Achievements section">Achievements</a>
+         <a href="#certifications" class="nav-item" aria-label="Navigate to Certifications section">Certifications</a>
+         <a href="#dashboard" class="nav-item" aria-label="Navigate to Dashboard section">Dashboard</a>
+         <a href="#conclusion" class="nav-item" aria-label="Navigate to Conclusion section">Conclusion</a>
+      </nav>
+      <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle between light and dark theme">
+         <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
+         <span id="themeText" class="visually-hidden">Toggle Theme</span>
+      </button>
+   </header>
+   <main>
+      <section id="hero">
+         <div style="display: flex; align-items: center; justify-content: center; padding: 2rem; height: 100vh;">
+            <div style="flex-shrink: 0; text-align: center;">
+               <img src="Images/Kaushik.jpg" alt="Avatar of Kaushik Chintalapudi wearing a formal shirt" class="animated-avatar" style="width: 200px; height: 200px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); margin-right: 2rem;">
+            </div>
+            <div style="max-width: 600px; text-align: left;">
+               <h1 style="font-size: 2.5rem; font-weight: bold; color: #fff; margin-bottom: 1.5rem;">
+                  Fusion of Skills, Vision for Impact: Journey of a Tech Learning Curve.
+               </h1>
+               <p style="font-size: 1.2rem; line-height: 1.5; color: #fff; margin-bottom: 1.5rem;">
+                  Building a hybrid skill set at the intersection of Cloud and Oracle Fusion Financials — blending tech with business to drive smarter, scalable solutions. 
+                  Focused on continuous learning, innovation, and laying the groundwork to lead in tomorrow’s AI-powered enterprise landscape.
+               </p>
+               <a href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8" style="color: #6b47dc; text-decoration: underline; font-size: 1.2rem;">Kaushik Chintalapudi</a>
+               <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                  <a href="#footer-contact" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Navigate to the contact section">Let's Connect</a>
+                  <a href="#resume" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Navigate to Kaushik Chintalapudi's Resume section">View Resume</a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section id="about" class="section" aria-labelledby="about-heading">
+         <h2 id="about-heading">About Me</h2>
+         <p>My journey into the world of technology began with a fascination for <a href="#problem-solving" class="keyword" data-tooltip="The art of finding innovative solutions" data-action="highlight">problem-solving</a> and the endless possibilities that <a href="#digital-innovations" class="keyword" data-tooltip="Breakthroughs in technology that drive progress" data-action="show-alert">digital innovations</a> could unlock.</p> 
+         <p>Growing up, I was inspired by how technology transformed industries and connected the world, motivating me to pursue a career where I could be part of this evolution.</p>
+         <p>I am <a href="#kaushik" class="keyword" data-tooltip="Your host! Kaushik Chintalapudi" data-action="open-modal">Kaushik Chintalapudi</a>, an entry-level <a href="#cloud-analyst" class="keyword" data-tooltip="A professional managing and optimizing cloud infrastructure" data-action="highlight">Cloud Analyst</a> with 1 year, 4 months and 3 days of experience in exploring <a href="#cloud-infrastructure" class="keyword" data-tooltip="The backbone of digital services" data-action="show-alert">cloud infrastructure</a> and <a href="#emerging-technologies" class="keyword" data-tooltip="Innovations like AI, blockchain, and IoT" data-action="scroll-to">emerging technologies</a>.</p> 
+         <p>A Computer Science Engineering graduate, graduated in <a href="#graduation-date" class="keyword" data-tooltip="The milestone in July 2023" data-action="open-modal">July 2023</a>, I am passionate about learning and applying my knowledge to solve challenges in the dynamic field of cloud computing and AI.</p>
+         <p>My experience includes working with platforms like <a href="#microsoft-azure" class="keyword" data-tooltip="Microsoft’s cloud computing platform" data-action="highlight">Microsoft Azure</a> and <a href="#power-platform" class="keyword" data-tooltip="Tools for low-code app development" data-action="show-alert">Microsoft Power Platform</a> and support cloud governance initiatives.</p>
+         <p>My journey reflects a commitment to staying adaptable while embracing <a href="#emerging-trends" class="keyword" data-tooltip="emmerging trends" data-action="highlight">emerging trends</a> in technology.</p>
+         <p>Currently, I am undergoing <a href="#oracle-fusion-financials" class="keyword" data-tooltip="Oracle Fusion ERP" data-action="highlight">Oracle Fusion Financials</a> training as part of a 100% Job Guarantee Program offered by ERPTree in Hyderabad.</p>
+         <p>This hands-on program is enhancing my expertise in<a href="#entreprise financial" class="keyword" data-tooltip="entreprise financial" data-action="highlight">enterprise financial management</a> systems, complementing my cloud and AI skills for integrated business solutions.</p>
+         <p>While focused on <a href="#impactful-projects" class="keyword" data-tooltip="Projects that make a real difference" data-action="highlight">impactful projects</a> today, I am inspired by the potential of technology to shape the future, particularly through scalable solutions in the <a href="#cloud-ai-ecosystems" class="keyword" data-tooltip="Cloud and AI environments driving innovation" data-action="scroll-to">cloud and AI ecosystems</a>.</p>
+         <p>Beyond work, I enjoy playing <a href="#guitar" class="keyword" data-tooltip="Music is life!" data-action="show-alert">guitar</a>, cricket, and exploring the creative world of music.</p>
+         <p>My time with the <a href="#mit-ncc" class="keyword" data-tooltip="MIT National Cadet Corps" data-action="scroll-to">MIT NCC Troop (MNT)</a> in college honed my leadership, discipline, and teamwork skills, which complement my technical expertise.</p>
+         <p> I also had done many courses from platforms like <a href="https://learn.deeplearning.ai/my/learnings/learning-highlights/2024/01JDKS6ZBJXH3G1R1J89PRBP4Z?usp=sharing" data-action="scroll-to">DeepLearning.AI</a>, <a href="https://www.linkedin.com/learning/me/my-library/completed" data-action="scroll-to">Linkedin Learning</a>, <a href="https://www.theforage.com/dashboard" data-action="scroll-to">Forage</a>, etc. 
+         <p>I’m excited to connect with like-minded professionals and collaborate on innovative ideas that <a href="#shape-the-future" class="keyword" data-tooltip="Create a better tomorrow" data-action="open-modal">shape the future</a>.</p>
+         <p>Feel free to explore my portfolio to learn more about my work and aspirations or <a href="#connect" class="keyword" data-tooltip="Get in touch to collaborate!" data-action="highlight">connect with me</a> to discuss ideas and collaborations.</p>
+         <div id="badge-container-about" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>About Me Badge</strong>!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="hobbies_skills" class="section hobbies & skills">
+         <h2>Hobbies & Skills</h2>
+         <p class="section-subtitle">Discover the passions that drive me and the tools I build with.</p>
+         <div class="hobbies_skills-container">
+            <div class="hobbies_skills-item" data-hobby="guitar" aria-label="Explore Guitar Hobby">
+               <h3>Guitar</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="cricket" aria-label="Explore Cricket Hobby">
+               <h3>Cricket</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="music" aria-label="Explore Music Hobby">
+               <h3>Music</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Azure">
+               <h3>Microsoft Azure</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Apps">
+               <h3>Microsoft Power Apps</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Automate">
+               <h3>Microsoft Power Automate</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Oracle Fusion ERP Cloud">
+               <h3>Oracle Fusion ERP</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Payables">
+               <h3>Accounts Payables</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Receivables">
+               <h3>Accounts Receivables</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: General Ledger">
+               <h3>General Ledger</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Fixed Assets">
+               <h3>Fixed Assets</h3>
+            </div>
+            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Cash Management">
+               <h3>Cash Management</h3>
+            </div>
+         </div>
+      </section>         
+         
+         <div id="badge-container-Hobbies&Skills" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Hobbies &Skills Badge</strong>!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="experience">
+         <h2>Experience</h2>
+         <p class="section-subtitle">A showcase of my professional journey and impactful contributions.</p>
+         <div class="timeline-container">
+            <div class="timeline-item">
+               <div class="timeline-point" aria-label="Timeline item for 2025">
+                  <span class="timeline-date" aria-hidden="true">2025</span>
+               </div>
+               <div class="timeline-content" aria-label="Oracle Fusion Training details">
+                  <h3>Oracle Fusion Financials Training, ERPTree (Hyderabad)</h3>
+                  <ul>
+                     <li>Participating in a 100% Job Guarantee Program focused on Oracle Fusion Financials.</li>
+                     <li>Learning enterprise financial management, integration with cloud systems, and practical implementations.</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="timeline-item">
+               <div class="timeline-point" aria-label="Timeline item for 2023">
+                  <span class="timeline-date" aria-hidden="true">2023</span>
+               </div>
+               <div class="timeline-content" aria-label="Cloud Intern details">
+                  <h3>Cloud Intern, PCS Gulf</h3>
+                  <ul>
+                     <li>Managed Change, Service, and Incident Requests in Symphony AI ITSM Portal.</li>
+                     <li>Automated Microsoft licenses Chargeback processes by creating a Chargeback Automator application.</li>
+                     <li>Explored Scheduled Scan Reports in Lansweeper, automating network audits and generating vulnerability reports.</li>
+                     <li>Helped in creating documents on cloud cost optimization, Demand management, and RFP's on Enterprise Cloud Observability and Certificate Lifecycle Management.</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="timeline-item" aria-label="Research Intern details">
+               <div class="timeline-point" aria-label="Timeline item for 2022">
+                  <span class="timeline-date" aria-hidden="true">2022</span>
+               </div>
+               <div class="timeline-content" aria-label="Research Intern details">
+                  <h3>Research Intern, MIT-WPU Institute of AI</h3>
+                  <ul>
+                     <li>Conducted theoretical research on optimization algorithms (steepest descent, mine blast).</li>
+                     <li>Explored Python-based algorithm design for improving resource allocation.</li>
+                     <li>Advanced AI optimization techniques for real-world applications.</li>
+                  </ul>
+               </div>
+            </div>
+            <div id="badge-container-experience" class="badge-container">
+               <div class="badge-content">
+                  <h3 class="badge-title">🎉 Congratulations!</h3>
+                  <p class="badge-message">You've unlocked the <strong>Experience Badge</strong>!</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <section id="resume" class="section" aria-labelledby="resume-heading">
+         <h2 id="resume-heading">Resume</h2>
+         <p class="section-subtitle">View my professional resume below.</p>
+         <iframe src="Kaushik-Chintalapudi-Resume.pdf" width="100%" style="height: 600px; max-width: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); aspect-ratio: 4/3;" title="Kaushik Chintalapudi's Resume" loading="lazy"></iframe>
+         <div id="badge-container-resume" class="badge-container" style="display: none;">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Resume Badge</h3>
+               <p class="badge-message">Unlocked by exploring my professional profile!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="projects" class="section projects" style="background: url('Images/DALL·E AI Visual.webp') no-repeat center center fixed; background-size: cover; position: relative; color: #ffffff; padding: 4rem 1rem;">
+         <h2>Projects</h2>
+         <p class="section-subtitle">Discover the innovative solutions I’ve built to solve real-world problems.</p>
+         <div class="project-grid">
+            <div class="project-card" aria-label="Cloud-based Smart Health Monitoring and Tracking System project details">
+               <h3>Cloud-based Smart Health Monitoring and Tracking System using Wearable Devices</h3>
+               <p>IoT-based wearable device for tracking health metrics like heartbeat and pulse.</p>
+               <a href="https://docs.google.com/document/d/15l0tuXrIx2lRRimk-Wra5ix8sHu04dyWAS4bxXZduJk/edit?tab=t.0" download class="project-link">
+                  <button class="download-button">Download Research Paper</button>
+               </a>
+            </div>
+            <div class="project-card" aria-label="Hate Speech Detection details">
+               <h3>Hate Speech Detection</h3>
+               <p>Simulated a model to detect hate speech using NLP, contributing to safer digital platforms.</p>
+               <a href="https://drive.google.com/drive/folders/1p7LcJEAiNN-UBBoD2AOzfj-52c_CFpwr" download class="project-link">
+                  <button class="download-button">Download Research Paper</button>
+               </a>
+               <a href="https://colab.research.google.com/drive/1X3WIDkEPd5bUH49VVZg1aWs1mxN2svEw" target="_blank" class="project-link">
+                  <button class="colab-button">Open in Google Colab</button>
+               </a>
+            </div>
+         </div>
+         <div id="badge-container-projects" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Projects Badge</strong>!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="achievements-leaderboard" class="section">
+         <h2>Achievements</h2>
+         <p class="section-subtitle">Showcasing my accomplishments.</p>
+         <div class="achievements-leaderboard-container">
+            <div class="achievements-leaderboard-item">
+               <img src="Images/AI_Impact_Summit.webp" alt="AI Impact Summit" class="leaderboard-image">
+               <span>AI Impact Summit</span>
+               <span>February 2026</span>
+            </div>
+            <div class="achievements-leaderboard-item">
+               <img src="Images/AI_Skills_Fest_Microsoft.webp" alt="AI Skills Fest" class="leaderboard-image">
+               <span>Microsoft AI Skills Fest</span>
+               <span>April 2025</span>
+            </div>
+            <div class="achievements-leaderboard-item">
+               <img src="Images/Cloud_Skills_Challenge_Microsoft.webp" alt="Cloud Skills Challenge" class="leaderboard-image">
+               <span>Microsoft Ignite Cloud Skills Challenge</span>
+               <span>November 2023</span>
+            </div> 
+            <div class="achievements-leaderboard-item">
+               <img src="Images/Microsoft_AI_Skills_Challenge.webp" alt="AI Skills Challenge" class="leaderboard-image">
+               <span>Microsoft AI Skills Challenge</span>
+               <span>April 2024</span>
+            </div>
+            <div class="achievements-leaderboard-item">
+               <img src="Images/Innovators Intermediate AI Skills Quest.webp" alt="Progression Badge" class="leaderboard-image">
+               <span>Innovators Intermediate AI Skills Quest</span>
+               <span>August 2024</span>
+            </div>
+         </div>
+         <div id="badge-container-achievements" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Achievements Badge</strong>!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="certifications" class="roadmap-section">
+         <h2 class="roadmap-title">Certifications</h2>
+         <p>Showcasing my completed certifications and ongoing learning journey in an AI-themed roadmap.</p>
+         <div class="roadmap-container">
+            <div class="roadmap">
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="Images/DALL·E Microsoft.webp" alt="Microsoft Logo" class="milestone-logo">
+                  </div>
+                  <p class="milestone-date">February 2025</p>
+                  <p class="milestone-title">Microsoft Certified: Azure Fundamentals</p>
+                  <p class="milestone-description">Building a foundation for scalable cloud infrastructure.</p>
+                  <a href="https://learn.microsoft.com/api/credentials/share/en-us/kaushikchintalapudi-1807/7E730F44AF3AE0FA?sharingId=138C462CEE7F1ECA" target="_blank">View Certificate</a>
+               </div>
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="Images/One_Million_Prompters_Program.webp" alt="Dubai Future Foundation Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">February 2025</p>
+                  <p class="milestone-title"> One Million Prompters Program</p>
+                  <p class="milestone-description">Understanding About AI and its Applications</p>
+                  <a href="1740645596751.pdf" target="_blank">View Certificate</a>
+               </div>
+               <div class="milestone">
+                  <div class="milestone-circle">
+                     <img src="Images/Mckinsey_Forward_Program.webp" alt="Mckinsey Forward Program badge Logo" class="logo">
+                  </div>
+                  <p class="milestone-date">November 2025</p>
+                  <p class="milestone-title"> Mckinsey Forward Program</p>
+                  <p class="milestone-description">Developing problem solving skills and leadership qualities</p>
+                  <a href="https://www.credly.com/badges/50dc3f02-b5d0-4495-95d7-37d12ed627f5/public_url" target="_blank">View Certificate</a>
+               </div>
+            </div>
+         </div>
+         <div id="badge-container-certifications" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Congratulations!</h3>
+               <p class="badge-message">You've unlocked the <strong>Certifications Badge</strong>!</p>
+            </div>
+         </div>
+         <script>
+            function badgeUnlock() {
+               const badge = document.getElementById('Certifications-badge');
+               badge.style.display = 'block';
+            }
+         </script>
+      </section>
+      
+      <section id="dashboard" class="section">
+         <h2>Badge Gallery</h2>
+         <p class="section-subtitle">Explore the badges you've unlocked by interacting with my portfolio!</p>
+         <div class="badge-progress-container">
+            <p id="badge-progress-text">Badges Unlocked: 0/8</p>
+            <div class="progress-bar">
+               <div class="progress-fill" id="badge-progress-fill"></div>
+            </div>
+         </div>
+         <class="badge-gallery">
+            <div class="badge-card" data-badge-id="badge-container-about" aria-label="About Me Badge">
+               <img src="Images/DALL·E_About Me.webp" alt="About Me Badge" loading="lazy">
+               <h3>About Me</h3>
+               <p>Unlocked by exploring my story.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-hobbies&skills" aria-label="Hobbies & Skills Badge">
+               <img src="Images/DALL.E_Hobbies.webp" alt="Hobbies&Skills Badge" loading="lazy">
+               <h3>Hobbies & Skills</h3>
+               <p>Unlocked by discovering my passions and abilities.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-experience" aria-label="Experience Badge">
+               <img src="Images/DALL·E_Experience.webp" alt="Experience Badge" loading="lazy">
+               <h3>Experience</h3>
+               <p>Unlocked by exploring my journey.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-resume" aria-label="Resume Badge">
+               <img src="Images/DALL·E_Resume.webp" alt="Resume Badge" loading="lazy">
+               <h3>Resume</h3>
+               <p>Unlocked by exploring my Resume.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-projects" aria-label="Projects Badge">
+               <img src="Images/DALL·E_Project.webp" alt="Projects Badge" loading="lazy">
+               <h3>Projects</h3>
+               <p>Unlocked by checking my work.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-achievements" aria-label="Achievements Badge">
+               <img src="Images/DALL·E_Achievements.webp" alt="Achievements Badge" loading="lazy">
+               <h3>Achievements</h3>
+               <p>Unlocked by viewing my accolades.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-certifications" aria-label="Certifications Badge">
+               <img src="Images/DALL·E_Certification.webp" alt="Certifications Badge" loading="lazy">
+               <h3>Certifications</h3>
+               <p>Unlocked by exploring my credentials.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-dashboard" aria-label="Dashboard Badge">
+               <img src="Images/DALL·E_Dashboard.webp" alt="Dashboard Badge" loading="lazy">
+               <h3>Dashboard</h3>
+               <p>Unlocked by viewing the badge gallery.</p>
+            </div>
+            <div class="badge-card" data-badge-id="badge-container-conclusion" aria-label="conclusion Badge">
+               <img src="Images/Conclusion_Badge.webp" alt="Conclusion Badge" loading="lazy">
+               <h3>Conclusion</h3>
+               <p>Unlocked by viewing the badge gallery.</p>
+            </div>
+         </div>
+         <div class="badge-modal" id="badge-modal">
+            <img id="modal-badge-image" src="" alt="Badge Image">
+            <h3 id="modal-badge-title"></h3>
+            <p id="modal-badge-message"></p>
+            <button id="modal-close-button" aria-label="Close badge modal">Close</button>
+         </div>
+         <div id="badge-container-dashboard" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Data Explorer Badge</h3>
+               <p class="badge-message">Unlocked by viewing the badge gallery!</p>
+            </div>
+         </div>
+      </section>
+
+      <section id="conclusion" class="section" aria-labelledby="conclusion-heading">
+         <h2 id="conclusion-heading">Conclusion</h2>
+         <p class="section-subtitle">Reflecting on my journey and aspiring to shape the future of enterprise tech.</p>
+         <div class="conclusion-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.2rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem;">
+               My portfolio showcases a fusion of AI, cloud computing, and enterprise financial systems, built on a passion for solving real-world challenges. From automating processes to exploring Oracle Fusion Financials, I’m committed to continuous learning and innovation.
+            </p>
+            
+            <p style="font-size: 1.2rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem;">
+               My ambition is to lead the integration of AI and cloud technologies into entreprise finacilsytems and innovate for public, creating scalable, intelligent solutions that transform how businesses operate. Through Oracle Fusion Financials and cutting-edge AI, I aim to drive efficiency and innovation in the enterprise landscape. Let’s collaborate to build the future of tech!
+            </p>
+            <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center;">
+               <a href="https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8" class="cta-btn" aria-label="Connect on LinkedIn">Connect on LinkedIn</a>
+               <a href="#projects" class="cta-btn" aria-label="Explore Projects">Explore My Projects</a>
+            </div>
+         </div>
+         <div id="badge-container-conclusion" class="badge-container">
+            <div class="badge-content">
+               <h3 class="badge-title">🎉 Visionary Badge</h3>
+               <p class="badge-message">Unlocked by exploring my ambitions!</p>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <footer id="footer-contact">
+      <div class="footer-container">
+         <div class="contact-section">
+            <h2>Social Media</h2>
+            <div class="contact-items">
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Icon">
+                  <span><a href="https://linkedin.com/in/kaushik-chintalapudi-6b737a1a8" target="_blank">kaushik-chintalapudi</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Icon">
+                  <span><a href="https://github.com/kaushik20" target="_blank">kaushik20</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp Icon" style="width: 24px; height: 24px;">
+                  <span><a href="https://wa.me/918459102979" target="_blank">Kaushik India</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon">
+                  <span><a href="https://instagram.com/kaushik20jackiedarkie" target="_blank">kaushik20jackiedarkie</a></span>
+               </div>
+               <div class="contact-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail Icon">
+                  <span><a href="mailto:kaushik20feb@gmail.com" target="_blank">kaushik20feb@gmail.com</a></span>
+               </div>
+            </div>
+         </div>
+         <div class="qr-code-section">
+            <img src="Images/Kaushik_Personal_Website_QR.webp" alt="QR Code">
+            <h3>Scan to Connect</h3>
+            <p>Scan to visit my portfolio or connect with me.</p>
+         </div>
+      </div>
+      <div class="footer-bar">
+         <p>
+            <button id="backToTop">© <span id="current-year"></span> Kaushik Chintalapudi. Inspired by AI-powered interfaces.</button>
+         </p>
+      </div>
+      <script>
+         document.addEventListener("DOMContentLoaded", () => {
+            try {
+               // Utility Functions
+               const unlockBadge = (badgeContainer) => {
+                  if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
+                  badgeContainer.classList.add("unlocked");
+                  badgeContainer.style.display = "block";
+                  const badgeImage = badgeContainer.querySelector("img");
+                  if (badgeImage) badgeImage.style.display = "block";
+                  
+                  // Store badge state in localStorage
+                  localStorage.setItem(badgeContainer.id, "unlocked");
+                  
+                  // Animation for unlocking badges
+                  badgeContainer.animate(
+                     [
+                        { transform: "scale(0.5)", opacity: 0 },
+                        { transform: "scale(1.2)", opacity: 1 },
+                        { transform: "scale(1)", opacity: 1 }
+                     ],
+                     {
+                        duration: 1000,
+                        easing: "ease-out"
+                     }
+                  );
+                  
+                  // Show toast notification
+                  showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
+               };
+               
+               const showToast = (message) => {
+                  const toast = document.createElement("div");
+                  toast.className = "toast";
+                  toast.style.cssText = `
+                  position: fixed;
+                  bottom: 20px;
+                  right: 20px;
+                  background: var(--button-bg);
+                  color: var(--text-color);
+                  padding: 10px 20px;
+                  border-radius: 5px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  z-index: 1000;
+                  opacity: 0;
+                  transform: translateY(20px);
+                  `;
+                  toast.textContent = message;
+                  document.body.appendChild(toast);
+                  
+                  // Animate toast
+                  toast.animate(
+                     [
+                        { opacity: 0, transform: "translateY(20px)" },
+                        { opacity: 1, transform: "translateY(0)" },
+                        { opacity: 1, transform: "translateY(0)" },
+                        { opacity: 0, transform: "translateY(20px)" }
+                     ],
+                     {
+                        duration: 4000,
+                        easing: "ease"
+                     }
+                  );
+                  
+                  // Remove toast after animation
+                  setTimeout(() => toast.remove(), 4000);
+               };
+               
+               const updateProgress = (counterElem, exploredCount, totalItems) => {
+                  if (!counterElem) return;
+                  counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
+                  const progressBar = counterElem.nextElementSibling?.querySelector(".progress-fill");
+                  if (progressBar) {
+                     const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                     progressBar.style.width = `${percentage}%`;
+                     progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
+                  }
+               };
+               
+               const resetProgress = (sectionId, itemsClass, badgeId) => {
+                  const section = document.getElementById(sectionId);
+                  if (!section) return;
+                  const items = section.querySelectorAll(itemsClass);
+                  items.forEach(item => item.classList.remove("explored"));
+                  
+                  // Reset progress counters and localStorage
+                  localStorage.setItem(`${sectionId}-exploredCount`, 0);
+                  const progressCounter = section.querySelector(".progress-counter");
+                  updateProgress(progressCounter, 0, items.length);
+                  
+                  // Reset badges
+                  const badgeContainer = document.getElementById(badgeId);
+                  if (badgeContainer) {
+                     badgeContainer.classList.remove("unlocked");
+                     badgeContainer.style.display = "none";
+                     localStorage.removeItem(badgeId);
+                  }
+               };
+               
+               // Initialize Gamified Sections
+               const initializeGamifiedSections = () => {
+                  const sectionsToGamify = [
+                     { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
+                     { id: "hobbies&skills", itemsClass: ".hobby&skills-item", badgeId: "badge-container-hobbies&skills" },
+                     { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
+                     { id: "resume", itemsClass: ".resume-item", badgeId: "badge-container-resume"},
+                     { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
+                     { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
+                     { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
+                     { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard" }, 
+                     { id: "conclusion", itemsClass: ".badge-card", badgeId: "badge-container-conclusion"}
+                  ]; 
+                  
+                  const initializeSection = ({ id, itemsClass, badgeId }) => {
+                     const section = document.getElementById(id);
+                     if (!section) return;
+                     
+                     const items = section.querySelectorAll(itemsClass);
+                     const totalItems = items.length;
+                     let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                     
+                     // Create or select progress counter
+                     let progressCounter = section.querySelector(".progress-counter");
+                     if (!progressCounter) {
+                        progressCounter = document.createElement("div");
+                        progressCounter.className = "progress-counter";
+                        progressCounter.style.cssText = `
+                        text-align: center;
+                        font-size: 1rem;
+                        color: var(--button-bg);
+                        font-weight: bold;
+                        margin-bottom: 1rem;
+                        `;
+                        
+                        const progressBarContainer = document.createElement("div");
+                        progressBarContainer.className = "progress-bar-container";
+                        progressBarContainer.style.cssText = `
+                        margin: 0 auto;
+                        width: 80%;
+                        height: 15px;
+                        background: var(--progress-bg);
+                        border-radius: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        `;
+                        
+                        const progressBarFill = document.createElement("div");
+                        progressBarFill.className = "progress-fill";
+                        progressBarFill.style.cssText = `
+                        width: 0%;
+                        height: 100%;
+                        background: var(--progress-fill);
+                        transition: width 0.5s ease;
+                        `;
+                        
+                        progressBarContainer.appendChild(progressBarFill);
+                        section.prepend(progressBarContainer);
+                        section.prepend(progressCounter);
+                        
+                        const resetButton = document.createElement("button");
+                        resetButton.textContent = "Reset Progress";
+                        resetButton.className = "reset-button";
+                        resetButton.style.cssText = `
+                        display: block;
+                        margin: 10px auto;
+                        padding: 5px 10px;
+                        font-size: 0.9rem;
+                        background: #dc3545;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        `;
+                        
+                        resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                        section.appendChild(resetButton);
+                     }
+                     
+                     // Load unlocked badges from localStorage
+                     const badgeContainer = document.getElementById(badgeId);
+                     if (localStorage.getItem(badgeId) === "unlocked") {
+                        unlockBadge(badgeContainer);
+                     }
+                     
+                     // Delegate click event to section
+                     section.addEventListener("click", (event) => {
+                        const target = event.target.closest(itemsClass);
+                        if (target && !target.classList.contains("explored")) {
+                           target.classList.add("explored");
+                           exploredCount++;
+                           localStorage.setItem(`${id}-exploredCount`, exploredCount);
+                           updateProgress(progressCounter, exploredCount, totalItems);
+                           
+                           if (exploredCount === totalItems) {
+                              unlockBadge(badgeContainer);
+                           }
+                        }
+                     });
+                     
+                     // Initial progress display
+                     updateProgress(progressCounter, exploredCount, totalItems);
+                  };
+                  
+                  sectionsToGamify.forEach(initializeSection);
+                  
+                  // Observe dynamically added sections or items
+                  const observer = new MutationObserver((mutations) => {
+                     mutations.forEach((mutation) => {
+                        if (mutation.type === "childList") {
+                           sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
+                              const section = document.getElementById(id);
+                              if (section && mutation.target.contains(section)) {
+                                 initializeSection({ id, itemsClass, badgeId });
+                              }
+                           });
+                        }
+                     });
+                  });
+                  
+                  observer.observe(document.body, { childList: true, subtree: true });
+               };
+               
+               // Badge Modal Handling
+               const setupBadgeModal = () => {
+                  const badgeCards = document.querySelectorAll(".badge-card");
+                  const modal = document.getElementById("badge-modal");
+                  const modalImage = document.getElementById("modal-badge-image");
+                  const modalTitle = document.getElementById("modal-badge-title");
+                  const modalMessage = document.getElementById("modal-badge-message");
+                  const closeButton = document.getElementById("modal-close-button");
+                  
+                  badgeCards.forEach(card => {
+                     card.addEventListener("click", () => {
+                        const badgeId = card.dataset.badgeId;
+                        const badgeContainer = document.getElementById(badgeId);
+                        if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
+                           modalImage.src = card.querySelector("img").src;
+                           modalTitle.textContent = card.querySelector("h3").textContent;
+                           modalMessage.textContent = card.querySelector("p").textContent;
+                           modal.classList.add("show");
+                        } else {
+                           showToast("Unlock this badge by exploring the section!");
+                        }
+                     });
+                  });
+                  
+                  closeButton.addEventListener("click", () => {
+                     modal.classList.remove("show");
+                  });
+                  
+                  // Close modal on outside click
+                  window.addEventListener("click", (event) => {
+                     if (event.target === modal) {
+                        modal.classList.remove("show");
+                     }
+                  });
+               };
+               
+               // Update Badge Progress in Dashboard
+               const updateBadgeProgress = () => {
+                  const badgeProgressText = document.getElementById("badge-progress-text");
+                  const badgeProgressFill = document.getElementById("badge-progress-fill");
+                  const badgeSections = [
+                     "badge-container-about",
+                     "badge-container-hobbies&skills",
+                     "badge-container-experience",
+                     "badge-container-resume",
+                     "badge-container-projects",
+                     "badge-container-achievements",
+                     "badge-container-certifications",
+                     "badge-container-dashboard",
+                     "badge-container-conclusion"
+                  ];
+                  
+                  const unlockedCount = badgeSections.reduce((count, id) => {
+                     return count + (localStorage.getItem(id) === "unlocked" ? 1 : 0);
+                  }, 0);
+                  
+                  badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
+                  const percentage = (unlockedCount / badgeSections.length) * 100;
+                  badgeProgressFill.style.width = `${percentage}%`;
+               };
+               
+               // Smooth Scroll for Navigation
+               const setupSmoothScroll = () => {
+                  document.querySelectorAll("header .nav-links a").forEach((link) => {
+                     link.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const targetId = link.getAttribute("href").substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                           target.scrollIntoView({ behavior: "smooth" });
+                        }
+                     });
+                  });
+               };
+               
+               // Tooltip Setup
+               const setupTooltips = () => {
+                  const keywords = document.querySelectorAll(".keyword");
+                  const popover = document.createElement("div");
+                  popover.className = "popover";
+                  popover.style.cssText = `
+                  position: absolute;
+                  background: var(--bg-color);
+                  color: var(--text-color);
+                  padding: 10px;
+                  border-radius: 5px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  display: none;
+                  z-index: 1000;
+                  `;
+                  
+                  document.body.appendChild(popover);
+                  
+                  keywords.forEach((keyword) => {
+                     keyword.addEventListener("mouseenter", (e) => {
+                        popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                        popover.style.display = "block";
+                        popover.style.top = `${e.pageY + 10}px`;
+                        popover.style.left = `${e.pageX + 10}px`;
+                     });
+                     keyword.addEventListener("mouseleave", () => {
+                        popover.style.display = "none";
+                     });
+                     
+                     // Handle data-action attributes
+                     keyword.addEventListener("click", () => {
+                        const action = keyword.dataset.action;
+                        if (action === "highlight") {
+                           keyword.style.backgroundColor = "var(--button-bg)";
+                           keyword.style.color = "var(--bg-color)";
+                           setTimeout(() => {
+                              keyword.style.backgroundColor = "";
+                              keyword.style.color = "";
+                           }, 1000);
+                        } else if (action === "show-alert") {
+                           alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);
+                        } else if (action === "open-modal") {
+                           showToast(`Modal for ${keyword.textContent} would open here!`);
+                        } else if (action === "scroll-to") {
+                           const targetId = keyword.getAttribute("href").substring(1);
+                           const target = document.getElementById(targetId);
+                           if (target) {
+                              target.scrollIntoView({ behavior: "smooth" });
+                           }
+                        }
+                     });
+                  });
+               };
+               
+               // Dark Mode Toggle
+               const toggleDarkMode = () => {
+                  const toggleButton = document.getElementById("darkModeToggle");
+                  const themeIcon = document.getElementById("themeIcon");
+                  const currentTheme = localStorage.getItem("theme") || "light";
+                  document.documentElement.setAttribute("data-theme", currentTheme);
+                  themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                  
+                  toggleButton.addEventListener("click", () => {
+                     const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+                     document.documentElement.setAttribute("data-theme", newTheme);
+                     localStorage.setItem("theme", newTheme);
+                     themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                  });
+               };
+               
+               // Back-to-Top Button
+               const setupBackToTop = () => {
+                  const button = document.getElementById("backToTop");
+                  const debounce = (func, delay) => {
+                     let timeout;
+                     return (...args) => {
+                        clearTimeout(timeout);
+                        timeout = setTimeout(() => func(...args), delay);
+                     };
+                  };
+                  
+                  window.addEventListener("scroll", debounce(() => {
+                     if (window.scrollY > 200) {
+                        button.classList.add("show");
+                     } else {
+                        button.classList.remove("show");
+                     }
+                  }, 100));
+                  
+                  button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+               };
+               
+               // Highlight Active Section
+               const highlightActiveSection = () => {
+                  const sections = document.querySelectorAll("section");
+                  const navLinks = document.querySelectorAll(".nav-links a");
+                  
+                  const setActiveLink = () => {
+                     let activeSection = null;
+                     
+                     sections.forEach((section) => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                           activeSection = section.id;
+                        }
+                     });
+                     
+                     navLinks.forEach((link) => {
+                        link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection);
+                     });
+                  };
+                  
+                  window.addEventListener("scroll", setActiveLink);
+                  setActiveLink();
+               };
+               
+               // Set Current Year in Footer
+               const setCurrentYear = () => {
+                  document.getElementById("current-year").textContent = new Date().getFullYear();
+               };
+               
+               // Initialize Resume Section
+               const initializeResumeSection = () => {
+                  const section = document.getElementById("resume");
+                  if (!section) return;
+                  
+                  const viewer = section.querySelector(".resume-viewer");
+                  const badgeContainer = document.getElementById("badge-container-resume");
+                  
+                  // Load unlocked badge state
+                  if (localStorage.getItem("badge-container-resume") === "unlocked") {
+                     badgeContainer.classList.add("unlocked");
+                     badgeContainer.style.display = "block";
+                  }
+                  
+                  // Unlock badge on interaction
+                  viewer.addEventListener("click", () => {
+                     if (!badgeContainer.classList.contains("unlocked")) {
+                        unlockBadge(badgeContainer);
+                     }
+                  });
+                  
+                  // Keyboard support
+                  viewer.addEventListener("keydown", (e) => {
+                     if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        viewer.click();
+                     }
+                  });
+               };
+               
+               // Initialize All Features
+               initializeGamifiedSections();
+               setupBadgeModal();
+               updateBadgeProgress();
+               setupSmoothScroll();
+               setupTooltips();
+               toggleDarkMode();
+               setupBackToTop();
+               highlightActiveSection();
+               setCurrentYear();
+               initializeResumeSection();
+            
+            } catch (error) {
+               console.error("Initialization Error:", error);
+            }
+         });
+      </script>
+   </footer>
+   </body>
+
+</html>
