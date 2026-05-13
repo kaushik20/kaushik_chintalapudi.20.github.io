@@ -1228,34 +1228,16 @@
       }
 
       @media (max-width: 768px) {
-         .hobbies-container {
+         .hobbies_skills-container {
             flex-direction: column;
             align-items: center;
          }
          
-         .hobby-item {
+         .hobbies_skills-item {
             width: 80%;
          }
       }
-
-      @media (max-width: 1024px) {
-         .skill-item {
-            flex: 1 1 calc(33.3% - 1.5rem); 
-         }
-      }
-
-      @media (max-width: 768px) {
-         .skill-item {
-            flex: 1 1 calc(50% - 1.5rem); 
-         }
-      }
-
-      @media (max-width: 480px) {
-         .skill-item {
-            flex: 1 1 100%; 
-         }
-      }
-
+      
       @media (max-width: 1024px) {
          .project-card {
             flex: 1 1 calc(50% - 2rem); 
@@ -1596,7 +1578,7 @@
                <h3>Python</h3>
             </div>
          </div>        
-         <div id="badge-container-Hobbies_Skills" class="badge-container">
+         <div id="badge-container-hobbies_skills" class="badge-container">
             <div class="badge-content">
                <h3 class="badge-title">🎉 Congratulations!</h3>
                <p class="badge-message">You've unlocked the <strong>Hobbies & Skills Badge</strong>!</p>
@@ -1659,7 +1641,7 @@
       <section id="resume" class="section" aria-labelledby="resume-heading">
          <h2 id="resume-heading">Resume</h2>
          <p class="section-subtitle">View my professional resume below.</p>
-         <iframe src="./PDF/Kaushik_Chintalapudi_Resume.pdf" width="100%" style="height: 600px; max-width: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); aspect-ratio: 4/3;" title="Kaushik Chintalapudi's Resume" loading="lazy"></iframe>
+         <iframe src="PDF/Kaushik_Chintalapudi_Resume.pdf" width="100%" style="height: 600px; max-width: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); aspect-ratio: 4/3;" title="Kaushik Chintalapudi's Resume" loading="lazy"></iframe>
          <div id="badge-container-resume" class="badge-container" style="display: none;">
             <div class="badge-content">
                <h3 class="badge-title">🎉 Resume Badge</h3>
@@ -1809,7 +1791,7 @@
                <p>Unlocked by exploring my story.</p>
             </div>
             <div class="badge-card" data-badge-id="badge-container-hobbies_skills" aria-label="hobbies_skills Badge">
-               <img src="Images/DALL.E_Hobbies.webp" alt="Hobbies&Skills Badge" loading="lazy">
+               <img src="Images/DALL.E_Hobbies.webp" alt="hobbies_skills Badge" loading="lazy">
                <h3>Hobbies & Skills</h3>
                <p>Unlocked by discovering my passions and abilities.</p>
             </div>
@@ -2029,7 +2011,7 @@
                const initializeGamifiedSections = () => {
                   const sectionsToGamify = [
                      { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
-                     { id: "hobbies_skills", itemsClass: ".hobby&skills-item", badgeId: "badge-container-hobbies_skills" },
+                     { id: "hobbies_skills", itemsClass: ".hobby_skills-item", badgeId: "badge-container-hobbies_skills" },
                      { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
                      { id: "resume", itemsClass: ".resume-item", badgeId: "badge-container-resume"},
                      { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
