@@ -2344,9 +2344,6 @@
                   
                   const viewer = section.querySelector("iframe");
                   const badgeContainer = document.getElementById("badge-container-resume");
-
-                  //Guard against null — if either element is missing, stop
-                  if (!viewer || !badgeContainer) return;
                   
                   // Load unlocked badge state
                   if (localStorage.getItem("badge-container-resume") === "unlocked") {
