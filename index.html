@@ -60,6 +60,18 @@
          --button-hover: #ffc107;
       }
 
+      #backToTop {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         display: none;
+         z-index: 999;
+      }
+      
+      #backToTop.show {
+         display: block;
+      }
+
       /* Global Styles */
       html, body {
          font-family: 'Poppins', sans-serif;
@@ -1501,7 +1513,7 @@
                   Building a hybrid skill set at the intersection of Cloud and Oracle Fusion Financials — blending tech with business to drive smarter, scalable solutions. 
                   Focused on continuous learning, innovation, and laying the groundwork to lead in tomorrow’s AI-powered enterprise landscape.
                </p>
-               <a href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8" style="color: #6b47dc; text-decoration: underline; font-size: 1.2rem;">Kaushik Chintalapudi</a>
+               <a href="https://www.linkedin.com/in/kaushik-chintalapudi-6b737a1a8" style="color: var(--button-bg); text-decoration: underline; font-size: 1.2rem;">Kaushik Chintalapudi</a>
                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                   <a href="#footer-contact" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Navigate to the contact section">Let's Connect</a>
                   <a href="#resume" style="padding: 0.8rem 2rem; background: #4ac1ff; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.2rem;" class="cta-btn" aria-label="Navigate to Kaushik Chintalapudi's Resume section">View Resume</a>
@@ -2013,7 +2025,6 @@
                      { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
                      { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills" },
                      { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
-                     { id: "resume", itemsClass: ".resume-item", badgeId: "badge-container-resume"},
                      { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
                      { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
                      { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
