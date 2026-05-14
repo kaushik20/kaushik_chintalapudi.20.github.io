@@ -61,15 +61,22 @@
       }
 
       #backToTop {
-         position: fixed;
-         bottom: 20px;
-         right: 20px;
-         display: none;
-         z-index: 999;
+         background: none;
+         color: inherit;
+         border: none;
+         font-size: inherit;
+         cursor: pointer;
+         width: 100%;
+         padding: 0;
+         transition: color 0.3s ease;
       }
       
       #backToTop.show {
          display: block;
+      }
+
+      #backToTop:hover {
+         color: #4dabf7;
       }
 
       /* Global Styles */
@@ -2289,22 +2296,6 @@
                // Back-to-Top Button
                const setupBackToTop = () => {
                   const button = document.getElementById("backToTop");
-                  const debounce = (func, delay) => {
-                     let timeout;
-                     return (...args) => {
-                        clearTimeout(timeout);
-                        timeout = setTimeout(() => func(...args), delay);
-                     };
-                  };
-                  
-                  window.addEventListener("scroll", debounce(() => {
-                     if (window.scrollY > 200) {
-                        button.classList.add("show");
-                     } else {
-                        button.classList.remove("show");
-                     }
-                  }, 100));
-                  
                   button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
                };
                
