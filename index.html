@@ -400,6 +400,29 @@
          color: #d1d9f9;
       }
 
+      .hs-group {
+         width: 100%;
+         margin-bottom: 1.5rem;
+      }
+      
+      .hs-group-title {
+         font-size: 1.5rem;
+         color: #ffffff;
+         margin-bottom: 1rem;
+         text-align: center;
+         letter-spacing: 0.05em;
+         text-transform: uppercase;
+         opacity: 0.85;
+      }
+      
+      .hs-divider {
+         width: 80%;
+         height: 2px;
+         background: rgba(255, 255, 255, 0.2);
+         margin: 1rem auto 2rem;
+         border-radius: 2px;
+      }
+
       /* Experience Section */
       #experience {
          padding: 3rem 1rem;
@@ -1557,44 +1580,55 @@
          <h2>Hobbies & Skills</h2>
          <p class="section-subtitle">Discover the passions that drive me and the tools I build with.</p>
          <div class="hobbies_skills-container">
-            <div class="hobbies_skills-item" data-hobby="guitar" aria-label="Explore Guitar Hobby">
-               <h3>Guitar</h3>
+            <div class="hs-group">
+               <h3 class="hs-group-title">🎸 Hobbies</h3>
+               <div class="hobbies_skills-container">
+                  <div class="hobbies_skills-item" data-hobby="guitar" aria-label="Explore Guitar Hobby">
+                     <h3>Guitar</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="cricket" aria-label="Explore Cricket Hobby">
+                     <h3>Cricket</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="music" aria-label="Explore Music Hobby">
+                     <h3>Music</h3>
+                  </div>
+               </div>
             </div>
-            <div class="hobbies_skills-item" data-hobby="cricket" aria-label="Explore Cricket Hobby">
-               <h3>Cricket</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="music" aria-label="Explore Music Hobby">
-               <h3>Music</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Azure">
-               <h3>Microsoft Azure</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Apps">
-               <h3>Microsoft Power Apps</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Automate">
-               <h3>Microsoft Power Automate</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Oracle Fusion ERP Cloud">
-               <h3>Oracle Fusion ERP</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Payables">
-               <h3>Accounts Payables</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Receivables">
-               <h3>Accounts Receivables</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: General Ledger">
-               <h3>General Ledger</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Fixed Assets">
-               <h3>Fixed Assets</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Cash Management">
-               <h3>Cash Management</h3>
-            </div>
-            <div class="hobbies_skills-item" data-hobby="Computer Programming" aria-label="Skill: Python">
-               <h3>Python</h3>
+            <div class="hs-divider"></div>
+            <div class="hs-group">
+               <h3 class="hs-group-title">⚙️ Skills</h3>
+               <div class="hobbies_skills-container">
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Azure">
+                     <h3>Microsoft Azure</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Apps">
+                     <h3>Microsoft Power Apps</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Microsoft Power Automate">
+                     <h3>Microsoft Power Automate</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Oracle Fusion ERP Cloud">
+                     <h3>Oracle Fusion ERP</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Payables">
+                     <h3>Accounts Payables</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Accounts Receivables">
+                     <h3>Accounts Receivables</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: General Ledger">
+                     <h3>General Ledger</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Fixed Assets">
+                     <h3>Fixed Assets</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="technology" aria-label="Skill: Cash Management">
+                     <h3>Cash Management</h3>
+                  </div>
+                  <div class="hobbies_skills-item" data-hobby="Computer Programming" aria-label="Skill: Python">
+                     <h3>Python</h3>
+                  </div>
+               </div>
             </div>
          </div>        
          <div id="badge-container-hobbies_skills" class="badge-container">
