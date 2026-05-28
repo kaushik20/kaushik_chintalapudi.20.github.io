@@ -346,26 +346,21 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Highlight Active Section
                      const highlightActiveSection = () => {
-                           const sections = document.querySelectorAll("section");
-                           const navLinks = document.querySelectorAll(".nav-links a");
-                           const setActiveLink = () => {
-                                 let activeSection = null;
-                                 
-                                 sections.forEach((section) => {
-                                       const rect = section.getBoundingClientRect();
-                                       if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                                             activeSection = section.id;
-                                       }
-                                 });
-                                 
-                                 navLinks.forEach((link) =>
-                                       link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection);
-                           });
+                              const sections = document.querySelectorAll("section");
+                              const navLinks = document.querySelectorAll(".nav-links a");
+                              const setActiveLink = () => {
+                                       let activeSection = null;
+                                       sections.forEach((section) => {
+                                                const rect = section.getBoundingClientRect();
+                                                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                                                         activeSection = section.id;
+                                                }
+                                       });
+                                       navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection));                
+                              };
+                              window.addEventListener("scroll", setActiveLink); 
+                              setActiveLink();                                   
                      };
-                     
-                     window.addEventListener("scroll", setActiveLink);
-                     setActiveLink();
-               };
                
                // Set Current Year in Footer
                const setCurrentYear = () => {
