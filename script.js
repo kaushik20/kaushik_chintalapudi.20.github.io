@@ -1,7 +1,7 @@
-         document.addEventListener("DOMContentLoaded", () => {
-            try {
-                     // Utility Functions
-                     const unlockBadge = (badgeContainer) => {
+document.addEventListener("DOMContentLoaded", () => {
+         try {
+                  // Utility Functions
+                  const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
                            badgeContainer.classList.add("unlocked");
                            badgeContainer.style.display = "block";
