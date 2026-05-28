@@ -1,4 +1,3 @@
-<script>
          document.addEventListener("DOMContentLoaded", () => {
             try {
                      // Utility Functions
@@ -418,4 +417,3 @@
                console.error("Initialization Error:", error);
    }
    });
-   </script>
