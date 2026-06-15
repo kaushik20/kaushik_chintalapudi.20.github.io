@@ -410,6 +410,28 @@ header .dark-mode-btn:hover i {
       width: 100%;
 }
 
+.hs-main-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hs-main-row .hs-group {
+  flex: 1;
+  background: var(--card-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.hs-main-row .hs-divider {
+  align-self: stretch;
+  width: 1px;
+  background: var(--border-color, rgba(255, 255, 255, 0.1));
+}
+
 /* Experience Section */
 #experience {
       padding: 3rem 1rem;
@@ -1412,3 +1434,12 @@ footer {
 @media (prefers-reduced-motion: reduce) {
       .resume-viewer {transition: none;}
 } 
+
+@media (max-width: 768px) {
+      .hs-main-row {flex-direction: column;}
+      
+      .hs-main-row .hs-divider {
+            width: 100%;
+            height: 1px;
+      }
+}
