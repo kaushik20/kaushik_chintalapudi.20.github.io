@@ -1501,3 +1501,21 @@ footer {
             height: 1px;
       }
 }
+
+@media (max-width: 768px) {
+      .footer-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+      }
+
+      .contact-item,
+      .opportunity-item {
+            justify-content: center;
+      }
+
+      .contact-section,
+      .opportunity-section {
+            text-align: center;
+      }
+}
