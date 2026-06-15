@@ -1073,7 +1073,7 @@ footer {
       justify-content: space evenly;
       gap: 4rem;
       flex-wrap: wrap;
-      align-items: flex start;
+      align-items: centre;
 }
 
 .contact-section h2, .opportunity-section h2 {
