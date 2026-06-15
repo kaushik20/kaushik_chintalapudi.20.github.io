@@ -1070,13 +1070,13 @@ footer {
 .footer-container {
       width: 100%;
       display: flex;
-      justify-content: space-evenly;
-      gap: 2rem;
+      justify-content: space evenly;
+      gap: 4rem;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex start;
 }
 
-.contact-section h2 {
+.contact-section h2, .opportunity-section h2 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
       color: #4dabf7;
@@ -1190,6 +1190,64 @@ footer {
 .footer-bar button:hover {
       color: #4dabf7; 
       transform: scale(1.05); 
+}
+
+.opportunity-section {
+      flex: 1 1 300px;
+      max-width: 320px;
+      text-align: left;
+}
+
+.opportunity-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #4dabf7;
+}
+
+.opportunity-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+}
+
+.opportunity-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+}
+
+.hire-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #4dabf7, #1e88e5);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(77, 171, 247, 0.3);
+      transition: all 0.3s ease;
+}
+
+.hire-btn:hover {
+      background: #1e88e5;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
+}
+
+.opportunity-item img {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+}
+
+.opportunity-item img:hover {
+      transform: scale(1.2);
 }
       
 /* Animations */
