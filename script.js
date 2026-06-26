@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            // Show toast notification
                            showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
-                     };
+
+                           updateBadgeProgress();
+                  };
                      
                      const showToast = (message) => {
                            const toast = document.createElement("div");
@@ -160,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        const target = event.target.closest(itemsClass);
                                        if (target && !target.classList.contains("explored")) {
                                              target.classList.add("explored");
+                                             let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
                                              exploredCount++;
                                              localStorage.setItem(`${id}-exploredCount`, exploredCount);
                                              updateProgress(progressCounter, exploredCount, totalItems);
