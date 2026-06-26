@@ -153,9 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  
                                  // Load unlocked badges from localStorage
                                  const badgeContainer = document.getElementById(badgeId);
-                                 if (localStorage.getItem(badgeId) === "unlocked") {
-                                       unlockBadge(badgeContainer);
-                                 }
+                                 if (localStorage.getItem(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
                                  
                                  // Delegate click event to section
                                  section.addEventListener("click", (event) => {
@@ -166,9 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              localStorage.setItem(`${id}-exploredCount`, exploredCount);
                                              updateProgress(progressCounter, exploredCount, totalItems);
                                              
-                                             if (exploredCount === totalItems) {
-                                                   unlockBadge(badgeContainer);
-                                             }
+                                             if (exploredCount === totalItems) {unlockBadge(badgeContainer);}
                                        }
                                  });
                                  
@@ -184,9 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        if (mutation.type === "childList") {
                                              sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
                                                    const section = document.getElementById(id);
-                                                   if (section && mutation.target.contains(section)) {
-                                                         initializeSection({ id, itemsClass, badgeId });
-                                                   }
+                                                   if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
                                              });
                                        }
                                  });
@@ -213,23 +207,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                              modalTitle.textContent = card.querySelector("h3").textContent;
                                              modalMessage.textContent = card.querySelector("p").textContent;
                                              modal.classList.add("show");
-                                       } else {
-                                             showToast("Unlock this badge by exploring the section!");
-                                       }
-                                 });
+                                       } 
+                                       else {showToast("Unlock this badge by exploring the section!");}});
                            });
                            
-                           closeButton.addEventListener("click", () => {
-                                 modal.classList.remove("show");
-                           });
+                           closeButton.addEventListener("click", () => {modal.classList.remove("show");});
                            
                            // Close modal on outside click
-                           window.addEventListener("click", (event) => {
-                                 if (event.target === modal) {
-                                       modal.classList.remove("show");
-                                 }
-                           });
-                     };
+                           window.addEventListener("click", (event) => {if (event.target === modal) {modal.classList.remove("show");}});};
                      
                      // Update Badge Progress in Dashboard
                      const updateBadgeProgress = () => {
@@ -247,9 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  "badge-container-conclusion"
                            ];
                            
-                           const unlockedCount = badgeSections.reduce((count, id) => {
-                                 return count + (localStorage.getItem(id) === "unlocked" ? 1 : 0);
-                           }, 0);
+                           const unlockedCount = badgeSections.reduce((count, id) => {return count + (localStorage.getItem(id) === "unlocked" ? 1 : 0);}, 0);
                            
                            badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
                            const percentage = (unlockedCount / badgeSections.length) * 100;
@@ -263,9 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        event.preventDefault();
                                        const targetId = link.getAttribute("href").substring(1);
                                        const target = document.getElementById(targetId);
-                                       if (target) {
-                                             target.scrollIntoView({ behavior: "smooth" });
-                                       }
+                                       if (target) {target.scrollIntoView({ behavior: "smooth" });}
                                  });
                            });
                      };
@@ -373,27 +354,21 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      const viewer = section.querySelector("iframe");
                      const badgeContainer = document.getElementById("badge-container-resume");
-                     
-                     // Load unlocked badge state
-                     if (localStorage.getItem("badge-container-resume") === "unlocked") {
-                           badgeContainer.classList.add("unlocked");
-                           badgeContainer.style.display = "block";
+
+                     if (!viewer || !badgeContainer) {
+                              console.warn("Resume section: iframe or badge container not found."); 
+                              return;
                      }
                      
+                     // Load unlocked badge state
+                     if (localStorage.getItem("badge-container-resume") === "unlocked") {unlockBadge(badgeContainer);}
+                     
                      // Unlock badge on interaction
-                     viewer.addEventListener("click", () => {
-                           if (!badgeContainer.classList.contains("unlocked")) {
-                                 unlockBadge(badgeContainer);
-                           }
-                     });
+                     viewer.addEventListener("load", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
                      
                      // Keyboard support
-                     viewer.addEventListener("keydown", (e) => {
-                           if (e.key === "Enter" || e.key === " ") {
-                                 e.preventDefault();
-                                 viewer.click();
-                           }
-                     });
+                     viewer.addEventListener("focus", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
+                     section.addEventListener("click", (e) => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
                };   
                
                // Initialize All Features
