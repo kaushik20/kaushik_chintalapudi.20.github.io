@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Initialize Gamified Sections
                      const initializeGamifiedSections = () => {
+                           const initializedSections = new Set();
                            const sectionsToGamify = [
                                  { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
                                  { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills" },
@@ -223,6 +224,10 @@ document.addEventListener("DOMContentLoaded", () => {
                      const updateBadgeProgress = () => {
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
+                           if (!badgeProgressText || !badgeProgressFill) { 
+                                    console.warn("Badge progress: elements not found.");
+                                    return;
+                           }
                            const badgeSections = [
                                  "badge-container-about",
                                  "badge-container-hobbies_skills",
@@ -257,20 +262,22 @@ document.addEventListener("DOMContentLoaded", () => {
                      // Tooltip Setup
                      const setupTooltips = () => {
                            const keywords = document.querySelectorAll(".keyword");
-                           const popover = document.createElement("div");
-                           popover.className = "popover";
-                           popover.style.cssText = `
-                           position: absolute;
-                           background: var(--bg-color);
-                           color: var(--text-color);
-                           padding: 10px;
-                           border-radius: 5px;
-                           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                           display: none;
-                           z-index: 1000;
-                           `;
-                           
-                           document.body.appendChild(popover);
+                           let popover = document.getElementById("global-popover");
+                           if (!popover) {
+                                    const popover = document.createElement("div");
+                                    popover.className = "popover";
+                                    popover.style.cssText = `
+                                    position: absolute;
+                                    background: var(--bg-color);
+                                    color: var(--text-color);
+                                    padding: 10px;
+                                    border-radius: 5px;
+                                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                    display: none;
+                                    z-index: 1000;
+                                    `;
+                                    document.body.appendChild(popover);
+                           }
                            keywords.forEach((keyword) => {
                                  keyword.addEventListener("mouseenter", (e) => {
                                        popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
@@ -291,16 +298,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                              setTimeout(() => {
                                                    keyword.style.backgroundColor = "";
                                                    keyword.style.color = "";}, 1000);
-                                       } else if (action === "show-alert") {
-                                             alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);
-                                       } else if (action === "open-modal") {
-                                             showToast(`Modal for ${keyword.textContent} would open here!`);
-                                       } else if (action === "scroll-to") {
-                                             const targetId = keyword.getAttribute("href").substring(1);
-                                             const target = document.getElementById(targetId);
-                                             if (target) {
-                                                   target.scrollIntoView({ behavior: "smooth" });
-                                             }
+                                       } 
+                                       else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);} 
+                                       else if (action === "open-modal") {showToast(`Modal for ${keyword.textContent} would open here!`);} 
+                                       else if (action === "scroll-to") {
+                                                const targetId = keyword.dataset.target;
+                                                if (!targetId) return;
+                                                const target = document.getElementById(targetId);
+                                                if (target) {target.scrollIntoView({ behavior: "smooth" });}
                                        }
                                  });
                            });
@@ -310,6 +315,10 @@ document.addEventListener("DOMContentLoaded", () => {
                      const toggleDarkMode = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
                            const themeIcon = document.getElementById("themeIcon");
+                           if (!toggleButton || !themeIcon) {  
+                                    console.warn("Dark mode toggle: elements not found.");
+                                    return;
+                           }
                            const currentTheme = localStorage.getItem("theme") || "light";
                            document.documentElement.setAttribute("data-theme", currentTheme);
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
