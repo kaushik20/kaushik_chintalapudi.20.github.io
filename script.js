@@ -73,6 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                  badgeContainer.classList.remove("unlocked");
                                  badgeContainer.style.display = "none";
                                  localStorage.removeItem(badgeId);
+                                 const badgeImage = badgeContainer.querySelector("img");
+                                 if (badgeImage) badgeImage.style.display = "none";
+                                 updateBadgeProgress();
                            }
                      };
                      
@@ -255,6 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            document.querySelectorAll("header .nav-links a").forEach((link) => {
                                  link.addEventListener("click", (event) => {
                                        event.preventDefault();
+                                       const href = link.getAttribute("href"); 
+                                       if (!href) return;
                                        const targetId = link.getAttribute("href").substring(1);
                                        const target = document.getElementById(targetId);
                                        if (target) {target.scrollIntoView({ behavior: "smooth" });}
@@ -268,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            let popover = document.getElementById("global-popover");
                            if (!popover) {
                                     popover = document.createElement("div");
+                                    popover.id = "global-popover";
                                     popover.className = "popover";
                                     popover.style.cssText = `
                                     position: absolute;
