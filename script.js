@@ -207,16 +207,24 @@ document.addEventListener("DOMContentLoaded", () => {
                            const modalTitle = document.getElementById("modal-badge-title");
                            const modalMessage = document.getElementById("modal-badge-message");
                            const closeButton = document.getElementById("modal-close-button");
+
+                           if (!modal || !modalImage || !modalTitle || !modalMessage || !closeButton) {
+                                    console.warn("Badge modal: one or more required elements not found.");
+                                    return;
+                           }
                            
                            badgeCards.forEach(card => {
                                  card.addEventListener("click", () => {
                                        const badgeId = card.dataset.badgeId;
                                        const badgeContainer = document.getElementById(badgeId);
                                        if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
-                                             modalImage.src = card.querySelector("img").src;
-                                             modalTitle.textContent = card.querySelector("h3").textContent;
-                                             modalMessage.textContent = card.querySelector("p").textContent;
-                                             modal.classList.add("show");
+                                                const img = card.querySelector("img");
+                                                const h3 = card.querySelector("h3");
+                                                const p = card.querySelector("p");
+                                                if (img) modalImage.src = img.src;
+                                                if (h3) modalTitle.textContent = h3.textContent;
+                                                if (p) modalMessage.textContent = p.textContent;
+                                                modal.classList.add("show");
                                        } 
                                        else {showToast("Unlock this badge by exploring the section!");}});
                            });
@@ -225,8 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            // Close modal on outside click
                            window.addEventListener("click", (event) => {if (event.target === modal) {modal.classList.remove("show");}});};
-                     
-                     // Update Badge Progress in Dashboard
+                  
+                  // Update Badge Progress in Dashboard
                      const updateBadgeProgress = () => {
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
@@ -260,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        event.preventDefault();
                                        const href = link.getAttribute("href"); 
                                        if (!href) return;
-                                       const targetId = link.getAttribute("href").substring(1);
+                                       const targetId = href.substring(1);
                                        const target = document.getElementById(targetId);
                                        if (target) {target.scrollIntoView({ behavior: "smooth" });}
                                  });
