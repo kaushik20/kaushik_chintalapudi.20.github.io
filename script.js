@@ -356,6 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return;
                            }
                            window.addEventListener("scroll", () => {button.style.display = window.scrollY > 300 ? "block" : "none";});
+                           button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
                               
                      };
                      
