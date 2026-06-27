@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        const target = event.target.closest(itemsClass);
                                        if (target && !target.classList.contains("explored")) {
                                              target.classList.add("explored");
-                                             let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                                             exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
                                              exploredCount++;
                                              localStorage.setItem(`${id}-exploredCount`, exploredCount);
                                              updateProgress(progressCounter, exploredCount, totalItems);
@@ -196,7 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                  });
                            });
                            
-                           observer.observe(document.body, { childList: true, subtree: true });
                            if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
                     };
                      
@@ -356,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Back-to-top button not found.");
                                     return;
                            }
-                           button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+                           window.addEventListener("scroll", () => {button.style.display = window.scrollY > 300 ? "block" : "none";});
                               
                      };
                      
@@ -413,7 +412,6 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Keyboard support
                      viewer.addEventListener("focus", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
-                     section.addEventListener("click", (e) => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
                };   
                
                // Initialize All Features
