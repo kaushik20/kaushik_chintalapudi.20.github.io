@@ -90,69 +90,70 @@ document.addEventListener("DOMContentLoaded", () => {
                                  { id: "conclusion", itemsClass: ".badge-card", badgeId: "badge-container-conclusion"}
                            ]; 
                            const initializeSection = ({ id, itemsClass, badgeId }) => {
-                                 const section = document.getElementById(id);
-                                 if (!section) return;
+                                    if (initializedSections.has(id)) return;
+                                    const section = document.getElementById(id);
+                                    if (!section) return;
+                                    initializedSections.add(id);
+                                    const items = section.querySelectorAll(itemsClass);
+                                    const totalItems = items.length;
+                                    let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
                                  
-                                 const items = section.querySelectorAll(itemsClass);
-                                 const totalItems = items.length;
-                                 let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
-                                 
-                                 // Create or select progress counter
-                                 let progressCounter = section.querySelector(".progress-counter");
-                                 if (!progressCounter) {
-                                       progressCounter = document.createElement("div");
-                                       progressCounter.className = "progress-counter";
-                                       progressCounter.style.cssText = `
-                                       text-align: center;
-                                       font-size: 1rem;
-                                       color: var(--button-bg);
-                                       font-weight: bold;
-                                       margin-bottom: 1rem;
-                                       `;
+                                    // Create or select progress counter
+                                    let progressCounter = section.querySelector(".progress-counter");
+                                    if (!progressCounter) {
+                                             progressCounter = document.createElement("div");
+                                             progressCounter.className = "progress-counter";
+                                             progressCounter.style.cssText = `
+                                             text-align: center;
+                                             font-size: 1rem;
+                                             color: var(--button-bg);
+                                             font-weight: bold;
+                                             margin-bottom: 1rem;
+                                             `;
+                                             
+                                             const progressBarContainer = document.createElement("div");
+                                             progressBarContainer.className = "progress-bar-container";
+                                             progressBarContainer.style.cssText = `
+                                             margin: 0 auto;
+                                             width: 80%;
+                                             height: 15px;
+                                             background: var(--progress-bg);
+                                             border-radius: 10px;
+                                             position: relative;
+                                             overflow: hidden;
+                                             `;
+                                             
+                                             const progressBarFill = document.createElement("div");
+                                             progressBarFill.className = "progress-fill";
+                                             progressBarFill.style.cssText = `
+                                             width: 0%;
+                                             height: 100%;
+                                             background: var(--progress-fill);
+                                             transition: width 0.5s ease;
+                                             `;
                                        
-                                       const progressBarContainer = document.createElement("div");
-                                       progressBarContainer.className = "progress-bar-container";
-                                       progressBarContainer.style.cssText = `
-                                       margin: 0 auto;
-                                       width: 80%;
-                                       height: 15px;
-                                       background: var(--progress-bg);
-                                       border-radius: 10px;
-                                       position: relative;
-                                       overflow: hidden;
-                                       `;
+                                             progressBarContainer.appendChild(progressBarFill);
+                                             section.prepend(progressBarContainer);
+                                             section.prepend(progressCounter);
                                        
-                                       const progressBarFill = document.createElement("div");
-                                       progressBarFill.className = "progress-fill";
-                                       progressBarFill.style.cssText = `
-                                       width: 0%;
-                                       height: 100%;
-                                       background: var(--progress-fill);
-                                       transition: width 0.5s ease;
-                                       `;
+                                             const resetButton = document.createElement("button");
+                                             resetButton.textContent = "Reset Progress";
+                                             resetButton.className = "reset-button";
+                                             resetButton.style.cssText = `
+                                             display: block;
+                                             margin: 10px auto;
+                                             padding: 5px 10px;
+                                             font-size: 0.9rem;
+                                             background: #dc3545;
+                                             color: white;
+                                             border: none;
+                                             border-radius: 5px;
+                                             cursor: pointer;
+                                             `;
                                        
-                                       progressBarContainer.appendChild(progressBarFill);
-                                       section.prepend(progressBarContainer);
-                                       section.prepend(progressCounter);
-                                       
-                                       const resetButton = document.createElement("button");
-                                       resetButton.textContent = "Reset Progress";
-                                       resetButton.className = "reset-button";
-                                       resetButton.style.cssText = `
-                                       display: block;
-                                       margin: 10px auto;
-                                       padding: 5px 10px;
-                                       font-size: 0.9rem;
-                                       background: #dc3545;
-                                       color: white;
-                                       border: none;
-                                       border-radius: 5px;
-                                       cursor: pointer;
-                                       `;
-                                       
-                                       resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                                       section.appendChild(resetButton);
-                                 }
+                                             resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                                             section.appendChild(resetButton);
+                                    }
                                  
                                  // Load unlocked badges from localStorage
                                  const badgeContainer = document.getElementById(badgeId);
@@ -184,7 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                        if (mutation.type === "childList") {
                                              sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
                                                    const section = document.getElementById(id);
-                                                   if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
+                                                   if (section && mutation.target.contains(section)) {
+                                                            initializeSection({ id, itemsClass, badgeId });
+                                                   }
                                              });
                                        }
                                  });
@@ -264,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const keywords = document.querySelectorAll(".keyword");
                            let popover = document.getElementById("global-popover");
                            if (!popover) {
-                                    const popover = document.createElement("div");
+                                    popover = document.createElement("div");
                                     popover.className = "popover";
                                     popover.style.cssText = `
                                     position: absolute;
@@ -334,7 +337,12 @@ document.addEventListener("DOMContentLoaded", () => {
                      // Back-to-Top Button
                      const setupBackToTop = () => {
                            const button = document.getElementById("backToTop");
+                           if (!button) {
+                                    console.warn("Back-to-top button not found.");
+                                    return;
+                           }
                            button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+                              
                      };
                      
                      // Highlight Active Section
@@ -349,28 +357,38 @@ document.addEventListener("DOMContentLoaded", () => {
                                                          activeSection = section.id;
                                                 }
                                        });
-                                       navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href").substring(1) === activeSection));                
+                                       navLinks.forEach((link) => {
+                                                const href = link.getAttribute("href"); 
+                                                if (!href) return;                      
+                                                link.classList.toggle("active", href.substring(1) === activeSection);
+                                       });
                               };
                               window.addEventListener("scroll", setActiveLink); 
                               setActiveLink();                                   
                      };
-               
-               // Set Current Year in Footer
-               const setCurrentYear = () => {
-                     document.getElementById("current-year").textContent = new Date().getFullYear();
-               };
-               // Initialize Resume Section
-               const initializeResumeSection = () => {
-                     const section = document.getElementById("resume");
-                     if (!section) return;
-                     
-                     const viewer = section.querySelector("iframe");
-                     const badgeContainer = document.getElementById("badge-container-resume");
-
-                     if (!viewer || !badgeContainer) {
-                              console.warn("Resume section: iframe or badge container not found."); 
-                              return;
-                     }
+                  
+                  // Set Current Year in Footer
+                  const setCurrentYear = () => {
+                           const el = document.getElementById("current-year");
+                           if (!el) {
+                                    console.warn("current-year element not found.");
+                                    return;
+                           }
+                           el.textContent = new Date().getFullYear();
+                  };
+                  
+                  // Initialize Resume Section
+                  const initializeResumeSection = () => {
+                           const section = document.getElementById("resume");
+                           if (!section) return;
+                           
+                           const viewer = section.querySelector("iframe");
+                           const badgeContainer = document.getElementById("badge-container-resume");
+                           
+                           if (!viewer || !badgeContainer) {
+                                    console.warn("Resume section: iframe or badge container not found."); 
+                                    return;
+                           }
                      
                      // Load unlocked badge state
                      if (localStorage.getItem("badge-container-resume") === "unlocked") {unlockBadge(badgeContainer);}
