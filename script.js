@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            if (badgeImage) badgeImage.style.display = "block";
                            
                            // Store badge state in localStorage
-                           localStorage.setItem(badgeContainer.id, "unlocked");
+                           storage.set(badgeContainer.id, "unlocked");
                            
                            // Animation for unlocking badges
                            badgeContainer.animate([{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});        
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            items.forEach(item => item.classList.remove("explored"));
                            
                            // Reset progress counters and localStorage
-                           localStorage.setItem(`${sectionId}-exploredCount`, 0);
+                           storage.set(`${sectionId}-exploredCount`, 0);
                            const progressCounter = section.querySelector(".progress-counter");
                            updateProgress(progressCounter, 0, items.length);
                            
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            if (badgeContainer) {
                                  badgeContainer.classList.remove("unlocked");
                                  badgeContainer.style.display = "none";
-                                 localStorage.removeItem(badgeId);
+                                 storage.remove(badgeId);
                                  const badgeImage = badgeContainer.querySelector("img");
                                  if (badgeImage) badgeImage.style.display = "none";
                                  updateBadgeProgress();
@@ -166,14 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                  
                                  // Load unlocked badges from localStorage
                                  const badgeContainer = document.getElementById(badgeId);
-                                 if (localStorage.getItem(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
+                                 if (storage.get(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
                                  
                                  // Delegate click event to section
                                  section.addEventListener("click", (event) => {
                                        const target = event.target.closest(itemsClass);
                                        if (target && !target.classList.contains("explored")) {
                                              target.classList.add("explored");
-                                             state.exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                                             state.exploredCount = parseInt(storage.get(`${id}-exploredCount`)) || 0;
                                              state.exploredCount++;
                                              storage.set(`${id}-exploredCount`, state.exploredCount);
                                              updateProgress(progressCounter, exploredCount, totalItems);
@@ -345,14 +345,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
                            }
-                           const currentTheme = localStorage.getItem("theme") || "light";
+                           const currentTheme = storage.get("theme") || "light";
                            document.documentElement.setAttribute("data-theme", currentTheme);
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            
                            toggleButton.addEventListener("click", () => {
                                  const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
                                  document.documentElement.setAttribute("data-theme", newTheme);
-                                 localStorage.setItem("theme", newTheme);
+                                 storage.set("theme", newTheme);
                                  themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            });
                      };
