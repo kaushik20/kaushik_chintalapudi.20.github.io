@@ -413,12 +413,6 @@ document.addEventListener("DOMContentLoaded", () => {
                               });
                      }, { threshold: 0.5 }); 
                            observer.observe(viewer);
-                     
-                     // Unlock badge on interaction
-                     viewer.addEventListener("load", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
-                     
-                     // Keyboard support
-                     viewer.addEventListener("focus", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
                };   
                
                // Initialize All Features
