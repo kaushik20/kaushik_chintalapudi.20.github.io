@@ -175,8 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                              target.classList.add("explored");
                                              state.exploredCount = parseInt(storage.get(`${id}-exploredCount`)) || 0;
                                              state.exploredCount++;
+                                             updateProgress(progressCounter, state.exploredCount, totalItems);
                                              storage.set(`${id}-exploredCount`, state.exploredCount);
-                                             updateProgress(progressCounter, exploredCount, totalItems);
+                                             
                                              if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
                                        }
                                  });
