@@ -404,7 +404,15 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                      
                      // Load unlocked badge state
-                     if (localStorage.getItem("badge-container-resume") === "unlocked") {unlockBadge(badgeContainer);}
+                     const observer = new IntersectionObserver((entries) => {
+                              entries.forEach(entry => {
+                                       if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
+                                                unlockBadge(badgeContainer);
+                                                observer.disconnect();
+                                       }
+                              });
+                     }, { threshold: 0.5 }); 
+                           observer.observe(viewer);
                      
                      // Unlock badge on interaction
                      viewer.addEventListener("load", () => {if (!badgeContainer.classList.contains("unlocked")) {unlockBadge(badgeContainer);}});
