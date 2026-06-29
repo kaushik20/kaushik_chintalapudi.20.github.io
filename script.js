@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  "badge-container-conclusion"
                            ];
                            
-                           const unlockedCount = badgeSections.reduce((count, id) => {return count + (localStorage.getItem(id) === "unlocked" ? 1 : 0);}, 0);
+                           const unlockedCount = badgeSections.reduce((count, id) => {return count + (storage.get(id) === "unlocked" ? 1 : 0);}, 0);
                            
                            badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
                            const percentage = (unlockedCount / badgeSections.length) * 100;
