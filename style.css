@@ -1070,10 +1070,10 @@ footer {
 .footer-container {
       width: 100%;
       display: flex;
-      justify-content: space evenly;
+      justify-content: space-evenly;
       gap: 4rem;
       flex-wrap: wrap;
-      align-items: centre;
+      align-items: center;
 }
 
 .contact-section h2, .opportunity-section h2 {
@@ -1133,7 +1133,7 @@ footer {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease;
       margin-top:0;
-      align-self:flex start;
+      align-self:flex-start;
 }
 
 .qr-code-section img {
