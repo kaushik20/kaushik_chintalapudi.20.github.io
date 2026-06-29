@@ -188,17 +188,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                        if (mutation.type === "childList") {
                                              sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
                                                    const section = document.getElementById(id);
-                                                   if (section && mutation.target.contains(section)) {
-                                                            initializeSection({ id, itemsClass, badgeId });
-                                                   }
+                                                   if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
                                              });
                                        }
                                  });
                            });
                            
-                           if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
-                    };
-                     
+                           if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();};
+                     });
+                     observer.observe(document.body, { childList: true, subtree: true });
                      // Badge Modal Handling
                      const setupBadgeModal = () => {
                            const badgeCards = document.querySelectorAll(".badge-card");
