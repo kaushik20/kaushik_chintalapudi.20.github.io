@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
          try {
                   // Utility Functions
+                  const storage = {
+                           get: (key) => { try { return localStorage.getItem(key); } catch { return null; } },
+                           set: (key, val) => { try { localStorage.setItem(key, val); } catch {} },
+                           remove: (key) => { try { localStorage.removeItem(key); } catch {} }
+                  };
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
                            badgeContainer.classList.add("unlocked");
@@ -100,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     initializedSections.add(id);
                                     const items = section.querySelectorAll(itemsClass);
                                     const totalItems = items.length;
-                                    let exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                                    const state = { exploredCount: parseInt(storage.get(`${id}-exploredCount`)) || 0 };
                                  
                                     // Create or select progress counter
                                     let progressCounter = section.querySelector(".progress-counter");
@@ -168,17 +173,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                        const target = event.target.closest(itemsClass);
                                        if (target && !target.classList.contains("explored")) {
                                              target.classList.add("explored");
-                                             exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
-                                             exploredCount++;
-                                             localStorage.setItem(`${id}-exploredCount`, exploredCount);
+                                             state.exploredCount = parseInt(localStorage.getItem(`${id}-exploredCount`)) || 0;
+                                             state.exploredCount++;
+                                             storage.set(`${id}-exploredCount`, state.exploredCount);
                                              updateProgress(progressCounter, exploredCount, totalItems);
-                                             
-                                             if (exploredCount === totalItems) {unlockBadge(badgeContainer);}
+                                             if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
                                        }
                                  });
                                  
                                  // Initial progress display
-                                 updateProgress(progressCounter, exploredCount, totalItems);
+                                 updateProgress(progressCounter, state.exploredCount, totalItems);
                            };
                            
                            sectionsToGamify.forEach(initializeSection);
@@ -279,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      const setupTooltips = () => {
                            const keywords = document.querySelectorAll(".keyword");
                            let popover = document.getElementById("global-popover");
+                           window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
                            if (!popover) {
                                     popover = document.createElement("div");
                                     popover.id = "global-popover";
@@ -342,6 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                            const currentTheme = localStorage.getItem("theme") || "light";
                            document.documentElement.setAttribute("data-theme", currentTheme);
+                           themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            
                            toggleButton.addEventListener("click", () => {
