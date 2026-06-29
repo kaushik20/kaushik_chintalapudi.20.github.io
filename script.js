@@ -297,8 +297,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                  keyword.addEventListener("mouseenter", (e) => {
                                        popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
                                        popover.style.display = "block";
-                                       popover.style.top = `${e.pageY + 10}px`;
-                                       popover.style.left = `${e.pageX + 10}px`;
+                                       const pw = popover.offsetWidth || 160;
+                                       const ph = popover.offsetHeight || 40;
+                                       const left = Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10);
+                                       const top  = Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10);
+                                       popover.style.left = `${left}px`;
+                                       popover.style.top  = `${top}px`;
                                  });
                                  keyword.addEventListener("mouseleave", () => {
                                        popover.style.display = "none";
