@@ -58,7 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            if (progressBar) {
                                  const percentage = Math.min((exploredCount / totalItems) * 100, 100);
                                  progressBar.style.width = `${percentage}%`;
-                                 progressBar.setAttribute("aria-label", `Progress: ${percentage}%`);
+                                 progressBar.setAttribute("role", "progressbar");
+                                 progressBar.setAttribute("aria-valuemin", "0");
+                                 progressBar.setAttribute("aria-valuemax", "100");
+                                 progressBar.setAttribute("aria-valuenow", percentage.toFixed(0));
+                                 progressBar.setAttribute("aria-label", "Section progress");
                            }
                      };
                      
