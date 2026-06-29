@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                      
                      const showToast = (message) => {
+                           document.querySelector(".toast")?.remove();
                            const toast = document.createElement("div");
                            toast.className = "toast";
                            toast.style.cssText = `
@@ -194,7 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                  });
                                  if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
                            });
-                           observer.observe(document.body, { childList: true, subtree: true });
+                           const contentRoot = document.getElementById("main-content") || document.body;
+                           observer.observe(contentRoot, { childList: true, subtree: false });
                      };
                      
                      // Badge Modal Handling
@@ -357,7 +359,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Back-to-top button not found.");
                                     return;
                            }
-                           window.addEventListener("scroll", () => {button.style.display = window.scrollY > 300 ? "block" : "none";});
+                           let backToTopTicking = false;
+                           window.addEventListener("scroll", () => {
+                                       if (!backToTopTicking) {
+                                                requestAnimationFrame(() => {
+                                                         button.style.display = window.scrollY > 300 ? "block" : "none"; 
+                                                         backToTopTicking = false;
+                                                });
+                                                backToTopTicking = true;
+                                       }
+                           });
                            button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
                               
                      };
@@ -380,7 +391,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 link.classList.toggle("active", href.substring(1) === activeSection);
                                        });
                               };
-                              window.addEventListener("scroll", setActiveLink); 
+                              let activeSectionTicking = false;
+                              window.addEventListener("scroll", () => {
+                                       if (!activeSectionTicking) {
+                                                requestAnimationFrame(() => {
+                                                         setActiveLink();
+                                                         activeSectionTicking = false;
+                                                });
+                                                activeSectionTicking = true;
+                                       }
+                              }); 
                               setActiveLink();                                   
                      };
                   
