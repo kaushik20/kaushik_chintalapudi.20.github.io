@@ -195,6 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                  if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
                            });
                            observer.observe(document.body, { childList: true, subtree: true });
+                     };
+                     
                      // Badge Modal Handling
                      const setupBadgeModal = () => {
                            const badgeCards = document.querySelectorAll(".badge-card");
