@@ -283,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
                      const setupTooltips = () => {
                            const keywords = document.querySelectorAll(".keyword");
                            let popover = document.getElementById("global-popover");
-                           window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
                            if (!popover) {
                                     popover = document.createElement("div");
                                     popover.id = "global-popover";
@@ -300,6 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     `;
                                     document.body.appendChild(popover);
                            }
+                           window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
                            keywords.forEach((keyword) => {
                                  keyword.addEventListener("mouseenter", (e) => {
                                        popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
@@ -347,7 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                            const currentTheme = localStorage.getItem("theme") || "light";
                            document.documentElement.setAttribute("data-theme", currentTheme);
-                           themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            
                            toggleButton.addEventListener("click", () => {
