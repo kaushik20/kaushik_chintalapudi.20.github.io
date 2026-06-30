@@ -48,6 +48,9 @@
       cursor: pointer;
       width: 100%;
       padding: 0;
+      position: fixed;
+      right: 20px; 
+      bottom: 30px;
       transition: color 0.3s ease;
 }
       
@@ -196,12 +199,13 @@ header .dark-mode-btn:hover i {
       align-items: center;
       justify-content: center;
       height: 100vh;
+      position: relative;
       background: linear-gradient(135deg, #4ac1ff, #6b47dc);
       background-size: 400% 400%;
       animation: gradientAnimation 10s ease infinite;
 } 
 
-.hero::before {
+#hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -213,7 +217,7 @@ header .dark-mode-btn:hover i {
       z-index: 0;
 }
 
-.hero::after {
+#hero::after {
       content: '';
       position: absolute;
       width: 500px;
