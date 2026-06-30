@@ -651,7 +651,7 @@ header .dark-mode-btn:hover i {
 }
       
 /* Achievements Section */
-.section .section-subtitle {
+.section {
       padding: 3rem 1.5rem;
       background-color: var(--bg-color); 
       text-align: center;
