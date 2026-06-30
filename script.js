@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const progressBar = counterElem.nextElementSibling?.querySelector(".progress-fill");
                            if (progressBar) {
                                  const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                                 progressBar.offsetHeight;
                                  progressBar.style.setProperty("--progress-width", `${percentage}%`);
                                  progressBar.style.animation = "fillProgress 1s ease forwards";
                                  progressBar.setAttribute("role", "progressbar");
@@ -268,6 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
                            const percentage = (unlockedCount / badgeSections.length) * 100;
+                           progressBar.offsetHeight;
                            badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
                            badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
                      };
