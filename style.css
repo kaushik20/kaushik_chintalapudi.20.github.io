@@ -1224,6 +1224,32 @@ footer {
       margin-bottom: 0.3rem;
 }
 
+.opportunity-item img {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+}
+
+.opportunity-item img:hover {
+      transform: scale(1.2);
+}
+
+.opportunity-item i{
+    width:30px;
+    text-align:center;
+    color:#4da3ff;
+    font-size:26px;
+}
+
+.status-dot{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#2ecc71;
+    display:inline-block;
+}
+
 .hire-btn {
       display: inline-block;
       align-items: center;
@@ -1244,17 +1270,6 @@ footer {
       background: linear-gradient(135deg, #5bb7ff, #2196f3);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
-}
-
-.opportunity-item img {
-      width: 30px;
-      height: 30px;
-      margin-right: 8px;
-      transition: transform 0.3s ease;
-}
-
-.opportunity-item img:hover {
-      transform: scale(1.2);
 }
 
 .contact-section, .opportunity-section {
