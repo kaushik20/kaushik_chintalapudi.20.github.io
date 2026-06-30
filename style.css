@@ -322,7 +322,7 @@ header .dark-mode-btn:hover i {
 }
 
 /* Hobbies & Skills Section */
-.hobbies_skills, .section-subtitle {
+.hobbies_skills .section-subtitle {
       background: linear-gradient(135deg, #1f1f47, #3b82f6);
       color: #ffffff;
       padding: 3rem 2rem;
@@ -546,7 +546,7 @@ header .dark-mode-btn:hover i {
 }
 
 /* Projects Section */
-.projects, .section-subtitle {
+.projects .section-subtitle {
       text-align: center;
       padding: 3rem 1rem;
       color: var(--text-color);
@@ -645,7 +645,7 @@ header .dark-mode-btn:hover i {
 }
       
 /* Achievements Section */
-.section, .section-subtitle {
+.section .section-subtitle {
       padding: 3rem 1.5rem;
       background-color: var(--bg-color); 
       text-align: center;
