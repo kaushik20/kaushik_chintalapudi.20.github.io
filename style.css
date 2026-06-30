@@ -1284,11 +1284,6 @@ footer {
       to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fillProgress {
-      from {width: 0;}
-      to {width: var(--progress-level);}
-}
-
 @keyframes badgeUnlock {
       from {
             opacity: 0;
@@ -1386,11 +1381,6 @@ footer {
       .progress-bar-container {height: 12px;}
 
       .progress-bar-label {font-size: 0.75rem;}
-}
-
-@keyframes fillProgress {
-      0% {width: 0%;}
-      100% {width: 100%;}
 }
 
 @media (max-width: 768px) {
