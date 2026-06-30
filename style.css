@@ -1322,9 +1322,9 @@ footer {
       header .nav-links {
             flex-direction: column;
             gap: 10px;
-         }
-         
-      .project-grid, .skill-list {
+      }
+      
+      .project-grid {
             grid-template-columns: 1fr;
       }
 }
@@ -1346,17 +1346,6 @@ footer {
 
 @media (max-width: 768px) {
       .project-card {flex: 1 1 calc(100% - 2rem); }
-}
-
-@media (max-width: 768px) {
-      .block h3 {font-size: 1.2rem;}
-
-      .block h3 img {
-            width: 30px;
-            height: 30px;
-      }
-
-      .block ul li {font-size: 0.9rem;}
 }
 
 @media (max-width: 768px) {
@@ -1462,18 +1451,6 @@ footer {
       }
 
       .timeline-content {text-align: left;}
-}
-
-@media (max-width: 768px) {
-      .conclusion-cards {
-            flex-direction: column;
-            gap: 15px;
-      }
-
-      .card {
-            flex: 1 1 100%;
-            max-width: 100%;
-      }
 }
 
 @media (max-width: 768px) {
