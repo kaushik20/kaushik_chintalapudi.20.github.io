@@ -322,7 +322,7 @@ header .dark-mode-btn:hover i {
 }
 
 /* Hobbies & Skills Section */
-.hobbies_skills {
+.hobbies_skills, .section-subtitle {
       background: linear-gradient(135deg, #1f1f47, #3b82f6);
       color: #ffffff;
       padding: 3rem 2rem;
@@ -331,18 +331,15 @@ header .dark-mode-btn:hover i {
       text-align: center;
       max-width: 1100px;
       margin: 2rem auto;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d1d9f9;
 }
 
 .hobbies_skills h2 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       color: #ffffff;
-}
-
-.section-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #d1d9f9;
 }
       
 .hobbies_skills-container {
@@ -549,7 +546,7 @@ header .dark-mode-btn:hover i {
 }
 
 /* Projects Section */
-.projects {
+.projects, .section-subtitle {
       text-align: center;
       padding: 3rem 1rem;
       color: var(--text-color);
@@ -557,6 +554,9 @@ header .dark-mode-btn:hover i {
       background: url('Images/DALL·E AI Visual.webp') center/cover no-repeat; 
       background-attachment: fixed; 
       z-index: 1;
+      font-size: 1.2rem;
+      color: #f3f3f3;
+      margin-bottom: 2rem;
 }
 
 .projects::before {
@@ -574,12 +574,6 @@ header .dark-mode-btn:hover i {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #fff;
-}
-
-.section-subtitle {
-      font-size: 1.2rem;
-      color: #f3f3f3;
-      margin-bottom: 2rem;
 }
       
 .project-grid {
@@ -651,23 +645,20 @@ header .dark-mode-btn:hover i {
 }
       
 /* Achievements Section */
-.section {
+.section, .section-subtitle {
       padding: 3rem 1.5rem;
       background-color: var(--bg-color); 
       text-align: center;
       color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d1d1d1;
 }
 
 .section h2 {
       font-size: 2.5rem;
       color: #00bfff;
       margin-bottom: 1rem;
-}
-
-.section-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #d1d1d1;
 }
 
 .achievements-leaderboard-container {
@@ -1444,8 +1435,6 @@ footer {
             width: 100px;
             height: 100px;
       }
-
-      #backToTop {bottom: 70px;}
 }
 
 @media (max-width: 768px) {
