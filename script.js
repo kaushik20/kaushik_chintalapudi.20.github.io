@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            showBadgeModal(badgeContainer);
 
                            updateBadgeProgress();
-
-                           modal.classList.add("show")
                   };
                      
                      const showToast = (message) => {
