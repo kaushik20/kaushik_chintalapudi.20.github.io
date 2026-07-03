@@ -82,29 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
                            const progressCounter = section.querySelector(".progress-counter");
                            updateProgress(progressCounter, 0, items.length);
                            
-                           // Reset badges
-                           const badgeContainer = document.getElementById(badgeId);
-                           if (badgeContainer) {
-                                 badgeContainer.classList.remove("unlocked");
-                                 badgeContainer.style.display = "none";
-                                 storage.remove(badgeId);
-                                 const badgeImage = badgeContainer.querySelector("img");
-                                 if (badgeImage) badgeImage.style.display = "none";
-                                 updateBadgeProgress();
-                           }
                      };
                      
                      // Initialize Gamified Sections
                      const initializeGamifiedSections = () => {
                            const initializedSections = new Set();
                            const sectionsToGamify = [
-                                 { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about" },
-                                 { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills" },
-                                 { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience" },
-                                 { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects" },
-                                 { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements" },
-                                 { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications" },
-                                 { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard" }, 
+                                 { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
+                                 { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
+                                 { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
+                                 { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
+                                 { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
+                                 { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
+                                 { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}, 
                                  { id: "conclusion", itemsClass: ".badge-card", badgeId: "badge-container-conclusion"}
                            ]; 
                            const initializeSection = ({ id, itemsClass, badgeId }) => {
