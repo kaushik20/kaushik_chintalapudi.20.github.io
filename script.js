@@ -22,7 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Show toast notification
                            showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
 
+                           showBadgeModal(badgeContainer);
+
                            updateBadgeProgress();
+
+                           modal.classList.add("show")
                   };
                      
                      const showToast = (message) => {
@@ -210,6 +214,20 @@ document.addEventListener("DOMContentLoaded", () => {
                            const contentRoot = document.getElementById("main-content") || document.body;
                            observer.observe(contentRoot, { childList: true, subtree: false });
                      };
+                  function showBadgeModal(badgeContainer) {
+                           const modal = document.getElementById("badge-modal");
+                           const modalImage = document.getElementById("modal-badge-image");
+                           const modalTitle = document.getElementById("modal-badge-title");
+                           const modalMessage = document.getElementById("modal-badge-message");
+                           const badgeCard = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
+                           
+                           if (!badgeCard) return;
+                           
+                           modalImage.src = badgeCard.querySelector("img").src;
+                           modalTitle.textContent = badgeCard.querySelector("h3").textContent;
+                           modalMessage.textContent =badgeContainer.querySelector(".badge-message").textContent;
+                           modal.classList.add("show");
+                           setTimeout(() => {modal.classList.remove("show");},3000);}
                      
                      // Badge Modal Handling
                      const setupBadgeModal = () => {
@@ -247,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            window.addEventListener("click", (event) => {if (event.target === modal) {modal.classList.remove("show");}});};
                   
                   // Update Badge Progress in Dashboard
-                     const updateBadgeProgress = () => {
+                  const updateBadgeProgress = () => {
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
                            if (!badgeProgressText || !badgeProgressFill) { 
@@ -270,8 +288,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
                            const percentage = (unlockedCount / badgeSections.length) * 100;
-                           progressBar.style.animation = "none";
-                           progressBar.offsetHeight;
+                           badgeProgressFill.style.animation = "none";
+                           badgeProgressFill.offsetHeight;
                            badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
                            badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
                      };
