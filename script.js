@@ -81,7 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
                            storage.set(`${sectionId}-exploredCount`, 0);
                            const progressCounter = section.querySelector(".progress-counter");
                            updateProgress(progressCounter, 0, items.length);
-                           
+
+                           const badgeContainer = document.getElementById(badgeId);
+                           if (badgeContainer) {
+                                    badgeContainer.classList.remove("unlocked");
+                                    badgeContainer.style.display = "none";
+                           }
+                           storage.remove(badgeId);
+                           updateBadgeProgress();
                      };
                      
                      // Initialize Gamified Sections
@@ -200,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
                            });
                            const contentRoot = document.getElementById("main-content") || document.body;
-                           observer.observe(contentRoot, { childList: true, subtree: false });
+                           observer.observe(contentRoot, { childList: true, subtree: true });
                      };
                   function showBadgeModal(badgeContainer) {
                            const modal = document.getElementById("badge-modal");
@@ -208,8 +215,12 @@ document.addEventListener("DOMContentLoaded", () => {
                            const modalTitle = document.getElementById("modal-badge-title");
                            const modalMessage = document.getElementById("modal-badge-message");
                            const badgeCard = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
+
+                           const img = badgeCard?.querySelector("img");
+                           const h3 = badgeCard?.querySelector("h3");
+                           const msgEl = badgeContainer.querySelector(".badge-message");
                            
-                           if (!badgeCard) return;
+                           if (!badgeCard || !img || !h3 || !msgEl) return;
                            
                            modalImage.src = badgeCard.querySelector("img").src;
                            modalTitle.textContent = badgeCard.querySelector("h3").textContent;
@@ -323,8 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                        popover.style.display = "block";
                                        const pw = popover.offsetWidth || 160;
                                        const ph = popover.offsetHeight || 40;
-                                       const left = Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10);
-                                       const top  = Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10);
+                                       const left = Math.max(0, Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10));
+                                       const top  = Math.max(0, Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10));
                                        popover.style.left = `${left}px`;
                                        popover.style.top  = `${top}px`;
                                  });
