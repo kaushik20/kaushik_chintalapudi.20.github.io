@@ -222,9 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            if (!badgeCard || !img || !h3 || !msgEl) return;
                            
-                           modalImage.src = badgeCard.querySelector("img").src;
-                           modalTitle.textContent = badgeCard.querySelector("h3").textContent;
-                           modalMessage.textContent =badgeContainer.querySelector(".badge-message").textContent;
+                           modalImage.src = img.src;
+                           modalTitle.textContent = h3.textContent;
+                           modalMessage.textContent = msgEl.textContent;
                            modal.classList.add("show");
                            setTimeout(() => {modal.classList.remove("show");},3000);}
                      
