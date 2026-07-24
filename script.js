@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  
                                  // Load unlocked badges from localStorage
                                  const badgeContainer = document.getElementById(badgeId);
-                                 if (storage.get(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
+                                 if (badgeContainer && storage.get(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
                                  
                                  // Delegate click event to section
                                  section.addEventListener("click", (event) => {
