@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            // Initial progress display
                            updateProgress(progressCounter, state.exploredCount, totalItems);
+                           };
                            
                            sectionsToGamify.forEach(initializeSection);
                            
