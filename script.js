@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            if (!section) return;
                            const items = section.querySelectorAll(itemsClass);
                            items.forEach(item => item.classList.remove("explored"));
+                           storage.remove(`${sectionId}-exploredItems`);
                            
                            // Reset progress counters and localStorage
                            storage.set(`${sectionId}-exploredCount`, 0);
@@ -111,7 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     initializedSections.add(id);
                                     const items = section.querySelectorAll(itemsClass);
                                     const totalItems = items.length;
-                                    const state = { exploredCount: parseInt(storage.get(`${id}-exploredCount`)) || 0 };
+                                    const exploredKey = `${id}-exploredItems`;
+                                    let exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));
+                                    items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
+                                    const state = { exploredCount: exploredSet.size };
                                  
                                     // Create or select progress counter
                                     let progressCounter = section.querySelector(".progress-counter");
@@ -176,21 +180,24 @@ document.addEventListener("DOMContentLoaded", () => {
                                  
                                  // Delegate click event to section
                                  section.addEventListener("click", (event) => {
-                                       const target = event.target.closest(itemsClass);
-                                       if (target && !target.classList.contains("explored")) {
-                                             target.classList.add("explored");
-                                             state.exploredCount = parseInt(storage.get(`${id}-exploredCount`)) || 0;
-                                             state.exploredCount++;
-                                             updateProgress(progressCounter, state.exploredCount, totalItems);
-                                             storage.set(`${id}-exploredCount`, state.exploredCount);
-                                             
-                                             if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
-                                       }
+                                          const target = event.target.closest(itemsClass);
+                                          if (target && !target.classList.contains("explored")) {
+                                                   const allItems = Array.from(items);
+                                                   const itemIndex = allItems.indexOf(target);
+                                                   if (itemIndex === -1) return;
+                                                   
+                                                   target.classList.add("explored");
+                                                   exploredSet.add(itemIndex);
+                                                   storage.set(exploredKey, JSON.stringify([...exploredSet]));
+                                                   
+                                                   state.exploredCount = exploredSet.size;
+                                                   updateProgress(progressCounter, state.exploredCount, totalItems);
+                                                   if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
+                                          }
                                  });
-                                 
-                                 // Initial progress display
-                                 updateProgress(progressCounter, state.exploredCount, totalItems);
-                           };
+
+                           // Initial progress display
+                           updateProgress(progressCounter, state.exploredCount, totalItems);
                            
                            sectionsToGamify.forEach(initializeSection);
                            
