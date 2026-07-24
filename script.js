@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
                            const progressBar = counterElem.nextElementSibling?.querySelector(".progress-fill");
                            if (progressBar) {
-                                 const percentage = Math.min((exploredCount / totalItems) * 100, 100);
+                                 const percentage = totalItems>0 ? Math.min((exploredCount / totalItems) * 100, 100): 0;
                                  progressBar.style.animation = "none";
                                  progressBar.offsetHeight;
                                  progressBar.style.setProperty("--progress-width", `${percentage}%`);
@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const items = section.querySelectorAll(itemsClass);
                                     const totalItems = items.length;
                                     const exploredKey = `${id}-exploredItems`;
-                                    let exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));
+                                    let exploredSet; 
+                                    try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
+                                    catch{exploredSet = new Set();}
                                     items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
                                     const state = { exploredCount: exploredSet.size };
                                  
@@ -176,7 +178,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                  
                                  // Load unlocked badges from localStorage
                                  const badgeContainer = document.getElementById(badgeId);
-                                 if (badgeContainer && storage.get(badgeId) === "unlocked") {unlockBadge(badgeContainer);}
+                                 if (badgeContainer && storage.get(badgeId) === "unlocked") {
+                                          badgeContainer.classList.add("unlocked");
+                                          badgeContainer.style.display = "block";
+                                          const img = badgeContainer.querySelector("img");
+                                          if (img) img.style.display = "block";
+                                 }
                                  
                                  // Delegate click event to section
                                  section.addEventListener("click", (event) => {
@@ -233,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalImage.src = img.src;
                            modalTitle.textContent = h3.textContent;
                            modalMessage.textContent = msgEl.textContent;
+                           if (!modal || !modalImage || !modalTitle || !modalMessage) return;
                            modal.classList.add("show");
                            setTimeout(() => {modal.classList.remove("show");},3000);}
                      
@@ -294,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const unlockedCount = badgeSections.reduce((count, id) => {return count + (storage.get(id) === "unlocked" ? 1 : 0);}, 0);
                            
                            badgeProgressText.textContent = `Badges Unlocked: ${unlockedCount}/${badgeSections.length}`;
-                           const percentage = (unlockedCount / badgeSections.length) * 100;
+                           const percentage = badgeSections.length? (unlockedCount / badgeSections.length) * 100: 0;
                            badgeProgressFill.style.animation = "none";
                            badgeProgressFill.offsetHeight;
                            badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
