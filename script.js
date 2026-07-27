@@ -247,7 +247,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalImage.src = img.src;
                            modalTitle.textContent = h3.textContent;
                            modalMessage.textContent = msgEl.textContent;
-                           if (!modal || !modalImage || !modalTitle || !modalMessage) return;
                            modal.classList.add("show");
                            setTimeout(() => {modal.classList.remove("show");},3000);}
                      
