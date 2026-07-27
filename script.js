@@ -77,9 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            const items = section.querySelectorAll(itemsClass);
                            items.forEach(item => item.classList.remove("explored"));
                            storage.remove(`${sectionId}-exploredItems`);
+                           storage.set(`${sectionId}-exploredCount`, 0);
+
+                           section.dispatchEvent(new CustomEvent("progressReset"));
                            
                            // Reset progress counters and localStorage
-                           storage.set(`${sectionId}-exploredCount`, 0);
                            const progressCounter = section.querySelector(".progress-counter");
                            updateProgress(progressCounter, 0, items.length);
 
@@ -208,6 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            };
                            
                            sectionsToGamify.forEach(initializeSection);
+                           section.addEventListener("progressReset", () => {
+                                    exploredSet.clear();
+                                    state.exploredCount = 0;
+                           });
                            
                            // Observe dynamically added sections or items
                            const observer = new MutationObserver((mutations) => {
