@@ -205,15 +205,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                           }
                                  });
 
+                           section.addEventListener("progressReset", () => {
+                                    exploredSet.clear();
+                                    state.exploredCount = 0;
+                           });
+
                            // Initial progress display
                            updateProgress(progressCounter, state.exploredCount, totalItems);
                            };
                            
                            sectionsToGamify.forEach(initializeSection);
-                           section.addEventListener("progressReset", () => {
-                                    exploredSet.clear();
-                                    state.exploredCount = 0;
-                           });
                            
                            // Observe dynamically added sections or items
                            const observer = new MutationObserver((mutations) => {
