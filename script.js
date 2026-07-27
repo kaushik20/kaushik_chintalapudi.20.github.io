@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const h3 = badgeCard?.querySelector("h3");
                            const msgEl = badgeContainer.querySelector(".badge-message");
                            
-                           if (!badgeCard || !img || !h3 || !msgEl) return;
+                           if (!modal || !modalImage || !modalTitle || !modalMessage || !badgeCard || !img || !h3 || !msgEl) return;
                            
                            modalImage.src = img.src;
                            modalTitle.textContent = h3.textContent;
