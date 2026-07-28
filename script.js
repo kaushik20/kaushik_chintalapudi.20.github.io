@@ -372,7 +372,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                        else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);} 
                                        else if (action === "open-modal") {showToast(`Modal for ${keyword.textContent} would open here!`);} 
                                        else if (action === "scroll-to") {
-                                                const targetId = keyword.dataset.target;
+                                                const scrollTargets = {
+                                                         "emerging technologies": "hobbies_skills",
+                                                         "cloud and AI ecosystems": "projects",
+                                                         "MIT NCC Troop (MNT)": "achievements-leaderboard"
+                                                };
+                                                const targetId = keyword.dataset.target || scrollTargets[keyword.textContent.trim()];
                                                 if (!targetId) return;
                                                 const target = document.getElementById(targetId);
                                                 if (target) {target.scrollIntoView({ behavior: "smooth" });}
