@@ -476,6 +476,35 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Resume section: iframe or badge container not found."); 
                                     return;
                            }
+
+                  // Initialize Conclusion Section
+                  const initializeConclusionSection = () => {
+                           const section = document.getElementById("conclusion");
+                           const badgeContainer = document.getElementById("badge-container-conclusion");
+                           
+                           if (!section || !badgeContainer) {
+                                    console.warn("Conclusion section: section or badge container not found.");
+                                    return;
+                           }
+                           
+                           // Restore unlocked state on page reload
+                           if (storage.get(badgeContainer.id) === "unlocked") {
+                                    badgeContainer.classList.add("unlocked");
+                                    badgeContainer.style.display = "block";
+                                    const img = badgeContainer.querySelector("img");
+                                    if (img) img.style.display = "block";
+                           }
+                           
+                           const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                             if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
+                                                      unlockBadge(badgeContainer);
+                                                      observer.disconnect();
+                                             }
+                                    });
+                           }, { threshold: 0.5 });
+                           observer.observe(section);
+                  };
                      
                      // Load unlocked badge state
                      const observer = new IntersectionObserver((entries) => {
@@ -500,6 +529,7 @@ document.addEventListener("DOMContentLoaded", () => {
                highlightActiveSection();
                setCurrentYear();
                initializeResumeSection();
+               initializeConclusionSection();
          
          } catch (error) {
                console.error("Initialization Error:", error);
