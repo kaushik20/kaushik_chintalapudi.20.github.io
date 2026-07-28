@@ -266,17 +266,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            badgeCards.forEach(card => {
                                  card.addEventListener("click", () => {
-                                       const badgeId = card.dataset.badgeId;
-                                       const badgeContainer = document.getElementById(badgeId);
-                                       if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
-                                                const img = card.querySelector("img");
-                                                const h3 = card.querySelector("h3");
-                                                const p = card.querySelector("p");
-                                                if (img) modalImage.src = img.src;
-                                                if (h3) modalTitle.textContent = h3.textContent;
-                                                if (p) modalMessage.textContent = p.textContent;
-                                                modal.classList.add("show");
-                                       } 
+                                          const badgeId = card.dataset.badgeId;
+                                          const badgeContainer = document.getElementById(badgeId);
+                                          if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} else {showToast("Unlock this badge by exploring the section!");}
+                                 });
                                        else {showToast("Unlock this badge by exploring the section!");}});
                            });
                            
