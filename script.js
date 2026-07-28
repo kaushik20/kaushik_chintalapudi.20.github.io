@@ -477,6 +477,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return;
                            }
 
+                  };
+                  
                   // Initialize Conclusion Section
                   const initializeConclusionSection = () => {
                            const section = document.getElementById("conclusion");
@@ -504,8 +506,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     });
                            }, { threshold: 0.5 });
                            observer.observe(section);
+                  
                   };
-                     
                      // Load unlocked badge state
                      const observer = new IntersectionObserver((entries) => {
                               entries.forEach(entry => {
