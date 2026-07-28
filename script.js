@@ -106,8 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
                                  { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
                                  { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
-                                 { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}, 
-                                 { id: "conclusion", itemsClass: ".badge-card", badgeId: "badge-container-conclusion"}
+                                 { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
                            ]; 
                            const initializeSection = ({ id, itemsClass, badgeId }) => {
                                     if (initializedSections.has(id)) return;
