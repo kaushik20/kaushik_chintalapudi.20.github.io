@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            const items = section.querySelectorAll(itemsClass);
                            items.forEach(item => item.classList.remove("explored"));
                            storage.remove(`${sectionId}-exploredItems`);
-                           storage.set(`${sectionId}-exploredCount`, 0);
 
                            section.dispatchEvent(new CustomEvent("progressReset"));
                            
@@ -231,27 +230,28 @@ document.addEventListener("DOMContentLoaded", () => {
                            const contentRoot = document.getElementById("main-content") || document.body;
                            observer.observe(contentRoot, { childList: true, subtree: true });
                      };
-                  function showBadgeModal(badgeContainer) {
+                  function openBadgeModal(card, messageOverride) {
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
                            const modalTitle = document.getElementById("modal-badge-title");
                            const modalMessage = document.getElementById("modal-badge-message");
-                           const badgeCard = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
-
-                           const img = badgeCard?.querySelector("img");
-                           const h3 = badgeCard?.querySelector("h3");
-                           const msgEl = badgeContainer.querySelector(".badge-message");
                            
-                           if (!modal || !modalImage || !modalTitle || !modalMessage || !badgeCard || !img || !h3 || !msgEl) return;
+                           if (!modal || !modalImage || !modalTitle || !modalMessage || !card) return;
+                           
+                           const img = card.querySelector("img");
+                           const h3 = card.querySelector("h3");
+                           const p = card.querySelector("p");
+                           
+                           if (!img || !h3) return;
                            
                            modalImage.src = img.src;
                            modalTitle.textContent = h3.textContent;
-                           modalMessage.textContent = msgEl.textContent;
+                           modalMessage.textContent = messageOverride || p?.textContent || "";
                            modal.classList.add("show");
-                           setTimeout(() => {modal.classList.remove("show");},3000);}
+                  }
                      
-                     // Badge Modal Handling
-                     const setupBadgeModal = () => {
+                  // Badge Modal Handling
+                  const setupBadgeModal = () => {
                            const badgeCards = document.querySelectorAll(".badge-card");
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
