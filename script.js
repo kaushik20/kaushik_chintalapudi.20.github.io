@@ -408,23 +408,15 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Back-to-Top Button
                      const setupBackToTop = () => {
-                           const button = document.getElementById("backToTop");
-                           if (!button) {
-                                    console.warn("Back-to-top button not found.");
-                                    return;
-                           }
-                           let backToTopTicking = false;
-                           window.addEventListener("scroll", () => {
-                                       if (!backToTopTicking) {
-                                                requestAnimationFrame(() => {
-                                                         button.style.display = window.scrollY > 300 ? "block" : "none"; 
-                                                         backToTopTicking = false;
-                                                });
-                                                backToTopTicking = true;
-                                       }
-                           });
-                           button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-                              
+                              const button = document.getElementById("backToTop");
+                              if (!button) {
+                                       console.warn("Back-to-top button not found.");
+                                       return;
+                              }
+                              button.addEventListener("click", (event) => {
+                                       event.preventDefault();
+                                       window.scrollTo({ top: 0, behavior: "smooth" });
+                              });
                      };
                      
                      // Highlight Active Section
