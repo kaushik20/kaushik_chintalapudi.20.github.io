@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Show toast notification
                            showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
 
-                           showBadgeModal(badgeContainer);
+                           const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
+                           const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
+                           openBadgeModal(card, celebrationMsg);
+                           setTimeout(() => document.getElementById("badge-modal")?.classList.remove("show"), 3000);
 
                            updateBadgeProgress();
                   };
@@ -270,7 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                           const badgeContainer = document.getElementById(badgeId);
                                           if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} else {showToast("Unlock this badge by exploring the section!");}
                                  });
-                                       else {showToast("Unlock this badge by exploring the section!");}});
                            });
                            
                            closeButton.addEventListener("click", () => {modal.classList.remove("show");});
