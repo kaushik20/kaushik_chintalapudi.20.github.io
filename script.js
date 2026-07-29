@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
                            const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
                            openBadgeModal(card, celebrationMsg);
-                           setTimeout(() => document.getElementById("badge-modal")?.classList.remove("show"), 3000);
+                           clearTimeout(modalAutoCloseTimer); 
+                           modalAutoCloseTimer = setTimeout(() => {document.getElementById("badge-modal")?.classList.remove("show");}, 4000);
 
                            updateBadgeProgress();
                   };
@@ -192,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                  section.addEventListener("click", (event) => {
                                           const target = event.target.closest(itemsClass);
                                           if (target && !target.classList.contains("explored")) {
-                                                   const allItems = Array.from(items);
+                                                   const allItems = Array.from(section.querySelectorAll(itemsClass));
                                                    const itemIndex = allItems.indexOf(target);
                                                    if (itemIndex === -1) return;
                                                    
