@@ -273,6 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            badgeCards.forEach(card => {
                                  card.addEventListener("click", () => {
+                                          const card = event.target.closest(".badge-card");
+                                          if (!card) return;
                                           const badgeId = card.dataset.badgeId;
                                           const badgeContainer = document.getElementById(badgeId);
                                           if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} else {showToast("Unlock this badge by exploring the section!");}
