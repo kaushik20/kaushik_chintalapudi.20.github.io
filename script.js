@@ -275,10 +275,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                  });
                            });
                            
-                           closeButton.addEventListener("click", () => {modal.classList.remove("show");});
+                           closeButton.addEventListener("click", () => {
+                                    modal.classList.remove("show");
+                                    clearTimeout(modalAutoCloseTimer);
+                           });
                            
                            // Close modal on outside click
-                           window.addEventListener("click", (event) => {if (event.target === modal) {modal.classList.remove("show");}});};
+                           window.addEventListener("click", (event) => {
+                                    if (event.target === modal) {
+                                             modal.classList.remove("show");
+                                             clearTimeout(modalAutoCloseTimer);
+                                    }
+                           });
                   
                   // Update Badge Progress in Dashboard
                   const updateBadgeProgress = () => {
