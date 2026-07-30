@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                            
                            badgeCards.forEach(card => {
-                                 card.addEventListener("click", () => {
+                                 card.addEventListener("click", (event) => {
                                           event.stopPropagation();
                                           const badgeId = card.dataset.badgeId;
                                           const badgeContainer = document.getElementById(badgeId);
