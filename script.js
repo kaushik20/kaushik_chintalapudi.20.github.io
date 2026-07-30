@@ -271,15 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return;
                            }
                            
-                           badgeCards.forEach(card => {
-                                 document.addEventListener("click", (event) => {
-                                          const card = event.target.closest(".badge-card");
-                                          if (!card) return;
-                                          const badgeId = card.dataset.badgeId;
-                                          const badgeContainer = document.getElementById(badgeId);
-                                          if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} 
-                                          else {showToast("Unlock this badge by exploring the section!");}
-                                 });
+                           document.addEventListener("click", (event) => {
+                                    const card = event.target.closest(".badge-card");
+                                    if (!card) return;
+                                    const badgeId = card.dataset.badgeId;
+                                    const badgeContainer = document.getElementById(badgeId);
+                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);}
+                                    else {showToast("Unlock this badge by exploring the section!");}
                            });
                            
                            closeButton.addEventListener("click", () => {
