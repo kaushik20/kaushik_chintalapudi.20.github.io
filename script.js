@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            set: (key, val) => { try { localStorage.setItem(key, val); } catch {} },
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
+
+                  let modalAutoCloseTimer = null;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
                            badgeContainer.classList.add("unlocked");
@@ -287,6 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                              clearTimeout(modalAutoCloseTimer);
                                     }
                            });
+
+                  };
                   
                   // Update Badge Progress in Dashboard
                   const updateBadgeProgress = () => {
