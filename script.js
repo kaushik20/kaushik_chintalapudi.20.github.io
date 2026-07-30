@@ -101,142 +101,142 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Initialize Gamified Sections
                      const initializeGamifiedSections = () => {
-                           const initializedSections = new Set();
-                           const sectionsToGamify = [
-                                 { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
-                                 { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
-                                 { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
-                                 { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
-                                 { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
-                                 { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
-                                 { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
-                           ]; 
-                           const initializeSection = ({ id, itemsClass, badgeId }) => {
-                                    if (initializedSections.has(id)) return;
-                                    const section = document.getElementById(id);
-                                    if (!section) return;
-                                    initializedSections.add(id);
-                                    const items = section.querySelectorAll(itemsClass);
-                                    const totalItems = items.length;
-                                    const exploredKey = `${id}-exploredItems`;
-                                    let exploredSet; 
-                                    try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
-                                    catch{exploredSet = new Set();}
-                                    items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
-                                    const state = { exploredCount: exploredSet.size };
-                                 
-                                    // Create or select progress counter
-                                    let progressCounter = section.querySelector(".progress-counter");
-                                    if (!progressCounter) {
-                                             progressCounter = document.createElement("div");
-                                             progressCounter.className = "progress-counter";
-                                             progressCounter.style.cssText = `
-                                             text-align: center;
-                                             font-size: 1rem;
-                                             color: var(--button-bg);
-                                             font-weight: bold;
-                                             margin-bottom: 1rem;
-                                             `;
-                                             
-                                             const progressBarContainer = document.createElement("div");
-                                             progressBarContainer.className = "progress-bar-container";
-                                             progressBarContainer.style.cssText = `
-                                             margin: 0 auto;
-                                             width: 80%;
-                                             height: 15px;
-                                             background: var(--progress-bg);
-                                             border-radius: 10px;
-                                             position: relative;
-                                             overflow: hidden;
-                                             `;
-                                             
-                                             const progressBarFill = document.createElement("div");
-                                             progressBarFill.className = "progress-fill";
-                                             progressBarFill.style.cssText = `
-                                             width: 0%;
-                                             height: 100%;
-                                             background: var(--progress-fill);
-                                             transition: width 0.5s ease;
-                                             `;
+                              const initializedSections = new Set();
+                              const sectionsToGamify = [
+                                       { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
+                                       { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
+                                       { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
+                                       { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
+                                       { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
+                                       { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
+                                       { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
+                              ]; 
+                              const initializeSection = ({ id, itemsClass, badgeId }) => {
+                                       if (initializedSections.has(id)) return;
+                                       const section = document.getElementById(id);
+                                       if (!section) return;
+                                       initializedSections.add(id);
+                                       const items = section.querySelectorAll(itemsClass);
+                                       const totalItems = items.length;
+                                       const exploredKey = `${id}-exploredItems`;
+                                       let exploredSet; 
+                                       try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
+                                       catch{exploredSet = new Set();}
+                                       items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
+                                       const state = { exploredCount: exploredSet.size };
                                        
-                                             progressBarContainer.appendChild(progressBarFill);
-                                             section.prepend(progressBarContainer);
-                                             section.prepend(progressCounter);
+                                       // Create or select progress counter
+                                       let progressCounter = section.querySelector(".progress-counter");
+                                       if (!progressCounter) {
+                                                progressCounter = document.createElement("div");
+                                                progressCounter.className = "progress-counter";
+                                                progressCounter.style.cssText = `
+                                                text-align: center;
+                                                font-size: 1rem;
+                                                color: var(--button-bg);
+                                                font-weight: bold;
+                                                margin-bottom: 1rem;
+                                                `;
+                                                
+                                                const progressBarContainer = document.createElement("div");
+                                                progressBarContainer.className = "progress-bar-container";
+                                                progressBarContainer.style.cssText = `
+                                                margin: 0 auto;
+                                                width: 80%;
+                                                height: 15px;
+                                                background: var(--progress-bg);
+                                                border-radius: 10px;
+                                                position: relative;
+                                                overflow: hidden;
+                                                `;
+                                                
+                                                const progressBarFill = document.createElement("div");
+                                                progressBarFill.className = "progress-fill";
+                                                progressBarFill.style.cssText = `
+                                                width: 0%;
+                                                height: 100%;
+                                                background: var(--progress-fill);
+                                                transition: width 0.5s ease;
+                                                `;
+                                                
+                                                progressBarContainer.appendChild(progressBarFill);
+                                                section.prepend(progressBarContainer);
+                                                section.prepend(progressCounter);
+                                                
+                                                const resetButton = document.createElement("button");
+                                                resetButton.textContent = "Reset Progress";
+                                                resetButton.className = "reset-button";
+                                                resetButton.style.cssText = `
+                                                display: block;
+                                                margin: 10px auto;
+                                                padding: 5px 10px;
+                                                font-size: 0.9rem;
+                                                background: #dc3545;
+                                                color: white;
+                                                border: none;
+                                                border-radius: 5px;
+                                                cursor: pointer;
+                                                `;
+                                                
+                                                resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                                                section.appendChild(resetButton);
+                                       }
                                        
-                                             const resetButton = document.createElement("button");
-                                             resetButton.textContent = "Reset Progress";
-                                             resetButton.className = "reset-button";
-                                             resetButton.style.cssText = `
-                                             display: block;
-                                             margin: 10px auto;
-                                             padding: 5px 10px;
-                                             font-size: 0.9rem;
-                                             background: #dc3545;
-                                             color: white;
-                                             border: none;
-                                             border-radius: 5px;
-                                             cursor: pointer;
-                                             `;
+                                       // Load unlocked badges from localStorage
+                                       const badgeContainer = document.getElementById(badgeId);
+                                       if (badgeContainer && storage.get(badgeId) === "unlocked") {
+                                                badgeContainer.classList.add("unlocked");
+                                                badgeContainer.style.display = "block";
+                                                const img = badgeContainer.querySelector("img");
+                                                if (img) img.style.display = "block";
+                                       }
                                        
-                                             resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                                             section.appendChild(resetButton);
-                                    }
-                                 
-                                 // Load unlocked badges from localStorage
-                                 const badgeContainer = document.getElementById(badgeId);
-                                 if (badgeContainer && storage.get(badgeId) === "unlocked") {
-                                          badgeContainer.classList.add("unlocked");
-                                          badgeContainer.style.display = "block";
-                                          const img = badgeContainer.querySelector("img");
-                                          if (img) img.style.display = "block";
-                                 }
-                                 
-                                 // Delegate click event to section
-                                 section.addEventListener("click", (event) => {
-                                          const target = event.target.closest(itemsClass);
-                                          if (target && !target.classList.contains("explored")) {
-                                                   const allItems = Array.from(section.querySelectorAll(itemsClass));
-                                                   const itemIndex = allItems.indexOf(target);
-                                                   if (itemIndex === -1) return;
-                                                   
-                                                   target.classList.add("explored");
-                                                   exploredSet.add(itemIndex);
-                                                   storage.set(exploredKey, JSON.stringify([...exploredSet]));
-                                                   
-                                                   state.exploredCount = exploredSet.size;
-                                                   updateProgress(progressCounter, state.exploredCount, totalItems);
-                                                   if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
-                                          }
-                                 });
-
-                           section.addEventListener("progressReset", () => {
-                                    exploredSet.clear();
-                                    state.exploredCount = 0;
-                           });
-
-                           // Initial progress display
-                           updateProgress(progressCounter, state.exploredCount, totalItems);
-                           };
-                           
-                           sectionsToGamify.forEach(initializeSection);
-                           
-                           // Observe dynamically added sections or items
-                           if (initializedSections.size < sectionsToGamify.length) {
-                                    const observer = new MutationObserver((mutations) => {
-                                             mutations.forEach((mutation) => {
-                                                      if (mutation.type === "childList") {
-                                                               sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
-                                                                        const section = document.getElementById(id);
-                                                                        if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
-                                                               });
-                                                      }
-                                             });
-                                             if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
-                                    });
-                                    const contentRoot = document.getElementById("main-content") || document.body;
-                                    observer.observe(contentRoot, { childList: true, subtree: true });
-                           }
+                                       // Delegate click event to section
+                                       section.addEventListener("click", (event) => {
+                                                const target = event.target.closest(itemsClass);
+                                                if (target && !target.classList.contains("explored")) {
+                                                         const allItems = Array.from(section.querySelectorAll(itemsClass));
+                                                         const itemIndex = allItems.indexOf(target);
+                                                         if (itemIndex === -1) return;
+                                                         
+                                                         target.classList.add("explored");
+                                                         exploredSet.add(itemIndex);
+                                                         storage.set(exploredKey, JSON.stringify([...exploredSet]));
+                                                         
+                                                         state.exploredCount = exploredSet.size;
+                                                         updateProgress(progressCounter, state.exploredCount, totalItems);
+                                                         if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
+                                                }
+                                       });
+                                       
+                                       section.addEventListener("progressReset", () => {
+                                                exploredSet.clear();
+                                                state.exploredCount = 0;
+                                       });
+                                       
+                                       // Initial progress display
+                                       updateProgress(progressCounter, state.exploredCount, totalItems);
+                              };
                               
+                              sectionsToGamify.forEach(initializeSection);
+                              
+                              // Observe dynamically added sections or items
+                              if (initializedSections.size < sectionsToGamify.length) {
+                                       const observer = new MutationObserver((mutations) => {
+                                                mutations.forEach((mutation) => {
+                                                         if (mutation.type === "childList") {
+                                                                  sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
+                                                                           const section = document.getElementById(id);
+                                                                           if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
+                                                                  });
+                                                         }
+                                                });
+                                                if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
+                                       });
+                                       const contentRoot = document.getElementById("main-content") || document.body;
+                                       observer.observe(contentRoot, { childList: true, subtree: true });
+                              }
+                     };
                   function openBadgeModal(card, messageOverride) {
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
