@@ -237,25 +237,25 @@ document.addEventListener("DOMContentLoaded", () => {
                                     observer.observe(contentRoot, { childList: true, subtree: true });
                            }
                               
-                           function openBadgeModal(card, messageOverride) {
-                                    const modal = document.getElementById("badge-modal");
-                                    const modalImage = document.getElementById("modal-badge-image");
-                                    const modalTitle = document.getElementById("modal-badge-title");
-                                    const modalMessage = document.getElementById("modal-badge-message");
+                  function openBadgeModal(card, messageOverride) {
+                           const modal = document.getElementById("badge-modal");
+                           const modalImage = document.getElementById("modal-badge-image");
+                           const modalTitle = document.getElementById("modal-badge-title");
+                           const modalMessage = document.getElementById("modal-badge-message");
                                        
-                                    if (!modal || !modalImage || !modalTitle || !modalMessage || !card) return;
+                           if (!modal || !modalImage || !modalTitle || !modalMessage || !card) return;
                                        
-                                    const img = card.querySelector("img");
-                                    const h3 = card.querySelector("h3");
-                                    const p = card.querySelector("p");
+                           const img = card.querySelector("img");
+                           const h3 = card.querySelector("h3");
+                           const p = card.querySelector("p");
                                        
-                                    if (!img || !h3) return;
+                           if (!img || !h3) return;
                                        
-                                    modalImage.src = img.src;
-                                    modalTitle.textContent = h3.textContent;
-                                    modalMessage.textContent = messageOverride || p?.textContent || "";
-                                    modal.classList.add("show");
-                           }
+                           modalImage.src = img.src;
+                           modalTitle.textContent = h3.textContent;
+                           modalMessage.textContent = messageOverride || p?.textContent || "";
+                           modal.classList.add("show");
+                  }
                      
                   // Badge Modal Handling
                   const setupBadgeModal = () => {
@@ -277,7 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                           if (!card) return;
                                           const badgeId = card.dataset.badgeId;
                                           const badgeContainer = document.getElementById(badgeId);
-                                          if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} else {showToast("Unlock this badge by exploring the section!");}
+                                          if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);} 
+                                          else {showToast("Unlock this badge by exploring the section!");}
                                  });
                            });
                            
