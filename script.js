@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 margin: 10px auto;
                                                 padding: 5px 10px;
                                                 font-size: 0.9rem;
-                                                background: #dc3545;
+                                                background: var(--button-bg);
                                                 color: white;
                                                 border: none;
                                                 border-radius: 5px;
