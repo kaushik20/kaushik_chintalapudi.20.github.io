@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                   
                   // Initialize Gamified Sections
+                  const initializedSections = new Set();
                   const initializeGamifiedSections = () => {
-                           const initializedSections = new Set();
                            const initializeSection = ({ id, itemsClass, badgeId }) => {
                                     if (initializedSections.has(id)) return;
                                     const section = document.getElementById(id);
