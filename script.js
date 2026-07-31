@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            updateBadgeProgress();
                   };
-                     
-                     const showToast = (message) => {
+                  
+                  const showToast = (message) => {
                            document.querySelector(".toast")?.remove();
                            const toast = document.createElement("div");
                            toast.className = "toast";
@@ -57,33 +57,33 @@ document.addEventListener("DOMContentLoaded", () => {
                            toast.animate([{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(20px)" }], {duration: 4000, easing: "ease"});                  
                            // Remove toast after animation
                            setTimeout(() => toast.remove(), 4000);
-                     };
-                     
-                     const updateProgress = (counterElem, exploredCount, totalItems) => {
+                  };
+                  
+                  const updateProgress = (counterElem, exploredCount, totalItems) => {
                            if (!counterElem) return;
                            counterElem.textContent = `Progress: ${exploredCount}/${totalItems}`;
                            const progressBar = counterElem.nextElementSibling?.querySelector(".progress-fill");
                            if (progressBar) {
-                                 const percentage = totalItems>0 ? Math.min((exploredCount / totalItems) * 100, 100): 0;
-                                 progressBar.style.animation = "none";
-                                 progressBar.offsetHeight;
-                                 progressBar.style.setProperty("--progress-width", `${percentage}%`);
-                                 progressBar.style.animation = "fillProgress 1s ease forwards";
-                                 progressBar.setAttribute("role", "progressbar");
-                                 progressBar.setAttribute("aria-valuemin", "0");
-                                 progressBar.setAttribute("aria-valuemax", "100");
-                                 progressBar.setAttribute("aria-valuenow", percentage.toFixed(0));
-                                 progressBar.setAttribute("aria-label", "Section progress");
+                                    const percentage = totalItems>0 ? Math.min((exploredCount / totalItems) * 100, 100): 0;
+                                    progressBar.style.animation = "none";
+                                    progressBar.offsetHeight;
+                                    progressBar.style.setProperty("--progress-width", `${percentage}%`);
+                                    progressBar.style.animation = "fillProgress 1s ease forwards";
+                                    progressBar.setAttribute("role", "progressbar");
+                                    progressBar.setAttribute("aria-valuemin", "0");
+                                    progressBar.setAttribute("aria-valuemax", "100");
+                                    progressBar.setAttribute("aria-valuenow", percentage.toFixed(0));
+                                    progressBar.setAttribute("aria-label", "Section progress");
                            }
-                     };
-                     
-                     const resetProgress = (sectionId, itemsClass, badgeId) => {
+                  };
+                  
+                  const resetProgress = (sectionId, itemsClass, badgeId) => {
                            const section = document.getElementById(sectionId);
                            if (!section) return;
                            const items = section.querySelectorAll(itemsClass);
                            items.forEach(item => item.classList.remove("explored"));
                            storage.remove(`${sectionId}-exploredItems`);
-
+                           
                            section.dispatchEvent(new CustomEvent("progressReset"));
                            
                            // Reset progress counters and localStorage
@@ -97,146 +97,141 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                            storage.remove(badgeId);
                            updateBadgeProgress();
-                     };
-                     
-                     // Initialize Gamified Sections
-                     const initializeGamifiedSections = () => {
-                              const initializedSections = new Set();
-                              const sectionsToGamify = [
-                                       { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
-                                       { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
-                                       { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
-                                       { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
-                                       { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
-                                       { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
-                                       { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
-                              ]; 
-                              const initializeSection = ({ id, itemsClass, badgeId }) => {
-                                       if (initializedSections.has(id)) return;
-                                       const section = document.getElementById(id);
-                                       if (!section) return;
-                                       initializedSections.add(id);
-                                       const items = section.querySelectorAll(itemsClass);
-                                       const totalItems = items.length;
-                                       const exploredKey = `${id}-exploredItems`;
-                                       let exploredSet; 
-                                       try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
-                                       catch{exploredSet = new Set();}
-                                       items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
-                                       const state = { exploredCount: exploredSet.size };
+                  };
+                  
+                  // Initialize Gamified Sections
+                  const initializeGamifiedSections = () => {
+                           const initializedSections = new Set();
+                           const sectionsToGamify = [
+                                    { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
+                                    { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
+                                    { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
+                                    { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
+                                    { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
+                                    { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
+                                    { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
+                           ];
+                           const initializeSection = ({ id, itemsClass, badgeId }) => {
+                                    if (initializedSections.has(id)) return;
+                                    const section = document.getElementById(id);
+                                    if (!section) return;
+                                    initializedSections.add(id);
+                                    const items = section.querySelectorAll(itemsClass);
+                                    const totalItems = items.length;
+                                    const exploredKey = `${id}-exploredItems`;
+                                    let exploredSet;
+                                    try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
+                                    catch{exploredSet = new Set();}
+                                    items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
+                                    const state = { exploredCount: exploredSet.size };
+                                    
+                                    // Create or select progress counter
+                                    let progressCounter = section.querySelector(".progress-counter");
+                                    if (!progressCounter) {
+                                             progressCounter = document.createElement("div");
+                                             progressCounter.className = "progress-counter";
+                                             progressCounter.style.cssText = `
+                                             text-align: center;
+                                             font-size: 1rem;
+                                             color: var(--button-bg);
+                                             font-weight: bold;
+                                             margin-bottom: 1rem;
+                                             `;
+                                             
+                                             const progressBarContainer = document.createElement("div");
+                                             progressBarContainer.className = "progress-bar-container";
+                                             progressBarContainer.style.cssText = `
+                                             margin: 0 auto;
+                                             width: 80%;
+                                             height: 15px;
+                                             background: var(--progress-bg);
+                                             border-radius: 10px;
+                                             position: relative;
+                                             overflow: hidden;
+                                             `;
+                                             const progressBarFill = document.createElement("div");
+                                             progressBarFill.className = "progress-fill";
+                                             progressBarFill.style.cssText = `
+                                             width: 0%;
+                                             height: 100%;
+                                             background: var(--progress-fill);
+                                             transition: width 0.5s ease;
+                                             `;
+                                             
+                                             progressBarContainer.appendChild(progressBarFill);
+                                             section.prepend(progressBarContainer);
+                                             section.prepend(progressCounter);
+                                             
+                                             const resetButton = document.createElement("button");
+                                             resetButton.textContent = "Reset Progress";
+                                             resetButton.className = "reset-button";
+                                             resetButton.style.cssText = `
+                                             display: block;
+                                             margin: 10px auto;
+                                             padding: 5px 10px;
+                                             font-size: 0.9rem;
+                                             background: var(--button-bg);
+                                             color: white;
+                                             border: none;
+                                             border-radius: 5px;
+                                             cursor: pointer;
+                                             `;
+                                             resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                                             section.appendChild(resetButton);
+                                    }
+                                    // Load unlocked badges from localStorage
+                                    const badgeContainer = document.getElementById(badgeId);
+                                    if (badgeContainer && storage.get(badgeId) === "unlocked") {
+                                             badgeContainer.classList.add("unlocked");
+                                             badgeContainer.style.display = "block";
+                                             const img = badgeContainer.querySelector("img");
+                                             if (img) img.style.display = "block";
+                                    }
                                        
-                                       // Create or select progress counter
-                                       let progressCounter = section.querySelector(".progress-counter");
-                                       if (!progressCounter) {
-                                                progressCounter = document.createElement("div");
-                                                progressCounter.className = "progress-counter";
-                                                progressCounter.style.cssText = `
-                                                text-align: center;
-                                                font-size: 1rem;
-                                                color: var(--button-bg);
-                                                font-weight: bold;
-                                                margin-bottom: 1rem;
-                                                `;
-                                                
-                                                const progressBarContainer = document.createElement("div");
-                                                progressBarContainer.className = "progress-bar-container";
-                                                progressBarContainer.style.cssText = `
-                                                margin: 0 auto;
-                                                width: 80%;
-                                                height: 15px;
-                                                background: var(--progress-bg);
-                                                border-radius: 10px;
-                                                position: relative;
-                                                overflow: hidden;
-                                                `;
-                                                
-                                                const progressBarFill = document.createElement("div");
-                                                progressBarFill.className = "progress-fill";
-                                                progressBarFill.style.cssText = `
-                                                width: 0%;
-                                                height: 100%;
-                                                background: var(--progress-fill);
-                                                transition: width 0.5s ease;
-                                                `;
-                                                
-                                                progressBarContainer.appendChild(progressBarFill);
-                                                section.prepend(progressBarContainer);
-                                                section.prepend(progressCounter);
-                                                
-                                                const resetButton = document.createElement("button");
-                                                resetButton.textContent = "Reset Progress";
-                                                resetButton.className = "reset-button";
-                                                resetButton.style.cssText = `
-                                                display: block;
-                                                margin: 10px auto;
-                                                padding: 5px 10px;
-                                                font-size: 0.9rem;
-                                                background: var(--button-bg);
-                                                color: white;
-                                                border: none;
-                                                border-radius: 5px;
-                                                cursor: pointer;
-                                                `;
-                                                
-                                                resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                                                section.appendChild(resetButton);
-                                       }
-                                       
-                                       // Load unlocked badges from localStorage
-                                       const badgeContainer = document.getElementById(badgeId);
-                                       if (badgeContainer && storage.get(badgeId) === "unlocked") {
-                                                badgeContainer.classList.add("unlocked");
-                                                badgeContainer.style.display = "block";
-                                                const img = badgeContainer.querySelector("img");
-                                                if (img) img.style.display = "block";
-                                       }
-                                       
-                                       // Delegate click event to section
-                                       section.addEventListener("click", (event) => {
-                                                const target = event.target.closest(itemsClass);
-                                                if (target && !target.classList.contains("explored")) {
-                                                         const allItems = Array.from(section.querySelectorAll(itemsClass));
-                                                         const itemIndex = allItems.indexOf(target);
-                                                         if (itemIndex === -1) return;
-                                                         
-                                                         target.classList.add("explored");
-                                                         exploredSet.add(itemIndex);
-                                                         storage.set(exploredKey, JSON.stringify([...exploredSet]));
-                                                         
-                                                         state.exploredCount = exploredSet.size;
-                                                         updateProgress(progressCounter, state.exploredCount, totalItems);
-                                                         if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
-                                                }
-                                       });
-                                       
-                                       section.addEventListener("progressReset", () => {
-                                                exploredSet.clear();
-                                                state.exploredCount = 0;
-                                       });
-                                       
-                                       // Initial progress display
-                                       updateProgress(progressCounter, state.exploredCount, totalItems);
-                              };
-                              
-                              sectionsToGamify.forEach(initializeSection);
-                              
-                              // Observe dynamically added sections or items
-                              if (initializedSections.size < sectionsToGamify.length) {
-                                       const observer = new MutationObserver((mutations) => {
-                                                mutations.forEach((mutation) => {
-                                                         if (mutation.type === "childList") {
-                                                                  sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
-                                                                           const section = document.getElementById(id);
-                                                                           if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
-                                                                  });
-                                                         }
-                                                });
-                                                if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
-                                       });
-                                       const contentRoot = document.getElementById("main-content") || document.body;
-                                       observer.observe(contentRoot, { childList: true, subtree: true });
-                              }
-                     };
+                                    // Delegate click event to section
+                                    section.addEventListener("click", (event) => {
+                                             const target = event.target.closest(itemsClass);
+                                             if (target && !target.classList.contains("explored")) {
+                                                      const allItems = Array.from(section.querySelectorAll(itemsClass));
+                                                      const itemIndex = allItems.indexOf(target);
+                                                      if (itemIndex === -1) return;
+                                                      
+                                                      target.classList.add("explored");
+                                                      exploredSet.add(itemIndex);
+                                                      storage.set(exploredKey, JSON.stringify([...exploredSet]));
+                                                      state.exploredCount = exploredSet.size;
+                                                      updateProgress(progressCounter, state.exploredCount, totalItems);
+                                                      if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
+                                             }
+                                    });
+                                    section.addEventListener("progressReset", () => {
+                                             exploredSet.clear();
+                                             state.exploredCount = 0;
+                                    });
+                                    
+                                    // Initial progress display
+                                    updateProgress(progressCounter, state.exploredCount, totalItems);
+                           };
+                           
+                           sectionsToGamify.forEach(initializeSection);
+                           
+                           // Observe dynamically added sections or items
+                           if (initializedSections.size < sectionsToGamify.length) {
+                                    const observer = new MutationObserver((mutations) => {
+                                             mutations.forEach((mutation) => {
+                                                      if (mutation.type === "childList") {
+                                                               sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
+                                                                        const section = document.getElementById(id);
+                                                                        if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
+                                                               });
+                                                      }
+                                             });
+                                             if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
+                                    });
+                                    const contentRoot = document.getElementById("main-content") || document.body;
+                                    observer.observe(contentRoot, { childList: true, subtree: true });
+                           }
+                  };
                   function openBadgeModal(card, messageOverride) {
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
@@ -256,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalMessage.textContent = messageOverride || p?.textContent || "";
                            modal.classList.add("show");
                   }
-                     
+                  
                   // Badge Modal Handling
                   const setupBadgeModal = () => {
                            const modal = document.getElementById("badge-modal");
@@ -264,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const modalTitle = document.getElementById("modal-badge-title");
                            const modalMessage = document.getElementById("modal-badge-message");
                            const closeButton = document.getElementById("modal-close-button");
-
+                           
                            if (!modal || !modalImage || !modalTitle || !modalMessage || !closeButton) {
                                     console.warn("Badge modal: one or more required elements not found.");
                                     return;
@@ -275,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (!card) return;
                                     const badgeId = card.dataset.badgeId;
                                     const badgeContainer = document.getElementById(badgeId);
-                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card);}
+                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card)}
                                     else {showToast("Unlock this badge by exploring the section!");}
                            });
                            
@@ -291,7 +286,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                              clearTimeout(modalAutoCloseTimer);
                                     }
                            });
+                  };
 
+                  // Keyboard Accessibility for role="button" elements
+                  const setupKeyboardActivation = () => {
+                           document.addEventListener("keydown", (event) => {
+                                    if (event.key !== "Enter" && event.key !== " ") return;
+                                    const target = event.target.closest('[role="button"]');
+                                    if (!target) return;
+                                    event.preventDefault();
+                                    target.click();
+                           });
                   };
                   
                   // Update Badge Progress in Dashboard
@@ -340,40 +345,39 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      // Tooltip Setup
                      const setupTooltips = () => {
-                           const keywords = document.querySelectorAll(".keyword");
-                           let popover = document.getElementById("global-popover");
-                           if (!popover) {
-                                    popover = document.createElement("div");
-                                    popover.id = "global-popover";
-                                    popover.className = "popover";
-                                    popover.style.cssText = `
-                                    position: absolute;
-                                    background: var(--bg-color);
-                                    color: var(--text-color);
-                                    padding: 10px;
-                                    border-radius: 5px;
-                                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                                    display: none;
-                                    z-index: 1000;
-                                    `;
-                                    document.body.appendChild(popover);
-                           }
-                           window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
-                           keywords.forEach((keyword) => {
-                                 keyword.addEventListener("mouseenter", (e) => {
-                                       popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
-                                       popover.style.display = "block";
-                                       const pw = popover.offsetWidth || 160;
-                                       const ph = popover.offsetHeight || 40;
-                                       const left = Math.max(0, Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10));
-                                       const top  = Math.max(0, Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10));
-                                       popover.style.left = `${left}px`;
-                                       popover.style.top  = `${top}px`;
-                                 });
-                                 keyword.addEventListener("mouseleave", () => {
-                                       popover.style.display = "none";
-                                 });
-                                 
+                              const keywords = document.querySelectorAll(".keyword");
+                              let popover = document.getElementById("global-popover");
+                              if (!popover) {
+                                       popover = document.createElement("div");
+                                       popover.id = "global-popover";
+                                       popover.className = "popover";
+                                       popover.style.cssText = `
+                                       position: absolute;
+                                       background: var(--bg-color);
+                                       color: var(--text-color);
+                                       padding: 10px;
+                                       border-radius: 5px;
+                                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                       display: none;
+                                       z-index: 1000;
+                                       `;
+                                       document.body.appendChild(popover);
+                              }
+                              window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
+                              keywords.forEach((keyword) => {
+                                       keyword.addEventListener("mouseenter", (e) => {
+                                                popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                                                popover.style.display = "block";
+                                                const pw = popover.offsetWidth || 160;
+                                                const ph = popover.offsetHeight || 40;
+                                                const left = Math.max(0, Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10));
+                                                const top  = Math.max(0, Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10));
+                                                popover.style.left = `${left}px`;
+                                                popover.style.top  = `${top}px`;
+                                       });
+                                       keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
+
+                           
                                  // Handle data-action attributes
                                  keyword.addEventListener("click", () => {
                                        const action = keyword.dataset.action;
@@ -400,70 +404,69 @@ document.addEventListener("DOMContentLoaded", () => {
                                  });
                            });
                      };
-                     
-                     // Dark Mode Toggle
-                     const toggleDarkMode = () => {
+                  
+                  // Dark Mode Toggle
+                  const toggleDarkMode = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
                            const themeIcon = document.getElementById("themeIcon");
-                           if (!toggleButton || !themeIcon) {  
+                           if (!toggleButton || !themeIcon) {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
                            }
                            const currentTheme = storage.get("theme") || "light";
                            document.documentElement.setAttribute("data-theme", currentTheme);
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
-                           
                            toggleButton.addEventListener("click", () => {
-                                 const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-                                 document.documentElement.setAttribute("data-theme", newTheme);
-                                 storage.set("theme", newTheme);
-                                 themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                                    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+                                    document.documentElement.setAttribute("data-theme", newTheme);
+                                    storage.set("theme", newTheme);
+                                    themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            });
-                     };
-                     
-                     // Back-to-Top Button
-                     const setupBackToTop = () => {
-                              const button = document.getElementById("backToTop");
-                              if (!button) {
-                                       console.warn("Back-to-top button not found.");
-                                       return;
-                              }
-                              button.addEventListener("click", (event) => {
-                                       event.preventDefault();
-                                       window.scrollTo({ top: 0, behavior: "smooth" });
-                              });
-                     };
-                     
-                     // Highlight Active Section
-                     const highlightActiveSection = () => {
-                              const sections = document.querySelectorAll("section");
-                              const navLinks = document.querySelectorAll(".nav-links a");
-                              const setActiveLink = () => {
-                                       let activeSection = null;
-                                       sections.forEach((section) => {
-                                                const rect = section.getBoundingClientRect();
-                                                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                                                         activeSection = section.id;
-                                                }
-                                       });
-                                       navLinks.forEach((link) => {
-                                                const href = link.getAttribute("href"); 
-                                                if (!href) return;                      
-                                                link.classList.toggle("active", href.substring(1) === activeSection);
-                                       });
-                              };
-                              let activeSectionTicking = false;
-                              window.addEventListener("scroll", () => {
-                                       if (!activeSectionTicking) {
-                                                requestAnimationFrame(() => {
-                                                         setActiveLink();
-                                                         activeSectionTicking = false;
-                                                });
-                                                activeSectionTicking = true;
-                                       }
-                              }); 
-                              setActiveLink();                                   
-                     };
+                  };
+                  
+                  // Back-to-Top Button
+                  const setupBackToTop = () => {
+                           const button = document.getElementById("backToTop");
+                           if (!button) {
+                                    console.warn("Back-to-top button not found.");
+                                    return;
+                           }
+                           button.addEventListener("click", (event) => {
+                                    event.preventDefault();
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                           });
+                  };
+                  
+                  // Highlight Active Section
+                  const highlightActiveSection = () => {
+                           const sections = document.querySelectorAll("section");
+                           const navLinks = document.querySelectorAll(".nav-links a");
+                           const setActiveLink = () => {
+                                    let activeSection = null;
+                                    sections.forEach((section) => {
+                                             const rect = section.getBoundingClientRect();
+                                             if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                                                      activeSection = section.id;
+                                             }
+                                    });
+                                    navLinks.forEach((link) => {
+                                             const href = link.getAttribute("href"); 
+                                             if (!href) return;                      
+                                             link.classList.toggle("active", href.substring(1) === activeSection);
+                                    });
+                           };
+                           let activeSectionTicking = false;
+                           window.addEventListener("scroll", () => {
+                                    if (!activeSectionTicking) {
+                                             requestAnimationFrame(() => {
+                                                      setActiveLink();
+                                                      activeSectionTicking = false;
+                                             });
+                                             activeSectionTicking = true;
+                                    }
+                           }); 
+                           setActiveLink();                                   
+                  };
                   
                   // Set Current Year in Footer
                   const setCurrentYear = () => {
@@ -507,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            }, { threshold: 0.5 }); 
                            observer.observe(viewer);
                   };
-         
+                  
                   // Initialize Conclusion Section
                   const initializeConclusionSection = () => {
                            const section = document.getElementById("conclusion");
@@ -537,21 +540,20 @@ document.addEventListener("DOMContentLoaded", () => {
                            observer.observe(section);
                   
                   };
-               
-               // Initialize All Features
-               initializeGamifiedSections();
-               setupBadgeModal();
-               updateBadgeProgress();
-               setupSmoothScroll();
-               setupTooltips();
-               toggleDarkMode();
-               setupBackToTop();
-               highlightActiveSection();
-               setCurrentYear();
-               initializeResumeSection();
-               initializeConclusionSection();
-         
-         } catch (error) {
-               console.error("Initialization Error:", error);
-   }
-   });
+                  
+                  // Initialize All Features
+                  initializeGamifiedSections();
+                  setupBadgeModal();
+                  updateBadgeProgress();
+                  setupSmoothScroll();
+                  setupTooltips();
+                  setupKeyboardActivation();
+                  toggleDarkMode();
+                  setupBackToTop();
+                  highlightActiveSection();
+                  setCurrentYear();
+                  initializeResumeSection();
+                  initializeConclusionSection();
+         } 
+         catch (error) {console.error("Initialization Error:", error);}
+});
