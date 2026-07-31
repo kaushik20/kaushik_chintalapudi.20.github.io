@@ -28,10 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            storage.set(badgeContainer.id, "unlocked");
                            
                            // Animation for unlocking badges
-                           safeAnimate(badgeContainer, [{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});        
-                           
-                           // Show toast notification
-                           safeAnimate(toast, [{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(20px)" }], {duration: 4000, easing: "ease"});
+                           safeAnimate(badgeContainer, [{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
                            const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            document.body.appendChild(toast);
                            
                            // Animate toast
-                           toast.animate([{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(20px)" }], {duration: 4000, easing: "ease"});                  
+                           safeAnimate(toast, [{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(20px)" }], {duration: 4000, easing: "ease"});                  
                            // Remove toast after animation
                            setTimeout(() => toast.remove(), 4000);
                   };
