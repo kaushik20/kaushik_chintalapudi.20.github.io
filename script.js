@@ -259,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                   // Badge Modal Handling
                   const setupBadgeModal = () => {
-                           const badgeCards = document.querySelectorAll(".badge-card");
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
                            const modalTitle = document.getElementById("modal-badge-title");
