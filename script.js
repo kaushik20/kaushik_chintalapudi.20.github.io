@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
                                     catch{exploredSet = new Set();}
                                     items.forEach((item, index) => {
-                                             const id = getItemId(item, index);
-                                             if (exploredSet.has(id)) item.classList.add("explored");
+                                             const itemId = getItemId(item, index);
+                                             if (exploredSet.has(itemId)) item.classList.add("explored");
                                     });
                                     const state = { exploredCount: exploredSet.size };
                                     
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       const allItems = Array.from(section.querySelectorAll(itemsClass));
                                                       const itemIndex = allItems.indexOf(target);
                                                       if (itemIndex === -1) return;
-                                                      const id = getItemId(target, itemIndex);
+                                                      const itemId = getItemId(target, itemIndex);
                                                       
                                                       target.classList.add("explored");
                                                       exploredSet.add(id);
