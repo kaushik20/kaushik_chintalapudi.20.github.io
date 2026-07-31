@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                   
                   const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
+                  const safeAnimate = (element, keyframes, options) => {
+                           if (!element || typeof element.animate !== "function") return null;
+                           try {return element.animate(keyframes, options);} 
+                           catch (error) {
+                                    console.warn("Animation skipped:", error);
+                                    return null;
+                           }
+                  };
                   let modalAutoCloseTimer = null;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
@@ -20,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            storage.set(badgeContainer.id, "unlocked");
                            
                            // Animation for unlocking badges
-                           badgeContainer.animate([{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});        
+                           safeAnimate(badgeContainer, [{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});        
                            
                            // Show toast notification
-                           showToast(`${badgeContainer.dataset.badgeName || badgeContainer.querySelector(".badge-title")?.textContent || "Badge"} Unlocked!`);
+                           safeAnimate(toast, [{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(20px)" }], {duration: 4000, easing: "ease"});
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
                            const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
