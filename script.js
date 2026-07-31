@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                   };
                   const initializedElements = new WeakSet();
+                  const sectionsToGamify = [
+                           { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
+                           { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
+                           { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
+                           { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
+                           { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
+                           { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
+                           { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
+                  ];
+                  const standaloneBadgeIds = ["badge-container-resume", "badge-container-conclusion"];
+                  const badgeSections = [...sectionsToGamify.map(s => s.badgeId), ...standaloneBadgeIds];
                   let modalAutoCloseTimer = null;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
@@ -109,15 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   // Initialize Gamified Sections
                   const initializeGamifiedSections = () => {
                            const initializedSections = new Set();
-                           const sectionsToGamify = [
-                                    { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
-                                    { id: "hobbies_skills", itemsClass: ".hobbies_skills-item", badgeId: "badge-container-hobbies_skills"},
-                                    { id: "experience", itemsClass: ".timeline-item", badgeId: "badge-container-experience"},
-                                    { id: "projects", itemsClass: ".project-card", badgeId: "badge-container-projects"},
-                                    { id: "achievements-leaderboard", itemsClass: ".achievements-leaderboard-item", badgeId: "badge-container-achievements"},
-                                    { id: "certifications", itemsClass: ".milestone", badgeId: "badge-container-certifications"},
-                                    { id: "dashboard", itemsClass: ".badge-card", badgeId: "badge-container-dashboard"}
-                           ];
                            const initializeSection = ({ id, itemsClass, badgeId }) => {
                                     if (initializedSections.has(id)) return;
                                     const section = document.getElementById(id);
@@ -321,17 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Badge progress: elements not found.");
                                     return;
                            }
-                           const badgeSections = [
-                                 "badge-container-about",
-                                 "badge-container-hobbies_skills",
-                                 "badge-container-experience",
-                                 "badge-container-resume",
-                                 "badge-container-projects",
-                                 "badge-container-achievements",
-                                 "badge-container-certifications",
-                                 "badge-container-dashboard",
-                                 "badge-container-conclusion"
-                           ];
                            
                            const unlockedCount = badgeSections.reduce((count, id) => {return count + (storage.get(id) === "unlocked" ? 1 : 0);}, 0);
                            
