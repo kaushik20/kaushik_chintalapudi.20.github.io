@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return null;
                            }
                   };
+                  const initializedElements = new WeakSet();
                   let modalAutoCloseTimer = null;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
@@ -261,9 +262,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalMessage.textContent = messageOverride || p?.textContent || "";
                            modal.classList.add("show");
                   }
-                  
+
                   // Badge Modal Handling
+                  let badgeModalInitialized = false;
                   const setupBadgeModal = () => {
+                           if (badgeModalInitialized) return;
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
                            const modalTitle = document.getElementById("modal-badge-title");
@@ -274,6 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Badge modal: one or more required elements not found.");
                                     return;
                            }
+                           badgeModalInitialized = true;
                            
                            document.addEventListener("click", (event) => {
                                     const card = event.target.closest(".badge-card");
@@ -375,6 +379,8 @@ document.addEventListener("DOMContentLoaded", () => {
                               }
                               window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
                               keywords.forEach((keyword) => {
+                                       if (initializedElements.has(keyword)) return;
+                                       initializedElements.add(keyword);
                                        keyword.addEventListener("mouseenter", (e) => {
                                                 popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
                                                 popover.style.display = "block";
@@ -386,33 +392,28 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 popover.style.top  = `${top}px`;
                                        });
                                        keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
-
-                           
-                                 // Handle data-action attributes
-                                 keyword.addEventListener("click", () => {
-                                       const action = keyword.dataset.action;
-                                       if (action === "highlight") {
-                                             keyword.style.backgroundColor = "var(--button-bg)";
-                                             keyword.style.color = "var(--bg-color)";
-                                             setTimeout(() => {
-                                                   keyword.style.backgroundColor = "";
-                                                   keyword.style.color = "";}, 1000);
-                                       } 
-                                       else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);} 
-                                       else if (action === "open-modal") {showToast(`Modal for ${keyword.textContent} would open here!`);} 
-                                       else if (action === "scroll-to") {
-                                                const scrollTargets = {
-                                                         "emerging technologies": "hobbies_skills",
-                                                         "cloud and AI ecosystems": "projects",
-                                                         "MIT NCC Troop (MNT)": "achievements-leaderboard"
-                                                };
-                                                const targetId = keyword.dataset.target || scrollTargets[keyword.textContent.trim()];
-                                                if (!targetId) return;
-                                                const target = document.getElementById(targetId);
-                                                if (target) {target.scrollIntoView({ behavior: "smooth" });}
-                                       }
-                                 });
-                           });
+                                       
+                                       // Handle data-action attributes
+                                       keyword.addEventListener("click", () => {
+                                                const action = keyword.dataset.action;
+                                                if (action === "highlight") {
+                                                         keyword.style.backgroundColor = "var(--button-bg)";
+                                                         keyword.style.color = "var(--bg-color)";
+                                                         setTimeout(() => {
+                                                                  keyword.style.backgroundColor = "";
+                                                                  keyword.style.color = "";}, 1000);
+                                                }
+                                                else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);}
+                                                else if (action === "open-modal") {showToast(`Modal for ${keyword.textContent} would open here!`);}
+                                                else if (action === "scroll-to") {
+                                                         const scrollTargets = {"emerging technologies": "hobbies_skills", "cloud and AI ecosystems": "projects", "MIT NCC Troop (MNT)": "achievements-leaderboard"};
+                                                         const targetId = keyword.dataset.target || scrollTargets[keyword.textContent.trim()];
+                                                         if (!targetId) return;
+                                                         const target = document.getElementById(targetId);
+                                                         if (target) {target.scrollIntoView({ behavior: "smooth" });}
+                                                }
+                                       });
+                              });
                      };
                   
                   // Dark Mode Toggle
