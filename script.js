@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            set: (key, val) => { try { localStorage.setItem(key, val); } catch {} },
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
-
+                  
+                  const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
                   let modalAutoCloseTimer = null;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
@@ -122,7 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     let exploredSet;
                                     try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
                                     catch{exploredSet = new Set();}
-                                    items.forEach((item, index) => {if (exploredSet.has(index)) item.classList.add("explored");});
+                                    items.forEach((item, index) => {
+                                             const id = getItemId(item, index);
+                                             if (exploredSet.has(id)) item.classList.add("explored");
+                                    });
                                     const state = { exploredCount: exploredSet.size };
                                     
                                     // Create or select progress counter
@@ -195,9 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       const allItems = Array.from(section.querySelectorAll(itemsClass));
                                                       const itemIndex = allItems.indexOf(target);
                                                       if (itemIndex === -1) return;
+                                                      const id = getItemId(target, itemIndex);
                                                       
                                                       target.classList.add("explored");
-                                                      exploredSet.add(itemIndex);
+                                                      exploredSet.add(id);
                                                       storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                                       state.exploredCount = exploredSet.size;
                                                       updateProgress(progressCounter, state.exploredCount, totalItems);
