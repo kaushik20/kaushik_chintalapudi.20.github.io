@@ -254,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              }
                                     }, 15000);
                            }
+                           
                   function openBadgeModal(card, messageOverride) {
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
