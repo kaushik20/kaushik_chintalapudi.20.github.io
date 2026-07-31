@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       const itemId = getItemId(target, itemIndex);
                                                       
                                                       target.classList.add("explored");
-                                                      exploredSet.add(id);
+                                                      exploredSet.add(itemId);
                                                       storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                                       state.exploredCount = exploredSet.size;
                                                       updateProgress(progressCounter, state.exploredCount, totalItems);
