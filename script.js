@@ -239,12 +239,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                                                });
                                                       }
                                              });
-                                             if (initializedSections.size === sectionsToGamify.length) {observer.disconnect();}
+                                             if (initializedSections.size === sectionsToGamify.length) {
+                                                      observer.disconnect();
+                                                      clearTimeout(observerTimeout);
+                                             }
                                     });
                                     const contentRoot = document.getElementById("main-content") || document.body;
                                     observer.observe(contentRoot, { childList: true, subtree: true });
+                                    const observerTimeout = setTimeout(() => {
+                                             if (initializedSections.size < sectionsToGamify.length) {
+                                                      const missing = sectionsToGamify.map(s => s.id).filter(id => !initializedSections.has(id));
+                                                      console.warn("Gamification: some sections never rendered, giving up:", missing);
+                                                      observer.disconnect();
+                                             }
+                                    }, 15000);
                            }
-                  };
                   function openBadgeModal(card, messageOverride) {
                            const modal = document.getElementById("badge-modal");
                            const modalImage = document.getElementById("modal-badge-image");
