@@ -560,18 +560,16 @@ document.addEventListener("DOMContentLoaded", () => {
                            try { fn(); } 
                            catch (error) { console.error(`${fn.name || "Unnamed init"} failed:`, error); }
                   };
-                           [
-                                    initializeGamifiedSections,
-                                    setupBadgeModal,
-                                    updateBadgeProgress,
-                                    setupSmoothScroll,
-                                    setupTooltips,
-                                    setupKeyboardActivation,
-                                    toggleDarkMode,
-                                    setupBackToTop,
-                                    highlightActiveSection,
-                                    setCurrentYear,
-                                    initializeResumeSection,
-                                    initializeConclusionSection
-                           ].forEach(safeInit);
+                           [initializeGamifiedSections,
+                           setupBadgeModal,
+                           updateBadgeProgress,
+                           setupSmoothScroll,
+                           setupTooltips,
+                           setupKeyboardActivation,
+                           toggleDarkMode,
+                           setupBackToTop,
+                           highlightActiveSection,
+                           setCurrentYear,
+                           initializeResumeSection,
+                           initializeConclusionSection].forEach(safeInit);
 });
