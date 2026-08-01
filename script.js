@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     });
                                     const contentRoot = document.getElementById("main-content") || document.body;
                                     observer.observe(contentRoot, { childList: true, subtree: true });
-                                    const observerTimeout = setTimeout(() => {
+                                    observerTimeout = setTimeout(() => {
                                              if (initializedSections.size < sectionsToGamify.length) {
                                                       const missing = sectionsToGamify.map(s => s.id).filter(id => !initializedSections.has(id));
                                                       console.warn("Gamification: some sections never rendered, giving up:", missing);
