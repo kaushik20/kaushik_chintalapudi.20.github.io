@@ -556,18 +556,22 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                   
                   // Initialize All Features
-                  initializeGamifiedSections();
-                  setupBadgeModal();
-                  updateBadgeProgress();
-                  setupSmoothScroll();
-                  setupTooltips();
-                  setupKeyboardActivation();
-                  toggleDarkMode();
-                  setupBackToTop();
-                  highlightActiveSection();
-                  setCurrentYear();
-                  initializeResumeSection();
-                  initializeConclusionSection();
-         } 
-         catch (error) {console.error("Initialization Error:", error);}
-});
+                  const safeInit = (fn) => {
+                           try { fn(); } 
+                           catch (error) { console.error(`${fn.name || "Unnamed init"} failed:`, error); }
+                  };
+                           [
+                                    initializeGamifiedSections,
+                                    setupBadgeModal,
+                                    updateBadgeProgress,
+                                    setupSmoothScroll,
+                                    setupTooltips,
+                                    setupKeyboardActivation,
+                                    toggleDarkMode,
+                                    setupBackToTop,
+                                    highlightActiveSection,
+                                    setCurrentYear,
+                                    initializeResumeSection,
+                                    initializeConclusionSection
+                           ].forEach(safeInit);
+                  });
