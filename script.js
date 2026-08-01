@@ -574,4 +574,4 @@ document.addEventListener("DOMContentLoaded", () => {
                                     initializeResumeSection,
                                     initializeConclusionSection
                            ].forEach(safeInit);
-                  });
+});
