@@ -575,4 +575,5 @@ document.addEventListener("DOMContentLoaded", () => {
                            setCurrentYear,
                            initializeResumeSection,
                            initializeConclusionSection].forEach(safeInit);
+         } catch (error) {console.error("Initialization Error:", error);}
 });
