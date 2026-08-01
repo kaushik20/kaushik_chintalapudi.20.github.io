@@ -158,59 +158,58 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const state = { exploredCount: exploredSet.size };
                                     
                                     // Create or select progress counter
-                                    let progressCounter = section.querySelector(".progress-counter");
-                                    if (!progressCounter) {
-                                             progressCounter = document.createElement("div");
-                                             progressCounter.className = "progress-counter";
-                                             progressCounter.style.cssText = `
-                                             text-align: center;
-                                             font-size: 1rem;
-                                             color: var(--button-bg);
-                                             font-weight: bold;
-                                             margin-bottom: 1rem;
-                                             `;
-                                             
-                                             const progressBarContainer = document.createElement("div");
-                                             progressBarContainer.className = "progress-bar-container";
-                                             progressBarContainer.style.cssText = `
-                                             margin: 0 auto;
-                                             width: 80%;
-                                             height: 15px;
-                                             background: var(--progress-bg);
-                                             border-radius: 10px;
-                                             position: relative;
-                                             overflow: hidden;
-                                             `;
-                                             const progressBarFill = document.createElement("div");
-                                             progressBarFill.className = "progress-fill";
-                                             progressBarFill.style.cssText = `
-                                             width: 0%;
-                                             height: 100%;
-                                             background: var(--progress-fill);
-                                             transition: width 0.5s ease;
-                                             `;
-                                             
-                                             progressBarContainer.appendChild(progressBarFill);
-                                             section.prepend(progressBarContainer);
-                                             section.prepend(progressCounter);
-                                             
-                                             const resetButton = document.createElement("button");
-                                             resetButton.textContent = "Reset Progress";
-                                             resetButton.className = "reset-button";
-                                             resetButton.style.cssText = `
-                                             display: block;
-                                             margin: 10px auto;
-                                             padding: 5px 10px;
-                                             font-size: 0.9rem;
-                                             background: var(--button-bg);
-                                             color: white;
-                                             border: none;
-                                             border-radius: 5px;
-                                             cursor: pointer;
-                                             `;
-                                             resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                                             section.appendChild(resetButton);
-                                    }
+                                    const progressCounter = document.createElement("div");
+                                    progressCounter.className = "progress-counter";
+                                    progressCounter.style.cssText = `
+                                    text-align: center;
+                                    font-size: 1rem;
+                                    color: var(--button-bg);
+                                    font-weight: bold;
+                                    margin-bottom: 1rem;
+                                    `;
+                                    
+                                    const progressBarContainer = document.createElement("div");
+                                    progressBarContainer.className = "progress-bar-container";
+                                    progressBarContainer.style.cssText = `
+                                    margin: 0 auto;
+                                    width: 80%;
+                                    height: 15px;
+                                    background: var(--progress-bg);
+                                    border-radius: 10px;
+                                    position: relative;
+                                    overflow: hidden;
+                                    `;
+                                    
+                                    const progressBarFill = document.createElement("div");
+                                    progressBarFill.className = "progress-fill";
+                                    progressBarFill.style.cssText = `
+                                    width: 0%;
+                                    height: 100%;
+                                    background: var(--progress-fill);
+                                    transition: width 0.5s ease;
+                                    `;
+                                    
+                                    progressBarContainer.appendChild(progressBarFill);
+                                    section.prepend(progressBarContainer);
+                                    section.prepend(progressCounter);
+                                    
+                                    const resetButton = document.createElement("button");
+                                    resetButton.textContent = "Reset Progress";
+                                    resetButton.className = "reset-button";
+                                    resetButton.style.cssText = `
+                                    display: block;
+                                    margin: 10px auto;
+                                    padding: 5px 10px;
+                                    font-size: 0.9rem;
+                                    background: var(--button-bg);
+                                    color: white;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    `;
+                                    resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
+                                    section.appendChild(resetButton);
+                                    
                                     // Load unlocked badges from localStorage
                                     const badgeContainer = document.getElementById(badgeId);
                                     if (badgeContainer && storage.get(badgeId) === "unlocked") {
