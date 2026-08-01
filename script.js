@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              }
                                     }, 15000);
                            }
-                           
+                  };        
                   // Badge Modal Handling
                   let badgeModalInitialized = false;
                   const setupBadgeModal = () => {
