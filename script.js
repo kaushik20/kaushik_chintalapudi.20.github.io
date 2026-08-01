@@ -230,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            // Observe dynamically added sections or items
                            if (initializedSections.size < sectionsToGamify.length) {
+                                    let observerTimeout;
                                     const observer = new MutationObserver((mutations) => {
                                              mutations.forEach((mutation) => {
                                                       if (mutation.type === "childList") {
@@ -427,7 +428,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
                            }
-                           const currentTheme = storage.get("theme") || "light";
+                           const savedTheme = storage.get("theme");
+                           const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                           const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
                            document.documentElement.setAttribute("data-theme", currentTheme);
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            toggleButton.addEventListener("click", () => {
