@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            // Observe dynamically added sections or items
                            if (initializedSections.size < sectionsToGamify.length) {
-                                    let observerTimeout;
+                                    let hasWarned = false;
                                     const observer = new MutationObserver((mutations) => {
                                              mutations.forEach((mutation) => {
                                                       if (mutation.type === "childList") {
@@ -261,20 +261,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                              });
                                              if (initializedSections.size === sectionsToGamify.length) {
                                                       observer.disconnect();
-                                                      clearTimeout(observerTimeout);
+                                                      clearTimeout(warnTimeout);
                                              }
                                     });
                                     const contentRoot = document.getElementById("main-content") || document.body;
                                     observer.observe(contentRoot, { childList: true, subtree: true });
-                                    observerTimeout = setTimeout(() => {
-                                             if (initializedSections.size < sectionsToGamify.length) {
+                                    const warnTimeout = setTimeout(() => {
+                                             if (!hasWarned && initializedSections.size < sectionsToGamify.length) {
+                                                      hasWarned = true;
                                                       const missing = sectionsToGamify.map(s => s.id).filter(id => !initializedSections.has(id));
-                                                      console.warn("Gamification: some sections never rendered, giving up:", missing);
-                                                      observer.disconnect();
+                                                      console.warn("Gamification: some sections still not rendered after 15s, still watching:", missing);
                                              }
                                     }, 15000);
-                           }
-                  };        
+                           }        
+                  };
+                  
                   // Badge Modal Handling
                   let badgeModalInitialized = false;
                   const setupBadgeModal = () => {
