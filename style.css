@@ -7,6 +7,7 @@
       --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --button-bg: #0078d7;
       --button-hover: #005bb5;
+      --border-color: rgba(255, 255, 255, 0.1);
       --progress-bg: #1e1e2f;
       --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --footer-bg-dark: #262e47;
@@ -23,6 +24,7 @@
       --text-color: #000000;
       --hero-bg-light: linear-gradient(135deg, #6b47dc, #4ac1ff);
       --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
+      --border-color: rgba(0, 0, 0, 0.1);
       --button-bg: #4ac1ff;
       --button-hover: #6b47dc;
       --progress-bg: #f0f0f0;
@@ -38,6 +40,7 @@
       --text-color: #ffeb3b;
       --button-bg: #ffeb3b;
       --button-hover: #ffc107;
+      --border-color: #ffeb3b;
 }
 
 #backToTop {
