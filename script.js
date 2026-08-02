@@ -350,10 +350,88 @@ document.addEventListener("DOMContentLoaded", () => {
                            badgeProgressFill.offsetHeight;
                            badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
                            badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
-                     };
-                     
-                     // Smooth Scroll for Navigation
-                     const setupSmoothScroll = () => {
+                  };
+
+                  // Progress Export/Import (mitigates localStorage's per-device fragility)
+                  const setupProgressPortability = () => {
+                           const collectProgressKeys = () => {
+                                    const keys = [...badgeSections];
+                                    sectionsToGamify.forEach(({ id }) => keys.push(`${id}-exploredItems`));
+                                    return keys;
+                           };
+                           
+                           const exportProgress = () => {
+                                    const data = {};
+                                    collectProgressKeys().forEach((key) => {
+                                             const value = storage.get(key);
+                                             if (value !== null) data[key] = value;
+                                    });
+                                    const code = btoa(encodeURIComponent(JSON.stringify(data)));
+                                    
+                                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                                             navigator.clipboard.writeText(code).then(() => showToast("Progress code copied! Paste it on another device to restore.")).catch(() => prompt("Copy this code to restore your progress elsewhere:", code));
+                                    } else {
+                                             prompt("Copy this code to restore your progress elsewhere:", code);
+                                    }
+                           };
+                           
+                           const importProgress = () => {
+                                    const code = prompt("Paste your progress code:");
+                                    if (!code) return;
+                                    try {
+                                             const data = JSON.parse(decodeURIComponent(atob(code.trim())));
+                                             const validKeys = new Set(collectProgressKeys());
+                                             let restoredCount = 0;
+                                             Object.entries(data).forEach(([key, value]) => {
+                                                      if (validKeys.has(key) && typeof value === "string") {
+                                                               storage.set(key, value);
+                                                               restoredCount++;
+                                                      }
+                                             });
+                                             if (restoredCount === 0) throw new Error("No valid progress keys found");
+                                             showToast("Progress restored! Reloading...");
+                                             setTimeout(() => location.reload(), 1000);
+                                    } catch (error) {
+                                             console.warn("Progress import failed:", error);
+                                             showToast("That code didn't look right — nothing was changed.");
+                                    }
+                           };
+                           
+                           const container = document.createElement("div");
+                           container.className = "progress-portability";
+                           container.style.cssText = `
+                           position: fixed;
+                           bottom: 20px;
+                           left: 20px;
+                           display: flex;
+                           gap: 8px;
+                           z-index: 999;
+                           `;
+                           
+                           const makeButton = (label, handler) => {
+                                    const btn = document.createElement("button");
+                                    btn.textContent = label;
+                                    btn.style.cssText = `
+                                    padding: 6px 12px;
+                                    font-size: 0.8rem;
+                                    background: var(--button-bg);
+                                    color: white;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    opacity: 0.85;
+                                    `;
+                                    btn.addEventListener("click", handler);
+                                    return btn;
+                           };
+                           
+                           container.appendChild(makeButton("Export Progress", exportProgress));
+                           container.appendChild(makeButton("Import Progress", importProgress));
+                           document.body.appendChild(container);
+                  };
+                  
+                  // Smooth Scroll for Navigation
+                  const setupSmoothScroll = () => {
                            document.querySelectorAll("header .nav-links a").forEach((link) => {
                                  link.addEventListener("click", (event) => {
                                        event.preventDefault();
