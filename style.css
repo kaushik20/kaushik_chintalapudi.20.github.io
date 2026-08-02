@@ -107,7 +107,7 @@ header.scrolled {
 
 header .logo {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       height: 100%;
       margin-left: 0;
 }
