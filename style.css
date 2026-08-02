@@ -206,7 +206,7 @@ header .dark-mode-btn:hover i {
 }
 
 [data-theme="light"] #hero {
-      background: var(--hero-bg-light);
+      background: var(--hero-bg-dark);
 }
 
 [data-theme="high-contrast"] #hero {
