@@ -94,7 +94,7 @@ header {
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      padding: 0 2rem;
+      padding: 0 2rem 0 0.5rem;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: background-color var(--animation-duration) ease, height var(--animation-duration) ease;
 }
@@ -109,7 +109,7 @@ header .logo {
       display: flex;
       align-items: start;
       height: 100%;
-      margin-left: -10px;
+      margin-left: 0;
 }
 
 header .logo a {
