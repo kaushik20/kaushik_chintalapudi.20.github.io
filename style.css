@@ -2,7 +2,7 @@
 :root {
       --bg-color: #1e1e2f;
       --text-color: #fff;
-      --hero-bg-light: #cce7ff; 
+      --hero-bg-light: linear-gradient(135deg, #4ac1ff, #6b47dc); 
       --hero-bg-dark: linear-gradient(135deg, #2b1f42, #1e1e2f);
       --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --button-bg: #0078d7;
