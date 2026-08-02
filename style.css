@@ -200,10 +200,18 @@ header .dark-mode-btn:hover i {
       justify-content: center;
       height: 100vh;
       position: relative;
-      background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+      background: var(--hero-bg-dark);
       background-size: 400% 400%;
       animation: gradientAnimation 10s ease infinite;
-} 
+}
+
+[data-theme="light"] #hero {
+      background: var(--hero-bg-light);
+}
+
+[data-theme="high-contrast"] #hero {
+      background: #000;
+}
 
 #hero::before {
       content: '';
