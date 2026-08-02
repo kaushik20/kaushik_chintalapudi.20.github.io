@@ -360,6 +360,94 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return keys;
                            };
                            
+                           // Build the shared modal once
+                           const modalOverlay = document.createElement("div");
+                           modalOverlay.id = "progress-modal-overlay";
+                           modalOverlay.style.cssText = `
+                           display: none;
+                           position: fixed;
+                           top: 0; left: 0; right: 0; bottom: 0;
+                           background: rgba(0, 0, 0, 0.5);
+                           z-index: 1100;
+                           align-items: center;
+                           justify-content: center;
+                           `;
+                           
+                           const modalBox = document.createElement("div");
+                           modalBox.style.cssText = `
+                           background: var(--bg-color);
+                           color: var(--text-color);
+                           padding: 24px;
+                           border-radius: 8px;
+                           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+                           max-width: 420px;
+                           width: 90%;
+                           `;
+                           
+                           const modalTitle = document.createElement("h3");
+                           modalTitle.style.cssText = "margin: 0 0 12px 0; font-size: 1.1rem;";
+                           
+                           const modalMessage = document.createElement("p");
+                           modalMessage.style.cssText = "margin: 0 0 12px 0; font-size: 0.9rem; opacity: 0.85;";
+                           
+                           const modalTextarea = document.createElement("textarea");
+                           modalTextarea.style.cssText = `
+                           width: 100%;
+                           min-height: 80px;
+                           padding: 8px;
+                           border-radius: 5px;
+                           border: 1px solid var(--progress-bg);
+                           background: var(--bg-color);
+                           color: var(--text-color);
+                           font-family: monospace;
+                           font-size: 0.8rem;
+                           resize: vertical;
+                           box-sizing: border-box;
+                           `;
+                           
+                           const modalButtonRow = document.createElement("div");
+                           modalButtonRow.style.cssText = "display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;";
+                           
+                           const makeModalButton = (label, primary) => {
+                                    const btn = document.createElement("button");
+                                    btn.textContent = label;
+                                    btn.style.cssText = `
+                                    padding: 8px 16px;
+                                    font-size: 0.85rem;
+                                    border-radius: 5px;
+                                    border: none;
+                                    cursor: pointer;
+                                    background: ${primary ? "var(--button-bg)" : "transparent"};
+                                    color: ${primary ? "white" : "var(--text-color)"};
+                                    border: ${primary ? "none" : "1px solid var(--progress-bg)"};
+                                    `;
+                                    return btn;
+                           };
+                           
+                           const closeBtn = makeModalButton("Cancel", false);
+                           const actionBtn = makeModalButton("Copy", true);
+                           
+                           modalButtonRow.append(closeBtn, actionBtn);
+                           modalBox.append(modalTitle, modalMessage, modalTextarea, modalButtonRow);
+                           modalOverlay.appendChild(modalBox);
+                           document.body.appendChild(modalOverlay);
+                           
+                           const closeModal = () => { modalOverlay.style.display = "none"; };
+                           closeBtn.addEventListener("click", closeModal);
+                           modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
+                           
+                           const openModal = ({ title, message, value, readOnly, actionLabel, onAction }) => {
+                                    modalTitle.textContent = title;
+                                    modalMessage.textContent = message;
+                                    modalTextarea.value = value || "";
+                                    modalTextarea.readOnly = readOnly;
+                                    actionBtn.textContent = actionLabel;
+                                    actionBtn.onclick = () => onAction(modalTextarea.value);
+                                    modalOverlay.style.display = "flex";
+                                    if (!readOnly) modalTextarea.focus();
+                                    else { modalTextarea.select(); }
+                           };
+                           
                            const exportProgress = () => {
                                     const data = {};
                                     collectProgressKeys().forEach((key) => {
@@ -368,33 +456,51 @@ document.addEventListener("DOMContentLoaded", () => {
                                     });
                                     const code = btoa(encodeURIComponent(JSON.stringify(data)));
                                     
-                                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                                             navigator.clipboard.writeText(code).then(() => showToast("Progress code copied! Paste it on another device to restore.")).catch(() => prompt("Copy this code to restore your progress elsewhere:", code));
-                                    } else {
-                                             prompt("Copy this code to restore your progress elsewhere:", code);
-                                    }
+                                    openModal({
+                                             title: "Your Progress Code", 
+                                             message: "Copy this code and paste it on another device or browser to restore your progress.", 
+                                             value: code, 
+                                             readOnly: true, 
+                                             actionLabel: "Copy to Clipboard", 
+                                             onAction: () => {
+                                                      if (navigator.clipboard && navigator.clipboard.writeText) {
+                                                               navigator.clipboard.writeText(code).then(() => showToast("Copied to clipboard!")).catch(() => showToast("Couldn't auto-copy — select the text and copy manually."));
+                                                      } else {
+                                                               showToast("Select the text and copy manually.");
+                                                      }
+                                             }
+                                    });
                            };
                            
                            const importProgress = () => {
-                                    const code = prompt("Paste your progress code:");
-                                    if (!code) return;
-                                    try {
-                                             const data = JSON.parse(decodeURIComponent(atob(code.trim())));
-                                             const validKeys = new Set(collectProgressKeys());
-                                             let restoredCount = 0;
-                                             Object.entries(data).forEach(([key, value]) => {
-                                                      if (validKeys.has(key) && typeof value === "string") {
-                                                               storage.set(key, value);
-                                                               restoredCount++;
+                                    openModal({
+                                             title: "Restore Progress", 
+                                             message: "Paste your progress code below.", 
+                                             value: "", 
+                                             readOnly: false, 
+                                             actionLabel: "Restore", 
+                                             onAction: (pastedCode) => {
+                                                      if (!pastedCode.trim()) return;
+                                                      try {
+                                                               const data = JSON.parse(decodeURIComponent(atob(pastedCode.trim())));
+                                                               const validKeys = new Set(collectProgressKeys());
+                                                               let restoredCount = 0;
+                                                               Object.entries(data).forEach(([key, value]) => {
+                                                                        if (validKeys.has(key) && typeof value === "string") {
+                                                                                 storage.set(key, value);
+                                                                                 restoredCount++;
+                                                                        }
+                                                               });
+                                                               if (restoredCount === 0) throw new Error("No valid progress keys found");
+                                                               closeModal();
+                                                               showToast("Progress restored! Reloading...");
+                                                               setTimeout(() => location.reload(), 1000);
+                                                      } catch (error) {
+                                                               console.warn("Progress import failed:", error);
+                                                               showToast("That code didn't look right — nothing was changed.");
                                                       }
-                                             });
-                                             if (restoredCount === 0) throw new Error("No valid progress keys found");
-                                             showToast("Progress restored! Reloading...");
-                                             setTimeout(() => location.reload(), 1000);
-                                    } catch (error) {
-                                             console.warn("Progress import failed:", error);
-                                             showToast("That code didn't look right — nothing was changed.");
-                                    }
+                                             }
+                                    });
                            };
                            
                            const container = document.createElement("div");
@@ -408,7 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            z-index: 999;
                            `;
                            
-                           const makeButton = (label, handler) => {
+                           const makeTriggerButton = (label, handler) => {
                                     const btn = document.createElement("button");
                                     btn.textContent = label;
                                     btn.style.cssText = `
@@ -425,8 +531,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return btn;
                            };
                            
-                           container.appendChild(makeButton("Export Progress", exportProgress));
-                           container.appendChild(makeButton("Import Progress", importProgress));
+                           container.appendChild(makeTriggerButton("Export Progress", exportProgress));
+                           container.appendChild(makeTriggerButton("Import Progress", importProgress));
                            document.body.appendChild(container);
                   };
                   
