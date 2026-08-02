@@ -1288,33 +1288,6 @@ footer {
       to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes badgeUnlock {
-      from {
-            opacity: 0;
-            transform: scale(0.5);
-      }
-      to {
-            opacity: 1;
-            transform: scale(1);
-      }
-}
-
-@keyframes badgeAppear {
-      from {
-            opacity: 0;
-            transform: scale(0.5);
-      }
-         to {
-            opacity: 1;
-            transform: scale(1);
-         }
-      }
-
-@keyframes bounce {
-      0%, 100% {transform: translateY(0);}
-      50% {transform: translateY(-10px);}
-}
-
 @keyframes gradientAnimation {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
