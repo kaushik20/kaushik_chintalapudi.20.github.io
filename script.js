@@ -680,6 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            highlightActiveSection,
                            setCurrentYear,
                            initializeResumeSection,
-                           initializeConclusionSection].forEach(safeInit);
+                           initializeConclusionSection,
+                           setupProgressPortability].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
