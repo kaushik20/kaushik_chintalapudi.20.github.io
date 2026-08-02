@@ -1201,12 +1201,6 @@ footer {
       text-align: left;
 }
 
-.opportunity-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #4dabf7;
-}
-
 .opportunity-items {
       display: flex;
       flex-direction: column;
