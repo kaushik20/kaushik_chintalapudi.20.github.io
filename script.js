@@ -316,8 +316,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                   // Keyboard Accessibility for role="button" elements
                   const setupKeyboardActivation = () => {
+                           const isTextEntry = (el) => {
+                                    if (!el) return false;
+                                    const tag = el.tagName;
+                                    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable;
+                           };
+                           
                            document.addEventListener("keydown", (event) => {
                                     if (event.key !== "Enter" && event.key !== " ") return;
+                                    if (isTextEntry(event.target)) return;
                                     const target = event.target.closest('[role="button"]');
                                     if (!target) return;
                                     event.preventDefault();
