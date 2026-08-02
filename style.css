@@ -91,7 +91,6 @@ header {
       height: 70px;
       background-color: var(--header-bg);
       display: flex;
-      justify-content: space-between;
       align-items: center;
       z-index: 1000;
       padding: 0 2rem 0 0.5rem;
@@ -133,7 +132,7 @@ header .nav-links {
       display: flex;
       gap: 20px;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       flex: 1;
 }
 
@@ -144,6 +143,7 @@ header .nav-links .nav-item {
       font-weight: 500;
       padding: 0.5rem 0.5rem;
       border-radius: 5px;
+      white-space: nowrap;
       transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
 }
 
@@ -170,8 +170,8 @@ header .dark-mode-btn {
       cursor: pointer;
       font-size: 0.9rem;
       font-weight: 500;
+      margin-left: auto;
       transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
-      margin-left: 1rem;
 }
 
 header .dark-mode-btn i {
