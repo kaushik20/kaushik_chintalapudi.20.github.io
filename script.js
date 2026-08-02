@@ -379,20 +379,41 @@ document.addEventListener("DOMContentLoaded", () => {
                                        document.body.appendChild(popover);
                               }
                               window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
+                              
+                              const positionPopover = (x, y) => {
+                                       popover.style.display = "block";
+                                       const pw = popover.offsetWidth || 160;
+                                       const ph = popover.offsetHeight || 40;
+                                       const left = Math.max(0, Math.min(x + 10, window.scrollX + window.innerWidth - pw - 10));
+                                       const top  = Math.max(0, Math.min(y + 10, window.scrollY + window.innerHeight - ph - 10));
+                                       popover.style.left = `${left}px`;
+                                       popover.style.top  = `${top}px`;
+                              };
+                              
+                              // Hide popover on any tap outside a keyword or the popover itself
+                              document.addEventListener("touchstart", (e) => {
+                                       if (!e.target.closest(".keyword") && !e.target.closest("#global-popover")) {popover.style.display = "none";}}, { passive: true });
+                              
                               keywords.forEach((keyword) => {
                                        if (initializedElements.has(keyword)) return;
                                        initializedElements.add(keyword);
                                        keyword.addEventListener("mouseenter", (e) => {
                                                 popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
-                                                popover.style.display = "block";
-                                                const pw = popover.offsetWidth || 160;
-                                                const ph = popover.offsetHeight || 40;
-                                                const left = Math.max(0, Math.min(e.pageX + 10, window.scrollX + window.innerWidth - pw - 10));
-                                                const top  = Math.max(0, Math.min(e.pageY + 10, window.scrollY + window.innerHeight - ph - 10));
-                                                popover.style.left = `${left}px`;
-                                                popover.style.top  = `${top}px`;
+                                                positionPopover(e.pageX, e.pageY);
                                        });
                                        keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
+                                       
+                                       // Touch: tap shows/toggles the tooltip near the tap point
+                                       keyword.addEventListener("touchstart", (e) => {
+                                                const isOpen = popover.style.display === "block" && popover.textContent === (keyword.dataset.tooltip || `More about ${keyword.textContent}`);
+                                                if (isOpen) {
+                                                         popover.style.display = "none";
+                                                         return;
+                                                }
+                                                const touch = e.touches[0];
+                                                popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                                                positionPopover(touch.pageX, touch.pageY);
+                                       }, { passive: true });
                                        
                                        // Handle data-action attributes
                                        keyword.addEventListener("click", () => {
