@@ -1195,12 +1195,6 @@ footer {
       transform: scale(1.05); 
 }
 
-.opportunity-section {
-      flex: 1 1 300px;
-      max-width: 320px;
-      text-align: left;
-}
-
 .opportunity-items {
       display: flex;
       flex-direction: column;
@@ -1267,9 +1261,10 @@ footer {
 }
 
 .contact-section, .opportunity-section {
-      flex: 1;
-      min-width: 300px;
+      flex: 1 1 300px;
+      min-width: 320px;
       max-width: 350px;
+      text-align: left;
 }
       
 /* Animations */
