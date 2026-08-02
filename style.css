@@ -425,7 +425,7 @@ header .dark-mode-btn:hover i {
 .hs-main-row .hs-group {
   flex: 1;
   background: var(--card-bg, rgba(255, 255, 255, 0.04));
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
 }
@@ -433,7 +433,7 @@ header .dark-mode-btn:hover i {
 .hs-main-row .hs-divider {
   align-self: stretch;
   width: 1px;
-  background: var(--border-color, rgba(255, 255, 255, 0.1));
+  background: var(--border-color);
 }
 
 /* Experience Section */
