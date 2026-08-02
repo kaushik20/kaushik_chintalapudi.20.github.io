@@ -1429,9 +1429,14 @@ footer {
             text-align: center;
       }
 
-      .contact-section, .qr-code-section {
+      .contact-item, .opportunity-item {
+            justify-content: center;
+      }
+
+      .contact-section, .qr-code-section, .opportunity-section {
             width: 100%;
             margin-bottom: 1rem;
+            text-align: center;
       }
 
       .qr-code-section img {
@@ -1473,23 +1478,5 @@ footer {
       .hs-main-row .hs-divider {
             width: 100%;
             height: 1px;
-      }
-}
-
-@media (max-width: 768px) {
-      .footer-container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-      }
-
-      .contact-item,
-      .opportunity-item {
-            justify-content: center;
-      }
-
-      .contact-section,
-      .opportunity-section {
-            text-align: center;
       }
 }
