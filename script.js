@@ -415,7 +415,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     padding: 8px 16px;
                                     font-size: 0.85rem;
                                     border-radius: 5px;
-                                    border: none;
                                     cursor: pointer;
                                     background: ${primary ? "var(--button-bg)" : "transparent"};
                                     color: ${primary ? "white" : "var(--text-color)"};
