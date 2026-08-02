@@ -1450,25 +1450,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-      header .nav-links {
-            flex-direction: column;
-            gap: 10px;
-      }
-
-      .timeline-container {flex-direction: column;}
-
-      .timeline-container::before {height: 0;}
-
-      .timeline-item {
-            align-items: flex-start;
-            max-width: none;
-            margin-bottom: 2rem;
-      }
-
-      .timeline-content {text-align: left;}
-}
-
-@media (max-width: 768px) {
       .badge-gallery {grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));}
          
       .badge-card {max-width: 150px;}
