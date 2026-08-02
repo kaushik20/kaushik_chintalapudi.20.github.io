@@ -557,7 +557,7 @@ header .dark-mode-btn:hover i {
       padding: 3rem 1rem;
       color: var(--text-color);
       position: relative;
-      background: url('Images/DALL·E AI Visual.webp') center/cover no-repeat; 
+      background: url('Images/dall_e_AI_Visual.webp') center/cover no-repeat; 
       background-attachment: fixed; 
       z-index: 1;
 }
