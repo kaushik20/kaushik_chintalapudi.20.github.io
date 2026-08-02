@@ -200,7 +200,7 @@ header .dark-mode-btn:hover i {
       justify-content: center;
       height: 100vh;
       position: relative;
-      background: var(--hero-bg-dark);
+      background: var(--hero-bg-light);
       background-size: 400% 400%;
       animation: gradientAnimation 10s ease infinite;
 }
