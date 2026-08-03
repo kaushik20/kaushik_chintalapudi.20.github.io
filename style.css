@@ -2,8 +2,7 @@
 :root {
       --bg-color: #1e1e2f;
       --text-color: #fff;
-      --hero-bg-light: linear-gradient(135deg, #4ac1ff, #6b47dc); 
-      --hero-bg-dark: linear-gradient(135deg, #2b1f42, #1e1e2f);
+      --hero-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --button-bg: #0078d7;
       --button-hover: #005bb5;
@@ -22,7 +21,6 @@
 [data-theme="light"] {
       --bg-color: #ffffff;
       --text-color: #000000;
-      --hero-bg-light: linear-gradient(135deg, #6b47dc, #4ac1ff);
       --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
       --border-color: rgba(0, 0, 0, 0.1);
       --button-bg: #4ac1ff;
@@ -200,17 +198,9 @@ header .dark-mode-btn:hover i {
       justify-content: center;
       height: 100vh;
       position: relative;
-      background: var(--hero-bg-light);
+      background: var(--hero-bg);
       background-size: 400% 400%;
       animation: gradientAnimation 10s ease infinite;
-}
-
-[data-theme="light"] #hero {
-      background: var(--hero-bg-dark);
-}
-
-[data-theme="high-contrast"] #hero {
-      background: #000;
 }
 
 #hero::before {
