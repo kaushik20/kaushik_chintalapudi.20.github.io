@@ -787,10 +787,18 @@ header .dark-mode-btn:hover i {
 }
 
 .milestone:nth-child(odd) {
-      transform: translateX(-20%) scale(1.05);
+      transform: translateX(-20%);
 }
 
 .milestone:nth-child(even) {
+      transform: translateX(20%);
+}
+
+.milestone:nth-child(odd):hover {
+      transform: translateX(-20%) scale(1.05);
+}
+
+.milestone:nth-child(even):hover {
       transform: translateX(20%) scale(1.05);
 }
 
