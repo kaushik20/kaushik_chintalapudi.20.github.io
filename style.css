@@ -39,6 +39,14 @@
       --button-bg: #ffeb3b;
       --button-hover: #ffc107;
       --border-color: #ffeb3b;
+      --card-bg: #000;
+      --hero-bg: #000;
+      --progress-fill: #ffeb3b;
+      --progress-bg: #000;
+      --header-bg: #000;
+      --header-scrolled-bg: #000;
+      --footer-bg-dark: #000;
+      --footer-text-dark: #ffeb3b;
 }
 
 #backToTop {
