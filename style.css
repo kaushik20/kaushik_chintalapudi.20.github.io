@@ -28,8 +28,8 @@
       --progress-fill: linear-gradient(135deg, #0078d7, #4ac1ff);
       --header-bg: #ffffff;
       --header-scrolled-bg: #ffffff;
-      --footer-bg-dark: #eaf4fc;
-      --footer-text-dark: #262e47;
+      --footer-bg: #eaf4fc;
+      --footer-text: #262e47;
 }
 
 [data-theme="high-contrast"] {
@@ -44,8 +44,8 @@
       --progress-bg: #000;
       --header-bg: #000;
       --header-scrolled-bg: #000;
-      --footer-bg-dark: #000;
-      --footer-text-dark: #ffeb3b;
+      --footer-bg: #000;
+      --footer-text: #ffeb3b;
 }
 
 #backToTop {
@@ -1062,8 +1062,8 @@ header .dark-mode-btn:hover i {
       
 /* Footer Section */
 footer {
-      background-color: var(--footer-bg-dark);
-      color: var(--footer-text-dark);
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
       text-align: center;
       padding: 1.5rem 1rem;
 }
