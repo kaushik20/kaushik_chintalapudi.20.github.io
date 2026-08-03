@@ -9,9 +9,8 @@
       --border-color: rgba(255, 255, 255, 0.1);
       --progress-bg: #1e1e2f;
       --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
-      --footer-bg-dark: #262e47;
-      --footer-text-dark: #ffffff;
-      --footer-text-light: #000000;
+      --footer-bg: #262e47;
+      --footer-text: #ffffff;
       --header-bg: rgba(30, 30, 47, 0.9);
       --header-scrolled-bg: rgba(30, 30, 47, 0.95);
       --animation-duration: 0.3s;
