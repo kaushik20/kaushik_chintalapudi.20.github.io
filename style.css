@@ -236,6 +236,10 @@ header .dark-mode-btn:hover i {
       left: 50%;
       transform: translateX(-50%);
 }
+
+[data-theme="high-contrast"] #hero::before, [data-theme="high-contrast"] #hero::after {
+      opacity: 0;
+}
       
 #hero h1 {
       font-size: 2.5rem;
