@@ -15,7 +15,6 @@
       --header-bg: rgba(30, 30, 47, 0.9);
       --header-scrolled-bg: rgba(30, 30, 47, 0.95);
       --animation-duration: 0.3s;
-      --animation-delay: 0.1s;
 }
 
 [data-theme="light"] {
