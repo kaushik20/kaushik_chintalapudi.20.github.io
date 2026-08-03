@@ -173,7 +173,7 @@ header .dark-mode-btn {
       gap: 0.5rem;
       background-color: var(--button-bg);
       color: var(--text-color);
-      border: 1px solid #000;
+      border: 1px solid var(--border-color);
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
