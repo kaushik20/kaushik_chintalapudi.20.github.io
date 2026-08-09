@@ -1328,41 +1328,43 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+      .project-card {flex: 1 1 calc(50% - 2rem); }
+}
+
+@keyframes fillProgress {
+      from {width: 0%;}
+      to {width: var(--progress-width, 0%);}
+}
+
+@keyframes avatarBounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+}
+
+@media (prefers-reduced-motion: reduce) {
+      .resume-viewer {transition: none;}
+}
+
 @media (max-width: 768px) {
       header .nav-links {
             flex-direction: column;
             gap: 10px;
       }
-      
-      .project-grid {
-            grid-template-columns: 1fr;
-      }
-}
 
-@media (max-width: 768px) {
+      .project-grid {grid-template-columns: 1fr;}
+
       .hobbies_skills-container {
             flex-direction: column;
             align-items: center;
       }
-         
-      .hobbies_skills-item {
-            width: 80%;
-      }
 
-      .hs-items-grid {
-            grid-template-columns: 1fr;
-      }
-}
-      
-@media (max-width: 1024px) {
-      .project-card {flex: 1 1 calc(50% - 2rem); }
-}
+      .hobbies_skills-item {width: 80%;}
 
-@media (max-width: 768px) {
+      .hs-items-grid {grid-template-columns: 1fr;}
+
       .project-card {flex: 1 1 calc(100% - 2rem); }
-}
 
-@media (max-width: 768px) {
       .section h2 {font-size: 2rem;}
 
       .achievements-leaderboard-item {padding: 1rem;}
@@ -1373,20 +1375,11 @@ footer {
       }
 
       .achievements-leaderboard-item span {font-size: 1rem;}
-}
 
-@keyframes fillProgress {
-      from {width: 0%;}
-      to {width: var(--progress-width, 0%);}
-}
-
-@media (max-width: 768px) {
       .progress-bar-container {height: 12px;}
 
       .progress-bar-label {font-size: 0.75rem;}
-}
 
-@media (max-width: 768px) {
       .timeline-container {flex-direction: column;}
 
       .timeline-container::before {height: 0;}
@@ -1398,39 +1391,28 @@ footer {
       }
 
       .timeline-content {text-align: left;}
-}
 
-@media (max-width: 768px) {
       #hero {
             flex-direction: column;
             text-align: center;
       }
 
       .hero-avatar {margin: 0 auto 1.5rem;}
-      
+
       .hero-content {
             max-width: 100%;
             text-align: center;
       }
 
       .cta-buttons {justify-content: center;}
-}
 
-@keyframes avatarBounce {
-      0%, 100% {transform: translateY(0);}
-      50% {transform: translateY(-10px);}
-}
-
-@media (max-width: 768px) {
       .footer-container {
             flex-direction: column;
             align-items: center;
             text-align: center;
       }
 
-      .contact-item, .opportunity-item {
-            justify-content: center;
-      }
+      .contact-item, .opportunity-item {justify-content: center;}
 
       .contact-section, .qr-code-section, .opportunity-section {
             width: 100%;
@@ -1442,39 +1424,31 @@ footer {
             width: 100px;
             height: 100px;
       }
-}
 
-@media (max-width: 768px) {
       .milestone {
             transform: translateX(0);
             width: 90%;
       }
 
       .roadmap::before {left: 20px;}
-}
 
-@media (max-width: 768px) {
       .badge-gallery {grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));}
-         
-      .badge-card {max-width: 150px;}
-         
-      .badge-card img {height: 120px;}
-}
-      
-@media (max-width: 768px) {
-      .resume-viewer {padding: 1rem;}
-         
-      .resume-viewer iframe {max-height: 400px;}
-}
-      
-@media (prefers-reduced-motion: reduce) {
-      .resume-viewer {transition: none;}
-} 
 
-@media (max-width: 768px) {
-      .hs-main-row {flex-direction: column;}
+      .badge-card {max-width: 150px;}
+
+      .badge-card img {height: 120px;}
+
+      .resume-viewer {padding: 1rem;}
+
+      .resume-viewer iframe {max-height: 400px;}
+
+      .hs-main-row {
+            flex-direction: column; 
+            width: 100%;
+            height: 1px;
+      }
       
-      .hs-main-row .hs-divider {
+      .hs-divider {
             width: 100%;
             height: 1px;
       }
