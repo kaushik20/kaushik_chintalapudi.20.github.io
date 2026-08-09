@@ -673,7 +673,8 @@ header .dark-mode-btn:hover i {
 .section .section-subtitle {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #d1d1d1;
+      color: var(--text-color);
+      opacity: 0.8;
 }
 
 .section h2 {
