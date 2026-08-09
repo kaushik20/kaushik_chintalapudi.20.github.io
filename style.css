@@ -1334,6 +1334,10 @@ footer {
       .hobbies_skills-item {
             width: 80%;
       }
+
+      .hs-items-grid {
+            grid-template-columns: 1fr;
+      }
 }
       
 @media (max-width: 1024px) {
