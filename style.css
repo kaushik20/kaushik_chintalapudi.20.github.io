@@ -273,16 +273,33 @@ header .dark-mode-btn:hover i {
       transform: scale(1.05);
 }
 
+.hero-avatar {
+      flex: 0 0 380px;
+      width: 380px;
+      max-width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+}
+
 .talking-avatar {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
+      position: relative;
+      display: inline-block;
+      width: 380px;
+      max-width: 100%;
+      cursor: pointer;
+      outline: none;
 }
 
 .talking-avatar img {
-    cursor: pointer;
-    transition: transform 0.25s ease, filter 0.25s ease;
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .talking-avatar:hover img {
