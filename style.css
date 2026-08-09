@@ -279,6 +279,7 @@ header .dark-mode-btn:hover i {
 }
 
 .animated-avatar:hover {
+      animation-play-state: paused;
       transform: scale(1.1) rotate(10deg);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
