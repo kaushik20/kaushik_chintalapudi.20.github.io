@@ -667,7 +667,7 @@ header .dark-mode-btn:hover i {
       padding: 3rem 1.5rem;
       background-color: var(--bg-color); 
       text-align: center;
-      color: #ffffff;
+      color: var(--text-color);
 }
 
 .section .section-subtitle {
