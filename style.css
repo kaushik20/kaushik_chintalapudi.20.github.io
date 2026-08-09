@@ -273,17 +273,6 @@ header .dark-mode-btn:hover i {
       transform: scale(1.05);
 }
 
-.animated-avatar {
-      animation: avatarBounce 2s infinite ease-in-out;
-      transition: transform 0.3s ease;
-}
-
-.animated-avatar:hover {
-      animation-play-state: paused;
-      transform: scale(1.1) rotate(10deg);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
 .talking-avatar {
     position: relative;
     display: inline-block;
