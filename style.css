@@ -736,8 +736,8 @@ header .dark-mode-btn:hover i {
 /* Certification Section */
 .roadmap-section {
       padding: 3rem 1.5rem;
-      background: #0f172a; 
-      color: #ffffff;
+      background: var(--bg-color); 
+      color: var(--text-color);
       text-align: center;
 }
 
@@ -1076,15 +1076,15 @@ footer {
 }
 
 #footer-contact {
-      background: rgba(0, 0, 0, 0.8);
-      color: #ffffff;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       padding: 2rem 1rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
       gap: 2rem;
-      border-top: 2px solid #4dabf7;
+      border-top: 2px solid var(--button-bg);
 }
 
 .footer-container {
@@ -1184,15 +1184,15 @@ footer {
 }
 
 .footer-bar {
-      background-color: #121212; 
-      color: #ffffff; 
+      background-color: var(--footer-bg); 
+      color:  var(--footer-text); 
       width: 100%; 
       display: flex; 
       justify-content: center; 
       align-items: center; 
       padding: 1rem 0; 
       font-size: 0.9rem; 
-      border-top: 2px solid #4dabf7; 
+      border-top: 2px solid var(--button-bg); 
       text-align: center;
 }
 
