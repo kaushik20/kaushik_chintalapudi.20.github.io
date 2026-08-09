@@ -284,6 +284,91 @@ header .dark-mode-btn:hover i {
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
+.talking-avatar {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+
+.talking-avatar img {
+    cursor: pointer;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.talking-avatar:hover img {
+      transform: scale(1.03);
+}
+
+.talking-avatar.speaking img {
+    animation: avatarSpeaking 0.7s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
+}
+
+.avatar-speech {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 25px);
+    transform: translateX(-50%) translateY(10px);
+    width: min(420px, 80vw);
+    padding: 18px 22px;
+    background: var(--card-bg, #ffffff);
+    color: var(--text-color, #111111);
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 9999;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+    pointer-events: none;
+}
+
+.avatar-speech::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--card-bg, #ffffff);
+    border-right: 1px solid rgba(128, 128, 128, 0.25);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.talking-avatar.talking .avatar-speech {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.avatar-talk-hint {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    opacity: 0.75;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.talking-avatar:hover .avatar-talk-hint {
+    opacity: 1;
+}
+
+#avatar-speech-text::after {
+    content: "|";
+    animation: typingCursor 0.7s infinite;
+    margin-left: 2px;
+}
+
 /* About Section */
 #about {
       display: flex;
@@ -1327,9 +1412,32 @@ footer {
       100% {background-position: 0% 50%;}
 }
 
+@keyframes avatarSpeaking {
+    from {transform: scale(1);}
+
+    to {transform: scale(1.035);}
+}
+
+@keyframes typingCursor {
+    0%, 50% {opacity: 1;}
+
+    51%, 100% {opacity: 0;}
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
       .project-card {flex: 1 1 calc(50% - 2rem); }
+}
+
+@media (max-width: 600px) {
+
+    .avatar-speech {
+        width: min(320px, 82vw);
+        font-size: 0.9rem;
+        padding: 15px 18px;
+    }
+
+    .avatar-talk-hint {font-size: 0.75rem;}
 }
 
 @keyframes fillProgress {
