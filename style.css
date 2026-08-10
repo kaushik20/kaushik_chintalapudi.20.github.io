@@ -1510,7 +1510,12 @@ footer {
             text-align: center;
       }
 
-      .hero-avatar {margin: 0 auto 1.5rem;}
+      .hero-avatar {
+            margin: 0 auto 1.5rem;
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 280px;
+      }
 
       .hero-content {
             max-width: 100%;
@@ -1538,7 +1543,7 @@ footer {
             height: 100px;
       }
 
-      .milestone {
+      .milestone, .milestone:nth-child(odd), .milestone:nth-child(even) {
             transform: translateX(0);
             width: 90%;
       }
