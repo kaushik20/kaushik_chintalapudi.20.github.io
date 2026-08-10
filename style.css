@@ -296,8 +296,9 @@ header .dark-mode-btn:hover i {
       display: block;
       width: 100%;
       max-width: 380px;
-      height: auto;
-      object-fit: contain;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: cover;
       cursor: pointer;
       transition: transform 0.25s ease, filter 0.25s ease;
 }
@@ -611,7 +612,7 @@ header .dark-mode-btn:hover i {
       max-width: 300px;
       text-align: center;
       white-space: normal;
-      transition: transform var(--animation-duration), box-shadow var(--animation-duration)
+      transition: transform var(--animation-duration), box-shadow var(--animation-duration);
 }
 
 .timeline-content:hover {
