@@ -375,6 +375,11 @@ header .dark-mode-btn:hover i {
     margin-left: 2px;
 }
 
+.hero-content {
+      max-width: 600px;
+      text-align: left;
+}
+
 /* About Section */
 #about {
       display: flex;
