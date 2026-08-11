@@ -332,12 +332,39 @@ document.addEventListener("DOMContentLoaded", () => {
                                     target.click();
                            });
                   };
+
+                  const ensureBadgeProgressUI = () => {
+                           if (document.getElementById("badge-progress-text")) return; 
+                           const dashboard = document.getElementById("dashboard");
+                           const gallery = dashboard?.querySelector(".badge-gallery");
+                           if (!dashboard || !gallery) return;
+                           
+                           const container = document.createElement("div");
+                           container.className = "badge-progress-container";
+                           
+                           const text = document.createElement("p");
+                           text.id = "badge-progress-text";
+                           
+                           const bar = document.createElement("div");
+                           bar.className = "progress-bar";
+                           
+                           const fill = document.createElement("div");
+                           fill.className = "progress-fill";
+                           fill.id = "badge-progress-fill";
+                           
+                           bar.appendChild(fill);
+                           container.append(text, bar);
+                           
+                           gallery.parentNode.insertBefore(container, gallery);
+                  };
                   
                   // Update Badge Progress in Dashboard
                   const updateBadgeProgress = () => {
+                           ensureBadgeProgressUI();
+                           
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
-                           if (!badgeProgressText || !badgeProgressFill) { 
+                           if (!badgeProgressText || !badgeProgressFill) {
                                     console.warn("Badge progress: elements not found.");
                                     return;
                            }
