@@ -796,32 +796,29 @@ document.addEventListener("DOMContentLoaded", () => {
                   
                   };
 
-                  const initializeDashboardSection = () => {
-                           const section = document.getElementById("dashboard");
-                           const badgeContainer = document.getElementById("badge-container-dashboard");
+                  // Initialize Dashboard Section
+                  const ensureBadgeProgressUI = () => {
+                           if (document.getElementById("badge-progress-text")) return;
+                           const dashboard = document.getElementById("dashboard");
+                           if (!dashboard) return;
                            
-                           if (!section || !badgeContainer) {
-                                    console.warn("Dashboard section: section or badge container not found.");
-                                    return;
-                           }
+                           const container = document.createElement("div");
+                           container.className = "badge-progress-container";
                            
-                           // Restore unlocked state on page reload
-                           if (storage.get(badgeContainer.id) === "unlocked") {
-                                    badgeContainer.classList.add("unlocked");
-                                    badgeContainer.style.display = "block";
-                                    const img = badgeContainer.querySelector("img");
-                                    if (img) img.style.display = "block";
-                           }
+                           const text = document.createElement("p");
+                           text.id = "badge-progress-text";
                            
-                           const observer = new IntersectionObserver((entries) => {
-                                    entries.forEach(entry => {
-                                             if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
-                                                      unlockBadge(badgeContainer);
-                                                      observer.disconnect();
-                                             }
-                                    });
-                           }, { threshold: 0.5 });
-                           observer.observe(section);
+                           const bar = document.createElement("div");
+                           bar.className = "progress-bar";
+                           
+                           const fill = document.createElement("div");
+                           fill.className = "progress-fill";
+                           fill.id = "badge-progress-fill";
+                           
+                           bar.appendChild(fill);
+                           container.append(text, bar);
+                           
+                           dashboard.prepend(container);
                   };
                   
                   // Initialize All Features
