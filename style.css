@@ -1143,7 +1143,8 @@ header .dark-mode-btn:hover i {
 .badge-progress-container .progress-bar {
       width: 100%;
       height: 15px;
-      background: var(--progress-bg);
+      background: rgba(128, 128, 128, 0.15);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       overflow: hidden;
       position: relative;
