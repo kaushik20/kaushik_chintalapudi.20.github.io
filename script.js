@@ -334,10 +334,9 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
 
                   const ensureBadgeProgressUI = () => {
-                           if (document.getElementById("badge-progress-text")) return; 
+                           if (document.getElementById("badge-progress-text")) return;
                            const dashboard = document.getElementById("dashboard");
-                           const gallery = dashboard?.querySelector(".badge-gallery");
-                           if (!dashboard || !gallery) return;
+                           if (!dashboard) return;
                            
                            const container = document.createElement("div");
                            container.className = "badge-progress-container";
@@ -355,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            bar.appendChild(fill);
                            container.append(text, bar);
                            
-                           gallery.parentNode.insertBefore(container, gallery);
+                           dashboard.prepend(container);
                   };
                   
                   // Update Badge Progress in Dashboard
@@ -794,31 +793,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            }, { threshold: 0.5 });
                            observer.observe(section);
                   
-                  };
-
-                  // Initialize Dashboard Section
-                  const ensureBadgeProgressUI = () => {
-                           if (document.getElementById("badge-progress-text")) return;
-                           const dashboard = document.getElementById("dashboard");
-                           if (!dashboard) return;
-                           
-                           const container = document.createElement("div");
-                           container.className = "badge-progress-container";
-                           
-                           const text = document.createElement("p");
-                           text.id = "badge-progress-text";
-                           
-                           const bar = document.createElement("div");
-                           bar.className = "progress-bar";
-                           
-                           const fill = document.createElement("div");
-                           fill.className = "progress-fill";
-                           fill.id = "badge-progress-fill";
-                           
-                           bar.appendChild(fill);
-                           container.append(text, bar);
-                           
-                           dashboard.prepend(container);
                   };
 
                   // Initialize Dashboard Section
