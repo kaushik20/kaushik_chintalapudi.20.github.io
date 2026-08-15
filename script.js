@@ -173,7 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     margin: 0 auto;
                                     width: 80%;
                                     height: 15px;
-                                    background: var(--progress-bg);
+                                    background: rgba(128, 128, 128, 0.15);
+                                    border: 1px solid var(--border-color);
                                     border-radius: 10px;
                                     position: relative;
                                     overflow: hidden;
