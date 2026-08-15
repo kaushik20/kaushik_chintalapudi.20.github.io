@@ -820,6 +820,35 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            dashboard.prepend(container);
                   };
+
+                  // Initialize Dashboard Section
+                  const initializeDashboardSection = () => {
+                           const section = document.getElementById("dashboard");
+                           const badgeContainer = document.getElementById("badge-container-dashboard");
+                           
+                           if (!section || !badgeContainer) {
+                                    console.warn("Dashboard section: section or badge container not found.");
+                                    return;
+                           }
+                           
+                           // Restore unlocked state on page reload
+                           if (storage.get(badgeContainer.id) === "unlocked") {
+                                    badgeContainer.classList.add("unlocked");
+                                    badgeContainer.style.display = "block";
+                                    const img = badgeContainer.querySelector("img");
+                                    if (img) img.style.display = "block";
+                           }
+                           
+                           const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                             if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
+                                                      unlockBadge(badgeContainer);
+                                                      observer.disconnect();
+                                             }
+                                    });
+                           }, { threshold: 0.5 });
+                           observer.observe(section);
+                  };
                   
                   // Initialize All Features
                   const safeInit = (fn) => {
