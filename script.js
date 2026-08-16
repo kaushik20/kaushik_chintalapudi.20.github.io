@@ -823,6 +823,57 @@ document.addEventListener("DOMContentLoaded", () => {
                            }, { threshold: 0.5 });
                            observer.observe(section);
                   };
+
+                  // Talking Avatar Introduction
+                  const setupTalkingAvatar = () => {
+                           const avatar = document.getElementById("talking-avatar");
+                           const speechText = document.getElementById("avatar-speech-text");
+                           if (!avatar || !speechText) {
+                                    console.warn("Talking avatar: elements not found.");
+                                    return;
+                           }
+                           
+                           const introLines = [
+                                    "Hey, I'm Kaushik 👋",
+                                    "I work across Azure Cloud, Oracle Fusion Financials, and applied AI.",
+                                    "Scroll down to check out my projects, certifications, and journey so far!"
+                           ];
+                           
+                           let isSpeaking = false;
+                           let typingTimeout = null;
+                           
+                           const typeLine = (line, onDone) => {
+                                    speechText.textContent = "";
+                                    let i = 0;
+                                    const type = () => {
+                                             if (i < line.length) {
+                                                      speechText.textContent += line.charAt(i);
+                                                      i++;
+                                                      typingTimeout = setTimeout(type, 30);
+                                             } else {
+                                                      typingTimeout = setTimeout(onDone, 1400);
+                                             }
+                                    };
+                                    type();
+                           };
+                           
+                           const playIntro = (index) => {
+                                    if (index >= introLines.length) {
+                                             avatar.classList.remove("talking", "speaking");
+                                             isSpeaking = false;
+                                             return;
+                                    }
+                                    typeLine(introLines[index], () => playIntro(index + 1));
+                           };
+                           
+                           avatar.addEventListener("click", () => {
+                                    if (isSpeaking) return;
+                                    isSpeaking = true;
+                                    clearTimeout(typingTimeout);
+                                    avatar.classList.add("talking", "speaking");
+                                    playIntro(0);
+                           });
+                  };
                   
                   // Initialize All Features
                   const safeInit = (fn) => {
@@ -843,6 +894,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    initializeResumeSection,
                    initializeConclusionSection,
                    initializeDashboardSection,
+                   setupTalkingAvatar,
                    setupProgressPortability].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
