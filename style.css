@@ -1498,8 +1498,6 @@ footer {
 
       .progress-bar-container {height: 12px;}
 
-      .progress-bar-label {font-size: 0.75rem;}
-
       .timeline-container {flex-direction: column;}
 
       .timeline-container::before {height: 0;}
