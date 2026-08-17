@@ -986,6 +986,14 @@ header .dark-mode-btn:hover i {
       object-fit: cover;
 }
 
+.badge-container {
+      display: none;
+}
+
+.badge-container.unlocked {
+      display: block;
+}
+
 /* Dashboard Section */
 #dashboard {
       padding: 3rem 1.5rem;
