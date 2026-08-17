@@ -666,6 +666,20 @@ document.addEventListener("DOMContentLoaded", () => {
                               });
                      };
                   
+                  // Course Link Highlight
+                  const setupCourseLinkHighlights = () => {
+                           document.querySelectorAll(".course-link[data-action=\"highlight\"]").forEach((link) => {
+                                    link.addEventListener("click", () => {
+                                             link.style.backgroundColor = "var(--button-bg)";
+                                             link.style.color = "var(--bg-color)";
+                                             setTimeout(() => {
+                                                      link.style.backgroundColor = "";
+                                                      link.style.color = "";
+                                             }, 1000);
+                                    });
+                           });
+                  };
+                  
                   // Dark Mode Toggle
                   const toggleDarkMode = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
@@ -895,6 +909,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    updateBadgeProgress,
                    setupSmoothScroll,
                    setupTooltips,
+                   setupCourseLinkHighlights,
                    setupKeyboardActivation,
                    toggleDarkMode,
                    setupBackToTop,
