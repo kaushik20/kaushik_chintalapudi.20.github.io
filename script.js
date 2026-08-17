@@ -356,10 +356,19 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            dashboard.prepend(container);
                   };
+
+                  const refreshBadgeCardLockStates = () => { 
+                           document.querySelectorAll(".badge-card").forEach(card => { 
+                                    const badgeContainer = document.getElementById(card.dataset.badgeId); 
+                                    const isUnlocked = badgeContainer?.classList.contains("unlocked"); 
+                                    card.classList.toggle("locked", !isUnlocked); 
+                           }); 
+                  }; 
                   
                   // Update Badge Progress in Dashboard
                   const updateBadgeProgress = () => {
                            ensureBadgeProgressUI();
+                           refreshBadgeCardLockStates();
                            
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
