@@ -113,6 +113,8 @@ a:focus, button:focus {
    color: var(--button-bg);
 }
 
+.progress-bar-container {height: 15px;}
+
 /* Header Section */
 header {
       position: sticky;
