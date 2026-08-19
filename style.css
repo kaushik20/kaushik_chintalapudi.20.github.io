@@ -209,6 +209,14 @@ header .dark-mode-btn:hover i {
       animation: gradientAnimation 10s ease infinite;
 }
 
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  height: 100vh;
+}
+
 #hero::before {
       content: '';
       position: absolute;
@@ -1479,6 +1487,8 @@ footer {
             flex-direction: column;
             gap: 10px;
       }
+
+      .hero-inner {flex-direction: column;}
 
       .project-grid {grid-template-columns: 1fr;}
 
