@@ -1523,11 +1523,6 @@ footer {
 
       .timeline-content {text-align: left;}
 
-      #hero {
-            flex-direction: column;
-            text-align: center;
-      }
-
       .hero-avatar {
             margin: 0 auto 1.5rem;
             flex: 0 0 auto;
