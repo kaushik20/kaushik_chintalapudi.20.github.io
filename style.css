@@ -57,14 +57,8 @@
       padding: 0;
       transition: color 0.3s ease;
 }
-      
-#backToTop.show {
-      display: block;
-}
 
-#backToTop:hover {
-      color: #4dabf7;
-}
+#backToTop:hover {color: #4dabf7;}
 
 /* Global Styles */
 html, body {
@@ -131,9 +125,7 @@ header .logo img {
       transition: transform var(--animation-duration) ease;
 }
 
-header .logo img:hover {
-      transform: scale(1.05);
-}
+header .logo img:hover {transform: scale(1.05);}
 
 header .nav-links {
       display: flex;
@@ -191,9 +183,7 @@ header .dark-mode-btn:hover {
       color: var(--bg-color);
 }
 
-header .dark-mode-btn:hover i {
-      transform: scale(1.1);
-}
+header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 /* Hero Section */
 #hero {
@@ -238,9 +228,7 @@ header .dark-mode-btn:hover i {
       transform: translateX(-50%);
 }
 
-[data-theme="high-contrast"] #hero::before, [data-theme="high-contrast"] #hero::after {
-      opacity: 0;
-}
+[data-theme="high-contrast"] #hero::before, [data-theme="high-contrast"] #hero::after {opacity: 0;}
       
 #hero h1 {
       font-size: 2.5rem;
@@ -272,9 +260,7 @@ header .dark-mode-btn:hover i {
       transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cta-btn:hover {
-      transform: scale(1.05);
-}
+.cta-btn:hover {transform: scale(1.05);}
 
 .hero-avatar {
       flex: 0 0 380px;
@@ -306,9 +292,7 @@ header .dark-mode-btn:hover i {
       transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.talking-avatar:hover img {
-      transform: scale(1.03);
-}
+.talking-avatar:hover img {transform: scale(1.03);}
 
 .talking-avatar.speaking img {
     animation: avatarSpeaking 0.7s ease-in-out infinite alternate;
@@ -368,9 +352,7 @@ header .dark-mode-btn:hover i {
     transition: opacity 0.2s ease;
 }
 
-.talking-avatar:hover .avatar-talk-hint {
-    opacity: 1;
-}
+.talking-avatar:hover .avatar-talk-hint {opacity: 1;}
 
 #avatar-speech-text::after {
     content: "|";
@@ -750,17 +732,11 @@ header .dark-mode-btn:hover i {
       transition: background-color 0.3s ease;
 }
 
-.download-button:hover {
-      background-color: #45a049;
-}
+.download-button:hover {background-color: #45a049;}
 
-.colab-button {
-      background-color: #FF7043; 
-}
+.colab-button {background-color: #FF7043;}
 
-.colab-button:hover {
-      background-color: #E64A19;
-}
+.colab-button:hover {background-color: #E64A19;}
       
 /* Achievements Section */
 .section {
@@ -888,25 +864,15 @@ header .dark-mode-btn:hover i {
       margin-right: auto;
 }
 
-.milestone:nth-child(odd) {
-      transform: translateX(-20%);
-}
+.milestone:nth-child(odd) {transform: translateX(-20%);}
 
-.milestone:nth-child(even) {
-      transform: translateX(20%);
-}
+.milestone:nth-child(even) {transform: translateX(20%);}
 
-.milestone:nth-child(odd):hover {
-      transform: translateX(-20%) scale(1.05);
-}
+.milestone:nth-child(odd):hover {transform: translateX(-20%) scale(1.05);}
 
-.milestone:nth-child(even):hover {
-      transform: translateX(20%) scale(1.05);
-}
+.milestone:nth-child(even):hover {transform: translateX(20%) scale(1.05);}
 
-.milestone:hover {
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
+.milestone:hover {box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);}
 
 .milestone-circle {
       width: 60px;
@@ -989,13 +955,9 @@ header .dark-mode-btn:hover i {
       object-fit: cover;
 }
 
-.badge-container {
-      display: none;
-}
+.badge-container {display: none;}
 
-.badge-container.unlocked {
-      display: block;
-}
+.badge-container.unlocked {display: block;}
 
 /* Dashboard Section */
 #dashboard {
@@ -1074,9 +1036,7 @@ header .dark-mode-btn:hover i {
       transition: transform 0.3s ease;
 }
 
-.badge-card:hover img {
-      transform: scale(1.05);
-}
+.badge-card:hover img {transform: scale(1.05);}
 
 .badge-card h3 {
       font-size: 1.2rem;
@@ -1185,9 +1145,7 @@ header .dark-mode-btn:hover i {
       animation: fadeIn 1.5s ease-in-out;
 }
       
-.conclusion-content {
-      animation: fadeInUp 1.2s ease;
-}
+.conclusion-content {animation: fadeInUp 1.2s ease;}
       
 /* Footer Section */
 footer {
@@ -1318,9 +1276,7 @@ footer {
       text-align: center;
 }
 
-.footer-bar p {
-      margin: 0; 
-}
+.footer-bar p {margin: 0;}
 
 .footer-bar button {
       background: none; 
@@ -1360,9 +1316,7 @@ footer {
       transition: transform 0.3s ease;
 }
 
-.opportunity-item img:hover {
-      transform: scale(1.2);
-}
+.opportunity-item img:hover {transform: scale(1.2);}
 
 .opportunity-item i{
     width:30px;
@@ -1437,19 +1391,17 @@ footer {
 
 @keyframes avatarSpeaking {
     from {transform: scale(1);}
-
     to {transform: scale(1.035);}
 }
 
 @keyframes typingCursor {
     0%, 50% {opacity: 1;}
-
     51%, 100% {opacity: 0;}
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-      .project-card {flex: 1 1 calc(50% - 2rem); }
+      .project-card {flex: 1 1 calc(50% - 2rem);}
 }
 
 @media (max-width: 600px) {
@@ -1471,10 +1423,6 @@ footer {
 @keyframes avatarBounce {
       0%, 100% {transform: translateY(0);}
       50% {transform: translateY(-10px);}
-}
-
-@media (prefers-reduced-motion: reduce) {
-      .resume-viewer {transition: none;}
 }
 
 @media (max-width: 768px) {
