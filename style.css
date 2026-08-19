@@ -83,6 +83,18 @@ a:focus, button:focus {
       box-sizing: border-box;
 }
 
+.visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+}
+
 /* Header Section */
 header {
       position: sticky;
@@ -1400,29 +1412,13 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-      .project-card {flex: 1 1 calc(50% - 2rem);}
-}
-
-@media (max-width: 600px) {
-
-    .avatar-speech {
-        width: min(320px, 82vw);
-        font-size: 0.9rem;
-        padding: 15px 18px;
-    }
-
-    .avatar-talk-hint {font-size: 0.75rem;}
-}
-
 @keyframes fillProgress {
       from {width: 0%;}
       to {width: var(--progress-width, 0%);}
 }
 
-@keyframes avatarBounce {
-      0%, 100% {transform: translateY(0);}
-      50% {transform: translateY(-10px);}
+@media (max-width: 1024px) {
+      .project-card {flex: 1 1 calc(50% - 2rem);}
 }
 
 @media (max-width: 768px) {
@@ -1527,4 +1523,15 @@ footer {
             width: 100%;
             height: 1px;
       }
+}
+
+@media (max-width: 600px) {
+
+    .avatar-speech {
+        width: min(320px, 82vw);
+        font-size: 0.9rem;
+        padding: 15px 18px;
+    }
+
+    .avatar-talk-hint {font-size: 0.75rem;}
 }
