@@ -897,6 +897,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     playIntro(0);
                            });
                   };
+
+                  const setupHeaderScrollEffect = () => {
+                           const header = document.querySelector("header");
+                           if (!header) return;
+                           window.addEventListener("scroll", () => {
+                                    header.classList.toggle("scrolled", window.scrollY > 50);
+                           }, { passive: true });
+                  };
                   
                   // Initialize All Features
                   const safeInit = (fn) => {
@@ -919,6 +927,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    initializeConclusionSection,
                    initializeDashboardSection,
                    setupTalkingAvatar,
+                   setupHeaderScrollEffect,
                    setupProgressPortability].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
