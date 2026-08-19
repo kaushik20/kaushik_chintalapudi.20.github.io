@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     progressBarContainer.style.cssText = `
                                     margin: 0 auto;
                                     width: 80%;
-                                    height: 15px;
                                     background: rgba(128, 128, 128, 0.15);
                                     border: 1px solid var(--border-color);
                                     border-radius: 10px;
