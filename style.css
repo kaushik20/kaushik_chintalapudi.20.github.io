@@ -95,6 +95,24 @@ a:focus, button:focus {
       border: 0;
 }
 
+.keyword {
+   cursor: pointer;
+   border-bottom: 1px dashed var(--button-bg);
+   color: var(--button-bg);
+   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.keyword:hover, .keyword:focus {
+   background-color: var(--button-bg);
+   color: var(--bg-color);
+}
+
+.course-link {
+   cursor: pointer;
+   text-decoration: underline;
+   color: var(--button-bg);
+}
+
 /* Header Section */
 header {
       position: sticky;
