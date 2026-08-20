@@ -687,10 +687,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
                            }
-                           const savedTheme = storage.get("theme");
-                           const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-                           const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
-                           document.documentElement.setAttribute("data-theme", currentTheme);
+                           
+                           // Theme was already set synchronously in <head> — just sync the icon to it.
+                           const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
                            themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
                            toggleButton.addEventListener("click", () => {
                                     const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
