@@ -1183,6 +1183,13 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
       
 .conclusion-content {animation: fadeInUp 1.2s ease;}
+
+.conclusion-content p {
+   font-size: 1.2rem;
+   line-height: 1.6;
+   color: var(--text-color);
+   margin-bottom: 1.5rem;
+}
       
 /* Footer Section */
 footer {
