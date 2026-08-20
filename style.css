@@ -885,7 +885,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       position: relative;
       margin: 2rem 0;
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.1); 
+      background: var(--card-bg); 
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -977,9 +977,31 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transform: scale(1);
 }
 
-.badge-container {display: none;}
+.badge-container {
+      display: none;
+      background: var(--card-bg);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem auto 0;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 .badge-container.unlocked {display: block;}
+
+.badge-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-color);
+}
+
+.badge-message {
+      font-size: 1rem;
+      opacity: 0.9;
+      color: var(--text-color);
+}
+
+.badge-content {text-align: center;}
 
 /* Dashboard Section */
 #dashboard {
