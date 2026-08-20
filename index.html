@@ -3,6 +3,13 @@
 
 <head>
    <meta charset="UTF-8">
+   <script>
+      (function() {
+         const saved = localStorage.getItem("theme");
+         const theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+         document.documentElement.setAttribute("data-theme", theme);
+      })();
+   </script>
    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
    <meta name="description" content="Explore Kaushik Chintalapudi's portfolio, showcasing skills in AI, Microsoft Azure, and low-code app development. Innovative projects include Hate Speech Detection, and Smart Health Monitoring.">
    <meta name="keywords" content="Cloud Analyst, AI Portfolio, Microsoft Azure, Low-Code Development, Generative AI, Emerging Technologies, Hate Speech Detection, Smart Health Monitoring, AI Projects">
