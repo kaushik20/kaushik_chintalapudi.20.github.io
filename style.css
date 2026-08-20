@@ -1463,8 +1463,6 @@ footer {
 
       .hobbies_skills-item {width: 80%;}
 
-      .hs-items-grid {grid-template-columns: 1fr;}
-
       .projects { background-attachment: scroll; }
 
       .project-card {flex: 1 1 calc(100% - 2rem); }
