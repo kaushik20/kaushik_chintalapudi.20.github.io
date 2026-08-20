@@ -306,12 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
                            });
                            
                            // Close modal on outside click
-                           window.addEventListener("click", (event) => {
-                                    if (event.target === modal) {
-                                             modal.classList.remove("show");
-                                             clearTimeout(modalAutoCloseTimer);
-                                    }
-                           });
+                           document.addEventListener("click", (event) => {
+                                    if (!modal.classList.contains("show")) return;
+                                    if (modal.contains(event.target) || event.target.closest(".badge-card")) return;
+                                    modal.classList.remove("show");
+                                    clearTimeout(modalAutoCloseTimer);
+});
                   };
 
                   // Keyboard Accessibility for role="button" elements
