@@ -529,13 +529,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       border-radius: 2px;
 }
 
-.hs-items-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      width: 100%;
-}
-
 .hs-main-row {
   display: flex;
   flex-direction: row;
@@ -1471,6 +1464,8 @@ footer {
       .hobbies_skills-item {width: 80%;}
 
       .hs-items-grid {grid-template-columns: 1fr;}
+
+      .projects { background-attachment: scroll; }
 
       .project-card {flex: 1 1 calc(100% - 2rem); }
 
