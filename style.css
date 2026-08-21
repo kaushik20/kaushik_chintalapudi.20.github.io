@@ -113,8 +113,6 @@ a:focus, button:focus {
    color: var(--button-bg);
 }
 
-.progress-bar-container {height: 15px;}
-
 /* Header Section */
 header {
       position: sticky;
@@ -1140,6 +1138,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .badge-modal button:hover {
       background: var(--button-hover);
 }
+
+.progress-bar-container {height: 15px;}
 
 .badge-progress-container {
       margin: 2rem auto;
