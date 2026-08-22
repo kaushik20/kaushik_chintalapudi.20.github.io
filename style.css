@@ -706,6 +706,21 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transform: scale(1.03);
 }
 
+.resume-fallback-notice {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--card-bg);
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto;
+}
+
+.resume-fallback-notice p {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      opacity: 0.85;
+}
+
 /* Projects Section */
 .projects {
       text-align: center;
