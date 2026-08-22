@@ -762,19 +762,37 @@ document.addEventListener("DOMContentLoaded", () => {
                   const toggleDarkMode = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
                            const themeIcon = document.getElementById("themeIcon");
+                           const themeText = document.getElementById("themeText");
                            if (!toggleButton || !themeIcon) {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
                            }
                            
+                           const themeOrder = ["light", "dark", "high-contrast"];
+                           const themeMeta = {
+                                    light: { icon: "fas fa-moon", label: "Switch to dark theme" },
+                                    dark: { icon: "fas fa-adjust", label: "Switch to high-contrast theme" },
+                                    "high-contrast": { icon: "fas fa-sun", label: "Switch to light theme" }
+                           };
+                           
+                           const applyThemeUI = (theme) => {
+                                    const meta = themeMeta[theme] || themeMeta.dark;
+                                    themeIcon.className = meta.icon;
+                                    toggleButton.setAttribute("aria-label", meta.label);
+                                    if (themeText) themeText.textContent = meta.label;
+                           };
+                           
                            // Theme was already set synchronously in <head> — just sync the icon to it.
                            const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-                           themeIcon.className = currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                           applyThemeUI(currentTheme);
+                           
                            toggleButton.addEventListener("click", () => {
-                                    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+                                    const active = document.documentElement.getAttribute("data-theme") || "dark";
+                                    const nextIndex = (themeOrder.indexOf(active) + 1) % themeOrder.length;
+                                    const newTheme = themeOrder[nextIndex];
                                     document.documentElement.setAttribute("data-theme", newTheme);
                                     storage.set("theme", newTheme);
-                                    themeIcon.className = newTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+                                    applyThemeUI(newTheme);
                            });
                   };
                   
