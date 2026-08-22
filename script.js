@@ -1058,6 +1058,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    initializeDashboardSection,
                    setupTalkingAvatar,
                    setupHeaderScrollEffect,
-                   setupProgressPortability].forEach(safeInit);
+                   setupProgressPortability,
+                   setupThemeToggleHint].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
