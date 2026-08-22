@@ -21,7 +21,7 @@
       --text-color: #000000;
       --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
       --border-color: rgba(0, 0, 0, 0.1);
-      --button-bg: #4ac1ff;
+      --button-bg: #0078d7;
       --button-hover: #6b47dc;
       --progress-bg: #f0f0f0;
       --progress-fill: linear-gradient(135deg, #0078d7, #4ac1ff);
