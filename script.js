@@ -871,17 +871,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (img) img.style.display = "block";
                            }
                            
-                           // Load unlocked badge state
-                           const observer = new IntersectionObserver((entries) => {
-                                    entries.forEach(entry => {
-                                             if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
-                                                       unlockBadge(badgeContainer);
-                                                      observer.disconnect();
-                                             }
-                                    });
-                           }, { threshold: 0.5 }); 
-                           observer.observe(viewer);
-                           
                            // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
                            // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
                            const supportsInlinePdf = (() => {
@@ -889,6 +878,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const isAndroidChrome = /Android/.test(navigator.userAgent) && /Chrome/.test(navigator.userAgent);
                                     return !(isIOS || isAndroidChrome);
                            })();
+                           
+                           let elementToObserve = viewer;
                            
                            if (!supportsInlinePdf) {
                                     const fallback = document.createElement("div");
@@ -900,7 +891,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                     </a>
                                     `;
                                     viewer.replaceWith(fallback);
+                                    elementToObserve = fallback;
                            }
+                           
+                           // Load unlocked badge state — observe whichever element actually ended up in the DOM
+                           const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                             if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
+                                                      unlockBadge(badgeContainer);
+                                                      observer.disconnect();
+                                             }
+                                    });
+                           }, { threshold: 0.5 });
+                           observer.observe(elementToObserve);
                   };
                   
                   // Initialize Conclusion Section
