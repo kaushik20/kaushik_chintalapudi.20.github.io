@@ -706,7 +706,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transform: scale(1.03);
 }
 
-resume-fallback-notice {
+.resume-fallback-notice {
       text-align: center;
       padding: 2rem 1rem;
       background: var(--card-bg);
