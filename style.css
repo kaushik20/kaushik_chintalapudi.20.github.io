@@ -1342,20 +1342,6 @@ footer {
 
 .footer-bar p {margin: 0;}
 
-.footer-bar button {
-      background: none; 
-      color: inherit; 
-      border: none; 
-      font-size: inherit; 
-      cursor: pointer; 
-      transition: color 0.3s ease, transform 0.3s ease; 
-}
-
-.footer-bar button:hover {
-      color: #4dabf7; 
-      transform: scale(1.05); 
-}
-
 .opportunity-items {
       display: flex;
       flex-direction: column;
