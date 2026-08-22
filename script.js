@@ -189,8 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     `;
                                     
                                     progressBarContainer.appendChild(progressBarFill);
-                                    section.prepend(progressBarContainer);
-                                    section.prepend(progressCounter);
+                                    const heading = section.querySelector("h2");
+                                    if (heading) {heading.after(progressCounter, progressBarContainer);} 
+                                    else {section.prepend(progressBarContainer, progressCounter);}
                                     
                                     const resetButton = document.createElement("button");
                                     resetButton.textContent = "Reset Progress";
