@@ -859,7 +859,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const badgeContainer = document.getElementById("badge-container-resume");
                            
                            if (!viewer || !badgeContainer) {
-                                    console.warn("Resume section: iframe or badge container not found."); 
+                                    console.warn("Resume section: iframe or badge container not found.");
                                     return;
                            }
                            
@@ -870,17 +870,37 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const img = badgeContainer.querySelector("img");
                                     if (img) img.style.display = "block";
                            }
-
+                           
                            // Load unlocked badge state
                            const observer = new IntersectionObserver((entries) => {
                                     entries.forEach(entry => {
                                              if (entry.isIntersecting && !badgeContainer.classList.contains("unlocked")) {
-                                                      unlockBadge(badgeContainer);
+                                                       unlockBadge(badgeContainer);
                                                       observer.disconnect();
                                              }
                                     });
                            }, { threshold: 0.5 }); 
                            observer.observe(viewer);
+                           
+                           // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
+                           // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
+                           const supportsInlinePdf = (() => {
+                                    const isIOS = /iP(hone|od|ad)/.test(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+                                    const isAndroidChrome = /Android/.test(navigator.userAgent) && /Chrome/.test(navigator.userAgent);
+                                    return !(isIOS || isAndroidChrome);
+                           })();
+                           
+                           if (!supportsInlinePdf) {
+                                    const fallback = document.createElement("div");
+                                    fallback.className = "resume-fallback-notice";
+                                    fallback.innerHTML = `
+                                    <p>PDF preview isn't supported on this device/browser.</p>
+                                    <a href="${viewer.getAttribute("src")}" download class="resume-download-btn">
+                                    <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+                                    </a>
+                                    `;
+                                    viewer.replaceWith(fallback);
+                           }
                   };
                   
                   // Initialize Conclusion Section
