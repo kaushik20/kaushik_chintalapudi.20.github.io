@@ -47,6 +47,27 @@
       --footer-text: #ffeb3b;
 }
 
+.theme-hint {
+      position: fixed;
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      z-index: 1050;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+}
+
+.theme-hint.show {
+      opacity: 1;
+      transform: translateY(0);
+}
+
 #backToTop {
       background: none;
       color: inherit;
