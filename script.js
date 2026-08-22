@@ -1000,6 +1000,40 @@ document.addEventListener("DOMContentLoaded", () => {
                                     header.classList.toggle("scrolled", window.scrollY > 50);
                            }, { passive: true });
                   };
+
+                  const setupThemeToggleHint = () => {
+                           const toggleButton = document.getElementById("darkModeToggle");
+                           if (!toggleButton) return;
+                           
+                           const hintKey = "themeHintShown";
+                           if (storage.get(hintKey)) return;
+                           
+                           const hint = document.createElement("div");
+                           hint.className = "theme-hint";
+                           hint.textContent = "Tip: click again for high-contrast mode";
+                           hint.setAttribute("role", "status");
+                           document.body.appendChild(hint);
+                           
+                           const positionHint = () => {
+                                    const rect = toggleButton.getBoundingClientRect();
+                                    hint.style.top = `${rect.bottom + 8}px`;
+                                    hint.style.right = `${window.innerWidth - rect.right}px`;
+                           };
+                           positionHint();
+                           window.addEventListener("resize", positionHint, { passive: true });
+                           
+                           requestAnimationFrame(() => hint.classList.add("show"));
+                           
+                           const dismiss = () => {
+                                    hint.classList.remove("show");
+                                    setTimeout(() => hint.remove(), 300);
+                                    storage.set(hintKey, "shown");
+                                    toggleButton.removeEventListener("click", dismiss);
+                           };
+                           
+                           setTimeout(dismiss, 6000);
+                           toggleButton.addEventListener("click", dismiss);
+                  };
                   
                   // Initialize All Features
                   const safeInit = (fn) => {
