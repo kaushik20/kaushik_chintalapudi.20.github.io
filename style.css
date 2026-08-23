@@ -16,6 +16,10 @@
       --animation-duration: 0.3s;
 }
 
+.section {
+  scroll-margin-top: 80px;
+}
+
 [data-theme="light"] {
       --bg-color: #ffffff;
       --text-color: #000000;
@@ -1497,9 +1501,7 @@ footer {
       to {width: var(--progress-width, 0%);}
 }
 
-@media (max-width: 1024px) {
-      .project-card {flex: 1 1 calc(50% - 2rem);}
-}
+@media (max-width: 1024px) {.project-card {flex: 1 1 calc(50% - 2rem);}}
 
 @media (max-width: 768px) {
       header .nav-links {
@@ -1518,9 +1520,9 @@ footer {
 
       .hobbies_skills-item {width: 80%;}
 
-      .projects { background-attachment: scroll; }
+      .projects {background-attachment: scroll;}
 
-      .project-card {flex: 1 1 calc(100% - 2rem); }
+      .project-card {flex: 1 1 calc(100% - 2rem);}
 
       .section h2 {font-size: 2rem;}
 
