@@ -288,7 +288,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       
 #hero h1 {
       font-size: 2.5rem;
-      color: #fff var(--text-color);
+      color: var(--text-color, #fff);
       margin-bottom: 1.5rem;
       font-weight: bold;
 }
