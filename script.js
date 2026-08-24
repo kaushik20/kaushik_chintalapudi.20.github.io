@@ -288,55 +288,28 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const overlay = document.createElement("div");
                            overlay.id = "keyword-modal-overlay";
-                           overlay.style.cssText = `
-                           display: none;
-                           position: fixed;
-                           top: 0; left: 0; right: 0; bottom: 0;
-                           background: rgba(0, 0, 0, 0.5);
-                           z-index: 2100;
-                           align-items: center;
-                           justify-content: center;
-                           `;
+                           overlay.className = "keyword-modal-overlay";
                            
                            const box = document.createElement("div");
-                           box.style.cssText = `
-                           background: var(--bg-color);
-                           color: var(--text-color);
-                           padding: 24px;
-                           border-radius: 12px;
-                           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-                           max-width: 420px;
-                           width: 90%;
-                           text-align: left;
-                           animation: fadeInScale 0.25s ease-out;
-                           `;
+                           box.className = "keyword-modal-box";
                            
                            const title = document.createElement("h3");
-                           title.style.cssText = "margin-bottom: 0.75rem; color: var(--button-bg); font-size: 1.3rem;";
+                           title.className = "keyword-modal-title";
                            
                            const body = document.createElement("p");
-                           body.style.cssText = "line-height: 1.6; font-size: 1rem; margin-bottom: 1.25rem;";
+                           body.className = "keyword-modal-body";
                            
                            const closeBtn = document.createElement("button");
                            closeBtn.textContent = "Close";
-                           closeBtn.style.cssText = `
-                           background: var(--button-bg);
-                           color: #fff;
-                           border: none;
-                           padding: 8px 18px;
-                           border-radius: 8px;
-                           cursor: pointer;
-                           display: block;
-                           margin-left: auto;
-                           `;
+                           closeBtn.className = "keyword-modal-close";
                            
                            box.append(title, body, closeBtn);
                            overlay.appendChild(box);
                            document.body.appendChild(overlay);
                            
-                           const close = () => { overlay.style.display = "none"; };
+                           const close = () => {overlay.classList.remove("show");};
                            closeBtn.addEventListener("click", close);
-                           overlay.addEventListener("click", (e) => {if (e.target === overlay) close(); });
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) close();});
                            document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.style.display === "flex") close();});
                            
                            window.openKeywordModal = (id, fallbackText) => {
@@ -344,6 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     title.textContent = content?.title || fallbackText;
                                     body.textContent = content?.body || "More details coming soon.";
                                     overlay.style.display = "flex";
+                                    overlay.classList.add("show");
                            };
                   };
 
@@ -464,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const closeModal = () => { modalOverlay.style.display = "none"; };
                            closeBtn.addEventListener("click", closeModal);
                            modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
+                           modalOverlay.classList.add("show");
                            
                            const openModal = ({ title, message, value, readOnly, actionLabel, onAction }) => {
                                     modalTitle.textContent = title;
