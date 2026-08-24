@@ -54,19 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            document.querySelector(".toast")?.remove();
                            const toast = document.createElement("div");
                            toast.className = "toast";
-                           toast.style.cssText = `
-                           position: fixed;
-                           bottom: 20px;
-                           right: 20px;
-                           background: var(--button-bg);
-                           color: var(--text-color);
-                           padding: 10px 20px;
-                           border-radius: 5px;
-                           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                           z-index: 1000;
-                           opacity: 0;
-                           transform: translateY(20px);
-                           `;
                            toast.textContent = message;
                            document.body.appendChild(toast);
                            
@@ -159,34 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                     // Create or select progress counter
                                     const progressCounter = document.createElement("div");
                                     progressCounter.className = "progress-counter";
-                                    progressCounter.style.cssText = `
-                                    text-align: center;
-                                    font-size: 1rem;
-                                    color: var(--button-bg);
-                                    font-weight: bold;
-                                    margin-bottom: 1rem;
-                                    `;
                                     
                                     const progressBarContainer = document.createElement("div");
                                     progressBarContainer.className = "progress-bar-container";
-                                    progressBarContainer.style.cssText = `
-                                    margin: 0 auto;
-                                    width: 80%;
-                                    background: rgba(128, 128, 128, 0.15);
-                                    border: 1px solid var(--border-color);
-                                    border-radius: 10px;
-                                    position: relative;
-                                    overflow: hidden;
-                                    `;
                                     
                                     const progressBarFill = document.createElement("div");
                                     progressBarFill.className = "progress-fill";
-                                    progressBarFill.style.cssText = `
-                                    width: 0%;
-                                    height: 100%;
-                                    background: var(--progress-fill);
-                                    transition: width 0.5s ease;
-                                    `;
                                     
                                     progressBarContainer.appendChild(progressBarFill);
                                     const heading = section.querySelector("h2");
@@ -196,17 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const resetButton = document.createElement("button");
                                     resetButton.textContent = "Reset Progress";
                                     resetButton.className = "reset-button";
-                                    resetButton.style.cssText = `
-                                    display: block;
-                                    margin: 10px auto;
-                                    padding: 5px 10px;
-                                    font-size: 0.9rem;
-                                    background: var(--button-bg);
-                                    color: white;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    `;
                                     resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
                                     section.appendChild(resetButton);
                                     
@@ -476,26 +430,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Build the shared modal once
                            const modalOverlay = document.createElement("div");
                            modalOverlay.id = "progress-modal-overlay";
-                           modalOverlay.style.cssText = `
-                           display: none;
-                           position: fixed;
-                           top: 0; left: 0; right: 0; bottom: 0;
-                           background: rgba(0, 0, 0, 0.5);
-                           z-index: 1100;
-                           align-items: center;
-                           justify-content: center;
-                           `;
                            
                            const modalBox = document.createElement("div");
-                           modalBox.style.cssText = `
-                           background: var(--bg-color);
-                           color: var(--text-color);
-                           padding: 24px;
-                           border-radius: 8px;
-                           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-                           max-width: 420px;
-                           width: 90%;
-                           `;
                            
                            const modalTitle = document.createElement("h3");
                            modalTitle.style.cssText = "margin: 0 0 12px 0; font-size: 1.1rem;";
@@ -504,37 +440,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalMessage.style.cssText = "margin: 0 0 12px 0; font-size: 0.9rem; opacity: 0.85;";
                            
                            const modalTextarea = document.createElement("textarea");
-                           modalTextarea.style.cssText = `
-                           width: 100%;
-                           min-height: 80px;
-                           padding: 8px;
-                           border-radius: 5px;
-                           border: 1px solid var(--progress-bg);
-                           background: var(--bg-color);
-                           color: var(--text-color);
-                           font-family: monospace;
-                           font-size: 0.8rem;
-                           resize: vertical;
-                           box-sizing: border-box;
-                           `;
                            
                            const modalButtonRow = document.createElement("div");
                            modalButtonRow.style.cssText = "display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;";
                            
-                           const makeModalButton = (label, primary) => {
-                                    const btn = document.createElement("button");
-                                    btn.textContent = label;
-                                    btn.style.cssText = `
-                                    padding: 8px 16px;
-                                    font-size: 0.85rem;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    background: ${primary ? "var(--button-bg)" : "transparent"};
-                                    color: ${primary ? "white" : "var(--text-color)"};
-                                    border: ${primary ? "none" : "1px solid var(--progress-bg)"};
-                                    `;
-                                    return btn;
-                           };
+                           btn.className = "progress-modal-btn" + (primary ? " primary" : "");
                            
                            const closeBtn = makeModalButton("Cancel", false);
                            const actionBtn = makeModalButton("Copy", true);
@@ -617,28 +527,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const container = document.createElement("div");
                            container.className = "progress-portability";
-                           container.style.cssText = `
-                           position: fixed;
-                           bottom: 20px;
-                           left: 20px;
-                           display: flex;
-                           gap: 8px;
-                           z-index: 999;
-                           `;
                            
                            const makeTriggerButton = (label, handler) => {
                                     const btn = document.createElement("button");
                                     btn.textContent = label;
-                                    btn.style.cssText = `
-                                    padding: 6px 12px;
-                                    font-size: 0.8rem;
-                                    background: var(--button-bg);
-                                    color: white;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    opacity: 0.85;
-                                    `;
                                     btn.addEventListener("click", handler);
                                     return btn;
                            };
@@ -670,16 +562,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                        popover = document.createElement("div");
                                        popover.id = "global-popover";
                                        popover.className = "popover";
-                                       popover.style.cssText = `
-                                       position: absolute;
-                                       background: var(--bg-color);
-                                       color: var(--text-color);
-                                       padding: 10px;
-                                       border-radius: 5px;
-                                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                                       display: none;
-                                       z-index: 1000;
-                                       `;
                                        document.body.appendChild(popover);
                               }
                               window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
