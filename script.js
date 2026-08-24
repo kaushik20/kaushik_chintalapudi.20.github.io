@@ -310,13 +310,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            const close = () => {overlay.classList.remove("show");};
                            closeBtn.addEventListener("click", close);
                            document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) close();});
-                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.style.display === "flex") close();});
                            
                            window.openKeywordModal = (id, fallbackText) => {
                                     const content = keywordModalContent[id];
                                     title.textContent = content?.title || fallbackText;
                                     body.textContent = content?.body || "More details coming soon.";
-                                    overlay.style.display = "flex";
                                     overlay.classList.add("show");
                            };
                   };
@@ -435,10 +433,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalOverlay.appendChild(modalBox);
                            document.body.appendChild(modalOverlay);
                            
-                           const closeModal = () => { modalOverlay.style.display = "none"; };
+                           const closeModal = () => {modalOverlay.classList.remove("show");};
                            closeBtn.addEventListener("click", closeModal);
-                           modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
-                           modalOverlay.classList.add("show");
+                           modalOverlay.addEventListener("click", (e) => {if (e.target === modalOverlay) closeModal();});
                            
                            const openModal = ({ title, message, value, readOnly, actionLabel, onAction }) => {
                                     modalTitle.textContent = title;
@@ -447,7 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     modalTextarea.readOnly = readOnly;
                                     actionBtn.textContent = actionLabel;
                                     actionBtn.onclick = () => onAction(modalTextarea.value);
-                                    modalOverlay.style.display = "flex";
+                                    modalOverlay.classList.add("show");
                                     if (!readOnly) modalTextarea.focus();
                                     else { modalTextarea.select(); }
                            };
