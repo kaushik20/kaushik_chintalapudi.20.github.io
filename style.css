@@ -1505,9 +1505,16 @@ footer {
 @media (max-width: 1024px) {.project-card {flex: 1 1 calc(50% - 2rem);}}
 
 @media (max-width: 768px) {
+      header {
+            height: auto;
+            flex-wrap: wrap;
+            padding: 0.5rem 1rem;
+      }
+      
       header .nav-links {
             flex-direction: column;
             gap: 10px;
+            width: 100%;
       }
 
       .hero-inner {flex-direction: column;}
