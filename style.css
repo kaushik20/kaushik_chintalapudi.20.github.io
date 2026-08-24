@@ -1510,8 +1510,16 @@ footer {
             flex-wrap: wrap;
             padding: 0.5rem 1rem;
       }
+
+      header .logo {order: 1;}
+
+      header .dark-mode-btn {
+            order: 2;
+            margin-left: auto;
+      }
       
       header .nav-links {
+            order: 3;
             flex-direction: column;
             gap: 10px;
             width: 100%;
