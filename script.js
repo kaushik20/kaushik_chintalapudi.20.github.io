@@ -430,21 +430,28 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Build the shared modal once
                            const modalOverlay = document.createElement("div");
                            modalOverlay.id = "progress-modal-overlay";
+                           modalOverlay.className = "progress-modal-overlay";
                            
                            const modalBox = document.createElement("div");
+                           modalBox.className = "progress-modal-box";
                            
                            const modalTitle = document.createElement("h3");
-                           modalTitle.style.cssText = "margin: 0 0 12px 0; font-size: 1.1rem;";
+                           modalTitle.className = "progress-modal-title";
                            
                            const modalMessage = document.createElement("p");
-                           modalMessage.style.cssText = "margin: 0 0 12px 0; font-size: 0.9rem; opacity: 0.85;";
+                           modalMessage.className = "progress-modal-message";
                            
                            const modalTextarea = document.createElement("textarea");
                            
                            const modalButtonRow = document.createElement("div");
-                           modalButtonRow.style.cssText = "display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end;";
+                           modalButtonRow.className = "progress-modal-button-row";
                            
-                           btn.className = "progress-modal-btn" + (primary ? " primary" : "");
+                           const makeModalButton = (label, primary) => {
+                                    const btn = document.createElement("button");
+                                    btn.textContent = label;
+                                    btn.className = "progress-modal-btn" + (primary ? " primary" : "");
+                                    return btn;
+                           };
                            
                            const closeBtn = makeModalButton("Cancel", false);
                            const actionBtn = makeModalButton("Copy", true);
@@ -532,6 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const btn = document.createElement("button");
                                     btn.textContent = label;
                                     btn.addEventListener("click", handler);
+                                    btn.className = "progress-portability-btn";
                                     return btn;
                            };
                            
