@@ -929,7 +929,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   [initializeGamifiedSections,
                    setupBadgeModal,
                    setupKeywordModal,
-                   updateBadgeProgress,
                    setupSmoothScroll,
                    setupTooltips,
                    setupCourseLinkHighlights,
@@ -944,6 +943,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    setupTalkingAvatar,
                    setupHeaderScrollEffect,
                    setupProgressPortability,
-                   setupThemeToggleHint].forEach(safeInit);
+                   setupThemeToggleHint,
+                   updateBadgeProgress}].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
