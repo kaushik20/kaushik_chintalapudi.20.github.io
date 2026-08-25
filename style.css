@@ -799,13 +799,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       color: #e6e6e6;
 }
 
-.project-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 16px;
-}
-
 .project-link {
       text-decoration: none;
       margin-right: 10px;
