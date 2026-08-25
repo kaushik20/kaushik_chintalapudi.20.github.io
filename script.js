@@ -945,6 +945,6 @@ document.addEventListener("DOMContentLoaded", () => {
                    setupHeaderScrollEffect,
                    setupProgressPortability,
                    setupThemeToggleHint,
-                   updateBadgeProgress}].forEach(safeInit);
+                   updateBadgeProgress].forEach(safeInit);
          } catch (error) {console.error("Initialization Error:", error);}
 });
