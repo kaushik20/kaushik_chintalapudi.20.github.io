@@ -531,11 +531,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       color: #ffffff;
 }
 
-.hobbies_skills-item p {
-      font-size: 1rem;
-      color: #d1d9f9;
-}
-
 .hs-group {
       width: 100%;
       margin-bottom: 1.5rem;
