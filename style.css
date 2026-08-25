@@ -16,9 +16,7 @@
       --animation-duration: 0.3s;
 }
 
-.section {
-  scroll-margin-top: 80px;
-}
+.section {scroll-margin-top: 80px;}
 
 [data-theme="light"] {
       --bg-color: #ffffff;
@@ -1125,9 +1123,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.badge-card.locked:hover img {
-      transform: none;
-}
+.badge-card.locked:hover img {transform: none;}
 
 .badge-card img {
       width: 100%;
@@ -1169,9 +1165,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       animation: fadeInScale 0.3s ease-out;
 }
 
-.badge-modal.show {
-      display: block;
-}
+.badge-modal.show {display: block;}
 
 .badge-modal img {
       width: 100%;
@@ -1202,11 +1196,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transition: background-color 0.3s ease;
 }
 
-.badge-modal button:hover {
-      background: var(--button-hover);
-}
-
-.progress-bar-container {height: 15px;}
+.badge-modal button:hover {background: var(--button-hover);}
 
 .badge-progress-container {
       margin: 2rem auto;
