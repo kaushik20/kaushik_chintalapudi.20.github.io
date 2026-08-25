@@ -1298,21 +1298,6 @@ footer {
       gap: 0.5rem;
 }
 
-.contact-item img {
-      width: 30px;
-      height: 30px;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-      transition: transform 0.3s ease, filter 0.3s ease;
-      margin-right: 8px;
-      vertical-align: middle;
-}
-
-.contact-item img:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
-      opacity: 0.9;
-}
-
 .contact-item a {
       color: var(--footer-text);
       text-decoration: none;
