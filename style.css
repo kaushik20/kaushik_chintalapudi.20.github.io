@@ -34,6 +34,14 @@
       --hero-bg: linear-gradient(135deg, #6b47dc, #4ac1ff);
 }
 
+[data-theme="light"] .milestone-title,
+[data-theme="light"] .milestone-description,
+[data-theme="light"] .milestone-date,
+[data-theme="light"] .project-card h3,
+[data-theme="light"] .project-card p {
+  color: #ffffff;
+}
+
 [data-theme="high-contrast"] {
       --bg-color: #000;
       --text-color: #ffeb3b;
