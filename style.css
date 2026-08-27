@@ -734,7 +734,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 /* Projects Section */
-.projects {
+.projects.section {
       text-align: center;
       padding: 3rem 1rem;
       color: var(--text-color);
