@@ -415,6 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalMessage.className = "progress-modal-message";
                            
                            const modalTextarea = document.createElement("textarea");
+                           modalTextarea.className = "progress-modal-textarea";
                            
                            const modalButtonRow = document.createElement("div");
                            modalButtonRow.className = "progress-modal-button-row";
