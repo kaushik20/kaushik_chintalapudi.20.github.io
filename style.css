@@ -477,7 +477,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 /* Hobbies & Skills Section */
-.hobbies_skills {
+.hobbies_skills.section {
       background: linear-gradient(135deg, #1f1f47, #3b82f6);
       color: #ffffff;
       padding: 3rem 2rem;
@@ -1566,7 +1566,7 @@ footer {
       min-height: 80px;
       padding: 8px;
       border-radius: 5px;
-      border: 1px solid var(--progress-bg);
+      border: 1px solid var(--border-color);
       background: var(--bg-color);
       color: var(--text-color);
       font-family: monospace;
