@@ -1618,6 +1618,14 @@ footer {
       opacity: 0.85;
 }
 
+.progress-counter {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      opacity: 0.8;
+      margin: 0.5rem 0;
+}
+
 .progress-bar-container {
       height: 15px;
       margin: 0 auto;
