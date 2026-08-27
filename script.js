@@ -915,6 +915,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     setTimeout(() => hint.remove(), 300);
                                     storage.set(hintKey, "shown");
                                     toggleButton.removeEventListener("click", dismiss);
+                                    window.removeEventListener("resize", positionHint);
                            };
                            
                            setTimeout(dismiss, 6000);
