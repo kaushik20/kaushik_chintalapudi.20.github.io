@@ -522,7 +522,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hobbies_skills-item h3 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      color: #ffffff;
+      color: var(--text-color);
 }
 
 .hs-group {
@@ -884,7 +884,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .achievements-leaderboard-item span:last-child {
       font-size: 0.9rem;
-      color: #f0f0f0;
+      color: var(--text-color);
       font-weight: 400;
 }
 
