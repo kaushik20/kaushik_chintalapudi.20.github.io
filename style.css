@@ -478,8 +478,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 /* Hobbies & Skills Section */
 .hobbies_skills.section {
-      background: linear-gradient(135deg, #1f1f47, #3b82f6);
-      color: #ffffff;
+      background: var(--card-bg);
+      color: var(--text-color);
       padding: 3rem 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -852,7 +852,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .achievements-leaderboard-item {
-      background: linear-gradient(135deg, #00bfff, #007fff); 
+      background: var(--card-bg); 
       border-radius: 12px;
       padding: 1.5rem;
       display: flex;
@@ -1226,7 +1226,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 /* Conclusion Section */
 #conclusion {
-      background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+      background: var(--card-bg);
       padding: 3rem 1rem;
       border-radius: 12px;
       margin: 2rem auto;
@@ -1328,7 +1328,7 @@ footer {
 .qr-code-section {
       flex: 1 1 300px;
       max-width: 300px;
-      background: linear-gradient(135deg, #007fff, #00aaff);
+      background: var(--card-bg);
       border-radius: 12px;
       padding: 1.5rem;
       text-align: center;
