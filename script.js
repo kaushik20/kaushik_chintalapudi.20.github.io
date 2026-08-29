@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            document.querySelector(".toast")?.remove();
                            const toast = document.createElement("div");
                            toast.className = "toast";
+                           toast.setAttribute("role", "status");
+                           toast.setAttribute("aria-live", "polite");
                            toast.textContent = message;
                            document.body.appendChild(toast);
                            
@@ -290,6 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            const overlay = document.createElement("div");
                            overlay.id = "keyword-modal-overlay";
                            overlay.className = "keyword-modal-overlay";
+                           overlay.setAttribute("role", "dialog");
+                           overlay.setAttribute("aria-modal", "true");
+
                            
                            const box = document.createElement("div");
                            box.className = "keyword-modal-box";
@@ -308,7 +313,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            overlay.appendChild(box);
                            document.body.appendChild(overlay);
                            
-                           const close = () => {overlay.classList.remove("show");};
+                           const close = () => {
+                                    overlay.classList.remove("show");
+                                    previouslyFocused?.focus();
+                           };
                            closeBtn.addEventListener("click", close);
                            document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) close();});
                            
@@ -317,6 +325,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     title.textContent = content?.title || fallbackText;
                                     body.textContent = content?.body || "More details coming soon.";
                                     overlay.classList.add("show");
+                                    const previouslyFocused = document.activeElement;
+                                    overlay.classList.add("show");
+                                    closeBtn.focus();
                            };
                   };
 
