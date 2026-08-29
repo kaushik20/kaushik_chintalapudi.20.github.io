@@ -961,7 +961,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .milestone-circle {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #4ac1ff, #6b47dc);
+      background: var(--card-bg);
       color: #ffffff;
       font-size: 1.2rem;
       font-weight: bold;
@@ -1587,7 +1587,7 @@ footer {
       font-size: 0.85rem;
       border-radius: 5px;
       cursor: pointer;
-      border: 1px solid var(--progress-bg);
+      border: 1px solid var(--border-color);
       background: transparent;
       color: var(--text-color);
 }
@@ -1720,8 +1720,8 @@ footer {
       }
 
       .hobbies_skills-item {width: 80%;}
-
-      .projects {background-attachment: scroll;}
+      
+      .projects.section {background-attachment: scroll;}
 
       .project-card {flex: 1 1 calc(100% - 2rem);}
 
@@ -1782,6 +1782,8 @@ footer {
             width: 100px;
             height: 100px;
       }
+
+      .milestone:nth-child(odd):hover, .milestone:nth-child(even):hover {transform: scale(1.02);}
 
       .milestone, .milestone:nth-child(odd), .milestone:nth-child(even) {
             transform: translateX(0);
