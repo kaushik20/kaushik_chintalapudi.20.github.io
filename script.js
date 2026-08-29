@@ -312,6 +312,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            box.append(title, body, closeBtn);
                            overlay.appendChild(box);
                            document.body.appendChild(overlay);
+
+                           let previouslyFocused = null;
                            
                            const close = () => {
                                     overlay.classList.remove("show");
@@ -325,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     title.textContent = content?.title || fallbackText;
                                     body.textContent = content?.body || "More details coming soon.";
                                     overlay.classList.add("show");
-                                    const previouslyFocused = document.activeElement;
+                                    previouslyFocused = document.activeElement;
                                     overlay.classList.add("show");
                                     closeBtn.focus();
                            };
