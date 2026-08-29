@@ -34,13 +34,7 @@
       --hero-bg: linear-gradient(135deg, #6b47dc, #4ac1ff);
 }
 
-[data-theme="light"] .milestone-title,
-[data-theme="light"] .milestone-description,
-[data-theme="light"] .milestone-date,
-[data-theme="light"] .project-card h3,
-[data-theme="light"] .project-card p {
-  color: #ffffff;
-}
+[data-theme="light"] .milestone-title, [data-theme="light"] .milestone-description, [data-theme="light"] .milestone-date, [data-theme="light"] .project-card h3, [data-theme="light"] .project-card p {color: #ffffff;}
 
 [data-theme="high-contrast"] {
       --bg-color: #000;
@@ -491,7 +485,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hobbies_skills.section h2 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      color: #ffffff;
+      color: var(--text-color);
 }
 
 .hobbies_skills .section-subtitle {
@@ -538,7 +532,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       
 .hs-group-title {
       font-size: 1.5rem;
-      color: #ffffff;
+      color: var(--text-color);
       margin-bottom: 1rem;
       text-align: center;
       letter-spacing: 0.05em;
@@ -882,7 +876,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .achievements-leaderboard-item span {
       font-size: 1.1rem;
-      color: #001f3f;
+      color: var(--text-color);
       font-weight: 600;
       margin: 0.3rem 0;
       text-align: center;
