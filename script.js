@@ -294,7 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            overlay.className = "keyword-modal-overlay";
                            overlay.setAttribute("role", "dialog");
                            overlay.setAttribute("aria-modal", "true");
-
                            
                            const box = document.createElement("div");
                            box.className = "keyword-modal-box";
@@ -326,7 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const content = keywordModalContent[id];
                                     title.textContent = content?.title || fallbackText;
                                     body.textContent = content?.body || "More details coming soon.";
-                                    overlay.classList.add("show");
                                     previouslyFocused = document.activeElement;
                                     overlay.classList.add("show");
                                     closeBtn.focus();
