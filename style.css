@@ -1637,6 +1637,18 @@ footer {
       background: var(--progress-fill);
       transition: width 0.5s ease;
 }
+
+.hobbies_skills-item.explored, .project-card.explored, .achievements-leaderboard-item.explored, .milestone.explored {
+      border: 2px solid #2ecc71;
+      box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
+}
+
+.timeline-item.explored .timeline-point {background-color: #2ecc71;}
+
+.keyword.explored {
+      border-bottom-style: solid;
+      opacity: 0.75;
+}
       
 /* Animations */
 @keyframes fadeIn {
