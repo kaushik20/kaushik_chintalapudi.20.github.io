@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
                   
-                  const getItemId = (item, index) => item.dataset.id || item.textContent.trim().slice(0, 40) || `idx-${index}`;
+                  const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
@@ -752,6 +752,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const img = badgeContainer.querySelector("img");
                                     if (img) img.style.display = "block";
                            }
+
+                           if (badgeContainer.classList.contains("unlocked")) return;
                            
                            // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
                            // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
@@ -805,6 +807,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const img = badgeContainer.querySelector("img");
                                     if (img) img.style.display = "block";
                            }
+
+                           if (badgeContainer.classList.contains("unlocked")) return;
                            
                            const observer = new IntersectionObserver((entries) => {
                                     entries.forEach(entry => {
@@ -835,6 +839,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const img = badgeContainer.querySelector("img");
                                     if (img) img.style.display = "block";
                            }
+
+                           if (badgeContainer.classList.contains("unlocked")) return;
                            
                            const observer = new IntersectionObserver((entries) => {
                                     entries.forEach(entry => {
@@ -873,9 +879,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       speechText.textContent += line.charAt(i);
                                                       i++;
                                                       typingTimeout = setTimeout(type, 30);
-                                             } else {
-                                                      typingTimeout = setTimeout(onDone, 1400);
-                                             }
+                                             } else {typingTimeout = setTimeout(onDone, 1400);}
                                     };
                                     type();
                            };
