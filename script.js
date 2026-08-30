@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (!section) return;
                                     initializedSections.add(id);
                                     const items = section.querySelectorAll(itemsClass);
-                                    const totalItems = items.length;
                                     const exploredKey = `${id}-exploredItems`;
                                     let exploredSet;
                                     try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
@@ -199,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     });
                                     
                                     // Initial progress display
-                                    updateProgress(progressCounter, state.exploredCount, totalItems);
+                                    updateProgress(progressCounter, state.exploredCount, items.length);
                            };
                            
                            sectionsToGamify.forEach(initializeSection);
