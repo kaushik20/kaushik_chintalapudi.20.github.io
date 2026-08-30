@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                   
                   const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
+                  const getItemId = (item, index) => item.dataset.id || `auto-${item.textContent.trim().slice(0, 40)}`;
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
@@ -75,13 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const percentage = totalItems>0 ? Math.min((exploredCount / totalItems) * 100, 100): 0;
                                     progressBar.style.animation = "none";
                                     progressBar.offsetHeight;
-                                    progressBar.style.setProperty("--progress-width", `${percentage}%`);
-                                    progressBar.style.animation = "fillProgress 1s ease forwards";
-                                    progressBar.setAttribute("role", "progressbar");
-                                    progressBar.setAttribute("aria-valuemin", "0");
-                                    progressBar.setAttribute("aria-valuemax", "100");
-                                    progressBar.setAttribute("aria-valuenow", percentage.toFixed(0));
-                                    progressBar.setAttribute("aria-label", "Section progress");
+                                    badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
+                                    badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
+                                    badgeProgressFill.setAttribute("role", "progressbar");
+                                    badgeProgressFill.setAttribute("aria-valuemin", "0");
+                                    badgeProgressFill.setAttribute("aria-valuemax", "100");
+                                    badgeProgressFill.setAttribute("aria-valuenow", percentage.toFixed(0));
+                                    badgeProgressFill.setAttribute("aria-label", "Overall badge progress");
                            }
                   };
                   
@@ -162,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     else {section.prepend(progressCounter, progressBarContainer);}
                                     
                                     const resetButton = document.createElement("button");
+                                    resetButton.type = "button";
                                     resetButton.textContent = "Reset Progress";
                                     resetButton.className = "reset-button";
                                     resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
@@ -603,6 +605,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        
                                        // Handle data-action attributes
                                        keyword.addEventListener("click", () => {
+                                                if (Date.now() < suppressClickUntil) return;
                                                 const action = keyword.dataset.action;
                                                 if (action === "highlight") {
                                                          keyword.style.backgroundColor = "var(--button-bg)";
@@ -669,7 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            applyThemeUI(currentTheme);
                            
                            toggleButton.addEventListener("click", () => {
-                                    const active = document.documentElement.getAttribute("data-theme") || "dark";
+                                    const active = document.documentElement.getAttribute("data-theme") || "light";
                                     const nextIndex = (themeOrder.indexOf(active) + 1) % themeOrder.length;
                                     const newTheme = themeOrder[nextIndex];
                                     document.documentElement.setAttribute("data-theme", newTheme);
