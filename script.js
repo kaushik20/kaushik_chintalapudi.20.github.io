@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
                   
-                  const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
                   const getItemId = (item, index) => item.dataset.id || `auto-${item.textContent.trim().slice(0, 40)}`;
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
@@ -76,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const percentage = totalItems>0 ? Math.min((exploredCount / totalItems) * 100, 100): 0;
                                     progressBar.style.animation = "none";
                                     progressBar.offsetHeight;
-                                    badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
-                                    badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
-                                    badgeProgressFill.setAttribute("role", "progressbar");
-                                    badgeProgressFill.setAttribute("aria-valuemin", "0");
-                                    badgeProgressFill.setAttribute("aria-valuemax", "100");
-                                    badgeProgressFill.setAttribute("aria-valuenow", percentage.toFixed(0));
-                                    badgeProgressFill.setAttribute("aria-label", "Overall badge progress");
+                                    progressBar.style.setProperty("--progress-width", `${percentage}%`);
+                                    progressBar.style.animation = "fillProgress 1s ease forwards";
+                                    progressBar.setAttribute("role", "progressbar");
+                                    progressBar.setAttribute("aria-valuemin", "0");
+                                    progressBar.setAttribute("aria-valuemax", "100");
+                                    progressBar.setAttribute("aria-valuenow", percentage.toFixed(0));
+                                    progressBar.setAttribute("aria-label", "Section progress");
                            }
                   };
                   
@@ -410,6 +409,11 @@ document.addEventListener("DOMContentLoaded", () => {
                            badgeProgressFill.offsetHeight;
                            badgeProgressFill.style.setProperty("--progress-width", `${percentage}%`);
                            badgeProgressFill.style.animation = "fillProgress 1s ease forwards";
+                           badgeProgressFill.setAttribute("role", "progressbar");
+                           badgeProgressFill.setAttribute("aria-valuemin", "0");
+                           badgeProgressFill.setAttribute("aria-valuemax", "100");
+                           badgeProgressFill.setAttribute("aria-valuenow", percentage.toFixed(0));
+                           badgeProgressFill.setAttribute("aria-label", "Overall badge progress");
                   };
 
                   // Progress Export/Import (mitigates localStorage's per-device fragility)
@@ -585,6 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
                               keywords.forEach((keyword) => {
                                        if (initializedElements.has(keyword)) return;
                                        initializedElements.add(keyword);
+                                       let suppressClickUntil = 0;
                                        keyword.addEventListener("mouseenter", (e) => {
                                                 popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
                                                 positionPopover(e.pageX, e.pageY);
@@ -593,6 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                        
                                        // Touch: tap shows/toggles the tooltip near the tap point
                                        keyword.addEventListener("touchstart", (e) => {
+                                                suppressClickUntil = Date.now() + 500;
                                                 const isOpen = popover.style.display === "block" && popover.textContent === (keyword.dataset.tooltip || `More about ${keyword.textContent}`);
                                                 if (isOpen) {
                                                          popover.style.display = "none";
