@@ -446,6 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const makeModalButton = (label, primary) => {
                                     const btn = document.createElement("button");
+                                    btn.type = "button";
                                     btn.textContent = label;
                                     btn.className = "progress-modal-btn" + (primary ? " primary" : "");
                                     return btn;
@@ -535,6 +536,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const makeTriggerButton = (label, handler) => {
                                     const btn = document.createElement("button");
+                                    btn.type = "button";
                                     btn.textContent = label;
                                     btn.addEventListener("click", handler);
                                     btn.className = "progress-portability-btn";
