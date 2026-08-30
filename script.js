@@ -177,23 +177,27 @@ document.addEventListener("DOMContentLoaded", () => {
                                              if (img) img.style.display = "block";
                                     }
                                        
-                                    // Delegate click event to section
-                                    section.addEventListener("click", (event) => {
-                                             const target = event.target.closest(itemsClass);
-                                             if (target && !target.classList.contains("explored")) {
-                                                      const allItems = Array.from(section.querySelectorAll(itemsClass));
-                                                      const itemIndex = allItems.indexOf(target);
-                                                      if (itemIndex === -1) return;
-                                                      const itemId = getItemId(target, itemIndex);
-                                                      
-                                                      target.classList.add("explored");
-                                                      exploredSet.add(itemId);
-                                                      storage.set(exploredKey, JSON.stringify([...exploredSet]));
-                                                      state.exploredCount = exploredSet.size;
-                                                      updateProgress(progressCounter, state.exploredCount, allItems.length);
-                                                      if (state.exploredCount === allItems.length) {unlockBadge(badgeContainer);}
-                                             }
-                                    });
+                                    // Shared logic so both mouse clicks and keyboard focus can trigger "explored"
+                                    const markExplored = (target) => {
+                                             if (!target || target.classList.contains("explored")) return;
+                                             const allItems = Array.from(section.querySelectorAll(itemsClass));
+                                             const itemIndex = allItems.indexOf(target);
+                                             if (itemIndex === -1) return;
+                                             const itemId = getItemId(target, itemIndex);
+                                             
+                                             target.classList.add("explored");
+                                             exploredSet.add(itemId);
+                                             storage.set(exploredKey, JSON.stringify([...exploredSet]));
+                                             state.exploredCount = exploredSet.size;
+                                             updateProgress(progressCounter, state.exploredCount, allItems.length);
+                                             if (state.exploredCount === allItems.length) {unlockBadge(badgeContainer);}
+                                    };
+                                    
+                                    // Mouse/touch: click anywhere in the item
+                                    section.addEventListener("click", (event) => {markExplored(event.target.closest(itemsClass));});
+                                    
+                                    // Keyboard: tabbing to a focusable descendant (e.g. a "View Certificate" link) counts as exploring the card, without needing a separate tabindex on the wrapper.
+                                    section.addEventListener("focusin", (event) => {markExplored(event.target.closest(itemsClass));});
                                     section.addEventListener("progressReset", () => {
                                              exploredSet.clear();
                                              state.exploredCount = 0;
