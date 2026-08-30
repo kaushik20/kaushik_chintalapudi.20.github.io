@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   const standaloneBadgeIds = ["badge-container-resume", "badge-container-conclusion", "badge-container-dashboard"];
                   const badgeSections = [...sectionsToGamify.map(s => s.badgeId), ...standaloneBadgeIds];
                   let modalAutoCloseTimer = null;
+                  let dashboardMissingWarned = false;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
                            badgeContainer.classList.add("unlocked");
@@ -253,7 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (!card) return;
                                     const badgeId = card.dataset.badgeId;
                                     const badgeContainer = document.getElementById(badgeId);
-                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card, undefined, badgeContainer.dataset.badgeName);}
+                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
+                                             openBadgeModal(card, undefined, badgeContainer.dataset.badgeName);
+                                             clearTimeout(modalAutoCloseTimer);
+                                    }
                                     else {showToast("Unlock this badge by exploring the section!");}
                            });
                            
@@ -382,15 +386,19 @@ document.addEventListener("DOMContentLoaded", () => {
                   
                   // Update Badge Progress in Dashboard
                   const updateBadgeProgress = () => {
+                           if (!document.getElementById("dashboard")) {
+                                    if (!dashboardMissingWarned) {
+                                             console.warn("Badge progress: #dashboard not found yet.");
+                                             dashboardMissingWarned = true;
+                                    }
+                                    return;
+                           }
                            ensureBadgeProgressUI();
                            refreshBadgeCardLockStates();
                            
                            const badgeProgressText = document.getElementById("badge-progress-text");
                            const badgeProgressFill = document.getElementById("badge-progress-fill");
-                           if (!badgeProgressText || !badgeProgressFill) {
-                                    console.warn("Badge progress: elements not found.");
-                                    return;
-                           }
+                           if (!badgeProgressText || !badgeProgressFill) return;
                            
                            const unlockedCount = badgeSections.reduce((count, id) => {return count + (storage.get(id) === "unlocked" ? 1 : 0);}, 0);
                            
@@ -657,7 +665,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            };
                            
                            // Theme was already set synchronously in <head> — just sync the icon to it.
-                           const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+                           const currentTheme = document.documentElement.getAttribute("data-theme") || storage.get("theme") || "light";
                            applyThemeUI(currentTheme);
                            
                            toggleButton.addEventListener("click", () => {
