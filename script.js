@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                                       state.exploredCount = exploredSet.size;
                                                       updateProgress(progressCounter, state.exploredCount, allItems.length);
-                                                      if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
+                                                      if (state.exploredCount === allItems.length) {unlockBadge(badgeContainer);}
                                              }
                                     });
                                     section.addEventListener("progressReset", () => {
