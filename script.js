@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
                   
-                  const getItemId = (item, index) => item.dataset.id || `auto-${item.textContent.trim().slice(0, 40)}`;
+                  const getItemId = (item, index) => item.dataset.id || `auto-${index}-${item.textContent.trim().slice(0, 40)}`;
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
@@ -210,12 +210,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     let hasWarned = false;
                                     const observer = new MutationObserver((mutations) => {
                                              mutations.forEach((mutation) => {
-                                                      if (mutation.type === "childList") {
+                                                      mutation.addedNodes.forEach((node) => {
+                                                               if (node.nodeType !== 1) return;
                                                                sectionsToGamify.forEach(({ id, itemsClass, badgeId }) => {
-                                                                        const section = document.getElementById(id);
-                                                                        if (section && mutation.target.contains(section)) {initializeSection({ id, itemsClass, badgeId });}
+                                                                        if (initializedSections.has(id)) return;
+                                                                        const section = node.id === id ? node : node.querySelector?.(`#${id}`);
+                                                                        if (section) initializeSection({ id, itemsClass, badgeId });
                                                                });
-                                                      }
+                                                      });
                                              });
                                              if (initializedSections.size === sectionsToGamify.length) {
                                                       observer.disconnect();
@@ -767,7 +769,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
                            // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
                            const supportsInlinePdf = (() => {
-                                    const isIOS = /iP(hone|od|ad)/.test(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+                                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
                                     const isAndroidChrome = /Android/.test(navigator.userAgent) && /Chrome/.test(navigator.userAgent);
                                     return !(isIOS || isAndroidChrome);
                            })();
