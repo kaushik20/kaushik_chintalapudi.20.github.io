@@ -752,8 +752,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const img = badgeContainer.querySelector("img");
                                     if (img) img.style.display = "block";
                            }
-
-                           if (badgeContainer.classList.contains("unlocked")) return;
                            
                            // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
                            // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
@@ -777,6 +775,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     viewer.replaceWith(fallback);
                                     elementToObserve = fallback;
                            }
+                           
+                           if (badgeContainer.classList.contains("unlocked")) return;
                            
                            // Load unlocked badge state — observe whichever element actually ended up in the DOM
                            const observer = new IntersectionObserver((entries) => {
