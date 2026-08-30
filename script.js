@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
                   
-                  const getItemId = (item, index) => item.dataset.id || `idx-${index}`;
+                  const getItemId = (item, index) => item.dataset.id || item.textContent.trim().slice(0, 40) || `idx-${index}`;
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              const itemId = getItemId(item, index);
                                              if (exploredSet.has(itemId)) item.classList.add("explored");
                                     });
-                                    const state = { exploredCount: exploredSet.size };
+                                    const state = {exploredCount: exploredSet.size};
                                     
                                     // Create or select progress counter
                                     const progressCounter = document.createElement("div");
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     progressBarContainer.appendChild(progressBarFill);
                                     const heading = section.querySelector("h2");
                                     if (heading) {heading.after(progressCounter, progressBarContainer);} 
-                                    else {section.prepend(progressBarContainer, progressCounter);}
+                                    else {section.prepend(progressCounter, progressBarContainer);}
                                     
                                     const resetButton = document.createElement("button");
                                     resetButton.textContent = "Reset Progress";
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       exploredSet.add(itemId);
                                                       storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                                       state.exploredCount = exploredSet.size;
-                                                      updateProgress(progressCounter, state.exploredCount, totalItems);
+                                                      updateProgress(progressCounter, state.exploredCount, allItems.length);
                                                       if (state.exploredCount === totalItems) {unlockBadge(badgeContainer);}
                                              }
                                     });
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            window.openKeywordModal = (id, fallbackText) => {
                                     const content = keywordModalContent[id];
-                                    title.textContent = content?.title || fallbackText;
+                                    title.textContent = content?.title || fallbackText || "Details";
                                     body.textContent = content?.body || "More details coming soon.";
                                     previouslyFocused = document.activeElement;
                                     overlay.classList.add("show");
