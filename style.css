@@ -43,7 +43,9 @@
 [data-theme="light"] .milestone-title, [data-theme="light"] .milestone-description,
 [data-theme="light"] .milestone-date, [data-theme="light"] .project-card h3,
 [data-theme="light"] .project-card p, [data-theme="light"] .hobbies_skills-item h3,
-[data-theme="light"] .achievements-leaderboard-item span {color: #ffffff;}
+[data-theme="light"] .achievements-leaderboard-item span,
+[data-theme="light"] .timeline-content,
+[data-theme="light"] .timeline-content ul li {color: #ffffff;}
 
 [data-theme="high-contrast"] {
       --bg-color: #000;
@@ -359,7 +361,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .talking-avatar:hover img {transform: scale(1.03);}
 
-.talking-avatar.speaking img {
+.talking-avatar.talking img {
     animation: avatarSpeaking 0.7s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
 }
@@ -558,25 +560,26 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .hs-main-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
 }
 
 .hs-main-row .hs-group {
-  flex: 1;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
+      flex: 1;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
 }
 
 .hs-main-row .hs-divider {
-  align-self: stretch;
-  width: 1px;
-  background: var(--border-color);
+      align-self: stretch;
+      width: 1px;
+      height: auto;
+      background: var(--border-color);
 }
 
 /* Experience Section */
@@ -648,7 +651,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .timeline-content {
-      background: var(--bg-color);
+     background: var(--card-bg);
       padding: 1rem 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
