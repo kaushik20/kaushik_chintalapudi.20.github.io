@@ -16,7 +16,13 @@
       --animation-duration: 0.3s;
 }
 
-.section {scroll-margin-top: 80px;}
+.section {
+      scroll-margin-top: 80px;
+      padding: 3rem 1.5rem;
+      background-color: var(--bg-color); 
+      text-align: center;
+      color: var(--text-color);
+}
 
 [data-theme="light"] {
       --bg-color: #ffffff;
@@ -820,13 +826,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .colab-button:hover {background-color: #E64A19;}
       
 /* Achievements Section */
-.section {
-      padding: 3rem 1.5rem;
-      background-color: var(--bg-color); 
-      text-align: center;
-      color: var(--text-color);
-}
-
 .section .section-subtitle {
       font-size: 1.2rem;
       margin-bottom: 2rem;
