@@ -1748,12 +1748,6 @@ footer {
 
       .timeline-container::before {height: 0;}
 
-      .timeline-item {
-            align-items: flex-start;
-            max-width: none;
-            margin-bottom: 2rem;
-      }
-
       .timeline-content {text-align: left;}
 
       .hero-avatar {
