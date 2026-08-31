@@ -45,7 +45,10 @@
 [data-theme="light"] .project-card p, [data-theme="light"] .hobbies_skills-item h3,
 [data-theme="light"] .achievements-leaderboard-item span,
 [data-theme="light"] .timeline-content,
-[data-theme="light"] .timeline-content ul li {color: #ffffff;}
+[data-theme="light"] .timeline-content ul li,
+[data-theme="light"] .milestone-circle,
+[data-theme="light"] .badge-card h3,
+[data-theme="light"] .badge-card p {color: #ffffff;}
 
 [data-theme="high-contrast"] {
       --bg-color: #000;
@@ -829,14 +832,14 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .colab-button:hover {background-color: #E64A19;}
       
 /* Achievements Section */
-.section .section-subtitle {
+.achievements.section .section-subtitle {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       color: var(--text-color);
       opacity: 0.8;
 }
 
-.section h2 {
+.achievements.section h2 {
       font-size: 2.5rem;
       color: #00bfff;
       margin-bottom: 1rem;
@@ -961,7 +964,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       width: 60px;
       height: 60px;
       background: var(--card-bg);
-      color: #ffffff;
+      color: var(--text-color);
       font-size: 1.2rem;
       font-weight: bold;
       border-radius: 50%;
@@ -1133,14 +1136,14 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .badge-card h3 {
       font-size: 1.2rem;
-      color: #ffffff;
+      color: var(--text-color);
       margin-bottom: 0.5rem;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .badge-card p {
       font-size: 0.9rem;
-      color: #d1d9f9;
+      color: var(--text-color);
 }
 
 .badge-modal {
@@ -1427,7 +1430,7 @@ footer {
       margin-top: 20px;
       padding: 12px 24px;
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
-      color: white !important;
+      color: white;
       text-decoration: none;
       border-radius: 30px;
       font-weight: 600;
