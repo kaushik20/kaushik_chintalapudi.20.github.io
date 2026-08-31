@@ -34,7 +34,10 @@
       --hero-bg: linear-gradient(135deg, #6b47dc, #4ac1ff);
 }
 
-[data-theme="light"] .milestone-title, [data-theme="light"] .milestone-description, [data-theme="light"] .milestone-date, [data-theme="light"] .project-card h3, [data-theme="light"] .project-card p {color: #ffffff;}
+[data-theme="light"] .milestone-title, [data-theme="light"] .milestone-description,
+[data-theme="light"] .milestone-date, [data-theme="light"] .project-card h3,
+[data-theme="light"] .project-card p, [data-theme="light"] .hobbies_skills-item h3,
+[data-theme="light"] .achievements-leaderboard-item span {color: #ffffff;}
 
 [data-theme="high-contrast"] {
       --bg-color: #000;
@@ -616,11 +619,11 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .timeline-item {
-      display: inline-block;
-      position: relative;
-      text-align: center;
-      margin: 0 2rem;
-      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: none;
+      margin-bottom: 2rem;
 }
 
 .timeline-point {
@@ -1416,7 +1419,7 @@ footer {
 }
 
 .hire-btn {
-      display: inline-block;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-top: 20px;
@@ -1693,7 +1696,7 @@ footer {
       to {width: var(--progress-width, 0%);}
 }
 
-@media (max-width: 1024px) {.project-card {flex: 1 1 calc(50% - 2rem);}}
+@media (max-width: 1024px) {.project-grid {grid-template-columns: repeat(2, 1fr);}}
 
 @media (max-width: 768px) {
       header {
