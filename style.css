@@ -1731,8 +1731,6 @@ footer {
       
       .projects.section {background-attachment: scroll;}
 
-      .project-card {flex: 1 1 calc(100% - 2rem);}
-
       .section h2 {font-size: 2rem;}
 
       .achievements-leaderboard-item {padding: 1rem;}
