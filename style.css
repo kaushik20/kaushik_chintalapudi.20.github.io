@@ -4,6 +4,7 @@
       --text-color: #fff;
       --hero-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
+      --card-text: #ffffff
       --button-bg: #0078d7;
       --button-hover: #005bb5;
       --border-color: rgba(255, 255, 255, 0.1);
@@ -28,6 +29,7 @@
       --bg-color: #ffffff;
       --text-color: #000000;
       --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
+      --card-text: #ffffff;
       --border-color: rgba(0, 0, 0, 0.1);
       --button-bg: #0078d7;
       --button-hover: #6b47dc;
@@ -39,17 +41,6 @@
       --footer-text: #262e47;
       --hero-bg: linear-gradient(135deg, #6b47dc, #4ac1ff);
 }
-
-[data-theme="light"] .milestone-title, [data-theme="light"] .milestone-description,
-[data-theme="light"] .milestone-date, [data-theme="light"] .project-card h3,
-[data-theme="light"] .project-card p, [data-theme="light"] .hobbies_skills-item h3,
-[data-theme="light"] .achievements-leaderboard-item span,
-[data-theme="light"] .timeline-content,
-[data-theme="light"] .timeline-content ul li,
-[data-theme="light"] .timeline-point,
-[data-theme="light"] .milestone-circle,
-[data-theme="light"] .badge-card h3,
-[data-theme="light"] .badge-card p {color: #ffffff;}
 
 [data-theme="high-contrast"] {
       --bg-color: #000;
