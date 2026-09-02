@@ -250,19 +250,21 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 /* Hero Section */
 #hero {
-  text-align: center;
-  position: relative;
-  background: var(--hero-bg);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+      text-align: center;
+      position: relative;
+      background: var(--hero-bg);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
 }
 
 .hero-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      height: 100vh;
+      position: relative;  
+      z-index: 1;
 }
 
 #hero::before {
@@ -492,13 +494,14 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hobbies_skills.section h2 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      color: var(--text-color);
+      color: var(--card-text);
 }
 
 .hobbies_skills .section-subtitle {
       font-size: 1.2rem;
       margin-bottom: 2rem;
-      color: #d1d9f9;
+      color: var(--card-text);
+      opacity: 0.85;
 }
       
 .hobbies_skills-container {
