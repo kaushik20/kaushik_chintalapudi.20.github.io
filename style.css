@@ -129,21 +129,21 @@ a:focus, button:focus {
 }
 
 .keyword {
-   cursor: pointer;
-   border-bottom: 1px dashed var(--button-bg);
-   color: var(--button-bg);
-   transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+      border-bottom: 1px dashed var(--button-bg);
+      color: var(--button-bg);
+      transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .keyword:hover, .keyword:focus {
-   background-color: var(--button-bg);
-   color: var(--bg-color);
+      background-color: var(--button-bg);
+      color: var(--bg-color);
 }
 
 .course-link {
-   cursor: pointer;
-   text-decoration: underline;
-   color: var(--button-bg);
+      cursor: pointer;
+      text-decoration: underline;
+      color: var(--button-bg);
 }
 
 /* Header Section */
@@ -262,7 +262,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      height: 100vh;
+      min-height: 100vh;
+      height: 100dvh;
       position: relative;  
       z-index: 1;
 }
@@ -329,7 +330,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .hero-avatar {
       flex: 0 0 380px;
-      width: 380px;
       max-width: 40%;
       display: flex;
       align-items: center;
