@@ -46,6 +46,7 @@
 [data-theme="light"] .achievements-leaderboard-item span,
 [data-theme="light"] .timeline-content,
 [data-theme="light"] .timeline-content ul li,
+[data-theme="light"] .timeline-point,
 [data-theme="light"] .milestone-circle,
 [data-theme="light"] .badge-card h3,
 [data-theme="light"] .badge-card p {color: #ffffff;}
@@ -443,7 +444,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       align-items: center;
       text-align: center;
       padding: 2rem 1rem;
-      background-color: var(--progress-bg);
+      background-color: var(--bg-color);
       color: var(--text-color);
       margin-top: 50px;
       animation: fadeIn 1.5s ease-in-out;
@@ -557,7 +558,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hs-divider {
       width: 80%;
       height: 2px;
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--border-color);
       margin: 1rem auto 2rem;
       border-radius: 2px;
 }
@@ -1290,7 +1291,7 @@ footer {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--border-color);
       padding-top: 1rem;
 }
 
@@ -1386,7 +1387,7 @@ footer {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--border-color);
       padding-top: 1rem;
 }
 
