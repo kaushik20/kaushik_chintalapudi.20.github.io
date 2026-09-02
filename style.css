@@ -633,7 +633,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .timeline-point {
       background-color: var(--button-bg);
-      color:  var(--text-color);
+      color: var(--card-text);
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -1042,13 +1042,13 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .badge-title {
       font-size: 1.3rem;
       margin-bottom: 0.4rem;
-      color: var(--text-color);
+      color: var(--card-text);
 }
 
 .badge-message {
       font-size: 1rem;
       opacity: 0.9;
-      color: var(--text-color);
+      color: var(--card-text);
 }
 
 .badge-content {text-align: center;}
@@ -1243,7 +1243,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .conclusion-content p {
    font-size: 1.2rem;
    line-height: 1.6;
-   color: var(--text-color);
+   color: var(--card-text);
    margin-bottom: 1.5rem;
 }
       
