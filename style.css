@@ -62,7 +62,7 @@
 .theme-hint {
       position: fixed;
       background: var(--card-bg);
-      color: var(--text-color);
+      color: var(--card-text);
       padding: 8px 14px;
       border-radius: 6px;
       font-size: 0.85rem;
@@ -370,7 +370,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
     width: min(420px, 80vw);
     padding: 18px 22px;
     background: var(--card-bg, #ffffff);
-    color: var(--text-color, #111111);
+    color: var(--card-text, #111111);
     border-radius: 18px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(128, 128, 128, 0.25);
@@ -480,7 +480,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 /* Hobbies & Skills Section */
 .hobbies_skills.section {
       background: var(--card-bg);
-      color: var(--text-color);
+      color: var(--card-text);
       padding: 3rem 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -733,7 +733,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .resume-fallback-notice p {
       margin-bottom: 1rem;
-      color: var(--text-color);
+      color: var(--card-text);
       opacity: 0.85;
 }
 
