@@ -1631,7 +1631,7 @@ footer {
       height: 15px;
       margin: 0 auto;
       width: 80%;
-      background: rgba(128, 128, 128, 0.15);
+      background: var(--progress-bg);
       border: 1px solid var(--border-color);
       border-radius: 10px;
       position: relative;
