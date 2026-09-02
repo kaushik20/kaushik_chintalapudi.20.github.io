@@ -529,7 +529,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hobbies_skills-item h3 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      color: var(--text-color);
+      color: var(--card-text);
 }
 
 .hs-group {
@@ -647,7 +647,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .timeline-content {
-     background: var(--card-bg);
+      background: var(--card-bg);
+      color: var(--card-text);
       padding: 1rem 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -679,6 +680,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .timeline-content ul li {
       margin-bottom: 0.5rem;
       line-height: 1.4;
+      color: var(--card-text);
 }
 
 .timeline-content ul li::before {
@@ -793,12 +795,13 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       font-size: 1.5rem;
       margin-bottom: 1rem;
       font-weight: 600;
+      color: var(--card-text);
 }
 
 .project-card p {
       font-size: 1rem;
       line-height: 1.5;
-      color: #e6e6e6;
+      color: var(--card-text);
 }
 
 .project-link {
@@ -877,7 +880,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .achievements-leaderboard-item span {
       font-size: 1.1rem;
-      color: var(--text-color);
+      color: var(--card-text);
       font-weight: 600;
       margin: 0.3rem 0;
       text-align: center;
@@ -885,7 +888,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .achievements-leaderboard-item span:last-child {
       font-size: 0.9rem;
-      color: var(--text-color);
+      color: var(--card-text);
       font-weight: 400;
 }
 
@@ -957,7 +960,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       width: 60px;
       height: 60px;
       background: var(--card-bg);
-      color: var(--text-color);
+      color: var(--card-text);
       font-size: 1.2rem;
       font-weight: bold;
       border-radius: 50%;
@@ -984,7 +987,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .milestone-date {
       font-size: 1rem;
-      color: var(--text-color);
+      color: var(--card-text);
       opacity: 0.7;
       margin-bottom: 0.5rem;
 }
@@ -992,13 +995,13 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .milestone-title {
       font-size: 1.3rem;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--card-text);
       margin-bottom: 0.5rem;
 }
 
 .milestone-description {
       font-size: 1rem;
-      color: var(--text-color);
+      color: var(--card-text);
       opacity: 0.8;
       margin-bottom: 1rem;
 }
@@ -1129,14 +1132,14 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .badge-card h3 {
       font-size: 1.2rem;
-      color: var(--text-color);
+      color: var(--card-text);
       margin-bottom: 0.5rem;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .badge-card p {
       font-size: 0.9rem;
-      color: var(--text-color);
+      color: var(--card-text);
 }
 
 .badge-modal {
