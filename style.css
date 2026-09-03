@@ -1725,7 +1725,7 @@ footer {
       
       .projects.section {background-attachment: scroll;}
 
-      .achievements.section h2 {font-size: 2rem;}
+      #achievements-leaderboard h2 {font-size: 2rem;}
 
       .achievements-leaderboard-item {padding: 1rem;}
 
