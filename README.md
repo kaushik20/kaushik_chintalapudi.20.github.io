@@ -11,6 +11,7 @@ This isn't a static resume page — it's an interactive, gamified portfolio. Vis
 
 
 🧩 Features
+
 Gamified exploration — Hovering, clicking, or tabbing through items in About, Hobbies & Skills, Experience, Projects, Achievements, and Certifications marks them "explored." Complete a section to unlock its badge, tracked live with a progress bar.
 
 Badge Gallery & Dashboard — A dedicated section showing all unlockable badges, locked/unlocked state, and overall completion percentage.
@@ -28,12 +29,20 @@ Accessibility-minded — Keyboard activation for role="button" elements, ARIA la
 
 Fully responsive — Layout adapts across desktop, tablet, and mobile breakpoints.
 
+
 🛠️ Tech Stack
+
 HTML5 — Semantic structure, schema.org Person/WebSite JSON-LD for SEO
+
 CSS3 — Custom properties (CSS variables) for theming, animations, and a responsive grid/flex layout
+
 Vanilla JavaScript — No frameworks; handles gamification logic, modals, theming, and the avatar interaction
+
 Font Awesome & Google Fonts (Poppins) via CDN
+
 GitHub Pages — Hosting/deployment
+
+
 📁 Project Structure
 ├── index.html      # Main page markup, content, and structured data
 ├── style.css       # Theming (CSS variables), layout, responsive rules, animations
@@ -41,22 +50,34 @@ GitHub Pages — Hosting/deployment
 ├── Images/         # Avatar, badge icons, certification logos, project images
 └── PDF/            # Resume and certificate PDFs
 
+
 📌 Sections
 
 Section	What it covers:
-About	Background and journey into tech
-Hobbies & Skills	Guitar, cricket, music + Azure, Power Platform, Oracle Fusion, Python
-Experience	Research Internship (MIT-WPU AI Institute), Cloud Internship (PCS Gulf)
-Resume	Embedded, downloadable PDF resume
-Projects	Smart Health Monitoring (IoT), Hate Speech Detection (NLP)
-Achievements	AI Impact Summit, Microsoft AI/Cloud Skills challenges, and more
-Certifications	Azure Fundamentals, McKinsey Forward, Yuva AI for All, One Million Prompters
-Badge Gallery	Live dashboard of unlocked badges and overall progress
-Conclusion	Vision — building an AI-driven tech company in Amaravati, India
+
+About Me:	Background and journey into tech
+
+Hobbies & Skills:	Guitar, cricket, music + Azure, Power Platform, Oracle Fusion, Python
+
+Experience:	Research Internship (MIT-WPU AI Institute), Cloud Internship (PCS Gulf)
+
+Resume:	Embedded, downloadable PDF resume
+
+Projects:	Smart Health Monitoring (IoT), Hate Speech Detection (NLP)
+
+Achievements:	AI Impact Summit, Microsoft AI/Cloud Skills challenges, and more
+
+Certifications:	Azure Fundamentals, McKinsey Forward, Yuva AI for All, One Million Prompters
+
+Badge Gallery:	Live dashboard of unlocked badges and overall progress
+
+Conclusion:	Vision — building an AI-driven tech company in Amaravati, India
+
 
 🚀 Running Locally
 
 No build step required — it's static HTML/CSS/JS.
+
 
 bash
 git clone https://github.com/kaushik20/kaushik_chintalapudi.github.io.git
@@ -73,8 +94,12 @@ Deployed via GitHub Pages directly from this repository — any push to the main
 
 
 📬 Contact
+
 LinkedIn: kaushik-chintalapudi
+
 GitHub: kaushik20
+
 Email: kaushik20feb@gmail.com
+
 
 Open to full-time opportunities in Azure Cloud, AI, Oracle Fusion ERP, and Technology Consulting.
