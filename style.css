@@ -1212,12 +1212,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       position: relative;
 }
 
-.badge-progress-container .progress-fill {
-      height: 100%;
-      background: var(--progress-fill);
-      transition: width 0.5s ease;
-}
-
 .badge-progress-container p {
       font-size: 1rem;
       color: var(--text-color);
@@ -1368,7 +1362,7 @@ footer {
 
 .footer-bar {
       background-color: var(--footer-bg); 
-      color:  var(--footer-text); 
+      color: var(--footer-text); 
       width: 100%; 
       display: flex; 
       justify-content: center; 
@@ -1638,7 +1632,7 @@ footer {
       overflow: hidden;
 }
 
-.progress-fill {
+.progress-fill, .badge-progress-container .progress-fill {
       width: 0%;
       height: 100%;
       background: var(--progress-fill);
