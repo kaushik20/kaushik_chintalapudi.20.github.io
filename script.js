@@ -43,9 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            safeAnimate(badgeContainer, [{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
-                           const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
-                           const badgeName = badgeContainer.dataset.badgeName;
-                           openBadgeModal(card, celebrationMsg, badgeName);
+                           if (!card) console.warn(`No .badge-card found for badge-id "${badgeContainer.id}" — check your markup.`);
                            clearTimeout(modalAutoCloseTimer); 
                            modalAutoCloseTimer = setTimeout(() => {document.getElementById("badge-modal")?.classList.remove("show");}, 4000);
 
@@ -189,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              exploredSet.add(itemId);
                                              storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                              state.exploredCount = exploredSet.size;
-                                             updateProgress(progressCounter, state.exploredCount, allItems.length);
+                                             updateProgress(progressCounter, state.exploredCount, section.querySelectorAll(itemsClass).length);
                                              if (state.exploredCount === allItems.length) {unlockBadge(badgeContainer);}
                                     };
                                     
@@ -204,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     });
                                     
                                     // Initial progress display
-                                    updateProgress(progressCounter, state.exploredCount, items.length);
+                                    updateProgress(progressCounter, state.exploredCount, section.querySelectorAll(itemsClass).length);
                            };
                            
                            sectionsToGamify.forEach(initializeSection);
@@ -682,7 +680,12 @@ document.addEventListener("DOMContentLoaded", () => {
                            };
                            
                            // Theme was already set synchronously in <head> — just sync the icon to it.
-                           const currentTheme = document.documentElement.getAttribute("data-theme") || storage.get("theme") || "light";
+                           let currentTheme = document.documentElement.getAttribute("data-theme") || storage.get("theme") || "light";
+                           if (!themeMeta[currentTheme]) {
+                                    currentTheme = "light";
+                                    document.documentElement.setAttribute("data-theme", currentTheme);
+                                    storage.set("theme", currentTheme);
+                           }
                            applyThemeUI(currentTheme);
                            
                            toggleButton.addEventListener("click", () => {
@@ -783,12 +786,14 @@ document.addEventListener("DOMContentLoaded", () => {
                            if (!supportsInlinePdf) {
                                     const fallback = document.createElement("div");
                                     fallback.className = "resume-fallback-notice";
-                                    fallback.innerHTML = `
-                                    <p>PDF preview isn't supported on this device/browser.</p>
-                                    <a href="${viewer.getAttribute("src")}" download class="resume-download-btn">
-                                    <i class="fas fa-download" aria-hidden="true"></i> Download Resume
-                                    </a>
-                                    `;
+                                    const resumeSrc = viewer.getAttribute("src");
+                                    fallback.innerHTML = `<p>PDF preview isn't supported on this device/browser.</p>`;
+                                    const link = document.createElement("a");
+                                    link.href = resumeSrc;
+                                    link.download = "";
+                                    link.className = "resume-download-btn";
+                                    link.innerHTML = `<i class="fas fa-download" aria-hidden="true"></i> Download Resume`;
+                                    fallback.appendChild(link);
                                     viewer.replaceWith(fallback);
                                     elementToObserve = fallback;
                            }
