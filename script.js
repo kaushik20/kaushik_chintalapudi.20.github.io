@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
                            if (!card) console.warn(`No .badge-card found for badge-id "${badgeContainer.id}" — check your markup.`);
+                           const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
+                           const badgeName = badgeContainer.dataset.badgeName;
+                           openBadgeModal(card, celebrationMsg, badgeName);
                            clearTimeout(modalAutoCloseTimer); 
                            modalAutoCloseTimer = setTimeout(() => {document.getElementById("badge-modal")?.classList.remove("show");}, 4000);
 
