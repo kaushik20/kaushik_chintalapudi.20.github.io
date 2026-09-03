@@ -43,10 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
                            safeAnimate(badgeContainer, [{ transform: "scale(0.5)", opacity: 0 }, { transform: "scale(1.2)", opacity: 1 }, { transform: "scale(1)", opacity: 1 }], {duration: 1000, easing: "ease-out"});
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
-                           if (!card) console.warn(`No .badge-card found for badge-id "${badgeContainer.id}" — check your markup.`);
-                           const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
-                           const badgeName = badgeContainer.dataset.badgeName;
-                           openBadgeModal(card, celebrationMsg, badgeName);
+                           if (!card) {console.warn(`No .badge-card found for badge-id "${badgeContainer.id}" — check your markup.`);} 
+                           else {
+                                    const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
+                                    const badgeName = badgeContainer.dataset.badgeName;
+                                    openBadgeModal(card, celebrationMsg, badgeName);
+                           }
                            clearTimeout(modalAutoCloseTimer); 
                            modalAutoCloseTimer = setTimeout(() => {document.getElementById("badge-modal")?.classList.remove("show");}, 4000);
 
