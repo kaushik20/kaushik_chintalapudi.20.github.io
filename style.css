@@ -1680,6 +1680,11 @@ footer {
       to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fillProgress {
+      from { width: 0%; }
+      to { width: var(--progress-width, 0%); }
+}
+
 @keyframes gradientAnimation {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
@@ -1695,6 +1700,7 @@ footer {
     0%, 50% {opacity: 1;}
     51%, 100% {opacity: 0;}
 }
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {.project-grid {grid-template-columns: repeat(2, 1fr);}}
