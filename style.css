@@ -688,7 +688,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .timeline-content ul li::before {
       content: "•";
-      color: var(--button-bg);
+      color: var(--card-text);
       margin-right: 0.5rem;
 }
 
