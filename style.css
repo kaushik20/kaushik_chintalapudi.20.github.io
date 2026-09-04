@@ -1601,18 +1601,13 @@ footer {
 }
 
 .progress-portability {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      width: 100%;
       display: flex;
+      justify-content: center;
       gap: 8px;
-      z-index: 999;
-      opacity: 0.55;
-      transition: opacity 0.2s ease;
-}
-
-.progress-portability:hover, .progress-portability:focus-within {
-      opacity: 1;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--border-color);
 }
 
 .progress-portability-btn {
