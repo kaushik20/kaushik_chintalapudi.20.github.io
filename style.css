@@ -1234,6 +1234,13 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       color: #ffffff;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
+#conclusion .section-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      margin-top: 0.5rem
+      line-height: 1.6;
+}
       
 .conclusion-content {animation: fadeInUp 1.2s ease;}
 
@@ -1596,10 +1603,16 @@ footer {
 .progress-portability {
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      right: 20px;
       display: flex;
       gap: 8px;
       z-index: 999;
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+}
+
+.progress-portability:hover, .progress-portability:focus-within {
+      opacity: 1;
 }
 
 .progress-portability-btn {
