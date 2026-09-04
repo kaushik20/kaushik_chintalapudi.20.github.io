@@ -668,7 +668,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .timeline-content h3 {
       font-size: 1.2rem;
-      color: var(--button-bg);
+      color: var(--card-text);
       margin-bottom: 0.5rem;
 }
 
