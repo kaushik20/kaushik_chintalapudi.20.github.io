@@ -383,7 +383,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            bar.appendChild(fill);
                            container.append(text, bar);
                            
-                           dashboard.prepend(container);
+                           const heading = dashboard.querySelector("h2");
+                           if (heading) {heading.after(container);} 
+                           else {dashboard.prepend(container);}
                   };
 
                   const refreshBadgeCardLockStates = () => { 
