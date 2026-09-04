@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            container.appendChild(makeTriggerButton("Export Progress", exportProgress));
                            container.appendChild(makeTriggerButton("Import Progress", importProgress));
-                           document.body.appendChild(container);
+                           (document.getElementById("footer-contact") || document.body).appendChild(container);
                   };
                   
                   // Smooth Scroll for Navigation
