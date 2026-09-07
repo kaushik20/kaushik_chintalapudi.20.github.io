@@ -322,10 +322,32 @@ document.addEventListener("DOMContentLoaded", () => {
                            closeBtn.className = "keyword-modal-close";
                            
                            box.append(title, body, closeBtn);
+                           overlay.setAttribute("aria-labelledby", "keyword-modal-title");
+                           overlay.setAttribute("aria-describedby", "keyword-modal-body");
                            overlay.appendChild(box);
                            document.body.appendChild(overlay);
 
                            let previouslyFocused = null;
+
+                           const getFocusable = () =>Array.from(box.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null); // skip hidden elements
+                           
+                           const trapFocus = (e) => {
+                                    if (e.key !== "Tab" || !overlay.classList.contains("show")) return;
+                                    const focusable = getFocusable();
+                                    if (!focusable.length) return;
+                                    const first = focusable[0];
+                                    const last = focusable[focusable.length - 1];
+                                    
+                                    if (e.shiftKey && document.activeElement === first) {
+                                             e.preventDefault();
+                                             last.focus();
+                                    } else if (!e.shiftKey && document.activeElement === last) {
+                                             e.preventDefault();
+                                             first.focus();
+                                    }
+                           };
+                           
+                           document.addEventListener("keydown", trapFocus);
                            
                            const close = () => {
                                     overlay.classList.remove("show");
