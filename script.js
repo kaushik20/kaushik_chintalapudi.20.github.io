@@ -16,6 +16,73 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return null;
                            }
                   };
+
+                  // Keyword Info Modal (About section deep-dives)
+                  let keywordModalInitialized = false;
+                  const keywordModalContent = {
+                           "about-kaushik-name": {
+                                    title: "Kaushik Chintalapudi",
+                                    body: "Cloud Analyst and AI enthusiast, based in India, working across Microsoft Azure, Oracle Fusion Financials, and applied AI. Raised in the UAE with roots in Andhra Pradesh — currently building toward a career in Cloud Data Engineering, with a long-term goal of founding an AI-driven tech company in Amaravati."
+                           },
+                           "about-july-2023": {
+                                    title: "July 2023",
+                                    body: "Graduated with a BTech in Computer Science Engineering from Dr. Vishwanath Karad MIT World Peace University, Pune — the foundation that led into cloud internships, Oracle Fusion training, and a growing focus on AI."
+                           }
+                  };
+
+                  // Shared accessible modal behavior: focus trap, labelledby/describedby wiring, focus return on close.
+                  function createAccessibleModal({ overlay, box, titleEl, messageEl, initialFocusEl, autoCloseMs = null }) {
+                           let previouslyFocused = null;
+                           let autoCloseTimer = null;
+                           
+                           overlay.setAttribute("role", "dialog");
+                           overlay.setAttribute("aria-modal", "true");
+                           if (titleEl) {
+                                    if (!titleEl.id) titleEl.id = `modal-title-${Math.random().toString(36).slice(2, 8)}`;
+                                    overlay.setAttribute("aria-labelledby", titleEl.id);
+                           }
+                           if (messageEl) {
+                                    if (!messageEl.id) messageEl.id = `modal-msg-${Math.random().toString(36).slice(2, 8)}`;
+                                    overlay.setAttribute("aria-describedby", messageEl.id);
+                           }
+                           
+                           const getFocusable = () =>Array.from(box.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null);
+                           
+                           const trapFocus = (e) => {
+                                    if (e.key !== "Tab" || !overlay.classList.contains("show")) return;
+                                    const focusable = getFocusable();
+                                    if (!focusable.length) return;
+                                    const first = focusable[0];
+                                    const last = focusable[focusable.length - 1];
+                                    if (e.shiftKey && document.activeElement === first) {
+                                             e.preventDefault();
+                                             last.focus();
+                                    } 
+                                    else if (!e.shiftKey && document.activeElement === last) {
+                                             e.preventDefault();
+                                             first.focus();
+                                    }
+                           };
+                           
+                           document.addEventListener("keydown", trapFocus);
+                           
+                           const open = () => {
+                                    previouslyFocused = document.activeElement;
+                                    overlay.classList.add("show");
+                                    (initialFocusEl || getFocusable()[0])?.focus();
+                                    if (autoCloseMs) {
+                                             clearTimeout(autoCloseTimer);
+                                             autoCloseTimer = setTimeout(close, autoCloseMs);
+                                    }
+                           };
+                           
+                           const close = () => {
+                                    overlay.classList.remove("show");
+                                    clearTimeout(autoCloseTimer);
+                                    previouslyFocused?.focus();
+                           };
+                           return { open, close };
+                  }
                   const initializedElements = new WeakSet();
                   const sectionsToGamify = [
                            { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
@@ -128,6 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalTitle.textContent = titleOverride || h3.textContent;
                            modalMessage.textContent = messageOverride || p?.textContent || "";
                            modal.classList.add("show");
+
+                           previouslyFocusedBadge = document.activeElement;
+                           document.getElementById("modal-close-button")?.focus();
                   }
                   
                   // Initialize Gamified Sections
@@ -274,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            closeButton.addEventListener("click", () => {
                                     modal.classList.remove("show");
                                     clearTimeout(modalAutoCloseTimer);
+                                    previouslyFocusedBadge?.focus();
                            });
                            
                            // Close modal on outside click
@@ -283,87 +354,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     modal.classList.remove("show");
                                     clearTimeout(modalAutoCloseTimer);
                            });
-                  };
-                  
-                  // Keyword Info Modal (About section deep-dives)
-                  let keywordModalInitialized = false;
-                  const keywordModalContent = {
-                           "about-kaushik-name": {
-                                    title: "Kaushik Chintalapudi",
-                                    body: "Cloud Analyst and AI enthusiast, based in India, working across Microsoft Azure, Oracle Fusion Financials, and applied AI. Raised in the UAE with roots in Andhra Pradesh — currently building toward a career in Cloud Data Engineering, with a long-term goal of founding an AI-driven tech company in Amaravati."
-                           },
-                           "about-july-2023": {
-                                    title: "July 2023",
-                                    body: "Graduated with a BTech in Computer Science Engineering from Dr. Vishwanath Karad MIT World Peace University, Pune — the foundation that led into cloud internships, Oracle Fusion training, and a growing focus on AI."
-                           }
-                  };
-                  
-                  const setupKeywordModal = () => {
-                           if (keywordModalInitialized) return;
-                           keywordModalInitialized = true;
-                           
-                           const overlay = document.createElement("div");
-                           overlay.id = "keyword-modal-overlay";
-                           overlay.className = "keyword-modal-overlay";
-                           overlay.setAttribute("role", "dialog");
-                           overlay.setAttribute("aria-modal", "true");
-                           
-                           const box = document.createElement("div");
-                           box.className = "keyword-modal-box";
-                           
-                           const title = document.createElement("h3");
-                           title.className = "keyword-modal-title";
-                           
-                           const body = document.createElement("p");
-                           body.className = "keyword-modal-body";
-                           
-                           const closeBtn = document.createElement("button");
-                           closeBtn.textContent = "Close";
-                           closeBtn.className = "keyword-modal-close";
-                           
-                           box.append(title, body, closeBtn);
-                           overlay.setAttribute("aria-labelledby", "keyword-modal-title");
-                           overlay.setAttribute("aria-describedby", "keyword-modal-body");
-                           overlay.appendChild(box);
-                           document.body.appendChild(overlay);
-
-                           let previouslyFocused = null;
-
-                           const getFocusable = () =>Array.from(box.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null); // skip hidden elements
-                           
-                           const trapFocus = (e) => {
-                                    if (e.key !== "Tab" || !overlay.classList.contains("show")) return;
-                                    const focusable = getFocusable();
-                                    if (!focusable.length) return;
-                                    const first = focusable[0];
-                                    const last = focusable[focusable.length - 1];
-                                    
-                                    if (e.shiftKey && document.activeElement === first) {
-                                             e.preventDefault();
-                                             last.focus();
-                                    } else if (!e.shiftKey && document.activeElement === last) {
-                                             e.preventDefault();
-                                             first.focus();
-                                    }
-                           };
-                           
-                           document.addEventListener("keydown", trapFocus);
-                           
-                           const close = () => {
-                                    overlay.classList.remove("show");
-                                    previouslyFocused?.focus();
-                           };
-                           closeBtn.addEventListener("click", close);
-                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) close();});
-                           
-                           window.openKeywordModal = (id, fallbackText) => {
-                                    const content = keywordModalContent[id];
-                                    title.textContent = content?.title || fallbackText || "Details";
-                                    body.textContent = content?.body || "More details coming soon.";
-                                    previouslyFocused = document.activeElement;
-                                    overlay.classList.add("show");
-                                    closeBtn.focus();
-                           };
                   };
 
                   // Keyboard Accessibility for role="button" elements
