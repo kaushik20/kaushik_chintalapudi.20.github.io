@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   const standaloneBadgeIds = ["badge-container-resume", "badge-container-conclusion", "badge-container-dashboard"];
                   const badgeSections = [...sectionsToGamify.map(s => s.badgeId), ...standaloneBadgeIds];
                   let modalAutoCloseTimer = null;
+                  let badgeModal;
                   let dashboardMissingWarned = false;
                   const unlockBadge = (badgeContainer) => {
                            if (!badgeContainer || badgeContainer.classList.contains("unlocked")) return;
@@ -182,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            const modalImage = document.getElementById("modal-badge-image");
                            const modalTitle = document.getElementById("modal-badge-title");
                            const modalMessage = document.getElementById("modal-badge-message");
-                           
                            if (!modal || !modalImage || !modalTitle || !modalMessage || !card) return;
                            
                            const img = card.querySelector("img");
@@ -194,10 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalImage.src = img.src;
                            modalTitle.textContent = titleOverride || h3.textContent;
                            modalMessage.textContent = messageOverride || p?.textContent || "";
-                           modal.classList.add("show");
-
-                           previouslyFocusedBadge = document.activeElement;
-                           document.getElementById("modal-close-button")?.focus();
+                           badgeModal?.open();
                   }
                   
                   // Initialize Gamified Sections
@@ -334,26 +331,58 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (!card) return;
                                     const badgeId = card.dataset.badgeId;
                                     const badgeContainer = document.getElementById(badgeId);
-                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {
-                                             openBadgeModal(card, undefined, badgeContainer.dataset.badgeName);
-                                             clearTimeout(modalAutoCloseTimer);
-                                    }
+                                    if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card, undefined, badgeContainer.dataset.badgeName);}
                                     else {showToast("Unlock this badge by exploring the section!");}
                            });
                            
-                           closeButton.addEventListener("click", () => {
-                                    modal.classList.remove("show");
-                                    clearTimeout(modalAutoCloseTimer);
-                                    previouslyFocusedBadge?.focus();
-                           });
+                           badgeModal = createAccessibleModal({overlay: modal, box: modal, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: closeButton, autoCloseMs: 4000});
+                           closeButton.addEventListener("click", badgeModal.close);
                            
                            // Close modal on outside click
                            document.addEventListener("click", (event) => {
                                     if (!modal.classList.contains("show")) return;
                                     if (modal.contains(event.target) || event.target.closest(".badge-card")) return;
-                                    modal.classList.remove("show");
-                                    clearTimeout(modalAutoCloseTimer);
+                                    badgeModal.close();
                            });
+                  };
+
+                  let keywordModal;
+                  const setupKeywordModal = () => {
+                           if (keywordModalInitialized) return;
+                           keywordModalInitialized = true;
+                           
+                           const overlay = document.createElement("div");
+                           overlay.id = "keyword-modal-overlay";
+                           overlay.className = "keyword-modal-overlay";
+                           
+                           const box = document.createElement("div");
+                           box.className = "keyword-modal-box";
+                           
+                           const title = document.createElement("h3");
+                           title.className = "keyword-modal-title";
+                           
+                           const body = document.createElement("p");
+                           body.className = "keyword-modal-body";
+                           
+                           const closeBtn = document.createElement("button");
+                           closeBtn.textContent = "Close";
+                           closeBtn.className = "keyword-modal-close";
+                           
+                           box.append(title, body, closeBtn);
+                           overlay.appendChild(box);
+                           document.body.appendChild(overlay);
+                           
+                           keywordModal = createAccessibleModal({overlay, box, titleEl: title, messageEl: body, initialFocusEl: closeBtn});
+                           
+                           closeBtn.addEventListener("click", keywordModal.close);
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) keywordModal.close();});
+                           
+                           window.openKeywordModal = (id, fallbackText) => {
+                                    const content = keywordModalContent[id];
+                                    title.textContent = content?.title || fallbackText || "Details";
+                                    body.textContent = content?.body || "More details coming soon.";
+                                    keywordModal.open();
+                           };
                   };
 
                   // Keyboard Accessibility for role="button" elements
