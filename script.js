@@ -511,9 +511,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            const progressModal = createAccessibleModal({overlay: modalOverlay, box: modalBox, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: modalTextarea});
                            
-                           const closeModal = () => {modalOverlay.classList.remove("show");};
-                           closeBtn.addEventListener("click", closeModal);
-                           modalOverlay.addEventListener("click", (e) => {if (e.target === modalOverlay) closeModal();});
+                           closeBtn.addEventListener("click", progressModal.close);
+                           modalOverlay.addEventListener("click", (e) => {if (e.target === modalOverlay) progressModal.close();});
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && modalOverlay.classList.contains("show")) progressModal.close();});
                            
                            const openModal = ({ title, message, value, readOnly, actionLabel, onAction }) => {
                                     modalTitle.textContent = title;
@@ -571,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                                         }
                                                                });
                                                                if (restoredCount === 0) throw new Error("No valid progress keys found");
-                                                               closeModal();
+                                                               progressModal.close();
                                                                showToast("Progress restored! Reloading...");
                                                                setTimeout(() => location.reload(), 1000);
                                                       } catch (error) {
