@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   ];
                   const standaloneBadgeIds = ["badge-container-resume", "badge-container-conclusion", "badge-container-dashboard"];
                   const badgeSections = [...sectionsToGamify.map(s => s.badgeId), ...standaloneBadgeIds];
-                  let modalAutoCloseTimer = null;
                   let badgeModal;
                   let dashboardMissingWarned = false;
                   const unlockBadge = (badgeContainer) => {
@@ -117,9 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const badgeName = badgeContainer.dataset.badgeName;
                                     openBadgeModal(card, celebrationMsg, badgeName);
                            }
-                           clearTimeout(modalAutoCloseTimer); 
-                           modalAutoCloseTimer = setTimeout(() => {document.getElementById("badge-modal")?.classList.remove("show");}, 4000);
-
+                           
                            updateBadgeProgress();
                   };
                   
@@ -511,6 +508,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            modalBox.append(modalTitle, modalMessage, modalTextarea, modalButtonRow);
                            modalOverlay.appendChild(modalBox);
                            document.body.appendChild(modalOverlay);
+
+                           const progressModal = createAccessibleModal({overlay: modalOverlay, box: modalBox, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: modalTextarea});
                            
                            const closeModal = () => {modalOverlay.classList.remove("show");};
                            closeBtn.addEventListener("click", closeModal);
@@ -523,8 +522,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     modalTextarea.readOnly = readOnly;
                                     actionBtn.textContent = actionLabel;
                                     actionBtn.onclick = () => onAction(modalTextarea.value);
-                                    modalOverlay.classList.add("show");
-                                    if (!readOnly) modalTextarea.focus();
+                                    progressModal.open();
+                                    if (readOnly) modalTextarea.select();
                                     else { modalTextarea.select(); }
                            };
                            
