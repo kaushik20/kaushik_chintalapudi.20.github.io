@@ -317,7 +317,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .cta-btn {
-      padding: 0.8rem 2rem;
+      padding: 12px 24px;
       background: #4ac1ff;
       color: #fff;
       margin-top: 20px;
