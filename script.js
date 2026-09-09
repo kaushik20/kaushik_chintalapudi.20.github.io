@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            closeBtn.addEventListener("click", keywordModal.close);
                            
-                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && modal.classList.contains("show")) badgeModal.close();});
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) keywordModal.close();});
                            
                            window.openKeywordModal = (id, fallbackText) => {
                                     const content = keywordModalContent[id];
