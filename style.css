@@ -320,9 +320,10 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       padding: 0.8rem 2rem;
       background: #4ac1ff;
       color: #fff;
+      margin-top: 20px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
+      border-radius: 30px;
+      font-size: 1rem;
       transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
