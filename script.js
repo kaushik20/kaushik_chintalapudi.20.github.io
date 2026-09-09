@@ -334,6 +334,9 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            badgeModal = createAccessibleModal({overlay: modal, box: modal, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: closeButton, autoCloseMs: 4000});
                            closeButton.addEventListener("click", badgeModal.close);
+
+                           // NEW — Escape-to-close, matching keyword and progress modals
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && modal.classList.contains("show")) badgeModal.close();});
                            
                            // Close modal on outside click
                            document.addEventListener("click", (event) => {
@@ -372,7 +375,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            keywordModal = createAccessibleModal({overlay, box, titleEl: title, messageEl: body, initialFocusEl: closeBtn});
                            
                            closeBtn.addEventListener("click", keywordModal.close);
-                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && overlay.classList.contains("show")) keywordModal.close();});
+                           
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape" && modal.classList.contains("show")) badgeModal.close();});
                            
                            window.openKeywordModal = (id, fallbackText) => {
                                     const content = keywordModalContent[id];
@@ -523,8 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     actionBtn.textContent = actionLabel;
                                     actionBtn.onclick = () => onAction(modalTextarea.value);
                                     progressModal.open();
-                                    if (readOnly) modalTextarea.select();
-                                    else { modalTextarea.select(); }
+                                    modalTextarea.select();
                            };
                            
                            const exportProgress = () => {
