@@ -317,17 +317,25 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px 24px;
-      background: #4ac1ff;
-      color: #fff;
-      margin-top: 20px;
+      background: linear-gradient(135deg, #4dabf7, #1e88e5);
+      color: white;
       text-decoration: none;
       border-radius: 30px;
+      font-weight: 600;
       font-size: 1rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
+      transition: all 0.3s ease;
 }
 
-.cta-btn:hover {transform: scale(1.05);}
+.cta-btn:hover {
+      background: linear-gradient(135deg, #5bb7ff, #2196f3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
+}
 
 .hero-avatar {
       flex: 0 0 380px;
