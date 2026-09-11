@@ -93,7 +93,7 @@
 
 #backToTop:hover {color: #4dabf7;}
 
-.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn {
+.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -978,6 +978,11 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.milestone:hover .milestone-circle img {
+      opacity: 1;
+      transform: scale(1);
+}
+
 .milestone-date {
       font-size: 1rem;
       color: var(--card-text);
@@ -997,27 +1002,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       color: var(--card-text);
       opacity: 0.8;
       margin-bottom: 1rem;
-}
-
-.milestone a {
-      text-decoration: none;
-      background-color: #4ac1ff;
-      color: #ffffff;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: inline-block;
-}
-
-.milestone a:hover {
-      background-color: #6b47dc;
-      transform: scale(1.05);
-}
-
-.milestone:hover .milestone-circle img {
-      opacity: 1;
-      transform: scale(1);
 }
 
 .badge-container {
@@ -1413,12 +1397,12 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn, .resume-download-btn {
+.hire-btn, .cta-btn, .resume-download-btn, .milestone a {
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
 
-.hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover {
+.hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover {
       background: var(--button-hover);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
