@@ -724,6 +724,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       color: var(--card-text);
       opacity: 0.85;
 }
+      
 
 /* Projects Section */
 .projects.section {
@@ -1412,7 +1413,7 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn {
+.hire-btn, .cta-btn, .resume-download-btn {
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
