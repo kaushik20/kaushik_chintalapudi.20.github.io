@@ -1,4 +1,5 @@
 KAUSHIK CHINTALAPUDI | PERSONAL PORTFOLIO WEBSITE
+
 Personal portfolio site showcasing my work and journey across Cloud Infrastructure (Azure), Oracle Fusion Financials, and Applied AI.
 
 🔗 Live site: kaushik20.github.io/kaushik_chintalapudi.github.io
