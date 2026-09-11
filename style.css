@@ -1402,7 +1402,7 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn, .resume-download-btn, .milestone a {
+.hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
