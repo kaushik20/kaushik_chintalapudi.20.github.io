@@ -93,6 +93,21 @@
 
 #backToTop:hover {color: #4dabf7;}
 
+.hire-btn, .cta-btn, .download-button, .colab-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+}
+
 /* Global Styles */
 html, body {
       font-family: 'Poppins', sans-serif;
@@ -801,6 +816,28 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       text-decoration: none;
       margin-right: 10px;
 }
+
+.download-button {
+      background: #4CAF50;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.35);
+}
+
+.download-button:hover {
+      background: #45a049;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+}
+
+.colab-button {
+      background: #FF7043;
+      box-shadow: 0 4px 15px rgba(255, 112, 67, 0.35);
+}
+
+.colab-button:hover {
+      background: #E64A19;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 112, 67, 0.5);
+}
       
 /* Achievements Section */
 #achievements-leaderboard .section-subtitle {
@@ -1395,22 +1432,12 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn, .download-button, .colab-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 24px;
+.hire-btn, .cta-btn {
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
-      transition: all 0.3s ease;
 }
 
-.hire-btn:hover, .cta-btn:hover, .download-button:hover, .colab-button:hover {
+.hire-btn:hover, .cta-btn:hover {
       background: linear-gradient(135deg, #5bb7ff, #2196f3);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
