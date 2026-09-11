@@ -1,17 +1,15 @@
 KAUSHIK CHINTALAPUDI | PERSONAL PORTFOLIO WEBSITE
-
 Personal portfolio site showcasing my work and journey across Cloud Infrastructure (Azure), Oracle Fusion Financials, and Applied AI.
 
 🔗 Live site: kaushik20.github.io/kaushik_chintalapudi.github.io
 
 
 ✨ Overview
-
-This isn't a static resume page — it's an interactive, gamified portfolio. Visitors unlock badges as they explore each section, can toggle between light / dark / high-contrast themes, and can even "talk" to an animated avatar that introduces me.
+This isn't a static resume page — it's an interactive, gamified portfolio. 
+Visitors unlock badges as they explore each section, can toggle between light / dark / high-contrast themes, and can even "talk" to an animated avatar that introduces me.
 
 
 🧩 Features
-
 Gamified exploration — Hovering, clicking, or tabbing through items in About, Hobbies & Skills, Experience, Projects, Achievements, and Certifications marks them "explored." Complete a section to unlock its badge, tracked live with a progress bar.
 
 Badge Gallery & Dashboard — A dedicated section showing all unlockable badges, locked/unlocked state, and overall completion percentage.
@@ -33,13 +31,9 @@ Fully responsive — Layout adapts across desktop, tablet, and mobile breakpoint
 🛠️ Tech Stack
 
 HTML5 — Semantic structure, schema.org Person/WebSite JSON-LD for SEO
-
 CSS3 — Custom properties (CSS variables) for theming, animations, and a responsive grid/flex layout
-
 Vanilla JavaScript — No frameworks; handles gamification logic, modals, theming, and the avatar interaction
-
 Font Awesome & Google Fonts (Poppins) via CDN
-
 GitHub Pages — Hosting/deployment
 
 
@@ -54,28 +48,18 @@ GitHub Pages — Hosting/deployment
 📌 Sections
 
 Section	What it covers:
-
 About Me:	Background and journey into tech
-
 Hobbies & Skills:	Guitar, cricket, music + Azure, Power Platform, Oracle Fusion, Python
-
 Experience:	Research Internship (MIT-WPU AI Institute), Cloud Internship (PCS Gulf)
-
 Resume:	Embedded, downloadable PDF resume
-
 Projects:	Smart Health Monitoring (IoT), Hate Speech Detection (NLP)
-
 Achievements:	AI Impact Summit, Microsoft AI/Cloud Skills challenges, and more
-
 Certifications:	Azure Fundamentals, McKinsey Forward, Yuva AI for All, One Million Prompters
-
 Badge Gallery:	Live dashboard of unlocked badges and overall progress
-
 Conclusion:	Vision — building an AI-driven tech company in Amaravati, India
 
 
 🚀 Running Locally
-
 No build step required — it's static HTML/CSS/JS.
 
 
@@ -89,16 +73,12 @@ Visit http://localhost:8000.
 
 
 🌐 Deployment
-
 Deployed via GitHub Pages directly from this repository — any push to the main branch updates the live site.
 
 
 📬 Contact
-
 LinkedIn: kaushik-chintalapudi
-
 GitHub: kaushik20
-
 Email: kaushik20feb@gmail.com
 
 
