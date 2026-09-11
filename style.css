@@ -93,7 +93,7 @@
 
 #backToTop:hover {color: #4dabf7;}
 
-.hire-btn, .cta-btn, .download-button, .colab-button {
+.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -702,26 +702,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       width: 100%;
       aspect-ratio: 4/3;
       max-height: 600px;
-}
-
-.resume-download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--button-bg);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.7rem 1.4rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.resume-download-btn:hover {
-      background: var(--button-hover);
-      transform: scale(1.03);
 }
 
 .resume-fallback-notice {
@@ -1437,8 +1417,8 @@ footer {
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
 
-.hire-btn:hover, .cta-btn:hover {
-      background: linear-gradient(135deg, #5bb7ff, #2196f3);
+.hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover {
+      background: var(--button-hover);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
 }
