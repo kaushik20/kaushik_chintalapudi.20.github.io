@@ -93,7 +93,7 @@
 
 #backToTop:hover {color: #4dabf7;}
 
-.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a {
+.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a, .hero-linkedin-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -433,6 +433,11 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 .hero-content {
       max-width: 600px;
       text-align: left;
+}
+
+.hero-linkedin-link i {
+      font-size: 1.3rem;
+      color: #0A66C2;
 }
 
 /* About Section */
@@ -1402,7 +1407,7 @@ footer {
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
 
-.hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover {
+.hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover, .hero-linkedin-link:hover {
       background: var(--button-hover);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
