@@ -10,6 +10,7 @@ Visitors unlock badges as they explore each section, can toggle between light / 
 
 
 🧩 Features
+
 Gamified exploration — Hovering, clicking, or tabbing through items in About, Hobbies & Skills, Experience, Projects, Achievements, and Certifications marks them "explored." Complete a section to unlock its badge, tracked live with a progress bar.
 
 Badge Gallery & Dashboard — A dedicated section showing all unlockable badges, locked/unlocked state, and overall completion percentage.
