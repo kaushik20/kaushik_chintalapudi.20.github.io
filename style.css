@@ -802,21 +802,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       margin-right: 10px;
 }
 
-.download-button, .colab-button {
-      display: inline-block;
-      background-color: #4CAF50; 
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-}
-
 .download-button:hover {background-color: #45a049;}
-
-.colab-button {background-color: #FF7043;}
 
 .colab-button:hover {background-color: #E64A19;}
       
@@ -1413,7 +1399,7 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn {
+.hire-btn, .cta-btn, .download-button, .colab-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1428,7 +1414,7 @@ footer {
       transition: all 0.3s ease;
 }
 
-.hire-btn:hover, .cta-btn:hover {
+.hire-btn:hover, .cta-btn:hover, .download-button:hover, .colab-button:hover {
       background: linear-gradient(135deg, #5bb7ff, #2196f3);
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(77, 171, 247, 0.5);
