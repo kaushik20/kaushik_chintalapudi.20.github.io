@@ -801,10 +801,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       text-decoration: none;
       margin-right: 10px;
 }
-
-.download-button:hover {background-color: #45a049;}
-
-.colab-button:hover {background-color: #E64A19;}
       
 /* Achievements Section */
 #achievements-leaderboard .section-subtitle {
