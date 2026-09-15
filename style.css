@@ -93,21 +93,6 @@
 
 #backToTop:hover {color: #4dabf7;}
 
-.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a, .hero-linkedin-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 24px;
-      color: white;
-      text-decoration: none;
-      border: none;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-}
-
 /* Global Styles */
 html, body {
       font-family: 'Poppins', sans-serif;
@@ -1402,10 +1387,23 @@ footer {
     display:inline-block;
 }
 
-.hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
+.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a, .hero-linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
       background: linear-gradient(135deg, #4dabf7, #1e88e5);
       box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
 }
+
 
 .hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover, .hero-linkedin-link:hover {
       background: var(--button-hover);
