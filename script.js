@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     progressBarFill.className = "progress-fill";
                                     
                                     progressBarContainer.appendChild(progressBarFill);
-                                    const heading = section.querySelector("h2");
+                                    const heading = section.querySelector(".section-subtitle") || section.querySelector("h2");
                                     if (heading) {heading.after(progressCounter, progressBarContainer);} 
                                     else {section.prepend(progressCounter, progressBarContainer);}
                                     
