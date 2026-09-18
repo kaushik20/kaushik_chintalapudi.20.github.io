@@ -7,7 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
                            remove: (key) => { try { localStorage.removeItem(key); } catch {} }
                   };
                   
-                  const getItemId = (item, index) => item.dataset.id || `auto-${index}-${item.textContent.trim().slice(0, 40)}`;
+                  const getItemId = (item, index) => {
+                           if (!item.dataset.id) {
+                                    console.warn("Gamified item missing data-id — add one so its explored/badge state persists correctly:", item);
+                                    return `auto-${index}-${item.textContent.trim().slice(0, 40)}`;
+                           }
+                           return item.dataset.id;
+                  };
+                  
                   const safeAnimate = (element, keyframes, options) => {
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
