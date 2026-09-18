@@ -1680,6 +1680,8 @@ footer {
 
       header .logo {order: 1;}
 
+      header.scrolled {height: auto;}
+
       header .dark-mode-btn {
             order: 2;
             margin-left: auto;
@@ -1694,7 +1696,17 @@ footer {
 
       .hero-inner {flex-direction: column;}
 
-      .project-grid {grid-template-columns: 1fr;}
+      .hero-avatar {
+            margin: 0 auto 1.5rem;
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 280px;
+      }
+
+      .hero-content {
+            max-width: 100%;
+            text-align: center;
+      }
 
       .hobbies_skills-container {
             flex-direction: column;
@@ -1702,8 +1714,17 @@ footer {
       }
 
       .hobbies_skills-item {width: 80%;}
+
+      .hs-main-row {flex-direction: column;}
+      
+      .hs-main-row .hs-divider {
+            width: 100%;
+            height: 1px;
+      }
       
       .projects.section {background-attachment: scroll;}
+
+      .project-grid {grid-template-columns: 1fr;}
 
       #achievements-leaderboard h2 {font-size: 2rem;}
 
@@ -1723,18 +1744,6 @@ footer {
       .timeline-container::before {height: 0;}
 
       .timeline-content {text-align: left;}
-
-      .hero-avatar {
-            margin: 0 auto 1.5rem;
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 280px;
-      }
-
-      .hero-content {
-            max-width: 100%;
-            text-align: center;
-      }
 
       .cta-buttons {justify-content: center;}
 
@@ -1764,7 +1773,7 @@ footer {
             width: 90%;
       }
 
-      .roadmap::before {left: 20px;}
+      .roadmap::before { left: 50%; transform: translateX(-50%); }
 
       .badge-gallery {grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));}
 
@@ -1775,13 +1784,6 @@ footer {
       .resume-viewer {padding: 1rem;}
 
       .resume-viewer iframe {max-height: 400px;}
-
-      .hs-main-row {flex-direction: column;}
-      
-      .hs-main-row .hs-divider {
-            width: 100%;
-            height: 1px;
-      }
 }
 
 @media (max-width: 600px) {
