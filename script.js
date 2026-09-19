@@ -647,56 +647,71 @@ document.addEventListener("DOMContentLoaded", () => {
                               
                               // Hide popover on any tap outside a keyword or the popover itself
                               document.addEventListener("touchstart", (e) => {
-                                       if (!e.target.closest(".keyword") && !e.target.closest("#global-popover")) {popover.style.display = "none";}}, { passive: true });
+                                       if (!e.target.closest(".keyword") && !e.target.closest("#global-popover")) {popover.style.display = "none";}}, {passive: true});
+                              
+                              const runKeywordAction = (keyword) => {
+                                       const action = keyword.dataset.action;
+                                       if (action === "highlight") {
+                                                keyword.style.backgroundColor = "var(--button-bg)";
+                                                keyword.style.color = "var(--bg-color)";
+                                                setTimeout(() => {
+                                                         keyword.style.backgroundColor = "";
+                                                         keyword.style.color = "";}, 1000);
+                                       }
+                                       else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);}
+                                       else if (action === "open-modal") {window.openKeywordModal(keyword.dataset.id, keyword.textContent);}
+                                       else if (action === "scroll-to") {
+                                                const targetId = keyword.dataset.target;
+                                                if (!targetId) {
+                                                         console.warn("scroll-to keyword missing data-target:", keyword.textContent.trim());
+                                                         return;
+                                                }
+                                                const target = document.getElementById(targetId);
+                                                if (target) {target.scrollIntoView({ behavior: "smooth" });}
+                                       }
+                              };
                               
                               keywords.forEach((keyword) => {
                                        if (initializedElements.has(keyword)) return;
                                        initializedElements.add(keyword);
-                                       let suppressClickUntil = 0;
+                                       let tooltipOpenForThisKeyword = false;
+                                       
                                        keyword.addEventListener("mouseenter", (e) => {
                                                 popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
                                                 positionPopover(e.pageX, e.pageY);
                                        });
                                        keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
-                                       
-                                       // Touch: tap shows/toggles the tooltip near the tap point
-                                       keyword.addEventListener("touchstart", (e) => {
-                                                suppressClickUntil = Date.now() + 500;
-                                                const isOpen = popover.style.display === "block" && popover.textContent === (keyword.dataset.tooltip || `More about ${keyword.textContent}`);
-                                                if (isOpen) {
-                                                         popover.style.display = "none";
-                                                         return;
-                                                }
-                                                const touch = e.touches[0];
-                                                popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
-                                                positionPopover(touch.pageX, touch.pageY);
-                                       }, { passive: true });
-                                       
-                                       // Handle data-action attributes
-                                       keyword.addEventListener("click", () => {
-                                                if (Date.now() < suppressClickUntil) return;
-                                                const action = keyword.dataset.action;
-                                                if (action === "highlight") {
-                                                         keyword.style.backgroundColor = "var(--button-bg)";
-                                                         keyword.style.color = "var(--bg-color)";
-                                                         setTimeout(() => {
-                                                                  keyword.style.backgroundColor = "";
-                                                                  keyword.style.color = "";}, 1000);
-                                                }
-                                                else if (action === "show-alert") {alert(keyword.dataset.tooltip || `More about ${keyword.textContent}`);}
-                                                else if (action === "open-modal") {window.openKeywordModal(keyword.dataset.id, keyword.textContent);}
-                                                else if (action === "scroll-to") {
-                                                         const targetId = keyword.dataset.target;
-                                                         if (!targetId) {
-                                                                  console.warn("scroll-to keyword missing data-target:", keyword.textContent.trim());
+                                       keywords.forEach((keyword) => {
+                                                if (initializedElements.has(keyword)) return;
+                                                initializedElements.add(keyword);
+                                                let suppressClickUntil = 0;
+                                                keyword.addEventListener("mouseenter", (e) => {
+                                                         popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                                                         positionPopover(e.pageX, e.pageY);
+                                                });
+                                                keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
+                                                
+                                                // Touch: tap shows/toggles the tooltip near the tap point
+                                                keyword.addEventListener("touchstart", (e) => {
+                                                         if (tooltipOpenForThisKeyword) {
+                                                                  popover.style.display = "none";
+                                                                  tooltipOpenForThisKeyword = false;
                                                                   return;
                                                          }
-                                                         const target = document.getElementById(targetId);
-                                                         if (target) {target.scrollIntoView({ behavior: "smooth" });}
-                                                }
+                                                         e.preventDefault();
+                                                         tooltipOpenForThisKeyword = true;
+                                                         const touch = e.touches[0];
+                                                         popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                                                         positionPopover(touch.pageX, touch.pageY);
+                                                }, { passive: false });
+                                                
+                                                // Handle data-action attributes
+                                                keyword.addEventListener("click", () => {
+                                                         if (tooltipOpenForThisKeyword) return;
+                                                         runKeywordAction(keyword);
+                                                });
                                        });
-                              });
-                     };
+                              };
                   
                   // Course Link Highlight
                   const setupCourseLinkHighlights = () => {
