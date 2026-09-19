@@ -839,6 +839,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            // Mobile Chrome/Safari often render an empty iframe for embedded PDFs with no error event fired. 
                            // Feature-detect rather than relying on load/error, since a "successful" load can still render blank.
                            const supportsInlinePdf = (() => {
+                                    if (typeof navigator.pdfViewerEnabled === "boolean") {return navigator.pdfViewerEnabled;}
                                     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
                                     const isAndroidChrome = /Android/.test(navigator.userAgent) && /Chrome/.test(navigator.userAgent);
                                     return !(isIOS || isAndroidChrome);
