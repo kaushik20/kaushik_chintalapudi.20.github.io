@@ -6,6 +6,7 @@
       --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
       --card-text: #ffffff;
       --button-bg: #0078d7;
+      --button-text: #ffffff;
       --button-hover: #005bb5;
       --border-color: rgba(255, 255, 255, 0.1);
       --progress-bg: #1e1e2f;
@@ -32,6 +33,7 @@
       --card-text: #ffffff;
       --border-color: rgba(0, 0, 0, 0.1);
       --button-bg: #0078d7;
+      --button-text: #ffffff;
       --button-hover: #6b47dc;
       --progress-bg: #f0f0f0;
       --progress-fill: linear-gradient(135deg, #0078d7, #4ac1ff);
@@ -46,6 +48,7 @@
       --bg-color: #000;
       --text-color: #ffeb3b;
       --button-bg: #ffeb3b;
+      --button-text: #000000;
       --button-hover: #ffc107;
       --border-color: #ffeb3b;
       --card-bg: #000;
@@ -225,7 +228,7 @@ header .dark-mode-btn {
       justify-content: center;
       gap: 0.5rem;
       background-color: var(--button-bg);
-      color: var(--text-color);
+      color: var(--button-text);
       border: 1px solid var(--border-color);
       padding: 5px 10px;
       border-radius: 5px;
