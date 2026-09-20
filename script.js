@@ -1019,15 +1019,17 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            requestAnimationFrame(() => hint.classList.add("show"));
                            
+                           let autoDismissTimer = null;
+                           
                            const dismiss = () => {
                                     hint.classList.remove("show");
                                     setTimeout(() => hint.remove(), 300);
                                     storage.set(hintKey, "shown");
                                     toggleButton.removeEventListener("click", dismiss);
                                     window.removeEventListener("resize", positionHint);
+                                    clearTimeout(autoDismissTimer);
                            };
-                           
-                           setTimeout(dismiss, 6000);
+                           autoDismissTimer = setTimeout(dismiss, 6000);
                            toggleButton.addEventListener("click", dismiss);
                   };
                   
