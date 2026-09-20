@@ -96,6 +96,11 @@
 
 #backToTop:hover {color: #4dabf7;}
 
+.hobbies_skills-item.explored, .project-card.explored, .achievements-leaderboard-item.explored, .milestone.explored {
+      border: 2px solid #2ecc71;
+      box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
+}
+
 /* Global Styles */
 html, body {
       font-family: 'Poppins', sans-serif;
@@ -138,9 +143,61 @@ a:focus, button:focus {
       transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.keyword-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2100;
+      align-items: center;
+      justify-content: center;
+}
+
+.keyword-modal-overlay.show {display: flex;}
+
+.keyword-modal-box {
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      max-width: 420px;
+      width: 90%;
+      text-align: left;
+      animation: fadeInScale 0.25s ease-out;
+}
+
+.keyword-modal-title {
+      margin-bottom: 0.75rem;
+      color: var(--button-bg);
+      font-size: 1.3rem;
+}
+
+.keyword-modal-body {
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+}
+
+.keyword-modal-close {
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+}
+
 .keyword:hover, .keyword:focus {
       background-color: var(--button-bg);
       color: var(--bg-color);
+}
+
+.keyword.explored {
+      border-bottom-style: solid;
+      opacity: 0.75;
 }
 
 .course-link {
@@ -647,6 +704,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       margin: 0 auto 1rem;
 }
 
+.timeline-item.explored .timeline-point {background-color: #2ecc71;}
+
 .timeline-content {
       background: var(--card-bg);
       color: var(--card-text);
@@ -1152,7 +1211,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .badge-modal button {
       background: var(--button-bg);
-      color: #fff;
+      color: var(--button-text);
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 8px;
@@ -1459,53 +1518,6 @@ footer {
       cursor: pointer;
 }
 
-.keyword-modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2100;
-      align-items: center;
-      justify-content: center;
-}
-
-.keyword-modal-overlay.show {display: flex;}
-
-.keyword-modal-box {
-      background: var(--bg-color);
-      color: var(--text-color);
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      max-width: 420px;
-      width: 90%;
-      text-align: left;
-      animation: fadeInScale 0.25s ease-out;
-}
-
-.keyword-modal-title {
-      margin-bottom: 0.75rem;
-      color: var(--button-bg);
-      font-size: 1.3rem;
-}
-
-.keyword-modal-body {
-      line-height: 1.6;
-      font-size: 1rem;
-      margin-bottom: 1.25rem;
-}
-
-.keyword-modal-close {
-      background: var(--button-bg);
-      color: var(--button-text);
-      border: none;
-      padding: 8px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: block;
-      margin-left: auto;
-}
-
 .progress-modal-overlay {
       display: none;
       position: fixed;
@@ -1614,18 +1626,6 @@ footer {
       height: 100%;
       background: var(--progress-fill);
       transition: width 0.5s ease;
-}
-
-.hobbies_skills-item.explored, .project-card.explored, .achievements-leaderboard-item.explored, .milestone.explored {
-      border: 2px solid #2ecc71;
-      box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
-}
-
-.timeline-item.explored .timeline-point {background-color: #2ecc71;}
-
-.keyword.explored {
-      border-bottom-style: solid;
-      opacity: 0.75;
 }
       
 /* Animations */
