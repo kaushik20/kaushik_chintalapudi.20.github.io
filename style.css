@@ -1453,7 +1453,7 @@ footer {
       padding: 5px 10px;
       font-size: 0.9rem;
       background: var(--button-bg);
-      color: white;
+      color: var(--button-text);
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -1497,7 +1497,7 @@ footer {
 
 .keyword-modal-close {
       background: var(--button-bg);
-      color: #fff;
+      color: var(--button-text);
       border: none;
       padding: 8px 18px;
       border-radius: 8px;
@@ -1565,7 +1565,7 @@ footer {
 
 .progress-modal-btn.primary {
       background: var(--button-bg);
-      color: white;
+      color: var(--button-text);
       border: none;
 }
 
@@ -1583,7 +1583,7 @@ footer {
       padding: 6px 12px;
       font-size: 0.8rem;
       background: var(--button-bg);
-      color: white;
+      color: var(--button-text);
       border: none;
       border-radius: 5px;
       cursor: pointer;
