@@ -118,11 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            const card = document.querySelector(`.badge-card[data-badge-id="${badgeContainer.id}"]`);
                            if (!card) {console.warn(`No .badge-card found for badge-id "${badgeContainer.id}" — check your markup.`);} 
-                           else {
-                                    const celebrationMsg = badgeContainer.querySelector(".badge-message")?.textContent;
-                                    const badgeName = badgeContainer.dataset.badgeName;
-                                    openBadgeModal(card, celebrationMsg, badgeName);
-                           }
+                           const badgeName = badgeContainer.dataset.badgeName || "Badge";
+                           showToast(`🎉 ${badgeName} unlocked! View it in the Badge Gallery.`);
                            
                            updateBadgeProgress();
                   };
