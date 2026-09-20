@@ -336,7 +336,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const badgeId = card.dataset.badgeId;
                                     const badgeContainer = document.getElementById(badgeId);
                                     if (badgeContainer && badgeContainer.classList.contains("unlocked")) {openBadgeModal(card, undefined, badgeContainer.dataset.badgeName);}
-                                    else {showToast("Unlock this badge by exploring the section!");}
+                                    else {
+                                             badgeModal?.close();
+                                             showToast("Unlock this badge by exploring the section!");
+                                    }
                            });
                            
                            badgeModal = createAccessibleModal({overlay: modal, box: modal, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: closeButton, autoCloseMs: 4000});
