@@ -511,7 +511,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .hobbies_skills-item {
       background: var(--card-bg);
-      border: 2px solid rgba(255, 255, 255, 0.25);
+      border: 2px solid var(--border-color);
       padding: 1.5rem;
       width: 250px;
       cursor: pointer;
