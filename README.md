@@ -2,7 +2,7 @@ KAUSHIK CHINTALAPUDI | PERSONAL PORTFOLIO WEBSITE
 
 Personal portfolio site showcasing my work and journey across Cloud Infrastructure (Azure), Oracle Fusion Financials, and Applied AI.
 
-🔗 Live site: kaushik20.github.io/kaushik_chintalapudi.github.io
+🔗 Live site: kaushik20.github.io/kaushik_chintalapudi.20.github.io/
 
 
 ✨ Overview
@@ -66,8 +66,8 @@ No build step required — it's static HTML/CSS/JS.
 
 
 bash
-git clone https://github.com/kaushik20/kaushik_chintalapudi.github.io.git
-cd kaushik_chintalapudi.github.io
+git clone https://github.com/kaushik20/kaushik_chintalapudi.20.github.io.git
+cd kaushik_chintalapudi.20.github.io
 # then just open index.html in a browser, or serve it:
 python3 -m http.server 8000
 
@@ -81,7 +81,7 @@ Deployed via GitHub Pages directly from this repository — any push to the main
 📬 Contact
 LinkedIn: kaushik-chintalapudi
 GitHub: kaushik20
-Email: kaushik20feb@gmail.com
+Email: kaushikchintalapudi@gmail.com
 
 
 Open to full-time opportunities in Azure Cloud, AI, Oracle Fusion ERP, and Technology Consulting.
