@@ -267,8 +267,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       max-width: 1400px;
       margin: 0 auto;
       padding: 2rem 4rem;
-      min-height: 100vh;
-      height: 100dvh;
+      min-height: calc(100vh - 70px);
+      height: calc(100dvh - 70px);
       position: relative;  
       z-index: 1;
 }
