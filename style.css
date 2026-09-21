@@ -136,6 +136,10 @@ a:focus, button:focus {
       border: 0;
 }
 
+.toast, .timeline-point {
+   color: var(--button-text);
+}
+
 .keyword {
       cursor: pointer;
       border-bottom: 1px dashed var(--button-bg);
@@ -708,6 +712,11 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .timeline-item.explored .timeline-point {background-color: #2ecc71;}
+
+[data-theme="high-contrast"] .timeline-item.explored .timeline-point {
+   background-color: var(--button-bg);
+   color: var(--button-text);
+}
 
 .timeline-content {
       background: var(--card-bg);
