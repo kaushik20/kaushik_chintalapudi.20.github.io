@@ -9,9 +9,8 @@
          try {
             const saved = localStorage.getItem("theme");
             theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-         } catch {
-            theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-         }
+         } 
+         catch {theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";}
          document.documentElement.setAttribute("data-theme", theme);
       })();
    </script>
@@ -97,7 +96,7 @@
             <img src="Images/dall_e_Favicon_Logo.webp" alt="Kaushik Chintalapudi Logo with gradient colors" class="header-logo">
          </a>
       </div>
-      <nav class="nav-links" aria-label="Main navigation">
+      <nav id="main-navigation" class="nav-links" aria-label="Main navigation">
          <a href="#about" class="nav-item" aria-label="Navigate to About section">About</a>
          <a href="#hobbies_skills" class="nav-item" aria-label="Navigate to hobbies and skills section">Hobbies and Skills </a>
          <a href="#experience" class="nav-item" aria-label="Navigate to Experience section">Experience</a>
@@ -111,6 +110,10 @@
       <button id="darkModeToggle" class="dark-mode-btn" aria-label="Switch to dark theme">
          <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
          <span id="themeText" class="visually-hidden">Switch to dark theme</span>
+      </button>
+      <button id="navToggle" class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation menu">
+         <i class="fas fa-bars" aria-hidden="true"></i>
+         <span>Menu</span>
       </button>
    </header>
    <main id="main-content">
