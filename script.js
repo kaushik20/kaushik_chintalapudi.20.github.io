@@ -500,6 +500,8 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const modalTextarea = document.createElement("textarea");
                            modalTextarea.className = "progress-modal-textarea";
+                           modalTextarea.id = "progress-modal-textarea";
+                           modalTextarea.setAttribute("aria-label", "Progress code");
                            
                            const modalButtonRow = document.createElement("div");
                            modalButtonRow.className = "progress-modal-button-row";
@@ -568,32 +570,50 @@ document.addEventListener("DOMContentLoaded", () => {
                                              value: "", 
                                              readOnly: false, 
                                              actionLabel: "Restore", 
-                                             onAction: (pastedCode) => {
-                                                      if (!pastedCode.trim()) return;
-                                                      try {
-                                                               const data = JSON.parse(decodeURIComponent(atob(pastedCode.trim())));
-                                                               const validKeys = new Set(collectProgressKeys());
-                                                               let restoredCount = 0;
-                                                               Object.entries(data).forEach(([key, value]) => {
-                                                                        if (validKeys.has(key) && typeof value === "string") {
-                                                                                 storage.set(key, value);
-                                                                                 restoredCount++;
-                                                                        }
-                                                               });
-                                                               if (restoredCount === 0) throw new Error("No valid progress keys found");
-                                                               progressModal.close();
-                                                               showToast("Progress restored! Reloading...");
-                                                               setTimeout(() => location.reload(), 1000);
-                                                      } catch (error) {
-                                                               console.warn("Progress import failed:", error);
-                                                               showToast("That code didn't look right — nothing was changed.");
+                                             onAction: (pastedCode) => 
+                                                      {
+                                                               if (!pastedCode.trim()) return;
+                                                               try {
+                                                                        const data = JSON.parse(decodeURIComponent(atob(pastedCode.trim())));
+                                                                        const validKeys = new Set(collectProgressKeys());
+                                                                        let restoredCount = 0;
+                                                                        Object.entries(data).forEach(([key, value]) => {
+                                                                                 if (!validKeys.has(key) || typeof value !== "string") return;
+                                                                                 
+                                                                                 if (key.endsWith("-exploredItems")) {
+                                                                                          const sectionId = key.slice(0, -"-exploredItems".length);
+                                                                                          const section = document.getElementById(sectionId);
+                                                                                          const itemsClass = sectionsToGamify.find(s => s.id === sectionId)?.itemsClass;
+                                                                                          if (!section || !itemsClass) return;
+                                                                                          
+                                                                                          const currentIds = new Set(Array.from(section.querySelectorAll(itemsClass)).map((item, index) => getItemId(item, index)));
+                                                                                          let parsed;
+                                                                                          try { parsed = JSON.parse(value); }
+                                                                                          catch { return; }
+                                                                                          if (!Array.isArray(parsed)) return;
+                                                                                          
+                                                                                          const filtered = parsed.filter(id => currentIds.has(id));
+                                                                                          storage.set(key, JSON.stringify(filtered));
+                                                                                          restoredCount++;
+                                                                                 } else {
+                                                                                          if (value !== "unlocked") return;
+                                                                                          storage.set(key, value);
+                                                                                          restoredCount++;
+                                                                                 }
+                                                                        });
+                                                                        if (restoredCount === 0) throw new Error("No valid progress keys found");
+                                                                        progressModal.close();
+                                                                        showToast("Progress restored! Reloading...");
+                                                                        setTimeout(() => location.reload(), 1000);
+                                                               } catch (error) {
+                                                                        console.warn("Progress import failed:", error);
+                                                                        showToast("That code didn't look right — nothing was changed.");
+                                                               }
                                                       }
-                                             }
-                                    });
-                           };
-                           
-                           const container = document.createElement("div");
-                           container.className = "progress-portability";
+                                    };
+                                    
+                                    const container = document.createElement("div");
+                                    container.className = "progress-portability";
                            
                            const makeTriggerButton = (label, handler) => {
                                     const btn = document.createElement("button");
@@ -608,20 +628,6 @@ document.addEventListener("DOMContentLoaded", () => {
                            container.appendChild(makeTriggerButton("Import Progress", importProgress));
                            (document.getElementById("footer-contact") || document.body).appendChild(container);
                   };
-                  
-                  // Smooth Scroll for Navigation
-                  const setupSmoothScroll = () => {
-                           document.querySelectorAll("header .nav-links a").forEach((link) => {
-                                 link.addEventListener("click", (event) => {
-                                       event.preventDefault();
-                                       const href = link.getAttribute("href"); 
-                                       if (!href) return;
-                                       const targetId = href.substring(1);
-                                       const target = document.getElementById(targetId);
-                                       if (target) {target.scrollIntoView({ behavior: "smooth" });}
-                                 });
-                           });
-                     };
                   
                   // Tooltip Setup
                   const setupTooltips = () => {
@@ -1042,7 +1048,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   [initializeGamifiedSections,
                    setupBadgeModal,
                    setupKeywordModal,
-                   setupSmoothScroll,
                    setupTooltips,
                    setupCourseLinkHighlights,
                    setupKeyboardActivation,
