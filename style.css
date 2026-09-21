@@ -243,6 +243,7 @@ header .logo a {
 header .logo img {
       height: 100%;
       width: auto;
+      max-height: 100%;
       object-fit: contain;
       border-radius: 0;
       transition: transform var(--animation-duration) ease;
@@ -1683,6 +1684,8 @@ footer {
 
       header .logo {order: 1;}
 
+      header .logo img {max-height: 40px;}
+
       header.scrolled {height: auto;}
 
       header .dark-mode-btn {
@@ -1697,7 +1700,13 @@ footer {
             width: 100%;
       }
 
-      .hero-inner {flex-direction: column;}
+      .hero-inner {
+            flex-direction: column;
+            height: auto;              
+            min-height: calc(100dvh - 70px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+      }
 
       .hero-avatar {
             margin: 0 auto 1.5rem;
