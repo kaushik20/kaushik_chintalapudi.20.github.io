@@ -209,8 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const items = section.querySelectorAll(itemsClass);
                                     const exploredKey = `${id}-exploredItems`;
                                     let exploredSet;
-                                    try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
+                                    const currentIds = new Set(Array.from(items, getItemId));
+                                    try {
+                                             const savedIds = JSON.parse(storage.get(exploredKey) || "[]");
+                                             exploredSet = new Set(Array.isArray(savedIds) ? savedIds.filter(itemId => currentIds.has(itemId)) : []);
+                                    }
                                     catch{exploredSet = new Set();}
+                                    storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                     items.forEach((item, index) => {
                                              const itemId = getItemId(item, index);
                                              if (exploredSet.has(itemId)) item.classList.add("explored");
@@ -239,13 +244,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                     resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
                                     section.appendChild(resetButton);
                                     
-                                    // Load unlocked badges from localStorage
+                                    // Reconcile badges with current content, including removed or renamed items.
                                     const badgeContainer = document.getElementById(badgeId);
-                                    if (badgeContainer && storage.get(badgeId) === "unlocked") {
+                                    if (badgeContainer && currentIds.size > 0 && exploredSet.size === currentIds.size) {
+                                             storage.set(badgeId, "unlocked");
                                              badgeContainer.classList.add("unlocked");
                                              badgeContainer.style.display = "block";
                                              const img = badgeContainer.querySelector("img");
                                              if (img) img.style.display = "block";
+                                    } else {
+                                             storage.remove(badgeId);
+                                             badgeContainer?.classList.remove("unlocked");
+                                             if (badgeContainer) badgeContainer.style.display = "none";
                                     }
                                        
                                     // Shared logic so both mouse clicks and keyboard focus can trigger "explored"
@@ -261,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                              state.exploredCount = exploredSet.size;
                                              updateProgress(progressCounter, state.exploredCount, section.querySelectorAll(itemsClass).length);
-                                             if (state.exploredCount === allItems.length) {unlockBadge(badgeContainer);}
+                                             if (allItems.length > 0 && allItems.every((item, index) => exploredSet.has(getItemId(item, index)))) {unlockBadge(badgeContainer);}
                                     };
                                     
                                     // Mouse/touch: click anywhere in the item
@@ -994,6 +1004,47 @@ document.addEventListener("DOMContentLoaded", () => {
                            });
                   };
 
+                  const setupNavigationMenu = () => {
+                           const toggle = document.getElementById("nav-toggle");
+                           const nav = document.getElementById("main-navigation");
+                           const header = document.querySelector("header");
+                           if (!toggle || !nav || !header) return;
+                           const compact = window.matchMedia("(max-width: 1400px)");
+                           const setOpen = (open) => {
+                                    nav.classList.toggle("is-open", open);
+                                    toggle.setAttribute("aria-expanded", String(open));
+                                    toggle.textContent = open ? "Close menu" : "Menu";
+                           };
+                           toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+                           nav.addEventListener("click", (event) => {
+                                    const link = event.target.closest("a");
+                                    if (!link || !compact.matches) return;
+                                    setOpen(false);
+                                    const target = document.querySelector(link.getAttribute("href"));
+                                    if (target) {
+                                             target.setAttribute("tabindex", "-1");
+                                             target.focus({ preventScroll: true });
+                                    }
+                           });
+                           document.addEventListener("keydown", (event) => {
+                                    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+                                             setOpen(false);
+                                             toggle.focus();
+                                    }
+                           });
+                           document.addEventListener("click", (event) => {
+                                    if (!header.contains(event.target)) setOpen(false);
+                           });
+                           header.addEventListener("focusout", (event) => {
+                                    if (!header.contains(event.relatedTarget)) setOpen(false);
+                           });
+                           compact.addEventListener("change", () => {
+                                    if (compact.matches && nav.contains(document.activeElement)) toggle.focus();
+                                    if (!compact.matches && document.activeElement === toggle) nav.querySelector("a")?.focus();
+                                    setOpen(false);
+                           });
+                  };
+
                   const setupHeaderScrollEffect = () => {
                            const header = document.querySelector("header");
                            if (!header) return;
@@ -1059,6 +1110,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    initializeConclusionSection,
                    initializeDashboardSection,
                    setupTalkingAvatar,
+                   setupNavigationMenu,
                    setupHeaderScrollEffect,
                    setupProgressPortability,
                    setupThemeToggleHint,
