@@ -1005,6 +1005,51 @@ document.addEventListener("DOMContentLoaded", () => {
                            }, { passive: true });
                   };
 
+                  const setupMobileNav = () => {
+                           const toggle = document.getElementById("navToggle");
+                           const nav = document.getElementById("main-navigation");
+                           if (!toggle || !nav) {
+                                    console.warn("Mobile nav: toggle button or nav element not found.");
+                                    return;
+                           }
+                           
+                           const closeNav = () => {
+                                    nav.classList.remove("is-open");
+                                    toggle.setAttribute("aria-expanded", "false");
+                           };
+                           
+                           const openNav = () => {
+                                    nav.classList.add("is-open");
+                                    toggle.setAttribute("aria-expanded", "true");
+                           };
+                           
+                           toggle.addEventListener("click", () => {
+                                    const isOpen = nav.classList.contains("is-open");
+                                    isOpen ? closeNav() : openNav();
+                           });
+                           
+                           // Close after choosing a link, so the menu doesn't stay open over the destination section
+                           nav.querySelectorAll(".nav-item").forEach((link) => {link.addEventListener("click", closeNav);});
+                           
+                           // Close on outside click
+                           document.addEventListener("click", (event) => {
+                                    if (!nav.classList.contains("is-open")) return;
+                                    if (nav.contains(event.target) || toggle.contains(event.target)) return;
+                                    closeNav();
+                           });
+                           
+                           // Close on Escape
+                           document.addEventListener("keydown", (event) => {
+                                    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+                                             closeNav();
+                                             toggle.focus();
+                                    }
+                           });
+                           
+                           // If the viewport is resized past the breakpoint while the menu is open, reset state
+                           window.addEventListener("resize", () => {if (window.innerWidth > 1280 && nav.classList.contains("is-open")) closeNav();}, { passive: true });
+                  };
+                  
                   const setupThemeToggleHint = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
                            if (!toggleButton) return;
@@ -1063,6 +1108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                    initializeDashboardSection,
                    setupTalkingAvatar,
                    setupHeaderScrollEffect,
+                   setupMobileNav,
                    setupProgressPortability,
                    setupThemeToggleHint,
                    updateBadgeProgress].forEach(safeInit);
