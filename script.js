@@ -211,6 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     let exploredSet;
                                     try{exploredSet = new Set(JSON.parse(storage.get(exploredKey) || "[]"));}
                                     catch{exploredSet = new Set();}
+                                    const currentItemIds = new Set(Array.from(items).map((item, index) => getItemId(item, index)));
+                                    exploredSet = new Set([...exploredSet].filter(itemId => currentItemIds.has(itemId)));
+                                    storage.set(exploredKey, JSON.stringify([...exploredSet]));
                                     items.forEach((item, index) => {
                                              const itemId = getItemId(item, index);
                                              if (exploredSet.has(itemId)) item.classList.add("explored");
