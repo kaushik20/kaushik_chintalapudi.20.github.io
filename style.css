@@ -102,13 +102,15 @@
 }
 
 /* Global Styles */
+html {
+      overflow-x: hidden;
+}
 html, body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
       scroll-behavior: smooth;
       transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
 }
@@ -698,7 +700,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .timeline-point {
       background-color: var(--button-bg);
-      color: var(--card-text);
+      color: var(--button-text);
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -1498,7 +1500,7 @@ footer {
       bottom: 20px;
       right: 20px;
       background: var(--button-bg);
-      color: var(--text-color);
+      color: var(--button-text);
       padding: 10px 20px;
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
