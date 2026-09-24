@@ -1796,12 +1796,12 @@ footer {
       header.scrolled {height: auto;}
 
       header .dark-mode-btn {
-            order: 2;
+            order: 3;
             margin-left: auto;
       }
       
       header .nav-links {
-            order: 3;
+            order: 5;
             flex-direction: column;
             gap: 10px;
             width: 100%;
