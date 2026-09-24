@@ -981,6 +981,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   const setupTalkingAvatar = () => {
                            const avatar = document.getElementById("talking-avatar");
                            const speechText = document.getElementById("avatar-speech-text");
+                           const speechAnnouncer = document.getElementById("avatar-speech-announcer");
                            if (!avatar || !speechText) {
                                     console.warn("Talking avatar: elements not found.");
                                     return;
@@ -997,13 +998,18 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const typeLine = (line, onDone) => {
                                     speechText.textContent = "";
+                                    speechAnnouncer.textContent = "";
                                     let i = 0;
                                     const type = () => {
                                              if (i < line.length) {
                                                       speechText.textContent += line.charAt(i);
                                                       i++;
                                                       typingTimeout = setTimeout(type, 30);
-                                             } else {typingTimeout = setTimeout(onDone, 1400);}
+                                             } 
+                                             else {
+                                                      speechAnnouncer.textContent = line;
+                                                      typingTimeout = setTimeout(onDone, 1400);
+                                             }
                                     };
                                     type();
                            };
