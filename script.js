@@ -982,7 +982,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            const avatar = document.getElementById("talking-avatar");
                            const speechText = document.getElementById("avatar-speech-text");
                            const speechAnnouncer = document.getElementById("avatar-speech-announcer");
-                           if (!avatar || !speechText) {
+                           if (!avatar || !speechText || !speechAnnouncer) {
                                     console.warn("Talking avatar: elements not found.");
                                     return;
                            }
