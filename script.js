@@ -34,6 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
                            "about-july-2023": {
                                     title: "July 2023",
                                     body: "Graduated with a BTech in Computer Science Engineering from Dr. Vishwanath Karad MIT World Peace University, Pune — the foundation that led into cloud internships, Oracle Fusion training, and a growing focus on AI."
+                           },
+                           "about-digital-innovations": {
+                                    title: "Digital Innovations",
+                                    body: "Breakthroughs in technology that drive progress — the kind of shift I saw firsthand watching cloud and AI reshape how enterprises operate, which is what first pulled me toward this field."
+                           },
+                           "about-cloud-infrastructure": {
+                                    title: "Cloud Infrastructure",
+                                    body: "The backbone of digital services. My hands-on experience here comes from supporting enterprise Azure Cloud FinOps operations — cost optimization, governance, and observability — for a multi-cloud environment during my time at PCS Gulf."
+                           },
+                           "about-power-platform": {
+                                    title: "Microsoft Power Platform",
+                                    body: "Tools for low-code app development — Power Apps and Power Automate — which I've used to support governance initiatives and automate workflows alongside my core Azure work."
                            }
                   };
 
