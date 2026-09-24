@@ -88,8 +88,25 @@ document.addEventListener("DOMContentLoaded", () => {
                                     clearTimeout(autoCloseTimer);
                                     previouslyFocused?.focus();
                            };
+
+                           const pauseAutoClose = () => clearTimeout(autoCloseTimer);
+                           const resumeAutoClose = () => {
+                                    if (autoCloseMs && overlay.classList.contains("show")) {
+                                             clearTimeout(autoCloseTimer);
+                                             autoCloseTimer = setTimeout(close, autoCloseMs);
+                                    }
+                           };
+
+                           if (autoCloseMs) {
+                                    box.addEventListener("mouseenter", pauseAutoClose);
+                                    box.addEventListener("mouseleave", resumeAutoClose);
+                                    box.addEventListener("focusin", pauseAutoClose);
+                                    box.addEventListener("focusout", resumeAutoClose);
+                           }
+                           
                            return { open, close };
                   }
+                  
                   const initializedElements = new WeakSet();
                   const sectionsToGamify = [
                            { id: "about", itemsClass: ".keyword", badgeId: "badge-container-about"},
