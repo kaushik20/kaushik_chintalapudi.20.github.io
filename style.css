@@ -1413,7 +1413,7 @@ footer {
 }
 
 .qr-code-section img:hover {
-      border-color: #1e88e5;
+      border-color: var(--button-bg);
       transform: scale(1.05);
 }
 
