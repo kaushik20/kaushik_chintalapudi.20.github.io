@@ -7,6 +7,7 @@
       --card-text: #ffffff;
       --button-bg: #0078d7;
       --button-text: #ffffff;
+      --button-shadow: rgba(77, 171, 247, 0.35);
       --button-hover: #005bb5;
       --border-color: rgba(255, 255, 255, 0.1);
       --progress-bg: #1e1e2f;
@@ -47,8 +48,9 @@
 [data-theme="high-contrast"] {
       --bg-color: #000;
       --text-color: #ffeb3b;
-      --button-bg: #ffeb3b;
+      --button-bg: #ff4d4d;
       --button-text: #000000;
+      --button-shadow: rgba(255, 77, 77, 0.35);
       --button-hover: #ffc107;
       --border-color: #ffeb3b;
       --card-bg: #000;
@@ -1488,7 +1490,7 @@ footer {
       align-items: center;
       justify-content: center;
       padding: 12px 24px;
-      color: white;
+      color: var(--button-text);
       text-decoration: none;
       border: none;
       border-radius: 30px;
@@ -1496,8 +1498,8 @@ footer {
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      background: linear-gradient(135deg, #4dabf7, #1e88e5);
-      box-shadow: 0 4px 15px rgba(77, 171, 247, 0.35);
+      background: var(--button-bg);
+      box-shadow: 0 4px 15px var(--button-shadow);
 }
 
 
