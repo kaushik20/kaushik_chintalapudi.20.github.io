@@ -869,6 +869,21 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       margin-right: 10px;
 }
 
+.download-button, .colab-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+}
+
 .download-button {
       background: #4CAF50;
       box-shadow: 0 4px 15px rgba(76, 175, 80, 0.35);
@@ -1454,21 +1469,21 @@ footer {
 .opportunity-item img:hover {transform: scale(1.2);}
 
 .opportunity-item i{
-    width:30px;
-    text-align:center;
-    color:#4dabf7;
-    font-size:26px;
+      width:30px;
+      text-align:center;
+      color:#4dabf7;
+      font-size:26px;
 }
 
 .status-dot{
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    background:#2ecc71;
-    display:inline-block;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:#2ecc71;
+      display:inline-block;
 }
 
-.hire-btn, .cta-btn, .download-button, .colab-button, .resume-download-btn, .milestone a, .hero-linkedin-link {
+.hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
