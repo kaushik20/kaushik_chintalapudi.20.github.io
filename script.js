@@ -464,8 +464,10 @@ document.addEventListener("DOMContentLoaded", () => {
                            bar.appendChild(fill);
                            container.append(text, bar);
                            
+                           const subtitle = dashboard.querySelector(".section-subtitle");
                            const heading = dashboard.querySelector("h2");
-                           if (heading) {heading.after(container);} 
+                           if (subtitle) {subtitle.after(container);}
+                           else if (heading) {heading.after(container);}
                            else {dashboard.prepend(container);}
                   };
 
@@ -760,7 +762,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   const toggleDarkMode = () => {
                            const toggleButton = document.getElementById("darkModeToggle");
                            const themeIcon = document.getElementById("themeIcon");
-                           const themeText = document.getElementById("themeText");
                            if (!toggleButton || !themeIcon) {
                                     console.warn("Dark mode toggle: elements not found.");
                                     return;
