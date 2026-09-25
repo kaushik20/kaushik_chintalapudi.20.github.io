@@ -916,7 +916,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 #achievements-leaderboard h2 {
       font-size: 2.5rem;
-      color: #00bfff;
+      color: var(--text-color);
       margin-bottom: 1rem;
 }
 
@@ -981,7 +981,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 .roadmap-section .roadmap-title {
       font-size: 2.5rem;
-      color: #4ac1ff;
+      color: var(--text-color);
       margin-bottom: 1rem;
 }
 
@@ -1343,7 +1343,7 @@ footer {
 .contact-section h2, .opportunity-section h2 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: #4dabf7;
+      color: var(--button-bg);
 }
 
 .contact-items {
@@ -1404,7 +1404,7 @@ footer {
       width: 120px;
       height: 120px;
       border-radius: 10px;
-      border: 2px solid #4dabf7;
+      border: 2px solid var(--button-bg);
       transition: border-color 0.3s ease;
 }
 
@@ -1419,12 +1419,12 @@ footer {
 
 .qr-code-section h3 {
       margin: 0.5rem 0;
-      color: #4dabf7;
+      color: var(--button-bg);
 }
 
 .qr-code-section p {
       font-size: 0.9rem;
-      color: #ffffff;
+      color: var(--footer-text);
 }
 
 .footer-bar {
