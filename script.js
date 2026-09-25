@@ -777,7 +777,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const meta = themeMeta[theme] || themeMeta.dark;
                                     themeIcon.className = meta.icon;
                                     toggleButton.setAttribute("aria-label", meta.label);
-                                    if (themeText) themeText.textContent = meta.label;
                            };
                            
                            // Theme was already set synchronously in <head> — just sync the icon to it.
