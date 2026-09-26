@@ -1502,12 +1502,6 @@ footer {
       box-shadow: 0 4px 15px var(--button-shadow);
 }
 
-.hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
-      color: var(--button-text);
-      background: var(--button-bg);
-      box-shadow: 0 4px 15px var(--button-shadow);
-}
-
 .hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover, .hero-linkedin-link:hover {
       background: var(--button-hover);
       transform: translateY(-3px);
