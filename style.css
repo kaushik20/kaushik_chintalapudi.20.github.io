@@ -140,7 +140,7 @@ a:focus, button:focus {
 }
 
 .toast, .timeline-point {
-   color: var(--button-text);
+      color: var(--button-text);
 }
 
 .keyword {
@@ -425,30 +425,30 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .talking-avatar.talking img {
-    animation: avatarSpeaking 0.7s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
+      animation: avatarSpeaking 0.7s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.6));
 }
 
 .avatar-speech {
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 25px);
-    transform: translateX(-50%) translateY(10px);
-    width: min(420px, 80vw);
-    padding: 18px 22px;
-    background: var(--card-bg, #ffffff);
-    color: var(--card-text, #111111);
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(128, 128, 128, 0.25);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    z-index: 9999;
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: left;
-    pointer-events: none;
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 25px);
+      transform: translateX(-50%) translateY(10px);
+      width: min(420px, 80vw);
+      padding: 18px 22px;
+      background: var(--card-bg, #ffffff);
+      color: var(--card-text, #111111);
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(128, 128, 128, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9999;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
+      pointer-events: none;
 }
 
 .avatar-speech::after {
@@ -1502,6 +1502,11 @@ footer {
       box-shadow: 0 4px 15px var(--button-shadow);
 }
 
+.hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
+      color: var(--button-text);
+      background: var(--button-bg);
+      box-shadow: 0 4px 15px var(--button-shadow);
+}
 
 .hire-btn:hover, .cta-btn:hover, .resume-download-btn:hover, .milestone a:hover, .hero-linkedin-link:hover {
       background: var(--button-hover);
@@ -1697,13 +1702,13 @@ footer {
 }
 
 @keyframes avatarSpeaking {
-    from {transform: scale(1);}
-    to {transform: scale(1.035);}
+      from {transform: scale(1);}
+      to {transform: scale(1.035);}
 }
 
 @keyframes typingCursor {
-    0%, 50% {opacity: 1;}
-    51%, 100% {opacity: 0;}
+      0%, 50% {opacity: 1;}
+      51%, 100% {opacity: 0;}
 }
 
 
@@ -1926,12 +1931,11 @@ footer {
 }
 
 @media (max-width: 600px) {
-
-    .avatar-speech {
-        width: min(320px, 82vw);
-        font-size: 0.9rem;
-        padding: 15px 18px;
-    }
-
-    .avatar-talk-hint {font-size: 0.75rem;}
+      .avatar-speech {
+            width: min(320px, 82vw);
+            font-size: 0.9rem;
+            padding: 15px 18px;
+      }
+      
+      .avatar-talk-hint {font-size: 0.75rem;}
 }
