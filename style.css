@@ -674,27 +674,33 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .skill-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 1rem;
+      background: rgba(255, 255, 255, 0.07);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem 1rem 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       flex: 1 1 260px;
       max-width: 320px;
 }
 
 .skill-box-title {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--text-color);
-      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-align: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
 }
 
-.skill-box .hobbies_skills-container {gap: 0.75rem;}
+.skill-box .hobbies_skills-container {gap: 0.6rem;}
 
 .skill-box .hobbies_skills-item {
       width: 100%;
-      padding: 0.9rem;
+      padding: 0.75rem;
+      border-width: 1px;
 }
 
 .skill-status {
