@@ -342,7 +342,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       min-height: calc(100vh - 70px);
       height: calc(100dvh - 70px);
       position: relative;  
-      z-index: 1;
+      z-index: 1001;;
 }
 
 #hero::before {
