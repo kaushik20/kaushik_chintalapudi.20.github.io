@@ -652,6 +652,20 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       background: var(--border-color);
 }
 
+.skills-subgroup {margin-bottom: 1.5rem;}
+
+.skills-subgroup:last-child {margin-bottom: 0;}
+
+.skills-subgroup-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-color);
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+}
+
 /* Experience Section */
 #experience {
       padding: 3rem 1rem;
