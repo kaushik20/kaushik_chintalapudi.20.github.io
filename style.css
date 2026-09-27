@@ -666,6 +666,52 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       margin-bottom: 1rem;
 }
 
+.skill-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+}
+
+.skill-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1 1 260px;
+      max-width: 320px;
+}
+
+.skill-box-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 0.75rem;
+      text-align: center;
+}
+
+.skill-box .hobbies_skills-container {gap: 0.75rem;}
+
+.skill-box .hobbies_skills-item {
+      width: 100%;
+      padding: 0.9rem;
+}
+
+.skill-status {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 7px;
+      border-radius: 20px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      opacity: 0.85;
+      vertical-align: middle;
+      margin-left: 4px;
+}
+
 /* Experience Section */
 #experience {
       padding: 3rem 1rem;
