@@ -400,6 +400,8 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       align-items: center;
       justify-content: center;
       position: relative;
+      align-self: flex-start;  
+      margin-top: 160px;
 }
 
 .talking-avatar {
@@ -1899,7 +1901,7 @@ footer {
       }
 
       .hero-avatar {
-            margin: 0 auto 1.5rem;
+            margin: 160px auto 1.5rem;
             flex: 0 0 auto;
             width: 100%;
             max-width: 280px;
