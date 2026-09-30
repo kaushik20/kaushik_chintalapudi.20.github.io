@@ -147,6 +147,23 @@ a:focus, button:focus {
       border: 0;
 }
 
+.skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--button-bg);
+      color: var(--button-text);
+      padding: 0.75rem 1rem;
+      border-radius: 0 0 8px 0;
+      z-index: 3000;
+}
+
+.skip-link:focus {
+      left: 0;
+      outline: 2px solid var(--button-text);
+      outline-offset: -4px;
+}
+
 .toast, .timeline-point {color: var(--button-text);}
 
 .keyword {
@@ -604,8 +621,10 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.hobbies_skills-item h3 {
+.hobbies_skills-item h3, .hobbies_skills-item .item-title {
+      display: block;
       font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
       color: var(--card-text);
 }
@@ -1456,6 +1475,10 @@ footer {
       filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
       opacity: 0.9;
 }
+
+[data-theme="dark"] .contact-item img[alt="GitHub Icon"], [data-theme="high-contrast"] .contact-item img[alt="GitHub Icon"] {filter: invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));}
+
+[data-theme="dark"] .contact-item img[alt="GitHub Icon"]:hover, [data-theme="high-contrast"] .contact-item img[alt="GitHub Icon"]:hover {filter: invert(1) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));}
 
 .contact-item a {
       color: var(--footer-text);
