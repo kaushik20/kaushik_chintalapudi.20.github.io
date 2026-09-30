@@ -205,7 +205,7 @@ a:focus, button:focus {
 
 .keyword:hover, .keyword:focus {
       background-color: var(--button-bg);
-      color: var(--bg-color);
+      color: var(--button-text);
 }
 
 .keyword.explored {
@@ -287,12 +287,12 @@ header .nav-links .nav-item {
 
 header .nav-links .nav-item:hover {
       background-color: var(--button-bg);
-      color: var(--bg-color);
+      color: var(--button-text);
 }
 
 header .nav-links .nav-item.active {
       background-color: var(--button-bg);
-      color: var(--bg-color);
+      color: var(--button-text);
 }
 
 header .nav-toggle {display: none;}
@@ -321,7 +321,7 @@ header .dark-mode-btn i {
 
 header .dark-mode-btn:hover {
       background-color: var(--button-hover);
-      color: var(--bg-color);
+      color: var(--button-text);
 }
 
 header .dark-mode-btn:hover i {transform: scale(1.1);}
