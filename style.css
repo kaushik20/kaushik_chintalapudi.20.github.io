@@ -727,21 +727,6 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       border-width: 1px;
 }
 
-.skill-status {
-      display: inline-block;
-      font-size: 0.6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 2px 7px;
-      border-radius: 20px;
-      background: var(--button-bg);
-      color: var(--button-text);
-      opacity: 0.85;
-      vertical-align: middle;
-      margin-left: 4px;
-}
-
 /* Experience Section */
 #experience {
       padding: 3rem 1rem;
