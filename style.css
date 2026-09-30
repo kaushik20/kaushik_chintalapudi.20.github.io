@@ -2,14 +2,14 @@
 :root {
       --bg-color: #1e1e2f;
       --text-color: #fff;
-      --hero-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
-      --card-bg: linear-gradient(135deg, #4ac1ff, #6b47dc);
+      --hero-bg: linear-gradient(135deg, #0066b8, #6b47dc);
+      --card-bg: linear-gradient(135deg, #0066b8, #6b47dc);
       --card-text: #ffffff;
-      --button-bg: #0078d7;
+      --button-bg: #0069c0;
       --button-text: #ffffff;
       --link-color: #4ac1ff;
       --button-shadow: rgba(77, 171, 247, 0.35);
-      --button-hover: #005bb5;
+      --button-hover: #004f9a;
       --border-color: rgba(255, 255, 255, 0.1);
       --progress-bg: #1e1e2f;
       --progress-fill: linear-gradient(135deg, #4ac1ff, #6b47dc);
@@ -23,10 +23,11 @@
 [data-theme="light"] {
       --bg-color: #ffffff;
       --text-color: #000000;
-      --card-bg: linear-gradient(135deg, #0078d7, #4ac1ff);
+      --card-bg: linear-gradient(135deg, #005a9e, #0069c0);
+      --hero-bg: linear-gradient(135deg, #6b47dc, #0066b8);
       --card-text: #ffffff;
       --border-color: rgba(0, 0, 0, 0.1);
-      --button-bg: #0078d7;
+      --button-bg: #0069c0;
       --button-text: #ffffff;
       --button-hover: #6b47dc;
       --progress-bg: #f0f0f0;
@@ -99,12 +100,17 @@
       transition: color 0.3s ease;
 }
 
-#backToTop:hover {color: #4dabf7;}
+#backToTop:hover {
+      color: var(--link-color);
+      text-decoration: underline;
+}
 
 .hobbies_skills-item.explored, .project-card.explored, .achievements-leaderboard-item.explored, .milestone.explored {
       border: 2px solid #2ecc71;
       box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
 }
+
+.project-card, .achievements-leaderboard-item, .milestone {border: 2px solid transparent;}
 
 /* Global Styles */
 html {overflow-x: hidden;}
@@ -163,6 +169,8 @@ a:focus, button:focus {
       outline: 2px solid var(--button-text);
       outline-offset: -4px;
 }
+
+main:focus {outline: none;}
 
 .toast, .timeline-point {color: var(--button-text);}
 
@@ -500,6 +508,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       transform: translateX(-50%);
       white-space: nowrap;
       font-size: 0.85rem;
+      color: var(--card-text);
       opacity: 0.75;
       pointer-events: none;
       transition: opacity 0.2s ease;
@@ -560,8 +569,9 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 #about a:hover {
-      color: #6b47dc;
-      text-shadow: 0 0 10px #6b47dc;
+      color: var(--link-color);
+      text-decoration-thickness: 3px;
+      text-shadow: none;
 }
 
 #about p a {
@@ -796,7 +806,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       margin: 0 auto 1rem;
 }
 
-.timeline-item.explored .timeline-point {background-color: #2ecc71;}
+.timeline-item.explored .timeline-point {background-color: #1e8449;}
 
 [data-theme="high-contrast"] .timeline-item.explored .timeline-point {
       background-color: var(--button-bg);
@@ -1473,7 +1483,7 @@ footer {
 }
 
 .contact-item a:hover {
-      color: #4dabf7;
+      color: var(--link-color);
       text-decoration: underline;
 }
 
@@ -1555,18 +1565,18 @@ footer {
 .opportunity-item img:hover {transform: scale(1.2);}
 
 .opportunity-item i{
-      width:30px;
-      text-align:center;
-      color:#4dabf7;
-      font-size:26px;
+      width: 30px;
+      text-align: center;
+      color: var(--link-color);
+      font-size: 26px;
 }
 
 .status-dot{
-      width:16px;
-      height:16px;
-      border-radius:50%;
-      background:#2ecc71;
-      display:inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2ecc71;
+      display: inline-block;
 }
 
 .hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
