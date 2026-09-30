@@ -2043,3 +2043,18 @@ footer {
       
       .avatar-talk-hint {font-size: 0.75rem;}
 }
+
+@media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+            animation: none !important;
+            transition: none !important;
+            scroll-behavior: auto !important;
+      }
+      
+      /* Without animations, these would stay at their starting values */
+      .progress-fill, .badge-progress-container .progress-fill {width: var(--progress-width, 0%);}
+      .toast {opacity: 1; transform: none;}
+}
+
+[data-theme="dark"], [data-theme="high-contrast"] {color-scheme: dark;}
+[data-theme="light"] {color-scheme: light;}
