@@ -693,7 +693,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     const action = keyword.dataset.action;
                                     if (action === "highlight") {
                                              keyword.style.backgroundColor = "var(--button-bg)";
-                                             keyword.style.color = "var(--bg-color)";
+                                             keyword.style.color = "var(--button-text)";
                                              setTimeout(() => {
                                                       keyword.style.backgroundColor = "";
                                                       keyword.style.color = "";}, 1000);
@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            document.querySelectorAll(".course-link[data-action=\"highlight\"]").forEach((link) => {
                                     link.addEventListener("click", () => {
                                              link.style.backgroundColor = "var(--button-bg)";
-                                             link.style.color = "var(--bg-color)";
+                                             link.style.color = "var(--button-text)";
                                              setTimeout(() => {
                                                       link.style.backgroundColor = "";
                                                       link.style.color = "";
