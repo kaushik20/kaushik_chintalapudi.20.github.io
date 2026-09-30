@@ -151,8 +151,8 @@ a:focus, button:focus {
 
 .keyword {
       cursor: pointer;
-      border-bottom: 1px dashed var(--button-bg);
-      color: var(--button-bg);
+      border-bottom: 1px dashed var(--link-color);
+      color: var(--link-color);
       transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -216,7 +216,7 @@ a:focus, button:focus {
 .course-link {
       cursor: pointer;
       text-decoration: underline;
-      color: var(--button-bg);
+      color: var(--link-color);
 }
 
 /* Header Section */
@@ -536,7 +536,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 #about a {
-      color: #4ac1ff;
+      color: var(--link-color);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -549,7 +549,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 
 #about p a {
       text-decoration: underline;
-      color: var(--button-bg);
+      color: var(--link-color);
 }
 
 /* Hobbies & Skills Section */
@@ -959,25 +959,25 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
 }
 
 .download-button {
-      background: #4CAF50;
-      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.35);
+      background: #2E7D32;
+      box-shadow: 0 4px 15px rgba(46, 125, 50, 0.35);
 }
 
 .download-button:hover {
-      background: #45a049;
+      background: #1B5E20;
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.5);
 }
 
 .colab-button {
-      background: #FF7043;
-      box-shadow: 0 4px 15px rgba(255, 112, 67, 0.35);
+      background: #BF360C;
+      box-shadow: 0 4px 15px rgba(191, 54, 12, 0.35);
 }
 
 .colab-button:hover {
-      background: #E64A19;
+      background: #8D2B0B;
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 112, 67, 0.5);
+      box-shadow: 0 8px 20px rgba(191, 54, 12, 0.5);
 }
       
 /* Achievements Section */
@@ -1422,7 +1422,7 @@ footer {
 .contact-section h2, .opportunity-section h2 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--button-bg);
+      color: var(--link-color);
 }
 
 .contact-items {
@@ -1496,12 +1496,12 @@ footer {
 
 .qr-code-section h3 {
       margin: 0.5rem 0;
-      color: var(--button-bg);
+      color: var(--card-text);
 }
 
 .qr-code-section p {
       font-size: 0.9rem;
-      color: var(--footer-text);
+      color: var(--card-text);
 }
 
 .footer-bar {
