@@ -81,7 +81,7 @@ Deployed via GitHub Pages directly from this repository — any push to the main
 📬 Contact
 LinkedIn: kaushik-chintalapudi
 GitHub: kaushik20
-Email: kaushikchintalapudi@gmail.com
+Email: kaushik20feb@gmail.com
 
 
 Open to full-time opportunities in Azure Cloud, AI, Oracle Fusion ERP, and Technology Consulting.
