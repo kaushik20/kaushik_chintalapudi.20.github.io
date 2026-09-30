@@ -132,6 +132,17 @@ a:focus, button:focus {
       box-shadow: 0 0 5px var(--button-hover);
 }
 
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid #000;
+      outline-offset: 0;
+      box-shadow: 0 0 0 6px #fff;
+}
+
+main[tabindex]:focus-visible {
+      outline: none; 
+      box-shadow: none;
+}
+
 .talking-avatar:focus-visible, .badge-card:focus-visible, .hobbies_skills-item:focus-visible, .achievements-leaderboard-item:focus-visible, .timeline-item:focus-visible {
       outline: 2px solid var(--button-bg);
       box-shadow: 0 0 5px var(--button-hover);
@@ -1310,7 +1321,7 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       max-width: 400px;
       width: 90%;
       text-align: center;
-      animation: fadeInScale 0.3s ease-out;
+      animation: fadeInScaleCentered 0.3s ease-out;
 }
 
 .badge-modal.show {display: block;}
@@ -1798,6 +1809,17 @@ footer {
 @keyframes typingCursor {
       0%, 50% {opacity: 1;}
       51%, 100% {opacity: 0;}
+}
+
+@keyframes fadeInScaleCentered {
+      from {
+            opacity: 0; 
+            transform: translate(-50%, -50%) scale(0.8); 
+      }
+      to {
+            opacity: 1; 
+            transform: translate(-50%, -50%) scale(1); 
+      }
 }
 
 
