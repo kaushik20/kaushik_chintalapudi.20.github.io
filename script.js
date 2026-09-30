@@ -717,33 +717,40 @@ document.addEventListener("DOMContentLoaded", () => {
                            keywords.forEach((keyword) => {
                                     if (initializedElements.has(keyword)) return;
                                     initializedElements.add(keyword);
-                                    let tooltipOpenForThisKeyword = false;
+
+                                    const tipText = () => keyword.dataset.tooltip || `More about ${keyword.textContent}`;
                                     
+                                    // Mouse
                                     keyword.addEventListener("mouseenter", (e) => {
-                                             popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
+                                             popover.textContent = tipText();
                                              positionPopover(e.pageX, e.pageY);
                                     });
                                     keyword.addEventListener("mouseleave", () => {popover.style.display = "none";});
                                     
-                                    // Touch: tap shows/toggles the tooltip near the tap point
+                                    // Touch: show the tooltip near the tap point; the click still goes through
                                     keyword.addEventListener("touchstart", (e) => {
-                                             if (tooltipOpenForThisKeyword) {
-                                                      popover.style.display = "none";
-                                                      tooltipOpenForThisKeyword = false;
-                                                      return;
-                                             }
-                                             e.preventDefault();
-                                             tooltipOpenForThisKeyword = true;
-                                             const touch = e.touches[0];
-                                             popover.textContent = keyword.dataset.tooltip || `More about ${keyword.textContent}`;
-                                             positionPopover(touch.pageX, touch.pageY);
-                                    }, { passive: false });
+                                             const t = e.touches[0];
+                                             popover.textContent = tipText();
+                                             positionPopover(t.pageX, t.pageY);
+                                    }, { passive: true });
+
+                                    // Keyboard: show on focus, hide on blur
+                                    keyword.addEventListener("focus", () => {
+                                             if (!keyword.matches(":focus-visible")) return;
+                                             const r = keyword.getBoundingClientRect();
+                                             popover.textContent = tipText();
+                                             positionPopover(r.left + window.scrollX, r.bottom + window.scrollY);
+                                    });
+                                    keyword.addEventListener("blur", () => {popover.style.display = "none";});
                                     
                                     // Handle data-action attributes
                                     keyword.addEventListener("click", () => {
-                                             if (tooltipOpenForThisKeyword) return;
+                                             const action = keyword.dataset.action;
+                                             if (action === "open-modal" || action === "scroll-to") popover.style.display = "none";
                                              runKeywordAction(keyword);
                                     });
+
+                                    document.addEventListener("keydown", (e) => {if (e.key === "Escape") popover.style.display = "none";});
                            });
                   };
                   
