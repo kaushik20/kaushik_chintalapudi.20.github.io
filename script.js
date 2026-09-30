@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   };
                   
                   const safeAnimate = (element, keyframes, options) => {
+                           if (matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
                            if (!element || typeof element.animate !== "function") return null;
                            try {return element.animate(keyframes, options);} 
                            catch (error) {
@@ -23,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return null;
                            }
                   };
+
+                  const scrollBehavior = () => matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
 
                   // Keyword Info Modal (About section deep-dives)
                   let keywordModalInitialized = false;
@@ -707,7 +710,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                       return;
                                              }
                                              const target = document.getElementById(targetId);
-                                             if (target) {target.scrollIntoView({ behavior: "smooth" });}
+                                             if (target) {target.scrollIntoView({ behavior: scrollBehavior() });}
                                     }
                            };
                            
@@ -808,7 +811,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            }
                            button.addEventListener("click", (event) => {
                                     event.preventDefault();
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    window.scrollTo({ top: 0, behavior: scrollBehavior() });
                            });
                   };
                   
