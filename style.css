@@ -1528,8 +1528,6 @@ footer {
       text-align: center;
 }
 
-.footer-bar p {margin: 0;}
-
 .opportunity-items {
       display: flex;
       flex-direction: column;
@@ -2036,9 +2034,12 @@ footer {
             scroll-behavior: auto !important;
       }
       
-      /* Without animations, these would stay at their starting values */
       .progress-fill, .badge-progress-container .progress-fill {width: var(--progress-width, 0%);}
-      .toast {opacity: 1; transform: none;}
+      
+      .toast {
+            opacity: 1; 
+            transform: none;
+      }
 }
 
 [data-theme="dark"], [data-theme="high-contrast"] {color-scheme: dark;}
