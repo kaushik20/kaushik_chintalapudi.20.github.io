@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            };
                            
                            const close = () => {
+                                    if (!overlay.classList.contains("show")) return;
                                     overlay.classList.remove("show");
                                     clearTimeout(autoCloseTimer);
                                     previouslyFocused?.focus();
