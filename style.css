@@ -127,11 +127,6 @@ html, body {
       transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
 }
 
-a:focus, button:focus {
-      outline: 2px solid var(--button-bg);
-      box-shadow: 0 0 5px var(--button-hover);
-}
-
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
       outline: 3px solid #000;
       outline-offset: 0;
@@ -141,11 +136,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 main[tabindex]:focus-visible {
       outline: none; 
       box-shadow: none;
-}
-
-.talking-avatar:focus-visible, .badge-card:focus-visible, .hobbies_skills-item:focus-visible, .achievements-leaderboard-item:focus-visible, .timeline-item:focus-visible {
-      outline: 2px solid var(--button-bg);
-      box-shadow: 0 0 5px var(--button-hover);
 }
 
 * {
@@ -616,7 +606,10 @@ header .dark-mode-btn:hover i {transform: scale(1.1);}
       opacity: 0.95;
 }
 
-.hobbies_skills .progress-counter {color: var(--card-text);}
+.hobbies_skills .progress-counter {
+      color: var(--card-text);
+      opacity: 1;
+}
       
 .hobbies_skills-container {
       display: flex;
@@ -1999,14 +1992,6 @@ footer {
       .timeline-container::before {height: 0;}
 
       .timeline-content {text-align: left;}
-
-      .cta-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-      }
 
       .footer-container {
             flex-direction: column;
