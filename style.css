@@ -109,10 +109,7 @@
       box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
 }
 
-.hobbies_skills-item, .project-card, .achievements-leaderboard-item, .milestone {
-      background-origin: border-box;
-      border: 2px solid transparent;
-}
+.hobbies_skills-item, .project-card, .achievements-leaderboard-item, .milestone {border: 2px solid transparent;}
 
 /* Global Styles */
 html {overflow-x: hidden;}
@@ -231,7 +228,7 @@ main:focus {outline: none;}
       margin-left: auto;
 }
 
-.keyword:hover, .keyword:focus {
+.keyword:hover, .keyword:focus-visible {
       background-color: var(--button-bg);
       color: var(--button-text);
 }
@@ -1761,6 +1758,8 @@ footer {
       background: var(--progress-fill);
       transition: width 0.5s ease;
 }
+
+.hobbies_skills-item, .project-card, .achievements-leaderboard-item, .milestone {background-origin: border-box;}
       
 /* Animations */
 @keyframes fadeIn {
