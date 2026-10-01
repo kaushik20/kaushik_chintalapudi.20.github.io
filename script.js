@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   const keywordModalContent = {
                            "about-kaushik-name": {
                                     title: "Kaushik Chintalapudi",
-                                    body: "Cloud Analyst and AI enthusiast, based in India, working across Microsoft Azure, Oracle Fusion Financials, and applied AI. Raised in the UAE with roots in Andhra Pradesh — currently building toward a career in Cloud Data Engineering, with a long-term goal of founding an AI-driven tech company in Amaravati."
+                                    body: "Cloud Engineer and AI enthusiast, based in India, working across Microsoft Azure, Oracle Fusion Financials, and applied AI. Raised in the UAE with roots in Andhra Pradesh — currently building toward a career in Cloud Data Engineering, with a long-term goal of founding an AI-driven tech company in Amaravati."
                            },
                            "about-july-2023": {
                                     title: "July 2023",
@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                              if (exploredSet.has(itemId)) item.classList.add("explored");
                                     });
                                     const state = {exploredCount: exploredSet.size};
+                                    if (storage.get(badgeId) === "unlocked" && exploredSet.size < items.length) storage.remove(badgeId);
                                     
                                     // Create or select progress counter
                                     const progressCounter = document.createElement("div");
@@ -374,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     }
                            });
                            
-                           badgeModal = createAccessibleModal({overlay: modal, box: modal, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: closeButton, autoCloseMs: 4000});
+                           badgeModal = createAccessibleModal({overlay: modal, box: modal, titleEl: modalTitle, messageEl: modalMessage, initialFocusEl: closeButton});
                            closeButton.addEventListener("click", badgeModal.close);
 
                            // NEW — Escape-to-close, matching keyword and progress modals
@@ -677,6 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     document.body.appendChild(popover);
                            }
                            window.addEventListener("scroll", () => {popover.style.display = "none";}, { passive: true });
+                           document.addEventListener("keydown", (e) => {if (e.key === "Escape") popover.style.display = "none";});
                            
                            const positionPopover = (x, y) => {
                                     popover.style.display = "block";
@@ -749,8 +751,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                              if (action === "open-modal" || action === "scroll-to") popover.style.display = "none";
                                              runKeywordAction(keyword);
                                     });
-
-                                    document.addEventListener("keydown", (e) => {if (e.key === "Escape") popover.style.display = "none";});
                            });
                   };
                   
