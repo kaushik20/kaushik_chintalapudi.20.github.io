@@ -671,7 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                            const gallery = document.querySelector("#dashboard .badge-gallery");
                            if (gallery) {gallery.after(container);}
-                           else {(document.getElementById("footer-contact") || document.body).appendChild(container);
+                           else {(document.getElementById("footer-contact") || document.body).appendChild(container);}
                   };
                   
                   // Tooltip Setup
