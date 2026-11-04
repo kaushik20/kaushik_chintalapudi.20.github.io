@@ -1000,7 +1000,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            
                            const introLines = [
                                     "Hey, I'm Kaushik 👋",
-                                    "I work across Azure Cloud, Oracle Fusion Financials, and applied AI.",
+                                    "I build data pipelines on Azure, with a background in Oracle Fusion Financials.",
                                     "Scroll down to check out my projects, certifications, and journey so far!"
                            ];
                            
