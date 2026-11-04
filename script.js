@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   const keywordModalContent = {
                            "about-kaushik-name": {
                                     title: "Kaushik Chintalapudi",
-                                    body: "Cloud Engineer and AI enthusiast, based in India, working across Microsoft Azure, Oracle Fusion Financials, and applied AI. Raised in the UAE with roots in Andhra Pradesh — currently building toward a career in Cloud Data Engineering, with a long-term goal of founding an AI-driven tech company in Amaravati."
+                                    body: "Azure Data Engineer based in Hyderabad, building data pipelines on Microsoft Azure. Raised in the UAE with roots in Andhra Pradesh, with a long-term goal of founding an AI-driven tech company in Amaravati."
                            },
                            "about-july-2023": {
                                     title: "July 2023",
