@@ -1635,18 +1635,6 @@ footer {
       z-index: 1000;
 }
 
-.reset-button {
-      display: block;
-      margin: 10px auto;
-      padding: 5px 10px;
-      font-size: 0.9rem;
-      background: var(--button-bg);
-      color: var(--button-text);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-}
-
 .progress-modal-overlay {
       display: none;
       position: fixed;
