@@ -1720,10 +1720,11 @@ footer {
 .progress-portability {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
       padding-top: 1rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       border-top: 1px solid var(--border-color);
 }
 
@@ -1736,6 +1737,12 @@ footer {
       border-radius: 5px;
       cursor: pointer;
       opacity: 1;
+}
+
+.progress-portability-btn.reset-all {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
 }
 
 .progress-counter {
