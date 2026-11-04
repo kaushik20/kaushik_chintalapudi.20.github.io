@@ -1573,12 +1573,10 @@ footer {
       font-size: 26px;
 }
 
-.status-dot{
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #2ecc71;
-      display: inline-block;
+.opportunity-item img.status-icon {
+      width: 18px;
+      height: 18px;
+      margin: 0 14px 0 6px;
 }
 
 .hire-btn, .cta-btn, .resume-download-btn, .milestone a, .hero-linkedin-link {
@@ -1671,9 +1669,16 @@ footer {
       width: 90%;
 }
 
-.progress-modal-title {margin: 0 0 12px 0; font-size: 1.1rem;}
+.progress-modal-title {
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+}
 
-.progress-modal-message {margin: 0 0 12px 0; font-size: 0.9rem; opacity: 0.85;}
+.progress-modal-message {
+      margin: 0 0 12px 0;
+      font-size: 0.9rem;
+      opacity: 0.85;
+}
 
 .progress-modal-textarea {
       width: 100%;
