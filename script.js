@@ -269,13 +269,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     if (heading) {heading.after(progressCounter, progressBarContainer);} 
                                     else {section.prepend(progressCounter, progressBarContainer);}
                                     
-                                    const resetButton = document.createElement("button");
-                                    resetButton.type = "button";
-                                    resetButton.textContent = "Reset Progress";
-                                    resetButton.className = "reset-button";
-                                    resetButton.addEventListener("click", () => resetProgress(id, itemsClass, badgeId));
-                                    section.appendChild(resetButton);
-                                    
                                     // Load unlocked badges from localStorage
                                     const badgeContainer = document.getElementById(badgeId);
                                     if (badgeContainer && storage.get(badgeId) === "unlocked") {
@@ -665,7 +658,20 @@ document.addEventListener("DOMContentLoaded", () => {
                            };
                            container.appendChild(makeTriggerButton("Export Progress", exportProgress));
                            container.appendChild(makeTriggerButton("Import Progress", importProgress));
-                           (document.getElementById("footer-contact") || document.body).appendChild(container);
+                           const resetAllProgress = () => {
+                                    if (!confirm("Reset all badges and progress? This can't be undone.")) return;
+                                    collectProgressKeys().forEach((key) => storage.remove(key));
+                                    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+                                    window.scrollTo(0, 0);
+                                    location.reload();
+                           };
+                           const resetAllBtn = makeTriggerButton("Reset All Progress", resetAllProgress);
+                           resetAllBtn.classList.add("reset-all");
+                           container.appendChild(resetAllBtn);
+
+                           const gallery = document.querySelector("#dashboard .badge-gallery");
+                           if (gallery) {gallery.after(container);}
+                           else {(document.getElementById("footer-contact") || document.body).appendChild(container);
                   };
                   
                   // Tooltip Setup
